@@ -1,0 +1,28 @@
+{
+    "name": "seed-engine",
+    "version": "1.0.0",
+    "description": "A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.",
+    "main": "./src/Engine.js",
+    "scripts": {
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JaegarSarauer/SeedGameEngine.git"
+    },
+    "keywords": [
+        "Seed",
+        "Game",
+        "Engine"
+    ],
+    "author": "Jaegar Sarauer",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JaegarSarauer/SeedGameEngine/issues"
+    },
+    "homepage": "https://github.com/JaegarSarauer/SeedGameEngine#readme",
+    "devDependencies": {
+        "esdoc": "^1.1.0",
+        "esdoc-standard-plugin": "^1.0.0"
+    }
+}
