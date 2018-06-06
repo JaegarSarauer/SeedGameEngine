@@ -583,7 +583,7 @@
     "longname": "src/Engine.js~_Engine",
     "access": "private",
     "export": true,
-    "importPath": "./src/Engine.js",
+    "importPath": "seed-engine",
     "importStyle": "{_Engine}",
     "description": "Engine Singleton class. Entry point reference to access managers and\nto start and stop the Engine.",
     "lineNumber": 7,
@@ -671,7 +671,7 @@
     "longname": "src/Engine.js~Engine",
     "access": "public",
     "export": true,
-    "importPath": "./src/Engine.js",
+    "importPath": "seed-engine",
     "importStyle": "Engine",
     "description": "Engine Singleton reference.",
     "lineNumber": 43,
@@ -683,7 +683,7 @@
   },
   {
     "kind": "index",
-    "content": "# Seed Engine\n\n### Welcome\nSeed Engine is a lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.\n\n### Documentation\nYou can view the docs [here](https://jaegarsarauer.github.io/SeedGameEngine/index.html).\n\n\n### Testing\nYou can run tests using the npm command:\n```\nnpm run test\n```\n\nTesting documentation can be found [here](https://jaegarsarauer.github.io/SeedGameEngine/index.html).",
+    "content": "# Seed Engine\n\n### Welcome\nSeed Engine is a lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.\n\n### Installation\nThe easiest way to get started with Seed Engine is by using NPM:\n```\nnpm i seed-engine --save\n```\n\nNow you can reference the Engine like so:\n```\nimport 'Engine' from 'seed-engine';\n```\n\n### Documentation\nYou can view the docs [here](https://jaegarsarauer.github.io/SeedGameEngine/index.html).\n\n\n### Testing\nYou can run tests using the npm command:\n```\nnpm run test\n```\n\nTesting documentation can be found [here](https://jaegarsarauer.github.io/SeedGameEngine/index.html).",
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/README.md",
     "name": "./README.md",
     "static": true,
@@ -691,10 +691,32 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n    \"name\": \"seed-engine\",\n    \"version\": \"1.0.0\",\n    \"description\": \"A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.\",\n    \"main\": \"./src/Engine.js\",\n    \"scripts\": {\n        \"test\": \"node test/run.js\",\n        \"version\": \"./node_modules/.bin/esdoc -c ./esdoc.json\",\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git+https://github.com/JaegarSarauer/SeedGameEngine.git\"\n    },\n    \"keywords\": [\n        \"Seed\",\n        \"Game\",\n        \"Engine\"\n    ],\n    \"author\": \"Jaegar Sarauer\",\n    \"license\": \"MIT\",\n    \"bugs\": {\n        \"url\": \"https://github.com/JaegarSarauer/SeedGameEngine/issues\"\n    },\n    \"homepage\": \"https://github.com/JaegarSarauer/SeedGameEngine#readme\",\n    \"devDependencies\": {\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-standard-plugin\": \"^1.0.0\"\n    }\n}",
+    "content": "{\n    \"name\": \"seed-engine\",\n    \"version\": \"1.0.0\",\n    \"description\": \"A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.\",\n    \"main\": \"./src/Engine.js\",\n    \"scripts\": {\n        \"test\": \"node test/run.js\",\n        \"version\": \"./node_modules/.bin/esdoc -c ./esdoc.json\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git+https://github.com/JaegarSarauer/SeedGameEngine.git\"\n    },\n    \"keywords\": [\n        \"Seed\",\n        \"Game\",\n        \"Engine\"\n    ],\n    \"author\": \"Jaegar Sarauer\",\n    \"license\": \"MIT\",\n    \"bugs\": {\n        \"url\": \"https://github.com/JaegarSarauer/SeedGameEngine/issues\"\n    },\n    \"homepage\": \"https://github.com/JaegarSarauer/SeedGameEngine#readme\",\n    \"devDependencies\": {\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-standard-plugin\": \"^1.0.0\"\n    }\n}",
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/package.json",
     "name": "package.json",
     "static": true,
     "access": "public"
+  },
+  {
+    "__docId__": 56,
+    "kind": "testFile",
+    "name": "test/helper/Test.js",
+    "content": "const log = require('./Log');\n\nclass Test {\n    constructor(name) {\n        this.name = name;\n        this.tests = [];\n    }\n\n    runTest() {\n        let i = 0;\n        log.info('[Running]: ' + this.name);\n        while(i < this.tests.length) {\n            if (this.tests[i].test()) {\n                log.success('\\t', this.tests[i].name);\n                i++;\n            } else {\n                log.error('\\t', this.tests[i].name);\n                break;\n            }\n        }\n        if (i >= this.tests.length) {\n            log.success('[Success]', this.name);\n        } else {\n            log.error('[Failed]', this.name);\n        }\n    }\n\n    addSteps() {\n        throw 'Steps must be added to the test!';\n    }\n\n    addTestStep(testName, functionStep) {\n        this.tests.push({\n            name: testName,\n            test: functionStep,\n        });\n    }\n}\n\nmodule.exports.Test = Test;",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/test/helper/Test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 57,
+    "kind": "testFile",
+    "name": "test/tests/ExampleTest.js",
+    "content": "const log = require('../helper/Log');\nconst t = require('../helper/Test');\n\n/**\n * @test Example test.\n */\nclass ExampleTest extends t.Test {\n\n}",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/test/tests/ExampleTest.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
   }
 ]

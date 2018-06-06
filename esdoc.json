@@ -6,6 +6,7 @@
         "option": {
             "test": {
                 "source": "./test/",
+                "interfaces": ["test", "testStep"],
                 "includes": ["(test|Test)\\.js$"],
                 "excludes": ["\\.config\\.js$"]
             }

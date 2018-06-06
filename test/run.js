@@ -1,13 +1,5 @@
-const logError = (data) => {
-    console.info('\x1b[31m', data, '\x1b[0m');
-}
+'use-strict';
 
-const logSuccess = (data) => {
-    console.info('\x1b[32m', data, '\x1b[0m');
-}
-
-/**
- * @test Example test.
- */
-logSuccess("You ran tests success!");
-logError("You ran tests fail!");
+const TestManager = require('./helper/TestManager');
+const ExampleTest = require('./tests/ExampleTest');
+TestManager.run();
