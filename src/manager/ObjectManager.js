@@ -7,6 +7,8 @@ export class _ObjectManager extends Manager {
 
     registerUpdateable(gameObject) {
         gameObject.id = this.gameObjectIDCounter++;
+        let deregisterCallback = () => {}
+        return deregisterCallback;
     }
 }
 
