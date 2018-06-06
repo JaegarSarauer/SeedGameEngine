@@ -1,3 +1,5 @@
+import ObjectManager from '../manager/ObjectManager';
+
 /**
  * Baseclass for objects that follow the same pattern of the engine.
  * 
@@ -5,6 +7,10 @@
  * handled by the Engine.
  */
 export default class Updateable {
+    constructor() {
+        this.id = -1;
+        ObjectManager.registerUpdateable(this);
+    }
 
     /**
      * Called when the the object is first introduced.
