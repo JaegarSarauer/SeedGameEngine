@@ -9,12 +9,18 @@ export class _SceneManager extends Manager {
     /**
      * Adds a SceneObject to the current scene to be managed by it.
      * 
-     * @param {SceneObject} sceneObject = The SceneObject that is being registered.
+     * @param {SceneObject} sceneObject The SceneO∂bject that is being registered.
      */
     registerSceneObject(sceneObject) {
         let scene = this.getCurrentScene();
         if (scene != null)
             scene.registerSceneObject(sceneObject);
+    }
+
+    registerViewport(viewport) {
+        let scene = this.getCurrentScene();
+        if (scene != null)
+            scene.registerViewport(viewport);
     }
 
     getCurrentScene() {
@@ -24,7 +30,9 @@ export class _SceneManager extends Manager {
     }
 
     start() {
-
+        if (this.scenes.length > 0) {
+            this.scenes[this.scenes.length - 1].start();
+        }
     }
 
     update() {

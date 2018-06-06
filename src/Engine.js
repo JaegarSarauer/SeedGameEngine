@@ -1,6 +1,7 @@
 'use-strict';
 
 import EngineManager from './manager/EngineManager';
+import SceneManager from './manager/SceneManager';
 
 /**
  * Engine Singleton class. Entry point reference to access managers and
@@ -11,7 +12,7 @@ export class _Engine {
      * Engine Contstructor.
      */
     constructor() {
-        
+        this.SceneManager = this.SceneManager;
     }
 
     /**
