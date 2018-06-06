@@ -1,14 +1,14 @@
 window.esdocSearchIndex = [
   [
-    "seed-engine~engine",
+    "./src/engine.js~engine",
     "variable/index.html#static-variable-Engine",
-    "<span>Engine</span> <span class=\"search-result-import-path\">seed-engine</span>",
+    "<span>Engine</span> <span class=\"search-result-import-path\">./src/Engine.js</span>",
     "variable"
   ],
   [
-    "seed-engine~_engine",
+    "./src/engine.js~_engine",
     "class/src/Engine.js~_Engine.html",
-    "<span>_Engine</span> <span class=\"search-result-import-path\">seed-engine</span>",
+    "<span>_Engine</span> <span class=\"search-result-import-path\">./src/Engine.js</span>",
     "class"
   ],
   [
