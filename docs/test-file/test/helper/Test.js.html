@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">Reference | seed-engine</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/helper/Test.js | seed-engine</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -35,83 +35,51 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>References</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">test/helper/Test.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const log = require(&apos;./Log&apos;);
+const TestManager = require(&apos;./TestManager&apos;);
 
-<div class="identifiers-wrap">
-  <div>
-    
-  <div data-ice="dirSummaryWrap">
-      
-      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-class">C</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/Engine.js~_Engine.html">_Engine</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Engine Singleton class.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-variable">V</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-Engine">Engine</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/Engine.js~_Engine.html">_Engine</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Engine Singleton reference.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-    </div>
-</div>
+class Test {
+    constructor(name) {
+        this.name = name;
+        this.tests = [];
+        TestManager.addTest(this);
+    }
 
-  
-</div>
+    run() {
+        this.steps();
+        let i = 0;
+        log.info(&apos;[Running]: &apos; + this.name);
+        while(i &lt; this.tests.length) {
+            if (this.tests[i].test()) {
+                log.success(&apos;\t&apos; + this.tests[i].name);
+                i++;
+            } else {
+                log.error(&apos;\t&apos; + this.tests[i].name);
+                break;
+            }
+        }
+        if (i &gt;= this.tests.length) {
+            log.success(&apos;[Success]: &apos; + this.name);
+        } else {
+            log.error(&apos;[Failed]: &apos; + this.name);
+        }
+    }
+
+    steps() {
+        throw &apos;Steps must be added to the test!&apos;;
+    }
+
+    addStep(testName, functionStep) {
+        this.tests.push({
+            name: testName,
+            test: functionStep,
+        });
+    }
+}
+
+module.exports = Test;</code></pre>
+
 </div>
 
 <footer class="footer">

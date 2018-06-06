@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">Reference | seed-engine</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">test/tests/ExampleTest.js | seed-engine</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -35,83 +35,40 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>References</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">test/tests/ExampleTest.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const log = require(&apos;../helper/Log&apos;);
+const Test = require(&apos;../helper/Test&apos;);
 
-<div class="identifiers-wrap">
-  <div>
+/**
+ * Example test. Runs a few simple assertions and chains them.
+ * The third one fails on purpose.
+ * @test = help
+ */
+class ExampleTest extends Test {
+    constructor() {
+        super(&apos;Example Test&apos;);
+
+        this.value = 4;
+    }
     
-  <div data-ice="dirSummaryWrap">
-      
-      <div data-ice="dirSummary"><table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">summary</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-class">C</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/Engine.js~_Engine.html">_Engine</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Engine Singleton class.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="kind-icon" class="kind-variable">V</span>
-          
-          
-          <span class="code" data-ice="name"><span><a href="variable/index.html#static-variable-Engine">Engine</a></span></span><span class="code" data-ice="signature">: <span><a href="class/src/Engine.js~_Engine.html">_Engine</a></span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Engine Singleton reference.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-    </div>
-</div>
+    steps() {
+        this.addStep(&apos;Simple Assert 1&apos;, () =&gt; {
+            this.value += 100;
+            return this.value &lt; 200;
+        });
+        this.addStep(&apos;Simple Assert 2&apos;, () =&gt; {
+            this.value += 100;
+            return this.value &lt; 222;
+        });
+        this.addStep(&apos;Simple Assert 3 (should fail)&apos;, () =&gt; {
+            this.value += 100;
+            return this.value &lt; 222;
+        });
+    }
+}
 
-  
-</div>
+module.exports = new ExampleTest();</code></pre>
+
 </div>
 
 <footer class="footer">

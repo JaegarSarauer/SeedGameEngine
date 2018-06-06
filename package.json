@@ -5,7 +5,7 @@
     "main": "./src/Engine.js",
     "scripts": {
         "test": "node test/run.js",
-        "version": "./node_modules/.bin/esdoc -c ./esdoc.json",
+        "version": "./node_modules/.bin/esdoc -c ./esdoc.json"
     },
     "repository": {
         "type": "git",

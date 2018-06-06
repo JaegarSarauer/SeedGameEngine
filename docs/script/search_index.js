@@ -1,14 +1,14 @@
 window.esdocSearchIndex = [
   [
-    "./src/engine.js~engine",
+    "seed-engine~engine",
     "variable/index.html#static-variable-Engine",
-    "<span>Engine</span> <span class=\"search-result-import-path\">./src/Engine.js</span>",
+    "<span>Engine</span> <span class=\"search-result-import-path\">seed-engine</span>",
     "variable"
   ],
   [
-    "./src/engine.js~_engine",
+    "seed-engine~_engine",
     "class/src/Engine.js~_Engine.html",
-    "<span>_Engine</span> <span class=\"search-result-import-path\">./src/Engine.js</span>",
+    "<span>_Engine</span> <span class=\"search-result-import-path\">seed-engine</span>",
     "class"
   ],
   [
@@ -328,5 +328,17 @@ window.esdocSearchIndex = [
     "class/src/Engine.js~_Engine.html#instance-method-unpause",
     "src/Engine.js~_Engine#unpause",
     "method"
+  ],
+  [
+    "test/helper/test.js",
+    "test-file/test/helper/Test.js.html",
+    "test/helper/Test.js",
+    "testFile"
+  ],
+  [
+    "test/tests/exampletest.js",
+    "test-file/test/tests/ExampleTest.js.html",
+    "test/tests/ExampleTest.js",
+    "testFile"
   ]
 ]
