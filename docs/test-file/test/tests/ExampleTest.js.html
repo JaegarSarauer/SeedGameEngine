@@ -37,14 +37,37 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/tests/ExampleTest.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const log = require(&apos;../helper/Log&apos;);
-const t = require(&apos;../helper/Test&apos;);
+const Test = require(&apos;../helper/Test&apos;);
 
 /**
- * @test Example test.
+ * Example test. Runs a few simple assertions and chains them.
+ * The third one fails on purpose.
+ * @test = help
  */
-class ExampleTest extends t.Test {
+class ExampleTest extends Test {
+    constructor() {
+        super(&apos;Example Test&apos;);
 
-}</code></pre>
+        this.value = 4;
+    }
+    
+    steps() {
+        this.addStep(&apos;Simple Assert 1&apos;, () =&gt; {
+            this.value += 100;
+            return this.value &lt; 200;
+        });
+        this.addStep(&apos;Simple Assert 2&apos;, () =&gt; {
+            this.value += 100;
+            return this.value &lt; 222;
+        });
+        this.addStep(&apos;Simple Assert 3 (should fail)&apos;, () =&gt; {
+            this.value += 100;
+            return this.value &lt; 222;
+        });
+    }
+}
+
+module.exports = new ExampleTest();</code></pre>
 
 </div>
 

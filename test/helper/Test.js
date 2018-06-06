@@ -40,4 +40,4 @@ class Test {
     }
 }
 
-module.exports.Test = Test;
+module.exports = Test;

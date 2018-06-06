@@ -24,4 +24,4 @@ You can run tests using the npm command:
 npm run test
 ```
 
-Testing documentation can be found [here](https://jaegarsarauer.github.io/SeedGameEngine/index.html).
+Testing documentation can be found [here](https://jaegarsarauer.github.io/SeedGameEngine/test.html).

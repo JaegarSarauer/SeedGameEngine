@@ -1,10 +1,12 @@
 const log = require('../helper/Log');
-const t = require('../helper/Test');
+const Test = require('../helper/Test');
 
 /**
- * @test Example test.
+ * Example test. Runs a few simple assertions and chains them.
+ * The third one fails on purpose.
+ * @test 
  */
-class ExampleTest extends t.Test {
+class ExampleTest extends Test {
     constructor() {
         super('Example Test');
 
@@ -20,7 +22,7 @@ class ExampleTest extends t.Test {
             this.value += 100;
             return this.value < 222;
         });
-        this.addStep('Simple Assert 3', () => {
+        this.addStep('Simple Assert 3 (should fail)', () => {
             this.value += 100;
             return this.value < 222;
         });

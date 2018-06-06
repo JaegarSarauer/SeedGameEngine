@@ -37,37 +37,40 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">test/helper/Test.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const log = require(&apos;./Log&apos;);
+const TestManager = require(&apos;./TestManager&apos;);
 
 class Test {
     constructor(name) {
         this.name = name;
         this.tests = [];
+        TestManager.addTest(this);
     }
 
-    runTest() {
+    run() {
+        this.steps();
         let i = 0;
         log.info(&apos;[Running]: &apos; + this.name);
         while(i &lt; this.tests.length) {
             if (this.tests[i].test()) {
-                log.success(&apos;\t&apos;, this.tests[i].name);
+                log.success(&apos;\t&apos; + this.tests[i].name);
                 i++;
             } else {
-                log.error(&apos;\t&apos;, this.tests[i].name);
+                log.error(&apos;\t&apos; + this.tests[i].name);
                 break;
             }
         }
         if (i &gt;= this.tests.length) {
-            log.success(&apos;[Success]&apos;, this.name);
+            log.success(&apos;[Success]: &apos; + this.name);
         } else {
-            log.error(&apos;[Failed]&apos;, this.name);
+            log.error(&apos;[Failed]: &apos; + this.name);
         }
     }
 
-    addSteps() {
+    steps() {
         throw &apos;Steps must be added to the test!&apos;;
     }
 
-    addTestStep(testName, functionStep) {
+    addStep(testName, functionStep) {
         this.tests.push({
             name: testName,
             test: functionStep,
@@ -75,7 +78,7 @@ class Test {
     }
 }
 
-module.exports.Test = Test;</code></pre>
+module.exports = Test;</code></pre>
 
 </div>
 
