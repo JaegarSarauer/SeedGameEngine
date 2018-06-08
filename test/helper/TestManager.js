@@ -4,7 +4,6 @@ class TestManager {
     }
 
     addTest(test) {
-        console.info('hey')
         this.tests.push(test);
     }
 

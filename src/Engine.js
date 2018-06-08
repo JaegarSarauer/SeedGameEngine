@@ -2,16 +2,20 @@
 
 import EngineManager from './manager/EngineManager';
 import SceneManager from './manager/SceneManager';
+import DOMManager from './manager/DOMManager';
+import Manager from './manager/Manager';
 
 /**
  * Engine Singleton class. Entry point reference to access managers and
  * to start and stop the Engine.
  */
-export class _Engine {
+export default class Engine extends Manager {
     /**
      * Engine Contstructor.
      */
     constructor() {
+        super(this, "Engine");
+        this.i = this;
         this.SceneManager = this.SceneManager;
     }
 
@@ -19,6 +23,7 @@ export class _Engine {
      * Starts the engine.
      */
     start() {
+        DOMManager.start();
         EngineManager.start();
     }
 
@@ -43,8 +48,3 @@ export class _Engine {
         EngineManager.unpause();
     }
 }
-
-/**
- * Engine Singleton reference.
- */
-export default Engine = new _Engine();

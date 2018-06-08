@@ -1,7 +1,24 @@
 import SceneManager from '../manager/SceneManager';
+import DOMManager from '../manager/DOMManager';
 
 export default class Viewport extends Updateable {
-    constructor() {
+    constructor(x, y, w, h) {
         this.deregister = SceneManager.registerViewport(this);
+
+        this.bounds = new Bounds(x, y, w, h);
+
+        /**
+         * An object of keys represented by 'z' indexes to store all 
+         * renderable objects in render order.
+         */
+        this.renderables = {};
+    }
+
+    registerRenderableComponent(renderable) {
+        this.renderables[renderable.id] = renderable;
+        let deregisterCallback = () => {
+            delete this.renderables[renderable.id];
+        }
+        return deregisterCallback;
     }
 }

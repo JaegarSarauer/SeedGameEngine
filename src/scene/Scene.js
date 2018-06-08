@@ -15,6 +15,14 @@ export default class Scene extends Updateable {
         return deregisterCallback;
     }
 
+    registerRenderableComponent(renderable, viewport) {
+        if (this.viewports[viewport.id] != null)
+            return this.viewports[viewport.id].registerRenderableComponent(renderable);
+        else {
+            throw "This viewport doesn't exist on this scene!";
+        }
+    }
+
     registerViewport(viewport) {
         this.viewports[viewport.id] = viewport;
         let deregisterCallback = () => {

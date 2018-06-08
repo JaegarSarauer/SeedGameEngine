@@ -1,7 +1,7 @@
 import Manager from './Manager';
 
-export class _InputManager extends Manager {
-
+export default class InputManager extends Manager {
+    constructor() {
+        super(this, "InputManager");
+    }
 }
-
-export default InputManager = new _InputManager();

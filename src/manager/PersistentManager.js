@@ -1,7 +1,8 @@
 import Manager from './Manager';
 
-export class _PersistentManager extends Manager {
+export default class PersistentManager extends Manager {
     constructor() {
+        super(this, "PersistentManager");
         this.persistentObjects = {};
     }
 
@@ -48,5 +49,3 @@ export class _PersistentManager extends Manager {
         }
     }
 }
-
-export default PersistentManager = new _PersistentManager();

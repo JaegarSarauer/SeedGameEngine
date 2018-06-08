@@ -1,7 +1,7 @@
 import Manager from './Manager';
 
-export class _NetworkManager extends Manager {
-
+export default class NetworkManager extends Manager {
+    constructor() {
+        super(this, "NetworkManager");
+    }
 }
-
-export default NetworkManager = new _NetworkManager();

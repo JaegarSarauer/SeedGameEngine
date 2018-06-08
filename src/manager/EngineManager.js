@@ -6,9 +6,10 @@ import PersistentManager from './PersistentManager';
 /**
  * Manager of the core ECS system & game loop.
  */
-export class _EngineManager extends Manager {
+export default class EngineManager extends Manager {
     constructor() {
-        this.MS_PER_FRAME = 60;
+        super(this, "EngineManager");
+        this.MS_PER_FRAME = 30;
         this.coreUpdateLoopHandle = null;
         this.hasPaused = true;
     }
@@ -51,5 +52,3 @@ export class _EngineManager extends Manager {
         this.hasPaused = false;
     }
 }
-
-export default EngineManager = new _EngineManager();
