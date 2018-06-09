@@ -2,6 +2,7 @@ import Renderable from './Renderable';
 
 export default class Renderable2D extends Renderable {
     constructor() {
-        super()
+        super();
+        this.className = 'Renderable2D';
     }
 }

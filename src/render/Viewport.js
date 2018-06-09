@@ -4,6 +4,7 @@ import Updateable from '../base/Updateable';
 
 export default class Viewport extends Updateable {
     constructor(x, y, w, h) {
+        super();
         this.deregister = SceneManager.registerViewport(this);
 
         this.bounds = new Bounds(x, y, w, h);

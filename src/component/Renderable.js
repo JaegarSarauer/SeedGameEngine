@@ -6,6 +6,7 @@ import * as FSS from '../const/VertexShader';
 
 export default class Renderable extends Component {
     constructor(program, matrix, primitiveType, primitiveCount) {
+        super();
         this.deregisterViewports = {};
         this.program = null;
         this.matrix = null;
@@ -18,6 +19,7 @@ export default class Renderable extends Component {
     }
 
     init() {
+        return;
         this.program = RenderManager.createProgram();
         this.matrix = new Matrix3();
         this.primitiveType = RenderManager.GL.TRIANGLES;

@@ -1,6 +1,8 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
 import SceneManager from './SceneManager';
+import * as VertexShader from '../const/VertexShader';
+import * as FragmentShader from '../const/FragmentShader';
 
 export class _RenderManager extends Manager {
     constructor() {
@@ -11,7 +13,7 @@ export class _RenderManager extends Manager {
     start() {
         this.GL = DOMManager.GL;
 
-        this.program = this.createProgram(Shader.VertexShader, Shader.FragmentShader);
+        let program = this.createProgram(VertexShader.DEFAULT_V, FragmentShader.DEFAULT_F);
 
         this.createBuffer();
         
@@ -56,6 +58,8 @@ export class _RenderManager extends Manager {
     }
 
     update() {
+        return;
+        
 
         gl.clearColor(0, 0, 0, 0);
     

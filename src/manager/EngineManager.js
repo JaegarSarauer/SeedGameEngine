@@ -1,5 +1,5 @@
 import Manager from './Manager';
-//import RenderManager from './RenderManager';
+import RenderManager from './RenderManager';
 import SceneManager from './SceneManager';
 import PersistentManager from './PersistentManager';
 
@@ -22,24 +22,24 @@ export class _EngineManager extends Manager {
         }, this.MS_PER_FRAME);
         PersistentManager.start();
         SceneManager.start();
-        //RenderManager.start();
+        RenderManager.start();
     }
 
     _update() {
         PersistentManager.update();
         SceneManager.update();
-        //RenderManager.update();
+        RenderManager.update();
     }
 
     end() {
         PersistentManager.end();
         SceneManager.end();
-        //RenderManager.end();
+        RenderManager.end();
         clearInterval(this.coreUpdateLoopHandle);
     }
 
     pause() {
-        //RenderManager.pause();
+        RenderManager.pause();
         PersistentManager.pause();
         SceneManager.pause();
         this.hasPaused = true;
@@ -48,7 +48,7 @@ export class _EngineManager extends Manager {
     unpause() {
         SceneManager.unpause();
         PersistentManager.unpause();
-        //RenderManager.unpause();
+        RenderManager.unpause();
         this.hasPaused = false;
     }
 }
