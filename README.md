@@ -25,3 +25,8 @@ npm run test
 ```
 
 Testing documentation can be found [here](https://jaegarsarauer.github.io/SeedGameEngine/test.html).
+
+
+### Notes
+ - The engine updates all systems on a parent first, children after pattern.
+    - However, GameObjects have two functions added to their Updateable _update() for calling pre and post updates. These updates happen before and after a regular update on the parent.

@@ -13,42 +13,36 @@ export default class GameObject extends Updateable {
 
     addComponent(component) {
         if (this.components[component.className] == null) {
-            this.components[component.className] = {};
-        } else if (component.isUnique) {
+            this.components[component.className] = [];
+        }
+        if (component.isUnique && this.components[component.className].length > 0) {
             throw 'There is already a unique component of type ' + component.className + ' on this GameObject!';
             return false;
         }
-        this.components[component.className][component.id] = component;
+        this.components[component.className].push(component);
+        component.gameObject = this;
         return true;
     }
 
     removeComponent(component) {
         if (this.components[component.className] == null)
             return false;
-        if (this.components[component.className][component.id] == null)
-            return false;
-        this.components[component.className][component.id].onEnd();
-        delete this.components[component.className][component.id];
-        return true;
-    }
-
-    removeComponentByID(componentName, id) {
-        if (this.components[componentName] == null)
-            return false;
-        if (this.components[componentName][id] == null)
-            return false;
-        this.components[componentName][id].onEnd();
-        delete this.components[componentName][id];
-        return true;
+        for (let i = 0; i < this.components[component.className].length; i++) {
+            if (this.components[component.className][i].id === component.id) {
+                this.components[component.className][i].end();
+                this.components[component.className].splice(i, 1);
+                return true;
+            }
+        }
+        return false;
     }
 
     removeComponents(componentName) {
         if (this.components[componentName] == null)
             return false;
-        let comps = Object.keys(this.components[componentName]);
-        for (let i = 0; i < comps.length; i++) {
-            this.components[componentName][comps[i]].onEnd();
-            delete this.components[componentName][comps[i]];
+        for (let i = 0; i < this.components[componentName].length; i++) {
+            this.components[componentName][i].end();
+            this.components[componentName].splice(i, 1);
         }
         return true;
     }
@@ -57,16 +51,60 @@ export default class GameObject extends Updateable {
         let compTypes = Object.keys(this.components);
         for (let i = 0; i < compTypes.length; i++) {
             let thisCompType = compTypes[i];
-            let comps = Object.keys(this.components[thisCompType]);
-            for (let j = 0; j < comps.length; j++) {
-                this.components[thisCompType][comps[i]].onEnd();
-                delete this.components[thisCompType][comps[i]];
+            for (let ii = 0; ii < this.components[thisCompType].length; ii++) {
+                this.components[thisCompType][ii].end();
+                this.components[thisCompType].splice(ii, 1);
             }
         }
         return true;
     }
 
-    getComponent(componentName, id) {
-        return (this.components[componentName][id] == null ? null : this.components[componentName][id]);
+    hasComponent(className) {
+        if (this.components[componentName] == null) {
+            return false;
+        }
+        return this.components[componentName].length > 0;
     }
+
+    getComponent(componentName, index = 0) {
+        if (this.components[componentName] == null) {
+            return null;
+        }
+        return this.components[componentName][index];
+    }
+
+    updateComponents() {
+        let compTypes = Object.keys(this.components);
+        for (let i = 0; i < compTypes.length; i++) {
+            let thisCompType = compTypes[i];
+            for (let ii = 0; ii < this.components[thisCompType].length; ii++) {
+                this.components[thisCompType][ii].update();
+            }
+        }
+    }
+
+    update() {
+        if (this.hasPaused)
+            return;
+            
+        if (this.hasStarted) {
+            this.preUpdate();
+            this.onUpdate();
+            this.updateComponents();
+            this.postUpdate();
+        } else {
+            this.start();
+        }
+    }
+
+    preUpdate() {
+        this.onPreUpdate();
+    }
+
+    postUpdate() {
+        this.onPostUpdate();
+    }
+
+    onPreUpdate() {}
+    onPostUpdate() {}
 }

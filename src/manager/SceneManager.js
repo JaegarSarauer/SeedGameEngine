@@ -15,7 +15,7 @@ export class _SceneManager extends Manager {
     registerSceneObject(sceneObject) {
         let scene = this.getCurrentScene();
         if (scene != null)
-            scene.registerSceneObject(sceneObject);
+            return scene.registerSceneObject(sceneObject);
     }
 
     registerViewport(viewport) {
