@@ -9,9 +9,6 @@
                 "interfaces": ["test", "testStep"],
                 "includes": ["(test|Test)\\.js$"],
                 "excludes": ["\\.config\\.js$"]
-            },
-            "manual": {
-                "source": "./manual/"
             }
         }
     }]

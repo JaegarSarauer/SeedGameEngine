@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 33,
+  "end": 32,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 3,
+      "line": 2,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 33,
+    "end": 32,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 3,
+        "line": 2,
         "column": 1
       }
     },
@@ -31,28 +31,28 @@
       {
         "type": "ExportDefaultDeclaration",
         "start": 0,
-        "end": 33,
+        "end": 32,
         "loc": {
           "start": {
             "line": 1,
             "column": 0
           },
           "end": {
-            "line": 3,
+            "line": 2,
             "column": 1
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
           "start": 15,
-          "end": 33,
+          "end": 32,
           "loc": {
             "start": {
               "line": 1,
               "column": 15
             },
             "end": {
-              "line": 3,
+              "line": 2,
               "column": 1
             }
           },
@@ -77,14 +77,14 @@
           "body": {
             "type": "ClassBody",
             "start": 29,
-            "end": 33,
+            "end": 32,
             "loc": {
               "start": {
                 "line": 1,
                 "column": 29
               },
               "end": {
-                "line": 3,
+                "line": 2,
                 "column": 1
               }
             },
@@ -246,15 +246,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 32,
-      "end": 33,
+      "start": 31,
+      "end": 32,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 2,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 2,
           "column": 1
         }
       }
@@ -272,15 +272,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 33,
-      "end": 33,
+      "start": 32,
+      "end": 32,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 2,
           "column": 1
         },
         "end": {
-          "line": 3,
+          "line": 2,
           "column": 1
         }
       }

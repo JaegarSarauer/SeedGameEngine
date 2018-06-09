@@ -1,13 +1,13 @@
 {
-  "coverage": "9.81%",
-  "expectCount": 163,
+  "coverage": "7.96%",
+  "expectCount": 201,
   "actualCount": 16,
   "files": {
     "src/Engine.js": {
-      "expectCount": 8,
-      "actualCount": 7,
+      "expectCount": 7,
+      "actualCount": 6,
       "undocumentLines": [
-        15
+        48
       ]
     },
     "src/base/Updateable.js": {
@@ -17,14 +17,14 @@
         14,
         15,
         16,
-        19,
-        22,
-        26,
-        37,
-        42,
-        45,
-        49,
-        56
+        17,
+        18,
+        21,
+        28,
+        39,
+        44,
+        51,
+        58
       ]
     },
     "src/component/Audio.js": {
@@ -67,7 +67,7 @@
       "actualCount": 1,
       "undocumentLines": [
         3,
-        12
+        13
       ]
     },
     "src/component/Physics.js": {
@@ -85,17 +85,28 @@
       ]
     },
     "src/component/Renderable.js": {
-      "expectCount": 1,
+      "expectCount": 11,
       "actualCount": 0,
       "undocumentLines": [
-        3
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        20,
+        27,
+        31
       ]
     },
     "src/component/Renderable2D.js": {
-      "expectCount": 1,
+      "expectCount": 2,
       "actualCount": 0,
       "undocumentLines": [
-        3
+        3,
+        4
       ]
     },
     "src/component/RenderableSquare.js": {
@@ -109,18 +120,32 @@
       "expectCount": 12,
       "actualCount": 0,
       "undocumentLines": [
-        3,
         4,
-        6,
+        5,
         7,
         8,
         9,
-        12,
-        18,
-        23,
-        27,
-        33,
-        38
+        10,
+        13,
+        19,
+        24,
+        28,
+        34,
+        39
+      ]
+    },
+    "src/const/FragmentShader.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/const/VertexShader.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
       ]
     },
     "src/internal/Bounds.js": {
@@ -146,11 +171,25 @@
       ]
     },
     "src/manager/AudioManager.js": {
-      "expectCount": 2,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
         3,
-        7
+        4,
+        11
+      ]
+    },
+    "src/manager/DOMManager.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        6,
+        7,
+        10,
+        14,
+        23
       ]
     },
     "src/manager/EngineManager.js": {
@@ -158,23 +197,24 @@
       "actualCount": 1,
       "undocumentLines": [
         10,
-        11,
         12,
         13,
-        16,
-        27,
-        33,
-        40,
-        47,
-        55
+        14,
+        17,
+        28,
+        34,
+        41,
+        48,
+        57
       ]
     },
     "src/manager/InputManager.js": {
-      "expectCount": 2,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
         3,
-        7
+        4,
+        11
       ]
     },
     "src/manager/Manager.js": {
@@ -185,11 +225,12 @@
       ]
     },
     "src/manager/NetworkManager.js": {
-      "expectCount": 2,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
         3,
-        7
+        4,
+        11
       ]
     },
     "src/manager/ObjectManager.js": {
@@ -198,9 +239,9 @@
       "undocumentLines": [
         3,
         4,
-        5,
-        8,
-        15
+        6,
+        9,
+        17
       ]
     },
     "src/manager/PersistentManager.js": {
@@ -209,36 +250,43 @@
       "undocumentLines": [
         3,
         4,
-        5,
-        8,
-        16,
-        23,
-        30,
-        37,
-        44,
-        52
+        6,
+        9,
+        17,
+        24,
+        31,
+        38,
+        45,
+        54
       ]
     },
     "src/manager/PhysicsManager.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        3,
-        7
-      ]
-    },
-    "src/manager/RenderManager.js": {
-      "expectCount": 8,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
         3,
         4,
+        11
+      ]
+    },
+    "src/manager/RenderManager.js": {
+      "expectCount": 14,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        6,
         8,
-        16,
-        23,
-        30,
-        37,
-        45
+        11,
+        14,
+        58,
+        105,
+        112,
+        119,
+        126,
+        141,
+        155,
+        164,
+        183
       ]
     },
     "src/manager/SceneManager.js": {
@@ -247,33 +295,33 @@
       "undocumentLines": [
         4,
         5,
-        6,
-        20,
-        26,
-        32,
-        38,
-        44,
-        51,
+        7,
+        21,
+        27,
+        33,
+        39,
+        49,
         56,
         61,
         66,
-        73
+        71,
+        79
       ]
     },
     "src/object/GameObject.js": {
       "expectCount": 10,
       "actualCount": 0,
       "undocumentLines": [
-        4,
         5,
         6,
         8,
-        11,
-        22,
-        32,
-        42,
-        53,
-        66
+        10,
+        14,
+        25,
+        35,
+        45,
+        56,
+        69
       ]
     },
     "src/object/PersistentObject.js": {
@@ -282,8 +330,8 @@
       "undocumentLines": [
         4,
         5,
-        6,
-        9
+        7,
+        10
       ]
     },
     "src/object/SceneObject.js": {
@@ -292,17 +340,19 @@
       "undocumentLines": [
         4,
         5,
-        6,
-        9
+        7,
+        10
       ]
     },
     "src/render/Viewport.js": {
-      "expectCount": 3,
-      "actualCount": 0,
+      "expectCount": 6,
+      "actualCount": 1,
       "undocumentLines": [
-        3,
-        4,
-        5
+        5,
+        6,
+        7,
+        9,
+        18
       ]
     },
     "src/render/WebGL/Matrix.js": {
@@ -333,6 +383,17 @@
         47
       ]
     },
+    "src/render/WebGL/Shader.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
     "src/scene/BasicScene.js": {
       "expectCount": 1,
       "actualCount": 0,
@@ -341,15 +402,16 @@
       ]
     },
     "src/scene/Scene.js": {
-      "expectCount": 6,
+      "expectCount": 7,
       "actualCount": 0,
       "undocumentLines": [
         3,
         5,
-        6,
         7,
-        10,
-        18
+        8,
+        11,
+        19,
+        27
       ]
     },
     "src/utils/MathUtil.js": {

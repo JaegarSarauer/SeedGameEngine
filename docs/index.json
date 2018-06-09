@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/Engine.js",
-    "content": "'use-strict';\n\nimport EngineManager from './manager/EngineManager';\nimport SceneManager from './manager/SceneManager';\n\n/**\n * Engine Singleton class. Entry point reference to access managers and\n * to start and stop the Engine.\n */\nexport class _Engine {\n    /**\n     * Engine Contstructor.\n     */\n    constructor() {\n        this.SceneManager = this.SceneManager;\n    }\n\n    /**\n     * Starts the engine.\n     */\n    start() {\n        EngineManager.start();\n    }\n\n    /**\n     * Stops the engine and cleans up code.\n     */\n    end() {\n        EngineManager.end();\n    }\n\n    /**\n     * Pauses the entire engine.\n     */\n    pause() {\n        EngineManager.pause();\n    }\n\n    /**\n     * Resumes to the Engine.\n     */\n    unpause() {\n        EngineManager.unpause();\n    }\n}\n\n/**\n * Engine Singleton reference.\n */\nexport default Engine = new _Engine();",
+    "content": "'use-strict';\n\nimport EngineManager from './manager/EngineManager';\nimport DOMManager from './manager/DOMManager';\nimport Manager from './manager/Manager';\n\n/**\n * Engine Singleton class. Entry point reference to access managers and\n * to start and stop the Engine.\n */\nexport class _Engine {\n    /**\n     * Engine Contstructor.\n     */\n    constructor() {\n    }\n\n    /**\n     * Starts the engine.\n     */\n    start() {\n        DOMManager.start();\n        EngineManager.start();\n    }\n\n    /**\n     * Stops the engine and cleans up code.\n     */\n    end() {\n        EngineManager.end();\n    }\n\n    /**\n     * Pauses the entire engine.\n     */\n    pause() {\n        EngineManager.pause();\n    }\n\n    /**\n     * Resumes to the Engine.\n     */\n    unpause() {\n        EngineManager.unpause();\n    }\n}\nconst Engine = new _Engine();\nexport default Engine;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/Engine.js",
     "access": "public",
@@ -583,10 +583,10 @@
     "longname": "src/Engine.js~_Engine",
     "access": "private",
     "export": true,
-    "importPath": "seed-engine",
+    "importPath": "seed-engine/src/Engine.js",
     "importStyle": "{_Engine}",
     "description": "Engine Singleton class. Entry point reference to access managers and\nto start and stop the Engine.",
-    "lineNumber": 10,
+    "lineNumber": 11,
     "interface": false
   },
   {
@@ -600,27 +600,10 @@
     "longname": "src/Engine.js~_Engine#constructor",
     "access": "public",
     "description": "Engine Contstructor.",
-    "lineNumber": 14
+    "lineNumber": 15
   },
   {
     "__docId__": 51,
-    "kind": "member",
-    "name": "SceneManager",
-    "memberof": "src/Engine.js~_Engine",
-    "static": false,
-    "longname": "src/Engine.js~_Engine#SceneManager",
-    "access": "public",
-    "description": null,
-    "lineNumber": 15,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 52,
     "kind": "method",
     "name": "start",
     "memberof": "src/Engine.js~_Engine",
@@ -635,7 +618,7 @@
     "return": null
   },
   {
-    "__docId__": 53,
+    "__docId__": 52,
     "kind": "method",
     "name": "end",
     "memberof": "src/Engine.js~_Engine",
@@ -645,12 +628,12 @@
     "longname": "src/Engine.js~_Engine#end",
     "access": "public",
     "description": "Stops the engine and cleans up code.",
-    "lineNumber": 28,
+    "lineNumber": 29,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 54,
+    "__docId__": 53,
     "kind": "method",
     "name": "pause",
     "memberof": "src/Engine.js~_Engine",
@@ -660,12 +643,12 @@
     "longname": "src/Engine.js~_Engine#pause",
     "access": "public",
     "description": "Pauses the entire engine.",
-    "lineNumber": 35,
+    "lineNumber": 36,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 55,
+    "__docId__": 54,
     "kind": "method",
     "name": "unpause",
     "memberof": "src/Engine.js~_Engine",
@@ -675,12 +658,12 @@
     "longname": "src/Engine.js~_Engine#unpause",
     "access": "public",
     "description": "Resumes to the Engine.",
-    "lineNumber": 42,
+    "lineNumber": 43,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 56,
+    "__docId__": 55,
     "kind": "variable",
     "name": "Engine",
     "memberof": "src/Engine.js",
@@ -688,10 +671,11 @@
     "longname": "src/Engine.js~Engine",
     "access": "public",
     "export": true,
-    "importPath": "seed-engine",
+    "importPath": "seed-engine/src/Engine.js",
     "importStyle": "Engine",
-    "description": "Engine Singleton reference.",
-    "lineNumber": 50,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
     "type": {
       "types": [
         "src/Engine.js~_Engine"
@@ -699,10 +683,10 @@
     }
   },
   {
-    "__docId__": 57,
+    "__docId__": 56,
     "kind": "file",
     "name": "src/base/Updateable.js",
-    "content": "import ObjectManager from '../manager/ObjectManager';\n\n/**\n * Baseclass for objects that follow the same pattern of the engine.\n * \n * Used in anything that should follow a create, update, end loop \n * handled by the Engine.\n * \n * Many things will need to update/start/end. If you derive something that\n * has the start()/update()/end()... functions, the children should fill in\n * their respective callbacks (onStart()/onUpdate()/onEnd()).\n */\nexport default class Updateable {\n    constructor() {\n        this.id = -1;\n        this.deregister = ObjectManager.registerUpdateable(this);\n    }\n\n    start() {\n        if (!this.hasStarted) {\n            this.onStart();\n            this.hasStarted = true;\n        }\n    }\n\n    update() {\n        if (this.hasPaused)\n            return;\n\n        if (this.hasStarted) {\n            this.onUpdate();\n        } else {\n            this.start();\n        }\n    }\n\n    end() {\n        this.onEnd();\n        this.destructor();\n    }\n\n    pause() {\n        if (!this.hasPaused) {\n            this.onPause();\n            this.hasPaused = true;\n        }\n    }\n\n    unpause() {\n        if (this.hasPaused) {\n            this.onUnpause();\n            this.hasPaused = false;\n        }\n    }\n\n    destructor() {\n        this.deregister();\n    }\n\n    /**\n     * Called when the the object is first introduced.\n     * \n     * Managing code will call this on first iteration once introduced to the game loop.\n     */\n    onStart() {}\n\n    /**\n     * Called on every update within the game, once the object has had onStart called.\n     */\n    onUpdate() {}\n\n    /**\n     * Called when the object is being removed or cleaned up from usage.\n     */\n    onEnd() {}\n\n    /**\n     * Called when the object is intended to be paused.\n     */\n    onPause() {}\n\n    /**\n     * Called when the object is to be unpaused from paused state.\n     */\n    onUnpause() {}\n}",
+    "content": "import ObjectManager from '../manager/ObjectManager';\n\n/**\n * Baseclass for objects that follow the same pattern of the engine.\n * \n * Used in anything that should follow a create, update, end loop \n * handled by the Engine.\n * \n * Many things will need to update/start/end. If you derive something that\n * has the start()/update()/end()... functions, the children should fill in\n * their respective callbacks (onStart()/onUpdate()/onEnd()).\n */\nexport default class Updateable {\n    constructor() {\n        this.hasStarted = false;\n        this.hasPaused = false;\n        this.id = -1;\n        this.deregister = ObjectManager.registerUpdateable(this);\n    }\n\n    start() {\n        if (!this.hasStarted) {\n            this.onStart();\n            this.hasStarted = true;\n        }\n    }\n\n    update() {\n        if (this.hasPaused)\n            return;\n            \n        if (this.hasStarted) {\n            this.onUpdate();\n        } else {\n            this.start();\n        }\n    }\n\n    end() {\n        this.onEnd();\n        this.destructor();\n    }\n\n    pause() {\n        if (!this.hasPaused) {\n            this.onPause();\n            this.hasPaused = true;\n        }\n    }\n\n    unpause() {\n        if (this.hasPaused) {\n            this.onUnpause();\n            this.hasPaused = false;\n        }\n    }\n\n    destructor() {\n        this.deregister();\n    }\n\n    /**\n     * Called when the the object is first introduced.\n     * \n     * Managing code will call this on first iteration once introduced to the game loop.\n     */\n    onStart() {}\n\n    /**\n     * Called on every update within the game, once the object has had onStart called.\n     */\n    onUpdate() {}\n\n    /**\n     * Called when the object is being removed or cleaned up from usage.\n     */\n    onEnd() {}\n\n    /**\n     * Called when the object is intended to be paused.\n     */\n    onPause() {}\n\n    /**\n     * Called when the object is to be unpaused from paused state.\n     */\n    onUnpause() {}\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/base/Updateable.js",
     "access": "public",
@@ -710,7 +694,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 58,
+    "__docId__": 57,
     "kind": "class",
     "name": "Updateable",
     "memberof": "src/base/Updateable.js",
@@ -725,7 +709,7 @@
     "interface": false
   },
   {
-    "__docId__": 59,
+    "__docId__": 58,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -739,7 +723,41 @@
     "undocument": true
   },
   {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "hasStarted",
+    "memberof": "src/base/Updateable.js~Updateable",
+    "static": false,
+    "longname": "src/base/Updateable.js~Updateable#hasStarted",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
     "__docId__": 60,
+    "kind": "member",
+    "name": "hasPaused",
+    "memberof": "src/base/Updateable.js~Updateable",
+    "static": false,
+    "longname": "src/base/Updateable.js~Updateable#hasPaused",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
     "kind": "member",
     "name": "id",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -747,24 +765,7 @@
     "longname": "src/base/Updateable.js~Updateable#id",
     "access": "public",
     "description": null,
-    "lineNumber": 15,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 61,
-    "kind": "member",
-    "name": "deregister",
-    "memberof": "src/base/Updateable.js~Updateable",
-    "static": false,
-    "longname": "src/base/Updateable.js~Updateable#deregister",
-    "access": "public",
-    "description": null,
-    "lineNumber": 16,
+    "lineNumber": 17,
     "undocument": true,
     "type": {
       "types": [
@@ -774,6 +775,23 @@
   },
   {
     "__docId__": 62,
+    "kind": "member",
+    "name": "deregister",
+    "memberof": "src/base/Updateable.js~Updateable",
+    "static": false,
+    "longname": "src/base/Updateable.js~Updateable#deregister",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
     "kind": "method",
     "name": "start",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -783,30 +801,13 @@
     "longname": "src/base/Updateable.js~Updateable#start",
     "access": "public",
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 21,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 63,
-    "kind": "member",
-    "name": "hasStarted",
-    "memberof": "src/base/Updateable.js~Updateable",
-    "static": false,
-    "longname": "src/base/Updateable.js~Updateable#hasStarted",
-    "access": "public",
-    "description": null,
-    "lineNumber": 22,
-    "undocument": true,
-    "type": {
-      "types": [
-        "boolean"
-      ]
-    }
-  },
-  {
-    "__docId__": 64,
+    "__docId__": 65,
     "kind": "method",
     "name": "update",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -816,13 +817,13 @@
     "longname": "src/base/Updateable.js~Updateable#update",
     "access": "public",
     "description": null,
-    "lineNumber": 26,
+    "lineNumber": 28,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 65,
+    "__docId__": 66,
     "kind": "method",
     "name": "end",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -832,13 +833,13 @@
     "longname": "src/base/Updateable.js~Updateable#end",
     "access": "public",
     "description": null,
-    "lineNumber": 37,
+    "lineNumber": 39,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "method",
     "name": "pause",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -848,30 +849,13 @@
     "longname": "src/base/Updateable.js~Updateable#pause",
     "access": "public",
     "description": null,
-    "lineNumber": 42,
+    "lineNumber": 44,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 67,
-    "kind": "member",
-    "name": "hasPaused",
-    "memberof": "src/base/Updateable.js~Updateable",
-    "static": false,
-    "longname": "src/base/Updateable.js~Updateable#hasPaused",
-    "access": "public",
-    "description": null,
-    "lineNumber": 45,
-    "undocument": true,
-    "type": {
-      "types": [
-        "boolean"
-      ]
-    }
-  },
-  {
-    "__docId__": 68,
+    "__docId__": 69,
     "kind": "method",
     "name": "unpause",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -881,13 +865,13 @@
     "longname": "src/base/Updateable.js~Updateable#unpause",
     "access": "public",
     "description": null,
-    "lineNumber": 49,
+    "lineNumber": 51,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 70,
+    "__docId__": 71,
     "kind": "method",
     "name": "destructor",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -897,13 +881,13 @@
     "longname": "src/base/Updateable.js~Updateable#destructor",
     "access": "public",
     "description": null,
-    "lineNumber": 56,
+    "lineNumber": 58,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "method",
     "name": "onStart",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -913,12 +897,12 @@
     "longname": "src/base/Updateable.js~Updateable#onStart",
     "access": "public",
     "description": "Called when the the object is first introduced.\n\nManaging code will call this on first iteration once introduced to the game loop.",
-    "lineNumber": 65,
+    "lineNumber": 67,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "method",
     "name": "onUpdate",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -928,12 +912,12 @@
     "longname": "src/base/Updateable.js~Updateable#onUpdate",
     "access": "public",
     "description": "Called on every update within the game, once the object has had onStart called.",
-    "lineNumber": 70,
+    "lineNumber": 72,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "method",
     "name": "onEnd",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -943,12 +927,12 @@
     "longname": "src/base/Updateable.js~Updateable#onEnd",
     "access": "public",
     "description": "Called when the object is being removed or cleaned up from usage.",
-    "lineNumber": 75,
+    "lineNumber": 77,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "method",
     "name": "onPause",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -958,12 +942,12 @@
     "longname": "src/base/Updateable.js~Updateable#onPause",
     "access": "public",
     "description": "Called when the object is intended to be paused.",
-    "lineNumber": 80,
+    "lineNumber": 82,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "method",
     "name": "onUnpause",
     "memberof": "src/base/Updateable.js~Updateable",
@@ -973,12 +957,12 @@
     "longname": "src/base/Updateable.js~Updateable#onUnpause",
     "access": "public",
     "description": "Called when the object is to be unpaused from paused state.",
-    "lineNumber": 85,
+    "lineNumber": 87,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 76,
+    "__docId__": 77,
     "kind": "file",
     "name": "src/component/Audio.js",
     "content": "import Component from './Component';\n\nexport default class Audio extends Component {\n\n}",
@@ -989,7 +973,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 77,
+    "__docId__": 78,
     "kind": "class",
     "name": "Audio",
     "memberof": "src/component/Audio.js",
@@ -1008,7 +992,7 @@
     ]
   },
   {
-    "__docId__": 78,
+    "__docId__": 79,
     "kind": "file",
     "name": "src/component/BoxCollider.js",
     "content": "import Collider2D from './Collider2D';\n\nexport default class BoxCollider extends Collider2D {\n\n}",
@@ -1019,7 +1003,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 79,
+    "__docId__": 80,
     "kind": "class",
     "name": "BoxCollider",
     "memberof": "src/component/BoxCollider.js",
@@ -1038,7 +1022,7 @@
     ]
   },
   {
-    "__docId__": 80,
+    "__docId__": 81,
     "kind": "file",
     "name": "src/component/CircleCollider.js",
     "content": "import Collider2D from './Collider2D';\n\nexport default class CircleCollider extends Collider2D {\n\n}",
@@ -1049,7 +1033,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 82,
     "kind": "class",
     "name": "CircleCollider",
     "memberof": "src/component/CircleCollider.js",
@@ -1068,7 +1052,7 @@
     ]
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "file",
     "name": "src/component/Collider.js",
     "content": "import Component from './Component';\n\nexport default class Collider extends Component {\n\n}",
@@ -1079,7 +1063,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
     "kind": "class",
     "name": "Collider",
     "memberof": "src/component/Collider.js",
@@ -1098,7 +1082,7 @@
     ]
   },
   {
-    "__docId__": 84,
+    "__docId__": 85,
     "kind": "file",
     "name": "src/component/Collider2D.js",
     "content": "import Collider from './Collider';\n\nexport default class Collider2D extends Collider {\n\n}",
@@ -1109,7 +1093,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 85,
+    "__docId__": 86,
     "kind": "class",
     "name": "Collider2D",
     "memberof": "src/component/Collider2D.js",
@@ -1128,10 +1112,10 @@
     ]
   },
   {
-    "__docId__": 86,
+    "__docId__": 87,
     "kind": "file",
     "name": "src/component/Component.js",
-    "content": "import Updateable from '../base/Updateable';\n\nexport default class Component extends Updateable {\n    /**\n     * Constructor for Base Components.\n     * Requires a boolean to indicate if a GameObject can contain multiple\n     * components of this type.\n     * \n     * @param {boolean} unique Is there only one of these component allowed on a GameObject?\n     */\n    constructor(unique) {\n        this.isUnique = unique;\n    }\n}",
+    "content": "import Updateable from '../base/Updateable';\n\nexport default class Component extends Updateable {\n    /**\n     * Constructor for Base Components.\n     * Requires a boolean to indicate if a GameObject can contain multiple\n     * components of this type.\n     * \n     * @param {boolean} unique Is there only one of these component allowed on a GameObject?\n     */\n    constructor(unique) {\n        super();\n        this.isUnique = unique;\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/component/Component.js",
     "access": "public",
@@ -1139,7 +1123,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 87,
+    "__docId__": 88,
     "kind": "class",
     "name": "Component",
     "memberof": "src/component/Component.js",
@@ -1158,7 +1142,7 @@
     ]
   },
   {
-    "__docId__": 88,
+    "__docId__": 89,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/Component.js~Component",
@@ -1183,7 +1167,7 @@
     ]
   },
   {
-    "__docId__": 89,
+    "__docId__": 90,
     "kind": "member",
     "name": "isUnique",
     "memberof": "src/component/Component.js~Component",
@@ -1191,7 +1175,7 @@
     "longname": "src/component/Component.js~Component#isUnique",
     "access": "public",
     "description": null,
-    "lineNumber": 12,
+    "lineNumber": 13,
     "undocument": true,
     "type": {
       "types": [
@@ -1200,7 +1184,7 @@
     }
   },
   {
-    "__docId__": 90,
+    "__docId__": 91,
     "kind": "file",
     "name": "src/component/Physics.js",
     "content": "import Component from './Component';\n\nexport default class Physics extends Component {\n    \n}",
@@ -1211,7 +1195,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 91,
+    "__docId__": 92,
     "kind": "class",
     "name": "Physics",
     "memberof": "src/component/Physics.js",
@@ -1230,7 +1214,7 @@
     ]
   },
   {
-    "__docId__": 92,
+    "__docId__": 93,
     "kind": "file",
     "name": "src/component/Physics2D.js",
     "content": "import Physics from './Physics';\n\nexport default class Physics2D extends Physics {\n\n}",
@@ -1241,7 +1225,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 93,
+    "__docId__": 94,
     "kind": "class",
     "name": "Physics2D",
     "memberof": "src/component/Physics2D.js",
@@ -1260,10 +1244,10 @@
     ]
   },
   {
-    "__docId__": 94,
+    "__docId__": 95,
     "kind": "file",
     "name": "src/component/Renderable.js",
-    "content": "import Component from './Component';\n\nexport default class Renderable extends Component {\n    \n}",
+    "content": "import Component from './Component';\nimport SceneManager from '../manager/SceneManager';\nimport RenderManager from '../manager/RenderManager';\nimport * as VSS from '../const/VertexShader';\nimport * as FSS from '../const/VertexShader';\n\nexport default class Renderable extends Component {\n    constructor(program, matrix, primitiveType, primitiveCount) {\n        this.deregisterViewports = {};\n        this.program = null;\n        this.matrix = null;\n        this.primitiveType = null;\n        this.primitiveCount = null;\n    }\n\n    onStart() {\n        this.init();\n    }\n\n    init() {\n        this.program = RenderManager.createProgram();\n        this.matrix = new Matrix3();\n        this.primitiveType = RenderManager.GL.TRIANGLES;\n        this.primitiveCount = 2;\n    }\n\n    addToViewport(viewportID) {\n        this.deregisterViewports[viewportID] = SceneManager.getCurrentScene().registerRenderableComponent(this, viewportID);\n    }\n\n    removeFromViewport(viewport) {\n        let objKeys = Object.keys(this.deregisterViewports);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.deregisterViewports[objKeys[i]]();\n        }\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/component/Renderable.js",
     "access": "public",
@@ -1271,7 +1255,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 95,
+    "__docId__": 96,
     "kind": "class",
     "name": "Renderable",
     "memberof": "src/component/Renderable.js",
@@ -1282,7 +1266,7 @@
     "importPath": "seed-engine/src/component/Renderable.js",
     "importStyle": "Renderable",
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 7,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -1290,10 +1274,187 @@
     ]
   },
   {
-    "__docId__": 96,
+    "__docId__": 97,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "name": "deregisterViewports",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#deregisterViewports",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "name": "program",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#program",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "member",
+    "name": "matrix",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#matrix",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "member",
+    "name": "primitiveType",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#primitiveType",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "member",
+    "name": "primitiveCount",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#primitiveCount",
+    "access": "public",
+    "description": null,
+    "lineNumber": 13,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "method",
+    "name": "onStart",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#onStart",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 104,
+    "kind": "method",
+    "name": "init",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#init",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 109,
+    "kind": "method",
+    "name": "addToViewport",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#addToViewport",
+    "access": "public",
+    "description": null,
+    "lineNumber": 27,
+    "undocument": true,
+    "params": [
+      {
+        "name": "viewportID",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 110,
+    "kind": "method",
+    "name": "removeFromViewport",
+    "memberof": "src/component/Renderable.js~Renderable",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/Renderable.js~Renderable#removeFromViewport",
+    "access": "public",
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "params": [
+      {
+        "name": "viewport",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 111,
     "kind": "file",
     "name": "src/component/Renderable2D.js",
-    "content": "import Renderable from './Renderable';\n\nexport default class Renderable2D extends Renderable {\n    \n}",
+    "content": "import Renderable from './Renderable';\n\nexport default class Renderable2D extends Renderable {\n    constructor() {\n        super()\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/component/Renderable2D.js",
     "access": "public",
@@ -1301,7 +1462,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 97,
+    "__docId__": 112,
     "kind": "class",
     "name": "Renderable2D",
     "memberof": "src/component/Renderable2D.js",
@@ -1320,7 +1481,21 @@
     ]
   },
   {
-    "__docId__": 98,
+    "__docId__": 113,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/component/Renderable2D.js~Renderable2D",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/component/Renderable2D.js~Renderable2D#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 114,
     "kind": "file",
     "name": "src/component/RenderableSquare.js",
     "content": "import Renderable2D from './Renderable2D';\n\nexport default class RenderableSquare extends Renderable2D {\n    \n}",
@@ -1331,7 +1506,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 99,
+    "__docId__": 115,
     "kind": "class",
     "name": "RenderableSquare",
     "memberof": "src/component/RenderableSquare.js",
@@ -1350,10 +1525,10 @@
     ]
   },
   {
-    "__docId__": 100,
+    "__docId__": 116,
     "kind": "file",
     "name": "src/component/Transform.js",
-    "content": "import Component from './Component';\n\nexport default class Transform extends Component {\n    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {\n        super(true);\n        this.position = new Point(x, y, z);\n        this.scaleX = scaleX;\n        this.scaleY = scaleY;\n        this.rotation = 0;\n    }\n\n    setPosition(x = this.position.x, y = this.position.y, z = this.position.z) {\n        this.position.x = x;\n        this.position.y = y;\n        this.position.z = z;\n    }\n\n    setScale(scaleX = this.scaleX, scaleY = this.scaleY) {\n        this.scaleX = scaleX;\n        this.scaleY = scaleY;\n    }\n\n    setRotation(rotation) {\n        this.rotation = rotation;\n    }\n\n    translate(x = 0, y = 0, z = 0) {\n        this.position.x += x;\n        this.position.y += y;\n        this.position.z += z;\n    }\n\n    scale(scaleX = 0, scaleY = 0) {\n        this.scaleX += scaleX;\n        this.scaleY += scaleY;\n    }\n\n    rotate(rotation) {\n        this.rotation += rotation;\n    }\n}",
+    "content": "import Component from './Component';\nimport Point from '../internal/Point';\n\nexport default class Transform extends Component {\n    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {\n        super(true);\n        this.position = new Point(x, y, z);\n        this.scaleX = scaleX;\n        this.scaleY = scaleY;\n        this.rotation = 0;\n    }\n\n    setPosition(x = this.position.x, y = this.position.y, z = this.position.z) {\n        this.position.x = x;\n        this.position.y = y;\n        this.position.z = z;\n    }\n\n    setScale(scaleX = this.scaleX, scaleY = this.scaleY) {\n        this.scaleX = scaleX;\n        this.scaleY = scaleY;\n    }\n\n    setRotation(rotation) {\n        this.rotation = rotation;\n    }\n\n    translate(x = 0, y = 0, z = 0) {\n        this.position.x += x;\n        this.position.y += y;\n        this.position.z += z;\n    }\n\n    scale(scaleX = 0, scaleY = 0) {\n        this.scaleX += scaleX;\n        this.scaleY += scaleY;\n    }\n\n    rotate(rotation) {\n        this.rotation += rotation;\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/component/Transform.js",
     "access": "public",
@@ -1361,7 +1536,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 101,
+    "__docId__": 117,
     "kind": "class",
     "name": "Transform",
     "memberof": "src/component/Transform.js",
@@ -1372,7 +1547,7 @@
     "importPath": "seed-engine/src/component/Transform.js",
     "importStyle": "Transform",
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 4,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -1380,7 +1555,7 @@
     ]
   },
   {
-    "__docId__": 102,
+    "__docId__": 118,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/component/Transform.js~Transform",
@@ -1390,33 +1565,16 @@
     "longname": "src/component/Transform.js~Transform#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 5,
     "undocument": true
   },
   {
-    "__docId__": 103,
+    "__docId__": 119,
     "kind": "member",
     "name": "position",
     "memberof": "src/component/Transform.js~Transform",
     "static": false,
     "longname": "src/component/Transform.js~Transform#position",
-    "access": "public",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 104,
-    "kind": "member",
-    "name": "scaleX",
-    "memberof": "src/component/Transform.js~Transform",
-    "static": false,
-    "longname": "src/component/Transform.js~Transform#scaleX",
     "access": "public",
     "description": null,
     "lineNumber": 7,
@@ -1428,12 +1586,12 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 120,
     "kind": "member",
-    "name": "scaleY",
+    "name": "scaleX",
     "memberof": "src/component/Transform.js~Transform",
     "static": false,
-    "longname": "src/component/Transform.js~Transform#scaleY",
+    "longname": "src/component/Transform.js~Transform#scaleX",
     "access": "public",
     "description": null,
     "lineNumber": 8,
@@ -1445,7 +1603,24 @@
     }
   },
   {
-    "__docId__": 106,
+    "__docId__": 121,
+    "kind": "member",
+    "name": "scaleY",
+    "memberof": "src/component/Transform.js~Transform",
+    "static": false,
+    "longname": "src/component/Transform.js~Transform#scaleY",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 122,
     "kind": "member",
     "name": "rotation",
     "memberof": "src/component/Transform.js~Transform",
@@ -1453,7 +1628,7 @@
     "longname": "src/component/Transform.js~Transform#rotation",
     "access": "public",
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 10,
     "undocument": true,
     "type": {
       "types": [
@@ -1462,7 +1637,7 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 123,
     "kind": "method",
     "name": "setPosition",
     "memberof": "src/component/Transform.js~Transform",
@@ -1472,7 +1647,7 @@
     "longname": "src/component/Transform.js~Transform#setPosition",
     "access": "public",
     "description": null,
-    "lineNumber": 12,
+    "lineNumber": 13,
     "undocument": true,
     "params": [
       {
@@ -1500,7 +1675,7 @@
     "return": null
   },
   {
-    "__docId__": 108,
+    "__docId__": 124,
     "kind": "method",
     "name": "setScale",
     "memberof": "src/component/Transform.js~Transform",
@@ -1510,7 +1685,7 @@
     "longname": "src/component/Transform.js~Transform#setScale",
     "access": "public",
     "description": null,
-    "lineNumber": 18,
+    "lineNumber": 19,
     "undocument": true,
     "params": [
       {
@@ -1531,7 +1706,7 @@
     "return": null
   },
   {
-    "__docId__": 111,
+    "__docId__": 127,
     "kind": "method",
     "name": "setRotation",
     "memberof": "src/component/Transform.js~Transform",
@@ -1541,7 +1716,7 @@
     "longname": "src/component/Transform.js~Transform#setRotation",
     "access": "public",
     "description": null,
-    "lineNumber": 23,
+    "lineNumber": 24,
     "undocument": true,
     "params": [
       {
@@ -1554,7 +1729,7 @@
     "return": null
   },
   {
-    "__docId__": 113,
+    "__docId__": 129,
     "kind": "method",
     "name": "translate",
     "memberof": "src/component/Transform.js~Transform",
@@ -1564,7 +1739,7 @@
     "longname": "src/component/Transform.js~Transform#translate",
     "access": "public",
     "description": null,
-    "lineNumber": 27,
+    "lineNumber": 28,
     "undocument": true,
     "params": [
       {
@@ -1598,7 +1773,7 @@
     "return": null
   },
   {
-    "__docId__": 114,
+    "__docId__": 130,
     "kind": "method",
     "name": "scale",
     "memberof": "src/component/Transform.js~Transform",
@@ -1608,7 +1783,7 @@
     "longname": "src/component/Transform.js~Transform#scale",
     "access": "public",
     "description": null,
-    "lineNumber": 33,
+    "lineNumber": 34,
     "undocument": true,
     "params": [
       {
@@ -1633,7 +1808,7 @@
     "return": null
   },
   {
-    "__docId__": 117,
+    "__docId__": 133,
     "kind": "method",
     "name": "rotate",
     "memberof": "src/component/Transform.js~Transform",
@@ -1643,7 +1818,7 @@
     "longname": "src/component/Transform.js~Transform#rotate",
     "access": "public",
     "description": null,
-    "lineNumber": 38,
+    "lineNumber": 39,
     "undocument": true,
     "params": [
       {
@@ -1656,7 +1831,80 @@
     "return": null
   },
   {
-    "__docId__": 119,
+    "__docId__": 135,
+    "kind": "file",
+    "name": "src/const/FragmentShader.js",
+    "content": "export const DEFAULT_F = `#version 300 es\n\n// fragment shaders don't have a default precision so we need\n// to pick one. mediump is a good default. It means \"medium precision\"\nprecision mediump float;\n\n// we need to declare an output for the fragment shader\nout vec4 outColor;\n\nvoid main() {\n    // Just set the output to a constant redish-purple\n    outColor = vec4(1, 0, 0.5, 1);\n}\n`;",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/const/FragmentShader.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 136,
+    "kind": "variable",
+    "name": "DEFAULT_F",
+    "memberof": "src/const/FragmentShader.js",
+    "static": true,
+    "longname": "src/const/FragmentShader.js~DEFAULT_F",
+    "access": "public",
+    "export": true,
+    "importPath": "seed-engine/src/const/FragmentShader.js",
+    "importStyle": "{DEFAULT_F}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 137,
+    "kind": "file",
+    "name": "src/const/VertexShader.js",
+    "content": "export const DEFAULT_V = `#version 300 es\n\n// an attribute is an input (in) to a vertex shader.\n// It will receive data from a buffer\nin vec4 a_position;\n\n// all shaders have a main function\nvoid main() {\n\n    // gl_Position is a special variable a vertex shader\n    // is responsible for setting\n    gl_Position = a_position;\n}\n`;",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/const/VertexShader.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 138,
+    "kind": "variable",
+    "name": "DEFAULT_V",
+    "memberof": "src/const/VertexShader.js",
+    "static": true,
+    "longname": "src/const/VertexShader.js~DEFAULT_V",
+    "access": "public",
+    "export": true,
+    "importPath": "seed-engine/src/const/VertexShader.js",
+    "importStyle": "{DEFAULT_V}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 139,
+    "kind": "file",
+    "name": "src/entry.js",
+    "content": "//base\nimport Updateable from './base/Updateable';\n\n//component\nimport Audio from './component/Audio';\nimport BoxCollider from './component/BoxCollider';\nimport CircleCollider from './component/CircleCollider';\nimport Collider from './component/Collider';\nimport Collider2D from './component/Collider2D';\nimport Component from './component/Component';\nimport Physics from './component/Physics';\nimport Physics2D from './component/Physics2D';\nimport Renderable from './component/Renderable';\nimport Renderable2D from './component/Renderable2D';\nimport RenderableSquare from './component/RenderableSquare';\nimport Transform from './component/Transform';\n\n//const\nimport FragmentShader from './const/FragmentShader';\nimport VertexShader from './const/VertexShader';\n\n//internal\nimport Bounds from './internal/Bounds';\nimport Point from './internal/Point';\n\n//manager\nimport AudioManager from './manager/AudioManager';\nimport DOMManager from './manager/DOMManager';\nimport EngineManager from './manager/EngineManager';\nimport InputManager from './manager/InputManager';\nimport Manager from './manager/Manager';\nimport NetworkManager from './manager/NetworkManager';\nimport ObjectManager from './manager/ObjectManager';\nimport PersistentManager from './manager/PersistentManager';\nimport PhysicsManager from './manager/PhysicsManager';\nimport RenderManager from './manager/RenderManager';\nimport SceneManager from './manager/SceneManager';\n\n//object\nimport GameObject from './object/GameObject';\nimport SceneObject from './object/SceneObject';\nimport PersistentObject from './object/PersistentObject';\n\n//prefab\n\n//render\n    //WebGL\n    import Matrix from './render/WebGL/Matrix';\n    import Matrix3 from './render/WebGL/Matrix3';\n    import Shader from './render/WebGL/Shader';\nimport Camera from './render/Camera';\nimport Light from './render/Light';\nimport Viewport from './render/Viewport';\n\n//scene\nimport Scene from './scene/Scene';\nimport BasicScene from './scene/BasicScene';\n\n//utils\nimport * as MathUtil from './utils/MathUtil';\n\nimport Engine from './Engine';\n\nexport {\n    Updateable,\n    Audio,\n    BoxCollider,\n    CircleCollider,\n    Collider,\n    Collider2D,\n    Component,\n    Physics,\n    Physics2D,\n    Renderable,\n    Renderable2D,\n    RenderableSquare,\n    Transform,\n    FragmentShader,\n    VertexShader,\n    Bounds,\n    Point,\n    AudioManager,\n    DOMManager,\n    EngineManager,\n    InputManager,\n    Manager,\n    NetworkManager,\n    ObjectManager,\n    PersistentManager,\n    PhysicsManager,\n    RenderManager,\n    SceneManager,\n    GameObject,\n    SceneObject,\n    PersistentObject,\n    Matrix,\n    Matrix3,\n    Shader,\n    Camera,\n    Light,\n    Viewport,\n    Scene,\n    BasicScene,\n    MathUtil,\n    Engine,\n};\n\n\n\n",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/entry.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 140,
     "kind": "file",
     "name": "src/internal/Bounds.js",
     "content": "import Point from './Point';\n\nexport default class Bounds {\n    constructor(p1 = new Point(), p2 = new Point()) {\n        this.p1 = p1;\n        this.p2 = p2;\n    }\n\n    isInBounds(point) {\n        return (point.x >= this.p1.x && point.x <= this.p2.x\n                && point.y >= this.p1.y && point.y <= this.p2.y\n                && point.z >= this.p1.z && point.z <= this.p2.z);\n    }\n}",
@@ -1667,7 +1915,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 120,
+    "__docId__": 141,
     "kind": "class",
     "name": "Bounds",
     "memberof": "src/internal/Bounds.js",
@@ -1683,7 +1931,7 @@
     "interface": false
   },
   {
-    "__docId__": 121,
+    "__docId__": 142,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/internal/Bounds.js~Bounds",
@@ -1697,7 +1945,7 @@
     "undocument": true
   },
   {
-    "__docId__": 122,
+    "__docId__": 143,
     "kind": "member",
     "name": "p1",
     "memberof": "src/internal/Bounds.js~Bounds",
@@ -1714,7 +1962,7 @@
     }
   },
   {
-    "__docId__": 123,
+    "__docId__": 144,
     "kind": "member",
     "name": "p2",
     "memberof": "src/internal/Bounds.js~Bounds",
@@ -1731,7 +1979,7 @@
     }
   },
   {
-    "__docId__": 124,
+    "__docId__": 145,
     "kind": "method",
     "name": "isInBounds",
     "memberof": "src/internal/Bounds.js~Bounds",
@@ -1758,7 +2006,7 @@
     }
   },
   {
-    "__docId__": 125,
+    "__docId__": 146,
     "kind": "file",
     "name": "src/internal/Point.js",
     "content": "export default class Point {\n    constructor(x = 0, y = 0, z = 0) {\n        this.x = 0;\n        this.y = 0;\n        this.z = 0;\n    }\n}",
@@ -1769,7 +2017,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 126,
+    "__docId__": 147,
     "kind": "class",
     "name": "Point",
     "memberof": "src/internal/Point.js",
@@ -1785,7 +2033,7 @@
     "interface": false
   },
   {
-    "__docId__": 127,
+    "__docId__": 148,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/internal/Point.js~Point",
@@ -1799,7 +2047,7 @@
     "undocument": true
   },
   {
-    "__docId__": 128,
+    "__docId__": 149,
     "kind": "member",
     "name": "x",
     "memberof": "src/internal/Point.js~Point",
@@ -1816,7 +2064,7 @@
     }
   },
   {
-    "__docId__": 129,
+    "__docId__": 150,
     "kind": "member",
     "name": "y",
     "memberof": "src/internal/Point.js~Point",
@@ -1833,7 +2081,7 @@
     }
   },
   {
-    "__docId__": 130,
+    "__docId__": 151,
     "kind": "member",
     "name": "z",
     "memberof": "src/internal/Point.js~Point",
@@ -1850,10 +2098,10 @@
     }
   },
   {
-    "__docId__": 131,
+    "__docId__": 152,
     "kind": "file",
     "name": "src/manager/AudioManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _AudioManager extends Manager {\n\n}\n\nexport default AudioManager = new _AudioManager();",
+    "content": "import Manager from './Manager';\n\nexport class _AudioManager extends Manager {\n    constructor() {\n        super();\n    }\n\n}\n\nconst AudioManager = new _AudioManager();\nexport default AudioManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/AudioManager.js",
     "access": "public",
@@ -1861,7 +2109,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 132,
+    "__docId__": 153,
     "kind": "class",
     "name": "_AudioManager",
     "memberof": "src/manager/AudioManager.js",
@@ -1880,7 +2128,21 @@
     ]
   },
   {
-    "__docId__": 133,
+    "__docId__": 154,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/manager/AudioManager.js~_AudioManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/AudioManager.js~_AudioManager#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 155,
     "kind": "variable",
     "name": "AudioManager",
     "memberof": "src/manager/AudioManager.js",
@@ -1891,7 +2153,7 @@
     "importPath": "seed-engine/src/manager/AudioManager.js",
     "importStyle": "AudioManager",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -1900,10 +2162,140 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 156,
+    "kind": "file",
+    "name": "src/manager/DOMManager.js",
+    "content": "import Manager from './Manager';\n\nexport class _DOMManager extends Manager {\n    constructor() {\n        super();\n        this.canvas = null;\n        this.GL = null;\n    }\n\n    start() {\n        this.loadCanvas();\n    }\n\n    loadCanvas() {\n        this.canvas = document.getElementById('game');\n        if (this.canvas == null)\n            throw \"Error finding DOM Canvas. The canvas requires an id='game'\";\n        this.GL = this.canvas.getContext('webgl2');\n    }\n}\n\nconst DOMManager = new _DOMManager();\nexport default DOMManager;",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/DOMManager.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 157,
+    "kind": "class",
+    "name": "_DOMManager",
+    "memberof": "src/manager/DOMManager.js",
+    "static": true,
+    "longname": "src/manager/DOMManager.js~_DOMManager",
+    "access": "private",
+    "export": true,
+    "importPath": "seed-engine/src/manager/DOMManager.js",
+    "importStyle": "{_DOMManager}",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "interface": false,
+    "extends": [
+      "src/manager/Manager.js~Manager"
+    ]
+  },
+  {
+    "__docId__": 158,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/manager/DOMManager.js~_DOMManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/DOMManager.js~_DOMManager#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 159,
+    "kind": "member",
+    "name": "canvas",
+    "memberof": "src/manager/DOMManager.js~_DOMManager",
+    "static": false,
+    "longname": "src/manager/DOMManager.js~_DOMManager#canvas",
+    "access": "public",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 160,
+    "kind": "member",
+    "name": "GL",
+    "memberof": "src/manager/DOMManager.js~_DOMManager",
+    "static": false,
+    "longname": "src/manager/DOMManager.js~_DOMManager#GL",
+    "access": "public",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 161,
+    "kind": "method",
+    "name": "start",
+    "memberof": "src/manager/DOMManager.js~_DOMManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/DOMManager.js~_DOMManager#start",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 162,
+    "kind": "method",
+    "name": "loadCanvas",
+    "memberof": "src/manager/DOMManager.js~_DOMManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/DOMManager.js~_DOMManager#loadCanvas",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 165,
+    "kind": "variable",
+    "name": "DOMManager",
+    "memberof": "src/manager/DOMManager.js",
+    "static": true,
+    "longname": "src/manager/DOMManager.js~DOMManager",
+    "access": "public",
+    "export": true,
+    "importPath": "seed-engine/src/manager/DOMManager.js",
+    "importStyle": "DOMManager",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/manager/DOMManager.js~_DOMManager"
+      ]
+    }
+  },
+  {
+    "__docId__": 166,
     "kind": "file",
     "name": "src/manager/EngineManager.js",
-    "content": "import Manager from './Manager';\nimport RenderManager from './RenderManager';\nimport SceneManager from './SceneManager';\nimport PersistentManager from './PersistentManager';\n\n/**\n * Manager of the core ECS system & game loop.\n */\nexport class _EngineManager extends Manager {\n    constructor() {\n        this.MS_PER_FRAME = 60;\n        this.coreUpdateLoopHandle = null;\n        this.hasPaused = true;\n    }\n\n    start() {\n        this.coreUpdateLoopHandle = setInterval(() => {\n            if (!this.hasPaused) {\n                this.update();\n            }\n        }, this.MS_PER_FRAME);\n        PersistentManager.start();\n        SceneManager.start();\n        RenderManager.start();\n    }\n\n    _update() {\n        PersistentManager.update();\n        SceneManager.update();\n        RendererManager.update();\n    }\n\n    end() {\n        PersistentManager.end();\n        SceneManager.end();\n        RendererManager.end();\n        clearInterval(this.coreUpdateLoopHandle);\n    }\n\n    pause() {\n        RendererManager.pause();\n        PersistentManager.pause();\n        SceneManager.pause();\n        this.hasPaused = true;\n    }\n\n    unpause() {\n        SceneManager.unpause();\n        PersistentManager.unpause();\n        RendererManager.unpause();\n        this.hasPaused = false;\n    }\n}\n\nexport default EngineManager = new _EngineManager();",
+    "content": "import Manager from './Manager';\n//import RenderManager from './RenderManager';\nimport SceneManager from './SceneManager';\nimport PersistentManager from './PersistentManager';\n\n/**\n * Manager of the core ECS system & game loop.\n */\nexport class _EngineManager extends Manager {\n    constructor() {\n        super();\n        this.MS_PER_FRAME = 30;\n        this.coreUpdateLoopHandle = null;\n        this.hasPaused = false;\n    }\n\n    start() {\n        this.coreUpdateLoopHandle = setInterval(() => {\n            if (!this.hasPaused) {\n                this._update();\n            }\n        }, this.MS_PER_FRAME);\n        PersistentManager.start();\n        SceneManager.start();\n        //RenderManager.start();\n    }\n\n    _update() {\n        PersistentManager.update();\n        SceneManager.update();\n        //RenderManager.update();\n    }\n\n    end() {\n        PersistentManager.end();\n        SceneManager.end();\n        //RenderManager.end();\n        clearInterval(this.coreUpdateLoopHandle);\n    }\n\n    pause() {\n        //RenderManager.pause();\n        PersistentManager.pause();\n        SceneManager.pause();\n        this.hasPaused = true;\n    }\n\n    unpause() {\n        SceneManager.unpause();\n        PersistentManager.unpause();\n        //RenderManager.unpause();\n        this.hasPaused = false;\n    }\n}\n\nconst EngineManager = new _EngineManager();\nexport default EngineManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/EngineManager.js",
     "access": "public",
@@ -1911,7 +2303,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 135,
+    "__docId__": 167,
     "kind": "class",
     "name": "_EngineManager",
     "memberof": "src/manager/EngineManager.js",
@@ -1929,7 +2321,7 @@
     ]
   },
   {
-    "__docId__": 136,
+    "__docId__": 168,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -1943,7 +2335,7 @@
     "undocument": true
   },
   {
-    "__docId__": 137,
+    "__docId__": 169,
     "kind": "member",
     "name": "MS_PER_FRAME",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -1951,7 +2343,7 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#MS_PER_FRAME",
     "access": "public",
     "description": null,
-    "lineNumber": 11,
+    "lineNumber": 12,
     "undocument": true,
     "type": {
       "types": [
@@ -1960,7 +2352,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 170,
     "kind": "member",
     "name": "coreUpdateLoopHandle",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -1968,7 +2360,7 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#coreUpdateLoopHandle",
     "access": "public",
     "description": null,
-    "lineNumber": 12,
+    "lineNumber": 13,
     "undocument": true,
     "type": {
       "types": [
@@ -1977,7 +2369,7 @@
     }
   },
   {
-    "__docId__": 139,
+    "__docId__": 171,
     "kind": "member",
     "name": "hasPaused",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -1985,7 +2377,7 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#hasPaused",
     "access": "public",
     "description": null,
-    "lineNumber": 13,
+    "lineNumber": 14,
     "undocument": true,
     "type": {
       "types": [
@@ -1994,7 +2386,7 @@
     }
   },
   {
-    "__docId__": 140,
+    "__docId__": 172,
     "kind": "method",
     "name": "start",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -2004,13 +2396,13 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#start",
     "access": "public",
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 17,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 142,
+    "__docId__": 174,
     "kind": "method",
     "name": "_update",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -2020,13 +2412,13 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#_update",
     "access": "private",
     "description": null,
-    "lineNumber": 27,
+    "lineNumber": 28,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 143,
+    "__docId__": 175,
     "kind": "method",
     "name": "end",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -2036,13 +2428,13 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#end",
     "access": "public",
     "description": null,
-    "lineNumber": 33,
+    "lineNumber": 34,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 144,
+    "__docId__": 176,
     "kind": "method",
     "name": "pause",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -2052,13 +2444,13 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#pause",
     "access": "public",
     "description": null,
-    "lineNumber": 40,
+    "lineNumber": 41,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 146,
+    "__docId__": 178,
     "kind": "method",
     "name": "unpause",
     "memberof": "src/manager/EngineManager.js~_EngineManager",
@@ -2068,13 +2460,13 @@
     "longname": "src/manager/EngineManager.js~_EngineManager#unpause",
     "access": "public",
     "description": null,
-    "lineNumber": 47,
+    "lineNumber": 48,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 148,
+    "__docId__": 180,
     "kind": "variable",
     "name": "EngineManager",
     "memberof": "src/manager/EngineManager.js",
@@ -2085,7 +2477,7 @@
     "importPath": "seed-engine/src/manager/EngineManager.js",
     "importStyle": "EngineManager",
     "description": null,
-    "lineNumber": 55,
+    "lineNumber": 57,
     "undocument": true,
     "type": {
       "types": [
@@ -2094,10 +2486,10 @@
     }
   },
   {
-    "__docId__": 149,
+    "__docId__": 181,
     "kind": "file",
     "name": "src/manager/InputManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _InputManager extends Manager {\n\n}\n\nexport default InputManager = new _InputManager();",
+    "content": "import Manager from './Manager';\n\nexport class _InputManager extends Manager {\n    constructor() {\n        super();\n    }\n\n}\n\nconst InputManager = new _InputManager(); \nexport default InputManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/InputManager.js",
     "access": "public",
@@ -2105,7 +2497,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 150,
+    "__docId__": 182,
     "kind": "class",
     "name": "_InputManager",
     "memberof": "src/manager/InputManager.js",
@@ -2124,7 +2516,21 @@
     ]
   },
   {
-    "__docId__": 151,
+    "__docId__": 183,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/manager/InputManager.js~_InputManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/InputManager.js~_InputManager#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 184,
     "kind": "variable",
     "name": "InputManager",
     "memberof": "src/manager/InputManager.js",
@@ -2135,7 +2541,7 @@
     "importPath": "seed-engine/src/manager/InputManager.js",
     "importStyle": "InputManager",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -2144,10 +2550,10 @@
     }
   },
   {
-    "__docId__": 152,
+    "__docId__": 185,
     "kind": "file",
     "name": "src/manager/Manager.js",
-    "content": "export default class Manager {\n\n}",
+    "content": "export default class Manager {\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/Manager.js",
     "access": "public",
@@ -2155,7 +2561,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 153,
+    "__docId__": 186,
     "kind": "class",
     "name": "Manager",
     "memberof": "src/manager/Manager.js",
@@ -2171,10 +2577,10 @@
     "interface": false
   },
   {
-    "__docId__": 154,
+    "__docId__": 187,
     "kind": "file",
     "name": "src/manager/NetworkManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _NetworkManager extends Manager {\n\n}\n\nexport default NetworkManager = new _NetworkManager();",
+    "content": "import Manager from './Manager';\n\nexport class _NetworkManager extends Manager {\n    constructor() {\n        super();\n    }\n\n}\n\nconst NetworkManager = new _NetworkManager();\nexport default NetworkManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/NetworkManager.js",
     "access": "public",
@@ -2182,7 +2588,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 155,
+    "__docId__": 188,
     "kind": "class",
     "name": "_NetworkManager",
     "memberof": "src/manager/NetworkManager.js",
@@ -2201,7 +2607,21 @@
     ]
   },
   {
-    "__docId__": 156,
+    "__docId__": 189,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/manager/NetworkManager.js~_NetworkManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/NetworkManager.js~_NetworkManager#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 190,
     "kind": "variable",
     "name": "NetworkManager",
     "memberof": "src/manager/NetworkManager.js",
@@ -2212,7 +2632,7 @@
     "importPath": "seed-engine/src/manager/NetworkManager.js",
     "importStyle": "NetworkManager",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -2221,10 +2641,10 @@
     }
   },
   {
-    "__docId__": 157,
+    "__docId__": 191,
     "kind": "file",
     "name": "src/manager/ObjectManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _ObjectManager extends Manager {\n    constructor() {\n        this.gameObjectIDCounter = 0;\n    }\n\n    registerUpdateable(gameObject) {\n        gameObject.id = this.gameObjectIDCounter++;\n        let deregisterCallback = () => {}\n        return deregisterCallback;\n    }\n}\n\nexport default ObjectManager = new _ObjectManager();",
+    "content": "import Manager from './Manager';\n\nexport class _ObjectManager extends Manager {\n    constructor() {\n        super();\n        this.gameObjectIDCounter = 0;\n    }\n\n    registerUpdateable(gameObject) {\n        gameObject.id = this.gameObjectIDCounter++;\n        let deregisterCallback = () => {}\n        return deregisterCallback;\n    }\n}\n\nconst ObjectManager = new _ObjectManager();\nexport default ObjectManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/ObjectManager.js",
     "access": "public",
@@ -2232,7 +2652,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 158,
+    "__docId__": 192,
     "kind": "class",
     "name": "_ObjectManager",
     "memberof": "src/manager/ObjectManager.js",
@@ -2251,7 +2671,7 @@
     ]
   },
   {
-    "__docId__": 159,
+    "__docId__": 193,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/manager/ObjectManager.js~_ObjectManager",
@@ -2265,7 +2685,7 @@
     "undocument": true
   },
   {
-    "__docId__": 160,
+    "__docId__": 194,
     "kind": "member",
     "name": "gameObjectIDCounter",
     "memberof": "src/manager/ObjectManager.js~_ObjectManager",
@@ -2273,7 +2693,7 @@
     "longname": "src/manager/ObjectManager.js~_ObjectManager#gameObjectIDCounter",
     "access": "public",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 6,
     "undocument": true,
     "type": {
       "types": [
@@ -2282,7 +2702,7 @@
     }
   },
   {
-    "__docId__": 161,
+    "__docId__": 195,
     "kind": "method",
     "name": "registerUpdateable",
     "memberof": "src/manager/ObjectManager.js~_ObjectManager",
@@ -2292,7 +2712,7 @@
     "longname": "src/manager/ObjectManager.js~_ObjectManager#registerUpdateable",
     "access": "public",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 9,
     "undocument": true,
     "params": [
       {
@@ -2309,7 +2729,7 @@
     }
   },
   {
-    "__docId__": 162,
+    "__docId__": 196,
     "kind": "variable",
     "name": "ObjectManager",
     "memberof": "src/manager/ObjectManager.js",
@@ -2320,7 +2740,7 @@
     "importPath": "seed-engine/src/manager/ObjectManager.js",
     "importStyle": "ObjectManager",
     "description": null,
-    "lineNumber": 15,
+    "lineNumber": 17,
     "undocument": true,
     "type": {
       "types": [
@@ -2329,10 +2749,10 @@
     }
   },
   {
-    "__docId__": 163,
+    "__docId__": 197,
     "kind": "file",
     "name": "src/manager/PersistentManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _PersistentManager extends Manager {\n    constructor() {\n        this.persistentObjects = {};\n    }\n\n    registerPersistentObject(persistentObject) {\n        this.persistentObjects[persistentObject.id] = persistentObject;\n        let deregisterCallback = () => {\n            delete this.persistentObjects[persistentObject.id];\n        }\n        return deregisterCallback;\n    }\n\n    start() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].start();\n        }\n    }\n\n    update() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].update();\n        }\n    }\n\n    end() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].end();\n        }\n    }\n\n    pause() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].pause();\n        }\n    }\n\n    unpause() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].unpause();\n        }\n    }\n}\n\nexport default PersistentManager = new _PersistentManager();",
+    "content": "import Manager from './Manager';\n\nexport class _PersistentManager extends Manager {\n    constructor() {\n        super();\n        this.persistentObjects = {};\n    }\n\n    registerPersistentObject(persistentObject) {\n        this.persistentObjects[persistentObject.id] = persistentObject;\n        let deregisterCallback = () => {\n            delete this.persistentObjects[persistentObject.id];\n        }\n        return deregisterCallback;\n    }\n\n    start() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].start();\n        }\n    }\n\n    update() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].update();\n        }\n    }\n\n    end() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].end();\n        }\n    }\n\n    pause() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].pause();\n        }\n    }\n\n    unpause() {\n        let objKeys = Object.keys(this.persistentObjects);\n        for (let i = 0; i < objKeys.length; i++) {\n            this.persistentObjects[objKeys[i]].unpause();\n        }\n    }\n}\n\nconst PersistentManager = new _PersistentManager();\nexport default PersistentManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/PersistentManager.js",
     "access": "public",
@@ -2340,7 +2760,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 164,
+    "__docId__": 198,
     "kind": "class",
     "name": "_PersistentManager",
     "memberof": "src/manager/PersistentManager.js",
@@ -2359,7 +2779,7 @@
     ]
   },
   {
-    "__docId__": 165,
+    "__docId__": 199,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2373,7 +2793,7 @@
     "undocument": true
   },
   {
-    "__docId__": 166,
+    "__docId__": 200,
     "kind": "member",
     "name": "persistentObjects",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2381,7 +2801,7 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#persistentObjects",
     "access": "public",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 6,
     "undocument": true,
     "type": {
       "types": [
@@ -2390,7 +2810,7 @@
     }
   },
   {
-    "__docId__": 167,
+    "__docId__": 201,
     "kind": "method",
     "name": "registerPersistentObject",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2400,7 +2820,7 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#registerPersistentObject",
     "access": "public",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 9,
     "undocument": true,
     "params": [
       {
@@ -2417,7 +2837,7 @@
     }
   },
   {
-    "__docId__": 168,
+    "__docId__": 202,
     "kind": "method",
     "name": "start",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2427,13 +2847,13 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#start",
     "access": "public",
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 17,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 169,
+    "__docId__": 203,
     "kind": "method",
     "name": "update",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2443,13 +2863,13 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#update",
     "access": "public",
     "description": null,
-    "lineNumber": 23,
+    "lineNumber": 24,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 170,
+    "__docId__": 204,
     "kind": "method",
     "name": "end",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2459,13 +2879,13 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#end",
     "access": "public",
     "description": null,
-    "lineNumber": 30,
+    "lineNumber": 31,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 171,
+    "__docId__": 205,
     "kind": "method",
     "name": "pause",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2475,13 +2895,13 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#pause",
     "access": "public",
     "description": null,
-    "lineNumber": 37,
+    "lineNumber": 38,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 172,
+    "__docId__": 206,
     "kind": "method",
     "name": "unpause",
     "memberof": "src/manager/PersistentManager.js~_PersistentManager",
@@ -2491,13 +2911,13 @@
     "longname": "src/manager/PersistentManager.js~_PersistentManager#unpause",
     "access": "public",
     "description": null,
-    "lineNumber": 44,
+    "lineNumber": 45,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 173,
+    "__docId__": 207,
     "kind": "variable",
     "name": "PersistentManager",
     "memberof": "src/manager/PersistentManager.js",
@@ -2508,7 +2928,7 @@
     "importPath": "seed-engine/src/manager/PersistentManager.js",
     "importStyle": "PersistentManager",
     "description": null,
-    "lineNumber": 52,
+    "lineNumber": 54,
     "undocument": true,
     "type": {
       "types": [
@@ -2517,10 +2937,10 @@
     }
   },
   {
-    "__docId__": 174,
+    "__docId__": 208,
     "kind": "file",
     "name": "src/manager/PhysicsManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _PhysicsManager extends Manager {\n\n}\n\nexport default PhysicsManager = new _PhysicsManager();",
+    "content": "import Manager from './Manager';\n\nexport class _PhysicsManager extends Manager {\n    constructor() {\n        super();\n    }\n\n}\n\nconst PhysicsManager = new _PhysicsManager();\nexport default PhysicsManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/PhysicsManager.js",
     "access": "public",
@@ -2528,7 +2948,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 175,
+    "__docId__": 209,
     "kind": "class",
     "name": "_PhysicsManager",
     "memberof": "src/manager/PhysicsManager.js",
@@ -2547,7 +2967,21 @@
     ]
   },
   {
-    "__docId__": 176,
+    "__docId__": 210,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/manager/PhysicsManager.js~_PhysicsManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/PhysicsManager.js~_PhysicsManager#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true
+  },
+  {
+    "__docId__": 211,
     "kind": "variable",
     "name": "PhysicsManager",
     "memberof": "src/manager/PhysicsManager.js",
@@ -2558,7 +2992,7 @@
     "importPath": "seed-engine/src/manager/PhysicsManager.js",
     "importStyle": "PhysicsManager",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "type": {
       "types": [
@@ -2567,10 +3001,10 @@
     }
   },
   {
-    "__docId__": 177,
+    "__docId__": 212,
     "kind": "file",
     "name": "src/manager/RenderManager.js",
-    "content": "import Manager from './Manager';\n\nexport class _RenderManager extends Manager {\n    constructor() {\n\n    }\n\n    start() {\n        //render setup code.\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].start();\n        // }\n    }\n\n    update() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].update();\n        // }\n    }\n\n    end() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].end();\n        // }\n    }\n\n    pause() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].pause();\n        // }\n    }\n\n    unpause() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].unpause();\n        // }\n    }\n}\n\nexport default RenderManager = new _RenderManager();",
+    "content": "import Manager from './Manager';\nimport DOMManager from './DOMManager';\nimport SceneManager from './SceneManager';\n\nexport class _RenderManager extends Manager {\n    constructor() {\n        super();\n        this.GL = null;\n    }\n\n    start() {\n        this.GL = DOMManager.GL;\n\n        this.program = this.createProgram(Shader.VertexShader, Shader.FragmentShader);\n\n        this.createBuffer();\n        \n        // look up where the vertex data needs to go.\n        let positionAttributeLocation = this.GL.getAttribLocation(program, \"a_position\");\n\n        // Create a vertex array object (attribute state)\n        let vao = this.GL.createVertexArray();\n\n        // and make it the one we're currently working with\n        this.GL.bindVertexArray(vao);\n\n        // Turn on the attribute\n        this.GL.enableVertexAttribArray(positionAttributeLocation);\n\n        // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)\n        let size = 2;          // 2 components per iteration\n        let type = this.GL.FLOAT;   // the data is 32bit floats\n        let normalize = false; // don't normalize the data\n        let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position\n        let vertexOffset = 0;        // start at the beginning of the buffer\n        this.GL.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, vertexOffset);\n\n        // Tell WebGL how to convert from clip space to pixels\n        this.GL.viewport(0, 0, this.GL.canvas.width, this.GL.canvas.height);\n\n        // Clear the canvas\n        this.GL.clearColor(.9, .9, .9, 1);\n        this.GL.clear(this.GL.COLOR_BUFFER_BIT);\n\n        // Tell it to use our program (pair of shaders)\n        this.GL.useProgram(program);\n\n        // Bind the attribute/buffer set we want.\n        this.GL.bindVertexArray(vao);\n\n        // draw\n        let primitiveType = this.GL.TRIANGLES;\n        let offset = 0;\n        let count = 3;\n        this.GL.drawArrays(primitiveType, 0, count);\n    }\n\n    update() {\n\n        gl.clearColor(0, 0, 0, 0);\n    \n        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);\n        \n\n        let viewports = SceneManager.getCurrentScene().viewports;\n        let viewportKeys = Object.keys(viewports);\n\n        for (let vi = 0; vi < viewportKeys.length; vi++) {\n            let viewport = viewports[viewportKeys[vi]];\n\n            gl.viewport(viewport.bounds.p1.x, viewport.bounds.p1.y, viewport.bounds.p2.x, viewport.bounds.p2.y);\n\n            //setup camera from viewport\n\n            let renderables = viewport.renderables;\n            let renderableKeys = Object.keys(renderables);\n            for (let ri = 0; ri < renderableKeys.length; ri++) {\n                let renderable = renderables[renderableKeys[ri]];\n\n                gl.useProgram(renderable.program);\n\n                let vao = gl.createVertexArray();\n                gl.createVertexArray(vao);\n\n                let positionAttributeLocation = this.GL.getAttribLocation(program, \"a_position\");\n                let matrixLocation = gl.getUniformLocation(program, \"u_matrix\");\n                var colorLocation = gl.getUniformLocation(program, \"u_color\");\n\n                gl.uniform4fv(colorLocation, color);\n                \n                gl.uniformMatrix3fv(renderable.matrix, false, matrix);\n\n                gl.drawArrays(primitiveType, offset, count);\n\n                var primitiveType = gl.TRIANGLES;\n                gl.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);\n            }\n        }\n    \n        // Set the color.\n    \n        // Draw the geometry.\n    }\n\n    end() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].end();\n        // }\n    }\n\n    pause() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].pause();\n        // }\n    }\n\n    unpause() {\n        // let objKeys = Object.keys(this.persistentObjects);\n        // for (let i = 0; i < objKeys.length; i++) {\n        //     this.persistentObjects[objKeys[i]].unpause();\n        // }\n    }\n\n    createShadersProgram(vertexShader, fragmentShader) {\n        let program = this.GL.createProgram();\n        this.GL.attachShader(program, vertexShader);\n        this.GL.attachShader(program, fragmentShader);\n        this.GL.linkProgram(program);\n        let success = this.GL.getProgramParameter(program, this.GL.LINK_STATUS);\n        if (success) {\n            return program;\n        }\n\n        console.error(this.GL.getProgramInfoLog(program));\n        this.GL.deleteProgram(program);\n        return null;\n    }\n\n    createShader(type, source) {\n        let shader = this.GL.createShader(type);\n        this.GL.shaderSource(shader, source);\n        this.GL.compileShader(shader);\n        let success = this.GL.getShaderParameter(shader, this.GL.COMPILE_STATUS);\n        if (success) {\n            return shader;\n        }\n\n        console.error(this.GL.getShaderInfoLog(shader));\n        this.GL.deleteShader(shader);\n        return null;\n    }\n\n    createProgram(vertexShaderSource, fragmentShaderSource) {\n        // create GLSL shaders, upload the GLSL source, compile the shaders\n        let vertexShader = this.createShader(this.GL.VERTEX_SHADER, vertexShaderSource);\n        let fragmentShader = this.createShader(this.GL.FRAGMENT_SHADER, fragmentShaderSource);\n\n        // Link the two shaders into a program\n        return this.createShadersProgram(vertexShader, fragmentShader);\n    }\n\n    createBuffer() {\n\n        // Create a buffer and put three 2d clip space points in it\n        let positionBuffer = this.GL.createBuffer();\n\n        // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)\n        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);\n\n        let positions = [\n            0, 0,\n            0, 0.5,\n            0.7, 0,\n        ];\n\n        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(positions), this.GL.STATIC_DRAW);\n\n    }\n}\nconst RenderManager = new _RenderManager();\nexport default RenderManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/RenderManager.js",
     "access": "public",
@@ -2578,7 +3012,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 178,
+    "__docId__": 213,
     "kind": "class",
     "name": "_RenderManager",
     "memberof": "src/manager/RenderManager.js",
@@ -2589,7 +3023,7 @@
     "importPath": "seed-engine/src/manager/RenderManager.js",
     "importStyle": "{_RenderManager}",
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 5,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -2597,7 +3031,7 @@
     ]
   },
   {
-    "__docId__": 179,
+    "__docId__": 214,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/manager/RenderManager.js~_RenderManager",
@@ -2607,11 +3041,28 @@
     "longname": "src/manager/RenderManager.js~_RenderManager#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 6,
     "undocument": true
   },
   {
-    "__docId__": 180,
+    "__docId__": 215,
+    "kind": "member",
+    "name": "GL",
+    "memberof": "src/manager/RenderManager.js~_RenderManager",
+    "static": false,
+    "longname": "src/manager/RenderManager.js~_RenderManager#GL",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 216,
     "kind": "method",
     "name": "start",
     "memberof": "src/manager/RenderManager.js~_RenderManager",
@@ -2621,13 +3072,30 @@
     "longname": "src/manager/RenderManager.js~_RenderManager#start",
     "access": "public",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 11,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 181,
+    "__docId__": 218,
+    "kind": "member",
+    "name": "program",
+    "memberof": "src/manager/RenderManager.js~_RenderManager",
+    "static": false,
+    "longname": "src/manager/RenderManager.js~_RenderManager#program",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 219,
     "kind": "method",
     "name": "update",
     "memberof": "src/manager/RenderManager.js~_RenderManager",
@@ -2637,13 +3105,13 @@
     "longname": "src/manager/RenderManager.js~_RenderManager#update",
     "access": "public",
     "description": null,
-    "lineNumber": 16,
+    "lineNumber": 58,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 182,
+    "__docId__": 220,
     "kind": "method",
     "name": "end",
     "memberof": "src/manager/RenderManager.js~_RenderManager",
@@ -2653,13 +3121,13 @@
     "longname": "src/manager/RenderManager.js~_RenderManager#end",
     "access": "public",
     "description": null,
-    "lineNumber": 23,
+    "lineNumber": 105,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 183,
+    "__docId__": 221,
     "kind": "method",
     "name": "pause",
     "memberof": "src/manager/RenderManager.js~_RenderManager",
@@ -2669,13 +3137,13 @@
     "longname": "src/manager/RenderManager.js~_RenderManager#pause",
     "access": "public",
     "description": null,
-    "lineNumber": 30,
+    "lineNumber": 112,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 184,
+    "__docId__": 222,
     "kind": "method",
     "name": "unpause",
     "memberof": "src/manager/RenderManager.js~_RenderManager",
@@ -2685,13 +3153,128 @@
     "longname": "src/manager/RenderManager.js~_RenderManager#unpause",
     "access": "public",
     "description": null,
-    "lineNumber": 37,
+    "lineNumber": 119,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 185,
+    "__docId__": 223,
+    "kind": "method",
+    "name": "createShadersProgram",
+    "memberof": "src/manager/RenderManager.js~_RenderManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/RenderManager.js~_RenderManager#createShadersProgram",
+    "access": "public",
+    "description": null,
+    "lineNumber": 126,
+    "undocument": true,
+    "params": [
+      {
+        "name": "vertexShader",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "fragmentShader",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 224,
+    "kind": "method",
+    "name": "createShader",
+    "memberof": "src/manager/RenderManager.js~_RenderManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/RenderManager.js~_RenderManager#createShader",
+    "access": "public",
+    "description": null,
+    "lineNumber": 141,
+    "undocument": true,
+    "params": [
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "source",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 225,
+    "kind": "method",
+    "name": "createProgram",
+    "memberof": "src/manager/RenderManager.js~_RenderManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/RenderManager.js~_RenderManager#createProgram",
+    "access": "public",
+    "description": null,
+    "lineNumber": 155,
+    "undocument": true,
+    "params": [
+      {
+        "name": "vertexShaderSource",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "fragmentShaderSource",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 226,
+    "kind": "method",
+    "name": "createBuffer",
+    "memberof": "src/manager/RenderManager.js~_RenderManager",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/manager/RenderManager.js~_RenderManager#createBuffer",
+    "access": "public",
+    "description": null,
+    "lineNumber": 164,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 227,
     "kind": "variable",
     "name": "RenderManager",
     "memberof": "src/manager/RenderManager.js",
@@ -2702,7 +3285,7 @@
     "importPath": "seed-engine/src/manager/RenderManager.js",
     "importStyle": "RenderManager",
     "description": null,
-    "lineNumber": 45,
+    "lineNumber": 183,
     "undocument": true,
     "type": {
       "types": [
@@ -2711,10 +3294,10 @@
     }
   },
   {
-    "__docId__": 186,
+    "__docId__": 228,
     "kind": "file",
     "name": "src/manager/SceneManager.js",
-    "content": "import Manager from './Manager';\nimport GameObject from '../object/GameObject';\n\nexport class _SceneManager extends Manager {\n    constructor() {\n        this.scenes = [];\n    }\n\n    /**\n     * Adds a SceneObject to the current scene to be managed by it.\n     * \n     * @param {SceneObject} sceneObject The SceneO∂bject that is being registered.\n     */\n    registerSceneObject(sceneObject) {\n        let scene = this.getCurrentScene();\n        if (scene != null)\n            scene.registerSceneObject(sceneObject);\n    }\n\n    registerViewport(viewport) {\n        let scene = this.getCurrentScene();\n        if (scene != null)\n            scene.registerViewport(viewport);\n    }\n\n    getCurrentScene() {\n        if (this.scenes.length > 0)\n            return this.scenes[this.scenes.length - 1];\n        return null;\n    }\n\n    start() {\n        if (this.scenes.length > 0) {\n            this.scenes[this.scenes.length - 1].start();\n        }\n    }\n\n    update() {\n        if (this.scenes.length > 0) {\n            this.scenes[this.scenes.length - 1].update();\n        }\n    }\n\n    end() {\n        if (this.scenes.length > 0)\n            for (let i = this.scenes.length - 1; i > 0; i--) {\n                this.scenes[i].end();\n            }\n    }\n\n    pause() {\n        if (this.scenes.length > 0)\n            this.scenes[this.scenes.length - 1].pause();\n    }\n\n    unpause() {\n        if (this.scenes.length > 0)\n            this.scenes[this.scenes.length - 1].unpause();\n    }\n\n    addScene(scene) {\n        this.onPause();\n        this.scenes.push(scene);\n    }\n\n    removeScene() {\n        let current = this.scenes.pop();\n        current.end();\n        this.onUnpause();\n    }\n}\n\nexport default SceneManager = new _SceneManager();",
+    "content": "import Manager from './Manager';\nimport GameObject from '../object/GameObject';\n\nexport class _SceneManager extends Manager {\n    constructor() {\n        super();\n        this.scenes = [];\n    }\n\n    /**\n     * Adds a SceneObject to the current scene to be managed by it.\n     * \n     * @param {SceneObject} sceneObject The SceneO∂bject that is being registered.\n     */\n    registerSceneObject(sceneObject) {\n        let scene = this.getCurrentScene();\n        if (scene != null)\n            scene.registerSceneObject(sceneObject);\n    }\n\n    registerViewport(viewport) {\n        let scene = this.getCurrentScene();\n        if (scene != null)\n            scene.registerViewport(viewport);\n    }\n\n    getCurrentScene() {\n        if (this.scenes.length > 0)\n            return this.scenes[this.scenes.length - 1];\n        return null;\n    }\n\n    start() {\n        if (this.scenes.length > 0) {\n            this.scenes[this.scenes.length - 1].start();\n        }\n    }\n\n    update() {\n        if (this.scenes.length > 0) {\n            this.scenes[this.scenes.length - 1].update();\n            let sceneObjectKeys = Object.keys(this.scenes[this.scenes.length - 1].sceneObjects);\n            for (let i = 0; i < sceneObjectKeys.length; i++) {\n                this.scenes[this.scenes.length - 1].sceneObjects[sceneObjectKeys[i]].update();\n            }\n        }\n    }\n\n    end() {\n        if (this.scenes.length > 0)\n            for (let i = this.scenes.length - 1; i > 0; i--) {\n                this.scenes[i].end();\n            }\n    }\n\n    pause() {\n        if (this.scenes.length > 0)\n            this.scenes[this.scenes.length - 1].pause();\n    }\n\n    unpause() {\n        if (this.scenes.length > 0)\n            this.scenes[this.scenes.length - 1].unpause();\n    }\n\n    addScene(scene) {\n        this.pause();\n        this.scenes.push(scene);\n    }\n\n    removeScene() {\n        let current = this.scenes.pop();\n        current.end();\n        this.unpause();\n    }\n}\n\nconst SceneManager = new _SceneManager();\nexport default SceneManager;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/manager/SceneManager.js",
     "access": "public",
@@ -2722,7 +3305,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 187,
+    "__docId__": 229,
     "kind": "class",
     "name": "_SceneManager",
     "memberof": "src/manager/SceneManager.js",
@@ -2741,7 +3324,7 @@
     ]
   },
   {
-    "__docId__": 188,
+    "__docId__": 230,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2755,7 +3338,7 @@
     "undocument": true
   },
   {
-    "__docId__": 189,
+    "__docId__": 231,
     "kind": "member",
     "name": "scenes",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2763,7 +3346,7 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#scenes",
     "access": "public",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 7,
     "undocument": true,
     "type": {
       "types": [
@@ -2772,7 +3355,7 @@
     }
   },
   {
-    "__docId__": 190,
+    "__docId__": 232,
     "kind": "method",
     "name": "registerSceneObject",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2782,7 +3365,7 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#registerSceneObject",
     "access": "public",
     "description": "Adds a SceneObject to the current scene to be managed by it.",
-    "lineNumber": 14,
+    "lineNumber": 15,
     "params": [
       {
         "nullable": null,
@@ -2798,7 +3381,7 @@
     "return": null
   },
   {
-    "__docId__": 191,
+    "__docId__": 233,
     "kind": "method",
     "name": "registerViewport",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2808,7 +3391,7 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#registerViewport",
     "access": "public",
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 21,
     "undocument": true,
     "params": [
       {
@@ -2821,7 +3404,7 @@
     "return": null
   },
   {
-    "__docId__": 192,
+    "__docId__": 234,
     "kind": "method",
     "name": "getCurrentScene",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2831,7 +3414,7 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#getCurrentScene",
     "access": "public",
     "description": null,
-    "lineNumber": 26,
+    "lineNumber": 27,
     "undocument": true,
     "params": [],
     "return": {
@@ -2841,7 +3424,7 @@
     }
   },
   {
-    "__docId__": 193,
+    "__docId__": 235,
     "kind": "method",
     "name": "start",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2851,13 +3434,13 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#start",
     "access": "public",
     "description": null,
-    "lineNumber": 32,
+    "lineNumber": 33,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 194,
+    "__docId__": 236,
     "kind": "method",
     "name": "update",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2867,13 +3450,13 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#update",
     "access": "public",
     "description": null,
-    "lineNumber": 38,
+    "lineNumber": 39,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 195,
+    "__docId__": 237,
     "kind": "method",
     "name": "end",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2883,13 +3466,13 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#end",
     "access": "public",
     "description": null,
-    "lineNumber": 44,
+    "lineNumber": 49,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 196,
+    "__docId__": 238,
     "kind": "method",
     "name": "pause",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2899,13 +3482,13 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#pause",
     "access": "public",
     "description": null,
-    "lineNumber": 51,
+    "lineNumber": 56,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 197,
+    "__docId__": 239,
     "kind": "method",
     "name": "unpause",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2915,13 +3498,13 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#unpause",
     "access": "public",
     "description": null,
-    "lineNumber": 56,
+    "lineNumber": 61,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 198,
+    "__docId__": 240,
     "kind": "method",
     "name": "addScene",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2931,7 +3514,7 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#addScene",
     "access": "public",
     "description": null,
-    "lineNumber": 61,
+    "lineNumber": 66,
     "undocument": true,
     "params": [
       {
@@ -2944,7 +3527,7 @@
     "return": null
   },
   {
-    "__docId__": 199,
+    "__docId__": 241,
     "kind": "method",
     "name": "removeScene",
     "memberof": "src/manager/SceneManager.js~_SceneManager",
@@ -2954,13 +3537,13 @@
     "longname": "src/manager/SceneManager.js~_SceneManager#removeScene",
     "access": "public",
     "description": null,
-    "lineNumber": 66,
+    "lineNumber": 71,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 200,
+    "__docId__": 242,
     "kind": "variable",
     "name": "SceneManager",
     "memberof": "src/manager/SceneManager.js",
@@ -2971,7 +3554,7 @@
     "importPath": "seed-engine/src/manager/SceneManager.js",
     "importStyle": "SceneManager",
     "description": null,
-    "lineNumber": 73,
+    "lineNumber": 79,
     "undocument": true,
     "type": {
       "types": [
@@ -2980,10 +3563,10 @@
     }
   },
   {
-    "__docId__": 201,
+    "__docId__": 243,
     "kind": "file",
     "name": "src/object/GameObject.js",
-    "content": "import Updateable from '../base/Updateable';\nimport Component from '../component/Component';\n\nexport default class GameObject extends Updateable {\n    constructor() {\n        this.className = 'GameObject';\n\n        this.components = {};\n    }\n\n    addComponent(component) {\n        if (this.components[component.className] == null) {\n            this.components[component.className] = {};\n        } else if (component.isUnique) {\n            throw 'There is already a unique component of type ' + component.className + ' on this GameObject!';\n            return false;\n        }\n        this.components[component.className][component.id] = component;\n        return true;\n    }\n\n    removeComponent(component) {\n        if (this.components[component.className] == null)\n            return false;\n        if (this.components[component.className][component.id] == null)\n            return false;\n        this.components[component.className][component.id].onEnd();\n        delete this.components[component.className][component.id];\n        return true;\n    }\n\n    removeComponentByID(componentName, id) {\n        if (this.components[componentName] == null)\n            return false;\n        if (this.components[componentName][id] == null)\n            return false;\n        this.components[componentName][id].onEnd();\n        delete this.components[componentName][id];\n        return true;\n    }\n\n    removeComponents(componentName) {\n        if (this.components[componentName] == null)\n            return false;\n        let comps = Object.keys(this.components[componentName]);\n        for (let i = 0; i < comps.length; i++) {\n            this.components[componentName][comps[i]].onEnd();\n            delete this.components[componentName][comps[i]];\n        }\n        return true;\n    }\n\n    removeAllComponents() {\n        let compTypes = Object.keys(this.components);\n        for (let i = 0; i < compTypes.length; i++) {\n            let thisCompType = compTypes[i];\n            let comps = Object.keys(this.components[thisCompType]);\n            for (let j = 0; j < comps.length; j++) {\n                this.components[thisCompType][comps[i]].onEnd();\n                delete this.components[thisCompType][comps[i]];\n            }\n        }\n        return true;\n    }\n\n    getComponent(componentName, id) {\n        return (this.components[componentName][id] == null ? null : this.components[componentName][id]);\n    }\n}",
+    "content": "import Updateable from '../base/Updateable';\nimport Component from '../component/Component';\nimport Transform from '../component/Transform';\n\nexport default class GameObject extends Updateable {\n    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {\n        super();\n        this.className = 'GameObject';\n\n        this.components = {};\n        this.addComponent(new Transform(x, y, z, scaleX, scaleY, rotation));\n    }\n\n    addComponent(component) {\n        if (this.components[component.className] == null) {\n            this.components[component.className] = {};\n        } else if (component.isUnique) {\n            throw 'There is already a unique component of type ' + component.className + ' on this GameObject!';\n            return false;\n        }\n        this.components[component.className][component.id] = component;\n        return true;\n    }\n\n    removeComponent(component) {\n        if (this.components[component.className] == null)\n            return false;\n        if (this.components[component.className][component.id] == null)\n            return false;\n        this.components[component.className][component.id].onEnd();\n        delete this.components[component.className][component.id];\n        return true;\n    }\n\n    removeComponentByID(componentName, id) {\n        if (this.components[componentName] == null)\n            return false;\n        if (this.components[componentName][id] == null)\n            return false;\n        this.components[componentName][id].onEnd();\n        delete this.components[componentName][id];\n        return true;\n    }\n\n    removeComponents(componentName) {\n        if (this.components[componentName] == null)\n            return false;\n        let comps = Object.keys(this.components[componentName]);\n        for (let i = 0; i < comps.length; i++) {\n            this.components[componentName][comps[i]].onEnd();\n            delete this.components[componentName][comps[i]];\n        }\n        return true;\n    }\n\n    removeAllComponents() {\n        let compTypes = Object.keys(this.components);\n        for (let i = 0; i < compTypes.length; i++) {\n            let thisCompType = compTypes[i];\n            let comps = Object.keys(this.components[thisCompType]);\n            for (let j = 0; j < comps.length; j++) {\n                this.components[thisCompType][comps[i]].onEnd();\n                delete this.components[thisCompType][comps[i]];\n            }\n        }\n        return true;\n    }\n\n    getComponent(componentName, id) {\n        return (this.components[componentName][id] == null ? null : this.components[componentName][id]);\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/object/GameObject.js",
     "access": "public",
@@ -2991,7 +3574,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 202,
+    "__docId__": 244,
     "kind": "class",
     "name": "GameObject",
     "memberof": "src/object/GameObject.js",
@@ -3002,7 +3585,7 @@
     "importPath": "seed-engine/src/object/GameObject.js",
     "importStyle": "GameObject",
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 5,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -3010,7 +3593,7 @@
     ]
   },
   {
-    "__docId__": 203,
+    "__docId__": 245,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3020,11 +3603,11 @@
     "longname": "src/object/GameObject.js~GameObject#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 6,
     "undocument": true
   },
   {
-    "__docId__": 204,
+    "__docId__": 246,
     "kind": "member",
     "name": "className",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3032,7 +3615,7 @@
     "longname": "src/object/GameObject.js~GameObject#className",
     "access": "public",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 8,
     "undocument": true,
     "type": {
       "types": [
@@ -3041,7 +3624,7 @@
     }
   },
   {
-    "__docId__": 205,
+    "__docId__": 247,
     "kind": "member",
     "name": "components",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3049,7 +3632,7 @@
     "longname": "src/object/GameObject.js~GameObject#components",
     "access": "public",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 10,
     "undocument": true,
     "type": {
       "types": [
@@ -3058,7 +3641,7 @@
     }
   },
   {
-    "__docId__": 206,
+    "__docId__": 248,
     "kind": "method",
     "name": "addComponent",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3068,7 +3651,7 @@
     "longname": "src/object/GameObject.js~GameObject#addComponent",
     "access": "public",
     "description": null,
-    "lineNumber": 11,
+    "lineNumber": 14,
     "undocument": true,
     "params": [
       {
@@ -3085,7 +3668,7 @@
     }
   },
   {
-    "__docId__": 207,
+    "__docId__": 249,
     "kind": "method",
     "name": "removeComponent",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3095,7 +3678,7 @@
     "longname": "src/object/GameObject.js~GameObject#removeComponent",
     "access": "public",
     "description": null,
-    "lineNumber": 22,
+    "lineNumber": 25,
     "undocument": true,
     "params": [
       {
@@ -3112,7 +3695,7 @@
     }
   },
   {
-    "__docId__": 208,
+    "__docId__": 250,
     "kind": "method",
     "name": "removeComponentByID",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3122,7 +3705,7 @@
     "longname": "src/object/GameObject.js~GameObject#removeComponentByID",
     "access": "public",
     "description": null,
-    "lineNumber": 32,
+    "lineNumber": 35,
     "undocument": true,
     "params": [
       {
@@ -3145,7 +3728,7 @@
     }
   },
   {
-    "__docId__": 209,
+    "__docId__": 251,
     "kind": "method",
     "name": "removeComponents",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3155,7 +3738,7 @@
     "longname": "src/object/GameObject.js~GameObject#removeComponents",
     "access": "public",
     "description": null,
-    "lineNumber": 42,
+    "lineNumber": 45,
     "undocument": true,
     "params": [
       {
@@ -3172,7 +3755,7 @@
     }
   },
   {
-    "__docId__": 210,
+    "__docId__": 252,
     "kind": "method",
     "name": "removeAllComponents",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3182,7 +3765,7 @@
     "longname": "src/object/GameObject.js~GameObject#removeAllComponents",
     "access": "public",
     "description": null,
-    "lineNumber": 53,
+    "lineNumber": 56,
     "undocument": true,
     "params": [],
     "return": {
@@ -3192,7 +3775,7 @@
     }
   },
   {
-    "__docId__": 211,
+    "__docId__": 253,
     "kind": "method",
     "name": "getComponent",
     "memberof": "src/object/GameObject.js~GameObject",
@@ -3202,7 +3785,7 @@
     "longname": "src/object/GameObject.js~GameObject#getComponent",
     "access": "public",
     "description": null,
-    "lineNumber": 66,
+    "lineNumber": 69,
     "undocument": true,
     "params": [
       {
@@ -3225,10 +3808,10 @@
     }
   },
   {
-    "__docId__": 212,
+    "__docId__": 254,
     "kind": "file",
     "name": "src/object/PersistentObject.js",
-    "content": "import GameObject from \"./GameObject\";\nimport PersistentManager from \"../manager/PersistentManager\";\n\nexport default class PersistentObject extends GameObject {\n    constructor() {\n        this.deregister = PersistentManager.registerSceneObject(this);\n    }\n\n    onEnd() {\n        this.deregister();\n    }\n}",
+    "content": "import GameObject from \"./GameObject\";\nimport PersistentManager from \"../manager/PersistentManager\";\n\nexport default class PersistentObject extends GameObject {\n    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {\n        super(x, y, z, scaleX, scaleY, rotation);\n        this.deregister = PersistentManager.registerSceneObject(this);\n    }\n\n    onEnd() {\n        this.deregister();\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/object/PersistentObject.js",
     "access": "public",
@@ -3236,7 +3819,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 213,
+    "__docId__": 255,
     "kind": "class",
     "name": "PersistentObject",
     "memberof": "src/object/PersistentObject.js",
@@ -3255,7 +3838,7 @@
     ]
   },
   {
-    "__docId__": 214,
+    "__docId__": 256,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/object/PersistentObject.js~PersistentObject",
@@ -3269,7 +3852,7 @@
     "undocument": true
   },
   {
-    "__docId__": 215,
+    "__docId__": 257,
     "kind": "member",
     "name": "deregister",
     "memberof": "src/object/PersistentObject.js~PersistentObject",
@@ -3277,7 +3860,7 @@
     "longname": "src/object/PersistentObject.js~PersistentObject#deregister",
     "access": "public",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 7,
     "undocument": true,
     "type": {
       "types": [
@@ -3286,7 +3869,7 @@
     }
   },
   {
-    "__docId__": 216,
+    "__docId__": 258,
     "kind": "method",
     "name": "onEnd",
     "memberof": "src/object/PersistentObject.js~PersistentObject",
@@ -3296,16 +3879,16 @@
     "longname": "src/object/PersistentObject.js~PersistentObject#onEnd",
     "access": "public",
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 10,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 217,
+    "__docId__": 259,
     "kind": "file",
     "name": "src/object/SceneObject.js",
-    "content": "import GameObject from \"./GameObject\";\nimport SceneManager from '../manager/SceneManager';\n\nexport default class SceneObject extends GameObject {\n    constructor() {\n        this.deregister = SceneManager.registerSceneObject(this);\n    }\n\n    onEnd() {\n        this.deregister();\n    }\n}",
+    "content": "import GameObject from \"./GameObject\";\nimport SceneManager from '../manager/SceneManager';\n\nexport default class SceneObject extends GameObject {\n    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {\n        super(x, y, z, scaleX, scaleY, rotation);\n        this.deregister = SceneManager.registerSceneObject(this);\n    }\n\n    onEnd() {\n        this.deregister();\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/object/SceneObject.js",
     "access": "public",
@@ -3313,7 +3896,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 218,
+    "__docId__": 260,
     "kind": "class",
     "name": "SceneObject",
     "memberof": "src/object/SceneObject.js",
@@ -3332,7 +3915,7 @@
     ]
   },
   {
-    "__docId__": 219,
+    "__docId__": 261,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/object/SceneObject.js~SceneObject",
@@ -3346,7 +3929,7 @@
     "undocument": true
   },
   {
-    "__docId__": 220,
+    "__docId__": 262,
     "kind": "member",
     "name": "deregister",
     "memberof": "src/object/SceneObject.js~SceneObject",
@@ -3354,7 +3937,7 @@
     "longname": "src/object/SceneObject.js~SceneObject#deregister",
     "access": "public",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 7,
     "undocument": true,
     "type": {
       "types": [
@@ -3363,7 +3946,7 @@
     }
   },
   {
-    "__docId__": 221,
+    "__docId__": 263,
     "kind": "method",
     "name": "onEnd",
     "memberof": "src/object/SceneObject.js~SceneObject",
@@ -3373,13 +3956,13 @@
     "longname": "src/object/SceneObject.js~SceneObject#onEnd",
     "access": "public",
     "description": null,
-    "lineNumber": 9,
+    "lineNumber": 10,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 222,
+    "__docId__": 264,
     "kind": "file",
     "name": "src/render/Camera.js",
     "content": "",
@@ -3390,7 +3973,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 223,
+    "__docId__": 265,
     "kind": "file",
     "name": "src/render/Light.js",
     "content": "",
@@ -3401,10 +3984,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 224,
+    "__docId__": 266,
     "kind": "file",
     "name": "src/render/Viewport.js",
-    "content": "import SceneManager from '../manager/SceneManager';\n\nexport default class Viewport extends Updateable {\n    constructor() {\n        this.deregister = SceneManager.registerViewport(this);\n    }\n}",
+    "content": "import SceneManager from '../manager/SceneManager';\nimport DOMManager from '../manager/DOMManager';\nimport Updateable from '../base/Updateable';\n\nexport default class Viewport extends Updateable {\n    constructor(x, y, w, h) {\n        this.deregister = SceneManager.registerViewport(this);\n\n        this.bounds = new Bounds(x, y, w, h);\n\n        /**\n         * An object of keys represented by 'z' indexes to store all \n         * renderable objects in render order.\n         */\n        this.renderables = {};\n    }\n\n    registerRenderableComponent(renderable) {\n        this.renderables[renderable.id] = renderable;\n        let deregisterCallback = () => {\n            delete this.renderables[renderable.id];\n        }\n        return deregisterCallback;\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/render/Viewport.js",
     "access": "public",
@@ -3412,7 +3995,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 225,
+    "__docId__": 267,
     "kind": "class",
     "name": "Viewport",
     "memberof": "src/render/Viewport.js",
@@ -3423,15 +4006,15 @@
     "importPath": "seed-engine/src/render/Viewport.js",
     "importStyle": "Viewport",
     "description": null,
-    "lineNumber": 3,
+    "lineNumber": 5,
     "undocument": true,
     "interface": false,
     "extends": [
-      "Updateable"
+      "src/base/Updateable.js~Updateable"
     ]
   },
   {
-    "__docId__": 226,
+    "__docId__": 268,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/render/Viewport.js~Viewport",
@@ -3441,11 +4024,11 @@
     "longname": "src/render/Viewport.js~Viewport#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 4,
+    "lineNumber": 6,
     "undocument": true
   },
   {
-    "__docId__": 227,
+    "__docId__": 269,
     "kind": "member",
     "name": "deregister",
     "memberof": "src/render/Viewport.js~Viewport",
@@ -3453,7 +4036,7 @@
     "longname": "src/render/Viewport.js~Viewport#deregister",
     "access": "public",
     "description": null,
-    "lineNumber": 5,
+    "lineNumber": 7,
     "undocument": true,
     "type": {
       "types": [
@@ -3462,7 +4045,67 @@
     }
   },
   {
-    "__docId__": 228,
+    "__docId__": 270,
+    "kind": "member",
+    "name": "bounds",
+    "memberof": "src/render/Viewport.js~Viewport",
+    "static": false,
+    "longname": "src/render/Viewport.js~Viewport#bounds",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 271,
+    "kind": "member",
+    "name": "renderables",
+    "memberof": "src/render/Viewport.js~Viewport",
+    "static": false,
+    "longname": "src/render/Viewport.js~Viewport#renderables",
+    "access": "public",
+    "description": "An object of keys represented by 'z' indexes to store all \nrenderable objects in render order.",
+    "lineNumber": 15,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 272,
+    "kind": "method",
+    "name": "registerRenderableComponent",
+    "memberof": "src/render/Viewport.js~Viewport",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/render/Viewport.js~Viewport#registerRenderableComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "renderable",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 273,
     "kind": "file",
     "name": "src/render/WebGL/Matrix.js",
     "content": "export default class Matrix {\n\n    pack(x, y, scaleX, scaleY, rotationDegree) {}\n\n    setPosition(x, y) {}\n\n    setScale(scaleX, scaleY) {}\n\n    setRotation(rotationDegree) {}\n\n    add(m2) {}\n\n    multiply(m2) {}\n}",
@@ -3473,7 +4116,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 229,
+    "__docId__": 274,
     "kind": "class",
     "name": "Matrix",
     "memberof": "src/render/WebGL/Matrix.js",
@@ -3489,7 +4132,7 @@
     "interface": false
   },
   {
-    "__docId__": 230,
+    "__docId__": 275,
     "kind": "method",
     "name": "pack",
     "memberof": "src/render/WebGL/Matrix.js~Matrix",
@@ -3536,7 +4179,7 @@
     "return": null
   },
   {
-    "__docId__": 231,
+    "__docId__": 276,
     "kind": "method",
     "name": "setPosition",
     "memberof": "src/render/WebGL/Matrix.js~Matrix",
@@ -3565,7 +4208,7 @@
     "return": null
   },
   {
-    "__docId__": 232,
+    "__docId__": 277,
     "kind": "method",
     "name": "setScale",
     "memberof": "src/render/WebGL/Matrix.js~Matrix",
@@ -3594,7 +4237,7 @@
     "return": null
   },
   {
-    "__docId__": 233,
+    "__docId__": 278,
     "kind": "method",
     "name": "setRotation",
     "memberof": "src/render/WebGL/Matrix.js~Matrix",
@@ -3617,7 +4260,7 @@
     "return": null
   },
   {
-    "__docId__": 234,
+    "__docId__": 279,
     "kind": "method",
     "name": "add",
     "memberof": "src/render/WebGL/Matrix.js~Matrix",
@@ -3640,7 +4283,7 @@
     "return": null
   },
   {
-    "__docId__": 235,
+    "__docId__": 280,
     "kind": "method",
     "name": "multiply",
     "memberof": "src/render/WebGL/Matrix.js~Matrix",
@@ -3663,7 +4306,7 @@
     "return": null
   },
   {
-    "__docId__": 236,
+    "__docId__": 281,
     "kind": "file",
     "name": "src/render/WebGL/Matrix3.js",
     "content": "import * as MathUtil from '../../utils/MathUtil';\nimport Matrix from './Matrix';\n\n//translation -> rotation -> scale\n\nexport default class Matrix3 extends Matrix {\n    constructor() {\n        //default x = 0, y = 0, scaleXY = 1, rotation = 0\n        this.m = [1,0,0,\n                  0,1,0,\n                  0,0,1];\n        return this;\n    }\n\n    pack(x, y, scaleX, scaleY, rotationDegree) {\n        this.setPosition(x, y);\n        let rotate = new Matrix3().setRotation(rotationDegree);\n        let scale = new Matrix3().setScale(scaleX, scaleY);\n        this.multiply(rotate);\n        this.multiply(scale);\n    }\n\n    setPosition(x, y) {\n        this.m[6] = x;\n        this.m[7] = y;\n    }\n\n    setScale(scaleX, scaleY) {\n        this.m[0] = x;\n        this.m[4] = y;\n    }\n\n    setRotation(rotationDegree) {\n        let rad = math.degToRad(rotationDegree);\n        let c = Math.cos(rad);\n        let s = Math.sin(rad);\n        this.m[0] = c;\n        this.m[1] = -s;\n        this.m[3] = s;\n        this.m[4] = c;\n    }\n\n    add(m2) {\n\n    }\n\n    multiply(m2) {\n        this.m[0] = this.m[0] * m2[0] + this.m[3] * m2[1] + this.m[6] * m2[2];\n        this.m[1] = this.m[1] * m2[0] + this.m[4] * m2[1] + this.m[7] * m2[2];\n        this.m[2] = this.m[2] * m2[0] + this.m[5] * m2[1] + this.m[8] * m2[2];\n\n        this.m[3] = this.m[0] * m2[3] + this.m[3] * m2[4] + this.m[6] * m2[5];\n        this.m[4] = this.m[1] * m2[3] + this.m[4] * m2[4] + this.m[7] * m2[5];\n        this.m[5] = this.m[2] * m2[3] + this.m[5] * m2[4] + this.m[8] * m2[5];\n\n        this.m[6] = this.m[0] * m2[6] + this.m[3] * m2[7] + this.m[6] * m2[8];\n        this.m[7] = this.m[1] * m2[6] + this.m[4] * m2[7] + this.m[7] * m2[8];\n        this.m[8] = this.m[2] * m2[6] + this.m[5] * m2[7] + this.m[8] * m2[8];\n    }\n}",
@@ -3674,7 +4317,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 237,
+    "__docId__": 282,
     "kind": "class",
     "name": "Matrix3",
     "memberof": "src/render/WebGL/Matrix3.js",
@@ -3693,7 +4336,7 @@
     ]
   },
   {
-    "__docId__": 238,
+    "__docId__": 283,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3707,7 +4350,7 @@
     "undocument": true
   },
   {
-    "__docId__": 239,
+    "__docId__": 284,
     "kind": "member",
     "name": "m",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3724,7 +4367,7 @@
     }
   },
   {
-    "__docId__": 240,
+    "__docId__": 285,
     "kind": "method",
     "name": "pack",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3771,7 +4414,7 @@
     "return": null
   },
   {
-    "__docId__": 241,
+    "__docId__": 286,
     "kind": "method",
     "name": "setPosition",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3800,7 +4443,7 @@
     "return": null
   },
   {
-    "__docId__": 242,
+    "__docId__": 287,
     "kind": "method",
     "name": "setScale",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3829,7 +4472,7 @@
     "return": null
   },
   {
-    "__docId__": 243,
+    "__docId__": 288,
     "kind": "method",
     "name": "setRotation",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3852,7 +4495,7 @@
     "return": null
   },
   {
-    "__docId__": 244,
+    "__docId__": 289,
     "kind": "method",
     "name": "add",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3875,7 +4518,7 @@
     "return": null
   },
   {
-    "__docId__": 245,
+    "__docId__": 290,
     "kind": "method",
     "name": "multiply",
     "memberof": "src/render/WebGL/Matrix3.js~Matrix3",
@@ -3898,7 +4541,99 @@
     "return": null
   },
   {
-    "__docId__": 246,
+    "__docId__": 291,
+    "kind": "file",
+    "name": "src/render/WebGL/Shader.js",
+    "content": "export default class Shader {\n    constructor() {\n        this.source = ``;\n        this.compiled = null;\n        this.uniforms = {};\n    }\n}",
+    "static": true,
+    "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/render/WebGL/Shader.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 292,
+    "kind": "class",
+    "name": "Shader",
+    "memberof": "src/render/WebGL/Shader.js",
+    "static": true,
+    "longname": "src/render/WebGL/Shader.js~Shader",
+    "access": "public",
+    "export": true,
+    "importPath": "seed-engine/src/render/WebGL/Shader.js",
+    "importStyle": "Shader",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "interface": false
+  },
+  {
+    "__docId__": 293,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/render/WebGL/Shader.js~Shader",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/render/WebGL/Shader.js~Shader#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 2,
+    "undocument": true
+  },
+  {
+    "__docId__": 294,
+    "kind": "member",
+    "name": "source",
+    "memberof": "src/render/WebGL/Shader.js~Shader",
+    "static": false,
+    "longname": "src/render/WebGL/Shader.js~Shader#source",
+    "access": "public",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 295,
+    "kind": "member",
+    "name": "compiled",
+    "memberof": "src/render/WebGL/Shader.js~Shader",
+    "static": false,
+    "longname": "src/render/WebGL/Shader.js~Shader#compiled",
+    "access": "public",
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 296,
+    "kind": "member",
+    "name": "uniforms",
+    "memberof": "src/render/WebGL/Shader.js~Shader",
+    "static": false,
+    "longname": "src/render/WebGL/Shader.js~Shader#uniforms",
+    "access": "public",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 297,
     "kind": "file",
     "name": "src/scene/BasicScene.js",
     "content": "import Scene from './Scene';\n\nexport default class BasicScene extends Scene {\n\n}",
@@ -3909,7 +4644,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 247,
+    "__docId__": 298,
     "kind": "class",
     "name": "BasicScene",
     "memberof": "src/scene/BasicScene.js",
@@ -3928,10 +4663,10 @@
     ]
   },
   {
-    "__docId__": 248,
+    "__docId__": 299,
     "kind": "file",
     "name": "src/scene/Scene.js",
-    "content": "import Updateable from '../base/Updateable';\n\nexport default class Scene extends Updateable {\n\n    constructor() {\n        this.sceneObjects = {};\n        this.viewports = {};\n    }\n\n    registerSceneObject(sceneObject) {\n        this.sceneObjects[sceneObject.id] = sceneObject;\n        let deregisterCallback = () => {\n            delete this.sceneObjects[sceneObject.id];\n        }\n        return deregisterCallback;\n    }\n\n    registerViewport(viewport) {\n        this.viewports[viewport.id] = viewport;\n        let deregisterCallback = () => {\n            delete this.sceneObjects[sceneObject.id];\n        }\n        return deregisterCallback;\n    }\n\n}",
+    "content": "import Updateable from '../base/Updateable';\n\nexport default class Scene extends Updateable {\n\n    constructor() {\n        super();\n        this.sceneObjects = {};\n        this.viewports = {};\n    }\n\n    registerSceneObject(sceneObject) {\n        this.sceneObjects[sceneObject.id] = sceneObject;\n        let deregisterCallback = () => {\n            delete this.sceneObjects[sceneObject.id];\n        }\n        return deregisterCallback;\n    }\n\n    registerRenderableComponent(renderable, viewport) {\n        if (this.viewports[viewport.id] != null)\n            return this.viewports[viewport.id].registerRenderableComponent(renderable);\n        else {\n            throw \"This viewport doesn't exist on this scene!\";\n        }\n    }\n\n    registerViewport(viewport) {\n        this.viewports[viewport.id] = viewport;\n        let deregisterCallback = () => {\n            delete this.sceneObjects[sceneObject.id];\n        }\n        return deregisterCallback;\n    }\n\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/scene/Scene.js",
     "access": "public",
@@ -3939,7 +4674,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 249,
+    "__docId__": 300,
     "kind": "class",
     "name": "Scene",
     "memberof": "src/scene/Scene.js",
@@ -3958,7 +4693,7 @@
     ]
   },
   {
-    "__docId__": 250,
+    "__docId__": 301,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/scene/Scene.js~Scene",
@@ -3972,29 +4707,12 @@
     "undocument": true
   },
   {
-    "__docId__": 251,
+    "__docId__": 302,
     "kind": "member",
     "name": "sceneObjects",
     "memberof": "src/scene/Scene.js~Scene",
     "static": false,
     "longname": "src/scene/Scene.js~Scene#sceneObjects",
-    "access": "public",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{}"
-      ]
-    }
-  },
-  {
-    "__docId__": 252,
-    "kind": "member",
-    "name": "viewports",
-    "memberof": "src/scene/Scene.js~Scene",
-    "static": false,
-    "longname": "src/scene/Scene.js~Scene#viewports",
     "access": "public",
     "description": null,
     "lineNumber": 7,
@@ -4006,7 +4724,24 @@
     }
   },
   {
-    "__docId__": 253,
+    "__docId__": 303,
+    "kind": "member",
+    "name": "viewports",
+    "memberof": "src/scene/Scene.js~Scene",
+    "static": false,
+    "longname": "src/scene/Scene.js~Scene#viewports",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 304,
     "kind": "method",
     "name": "registerSceneObject",
     "memberof": "src/scene/Scene.js~Scene",
@@ -4016,7 +4751,7 @@
     "longname": "src/scene/Scene.js~Scene#registerSceneObject",
     "access": "public",
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 11,
     "undocument": true,
     "params": [
       {
@@ -4033,7 +4768,40 @@
     }
   },
   {
-    "__docId__": 254,
+    "__docId__": 305,
+    "kind": "method",
+    "name": "registerRenderableComponent",
+    "memberof": "src/scene/Scene.js~Scene",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/scene/Scene.js~Scene#registerRenderableComponent",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true,
+    "params": [
+      {
+        "name": "renderable",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "viewport",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 306,
     "kind": "method",
     "name": "registerViewport",
     "memberof": "src/scene/Scene.js~Scene",
@@ -4043,7 +4811,7 @@
     "longname": "src/scene/Scene.js~Scene#registerViewport",
     "access": "public",
     "description": null,
-    "lineNumber": 18,
+    "lineNumber": 27,
     "undocument": true,
     "params": [
       {
@@ -4060,7 +4828,7 @@
     }
   },
   {
-    "__docId__": 255,
+    "__docId__": 307,
     "kind": "file",
     "name": "src/utils/MathUtil.js",
     "content": "export const degToRad = (deg) => {\n    return (deg / 180) * Math.PI;\n}\n\nexport const radToDeg = (rad) => {\n    return (deg / Math.PI) * 180;\n}",
@@ -4071,7 +4839,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 256,
+    "__docId__": 308,
     "kind": "function",
     "name": "degToRad",
     "memberof": "src/utils/MathUtil.js",
@@ -4101,7 +4869,7 @@
     }
   },
   {
-    "__docId__": 257,
+    "__docId__": 309,
     "kind": "function",
     "name": "radToDeg",
     "memberof": "src/utils/MathUtil.js",
@@ -4140,14 +4908,14 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n    \"name\": \"seed-engine\",\n    \"version\": \"1.0.2\",\n    \"description\": \"A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.\",\n    \"main\": \"./src/Engine.js\",\n    \"scripts\": {\n        \"test\": \"node test/run.js\",\n        \"version\": \"./node_modules/.bin/esdoc -c ./esdoc.json\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git+https://github.com/JaegarSarauer/SeedGameEngine.git\"\n    },\n    \"keywords\": [\n        \"Seed\",\n        \"Game\",\n        \"Engine\"\n    ],\n    \"author\": \"Jaegar Sarauer\",\n    \"license\": \"MIT\",\n    \"bugs\": {\n        \"url\": \"https://github.com/JaegarSarauer/SeedGameEngine/issues\"\n    },\n    \"homepage\": \"https://github.com/JaegarSarauer/SeedGameEngine#readme\",\n    \"devDependencies\": {\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-standard-plugin\": \"^1.0.0\"\n    }\n}",
+    "content": "{\n    \"name\": \"seed-engine\",\n    \"version\": \"1.0.2\",\n    \"description\": \"A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.\",\n    \"main\": \"./src/entry.js\",\n    \"scripts\": {\n        \"test\": \"node test/run.js\",\n        \"version\": \"./node_modules/.bin/esdoc -c ./esdoc.json\"\n    },\n    \"repository\": {\n        \"type\": \"git\",\n        \"url\": \"git+https://github.com/JaegarSarauer/SeedGameEngine.git\"\n    },\n    \"keywords\": [\n        \"Seed\",\n        \"Game\",\n        \"Engine\"\n    ],\n    \"author\": \"Jaegar Sarauer\",\n    \"license\": \"MIT\",\n    \"bugs\": {\n        \"url\": \"https://github.com/JaegarSarauer/SeedGameEngine/issues\"\n    },\n    \"homepage\": \"https://github.com/JaegarSarauer/SeedGameEngine#readme\",\n    \"devDependencies\": {\n        \"esdoc\": \"^1.1.0\",\n        \"esdoc-standard-plugin\": \"^1.0.0\"\n    }\n}",
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/package.json",
     "name": "package.json",
     "static": true,
     "access": "public"
   },
   {
-    "__docId__": 258,
+    "__docId__": 310,
     "kind": "testFile",
     "name": "test/helper/Test.js",
     "content": "const log = require('./Log');\nconst TestManager = require('./TestManager');\n\nclass Test {\n    constructor(name) {\n        this.name = name;\n        this.tests = [];\n        TestManager.addTest(this);\n    }\n\n    run() {\n        this.steps();\n        let i = 0;\n        log.info('[Running]: ' + this.name);\n        while(i < this.tests.length) {\n            if (this.tests[i].test()) {\n                log.success('\\t' + this.tests[i].name);\n                i++;\n            } else {\n                log.error('\\t' + this.tests[i].name);\n                break;\n            }\n        }\n        if (i >= this.tests.length) {\n            log.success('[Success]: ' + this.name);\n        } else {\n            log.error('[Failed]: ' + this.name);\n        }\n    }\n\n    steps() {\n        throw 'Steps must be added to the test!';\n    }\n\n    addStep(testName, functionStep) {\n        this.tests.push({\n            name: testName,\n            test: functionStep,\n        });\n    }\n}\n\nmodule.exports = Test;",
@@ -4158,10 +4926,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 259,
+    "__docId__": 311,
     "kind": "testFile",
     "name": "test/tests/ExampleTest.js",
-    "content": "const log = require('../helper/Log');\nconst Test = require('../helper/Test');\n\n/**\n * Example test. Runs a few simple assertions and chains them.\n * The third one fails on purpose.\n * @test \n */\nclass ExampleTest extends Test {\n    constructor() {\n        super('Example Test');\n\n        this.value = 4;\n    }\n    \n    steps() {\n        this.addStep('Simple Assert 1', () => {\n            this.value += 100;\n            return this.value < 200;\n        });\n        this.addStep('Simple Assert 2', () => {\n            this.value += 100;\n            return this.value < 222;\n        });\n        this.addStep('Simple Assert 3 (should fail)', () => {\n            this.value += 100;\n            return this.value < 222;\n        });\n    }\n}\n\nmodule.exports = new ExampleTest();",
+    "content": "const log = require('../helper/Log');\nconst Test = require('../helper/Test');\n\n/**\n * Example test. Runs a few simple assertions and chains them.\n * The third one fails on purpose.\n * @test \n */\nclass ExampleTest extends Test {\n    constructor() {\n        super('Example Test');\n\n        this.value = 4;\n    }\n    \n    steps() {\n        this.addStep('Simple Assert 1', () => {\n            this.value += 100;\n            return this.value < 200;\n        });\n        this.addStep('Simple Assert 2', () => {\n            this.value += 100;\n            return this.value < 222;\n        });\n        this.addStep('Simple Assert 3 (should fail)', () => {\n            this.value += 100;\n            return this.value < 222;\n        });\n    }\n}\n\nmodule.exports = ExampleTest;",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/test/tests/ExampleTest.js",
     "access": null,
