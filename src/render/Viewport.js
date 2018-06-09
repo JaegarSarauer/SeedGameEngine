@@ -1,5 +1,6 @@
 import SceneManager from '../manager/SceneManager';
 import DOMManager from '../manager/DOMManager';
+import Updateable from '../base/Updateable';
 
 export default class Viewport extends Updateable {
     constructor(x, y, w, h) {

@@ -1,8 +1,8 @@
 import Manager from './Manager';
 
-export default class DOMManager extends Manager {
+export class _DOMManager extends Manager {
     constructor() {
-        super(this, "DOMManager");
+        super();
         this.canvas = null;
         this.GL = null;
     }
@@ -18,3 +18,6 @@ export default class DOMManager extends Manager {
         this.GL = this.canvas.getContext('webgl2');
     }
 }
+
+const DOMManager = new _DOMManager();
+export default DOMManager;

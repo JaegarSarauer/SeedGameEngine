@@ -1,7 +1,11 @@
 import Manager from './Manager';
 
-export default class PhysicsManager extends Manager {
+export class _PhysicsManager extends Manager {
     constructor() {
-        super(this, "PhysicsManager");
+        super();
     }
+
 }
+
+const PhysicsManager = new _PhysicsManager();
+export default PhysicsManager;

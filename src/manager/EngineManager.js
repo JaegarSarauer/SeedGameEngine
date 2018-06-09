@@ -1,45 +1,45 @@
 import Manager from './Manager';
-import RenderManager from './RenderManager';
+//import RenderManager from './RenderManager';
 import SceneManager from './SceneManager';
 import PersistentManager from './PersistentManager';
 
 /**
  * Manager of the core ECS system & game loop.
  */
-export default class EngineManager extends Manager {
+export class _EngineManager extends Manager {
     constructor() {
-        super(this, "EngineManager");
+        super();
         this.MS_PER_FRAME = 30;
         this.coreUpdateLoopHandle = null;
-        this.hasPaused = true;
+        this.hasPaused = false;
     }
 
     start() {
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {
-                this.update();
+                this._update();
             }
         }, this.MS_PER_FRAME);
         PersistentManager.start();
         SceneManager.start();
-        RenderManager.start();
+        //RenderManager.start();
     }
 
     _update() {
         PersistentManager.update();
         SceneManager.update();
-        RendererManager.update();
+        //RenderManager.update();
     }
 
     end() {
         PersistentManager.end();
         SceneManager.end();
-        RendererManager.end();
+        //RenderManager.end();
         clearInterval(this.coreUpdateLoopHandle);
     }
 
     pause() {
-        RendererManager.pause();
+        //RenderManager.pause();
         PersistentManager.pause();
         SceneManager.pause();
         this.hasPaused = true;
@@ -48,7 +48,10 @@ export default class EngineManager extends Manager {
     unpause() {
         SceneManager.unpause();
         PersistentManager.unpause();
-        RendererManager.unpause();
+        //RenderManager.unpause();
         this.hasPaused = false;
     }
 }
+
+const EngineManager = new _EngineManager();
+export default EngineManager;

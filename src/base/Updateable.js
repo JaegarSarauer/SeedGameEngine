@@ -12,6 +12,8 @@ import ObjectManager from '../manager/ObjectManager';
  */
 export default class Updateable {
     constructor() {
+        this.hasStarted = false;
+        this.hasPaused = false;
         this.id = -1;
         this.deregister = ObjectManager.registerUpdateable(this);
     }
@@ -26,7 +28,7 @@ export default class Updateable {
     update() {
         if (this.hasPaused)
             return;
-
+            
         if (this.hasStarted) {
             this.onUpdate();
         } else {

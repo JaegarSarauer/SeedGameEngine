@@ -2,9 +2,9 @@ import Manager from './Manager';
 import DOMManager from './DOMManager';
 import SceneManager from './SceneManager';
 
-export class RenderManager extends Manager {
+export class _RenderManager extends Manager {
     constructor() {
-        super(this, "RenderManager");
+        super();
         this.GL = null;
     }
 
@@ -53,57 +53,6 @@ export class RenderManager extends Manager {
         let offset = 0;
         let count = 3;
         this.GL.drawArrays(primitiveType, 0, count);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Use our boilerplate utils to compile the shaders and link into a program
-  var program = webglUtils.createProgramFromSources(gl,
-    [vertexShaderSource, fragmentShaderSource]);
-
-// look up where the vertex data needs to go.
-var positionAttributeLocation = gl.getAttribLocation(program, "a_position");
-
-// look up uniform locations
-var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
-var colorLocation = gl.getUniformLocation(program, "u_color");
-var matrixLocation = gl.getUniformLocation(program, "u_matrix");
-
-// Create a buffer
-var positionBuffer = gl.createBuffer();
-
-// Create a vertex array object (attribute state)
-var vao = gl.createVertexArray();
-
-// and make it the one we're currently working with
-gl.bindVertexArray(vao);
-
-// Turn on the attribute
-gl.enableVertexAttribArray(positionAttributeLocation);
-
-// Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
-gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-// Set Geometry.
-setGeometry(gl);
-
-// Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
-var size = 2;          // 2 components per iteration
-var type = gl.FLOAT;   // the data is 32bit floats
-var normalize = false; // don't normalize the data
-var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
-var offset = 0;        // start at the beginning of the buffer
-gl.vertexAttribPointer(
-    positionAttributeLocation, size, type, normalize, stride, offset);
     }
 
     update() {
@@ -230,3 +179,5 @@ gl.vertexAttribPointer(
 
     }
 }
+const RenderManager = new _RenderManager();
+export default RenderManager;

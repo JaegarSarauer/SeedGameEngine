@@ -1,9 +1,8 @@
 import Manager from './Manager';
 
-export default class ObjectManager extends Manager {
+export class _ObjectManager extends Manager {
     constructor() {
-        super(this, "ObjectManager");
-        this.i = this;
+        super();
         this.gameObjectIDCounter = 0;
     }
 
@@ -13,3 +12,6 @@ export default class ObjectManager extends Manager {
         return deregisterCallback;
     }
 }
+
+const ObjectManager = new _ObjectManager();
+export default ObjectManager;

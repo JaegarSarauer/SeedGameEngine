@@ -2,7 +2,7 @@
     "name": "seed-engine",
     "version": "1.0.2",
     "description": "A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules.",
-    "main": "./src/Engine.js",
+    "main": "./src/entry.js",
     "scripts": {
         "test": "node test/run.js",
         "version": "./node_modules/.bin/esdoc -c ./esdoc.json"

@@ -1,8 +1,11 @@
 import Manager from './Manager';
 
-export default class AudioManager extends Manager {
+export class _AudioManager extends Manager {
     constructor() {
-        super(this, "AudioManager");
+        super();
     }
 
 }
+
+const AudioManager = new _AudioManager();
+export default AudioManager;

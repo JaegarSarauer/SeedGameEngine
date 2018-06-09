@@ -3,6 +3,7 @@ import Updateable from '../base/Updateable';
 export default class Scene extends Updateable {
 
     constructor() {
+        super();
         this.sceneObjects = {};
         this.viewports = {};
     }

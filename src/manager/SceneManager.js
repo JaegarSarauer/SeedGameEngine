@@ -3,6 +3,7 @@ import GameObject from '../object/GameObject';
 
 export class _SceneManager extends Manager {
     constructor() {
+        super();
         this.scenes = [];
     }
 
@@ -38,6 +39,10 @@ export class _SceneManager extends Manager {
     update() {
         if (this.scenes.length > 0) {
             this.scenes[this.scenes.length - 1].update();
+            let sceneObjectKeys = Object.keys(this.scenes[this.scenes.length - 1].sceneObjects);
+            for (let i = 0; i < sceneObjectKeys.length; i++) {
+                this.scenes[this.scenes.length - 1].sceneObjects[sceneObjectKeys[i]].update();
+            }
         }
     }
 
@@ -59,15 +64,16 @@ export class _SceneManager extends Manager {
     }
 
     addScene(scene) {
-        this.onPause();
+        this.pause();
         this.scenes.push(scene);
     }
 
     removeScene() {
         let current = this.scenes.pop();
         current.end();
-        this.onUnpause();
+        this.unpause();
     }
 }
 
-export default SceneManager = new _SceneManager();
+const SceneManager = new _SceneManager();
+export default SceneManager;

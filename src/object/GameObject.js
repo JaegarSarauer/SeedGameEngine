@@ -1,11 +1,14 @@
 import Updateable from '../base/Updateable';
 import Component from '../component/Component';
+import Transform from '../component/Transform';
 
 export default class GameObject extends Updateable {
-    constructor() {
+    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {
+        super();
         this.className = 'GameObject';
 
         this.components = {};
+        this.addComponent(new Transform(x, y, z, scaleX, scaleY, rotation));
     }
 
     addComponent(component) {

@@ -1,4 +1,5 @@
 import Component from './Component';
+import Point from '../internal/Point';
 
 export default class Transform extends Component {
     constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {

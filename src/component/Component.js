@@ -9,6 +9,7 @@ export default class Component extends Updateable {
      * @param {boolean} unique Is there only one of these component allowed on a GameObject?
      */
     constructor(unique) {
+        super();
         this.isUnique = unique;
     }
 }
