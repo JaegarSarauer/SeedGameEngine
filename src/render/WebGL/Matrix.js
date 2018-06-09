@@ -8,6 +8,8 @@ export default class Matrix {
 
     setRotation(rotationDegree) {}
 
+    copy() {}
+
     add(m2) {}
 
     multiply(m2) {}

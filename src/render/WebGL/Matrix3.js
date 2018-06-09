@@ -1,23 +1,17 @@
 import * as MathUtil from '../../utils/MathUtil';
 import Matrix from './Matrix';
 
-//translation -> rotation -> scale
+//translation -> rotation -> scal
+const M3_IDENTITY = [1,0,0,
+                     0,1,0,
+                     0,0,1];
 
 export default class Matrix3 extends Matrix {
-    constructor() {
+    constructor(data = M3_IDENTITY) {
+        super();
         //default x = 0, y = 0, scaleXY = 1, rotation = 0
-        this.m = [1,0,0,
-                  0,1,0,
-                  0,0,1];
+        this.m = data;
         return this;
-    }
-
-    pack(x, y, scaleX, scaleY, rotationDegree) {
-        this.setPosition(x, y);
-        let rotate = new Matrix3().setRotation(rotationDegree);
-        let scale = new Matrix3().setScale(scaleX, scaleY);
-        this.multiply(rotate);
-        this.multiply(scale);
     }
 
     setPosition(x, y) {
@@ -25,7 +19,7 @@ export default class Matrix3 extends Matrix {
         this.m[7] = y;
     }
 
-    setScale(scaleX, scaleY) {
+    setScale(x, y) {
         this.m[0] = x;
         this.m[4] = y;
     }
@@ -40,21 +34,26 @@ export default class Matrix3 extends Matrix {
         this.m[4] = c;
     }
 
+    copy() {
+        return new Matrix3(this.m.slice(0, this.m.length));
+    }
+
     add(m2) {
 
     }
 
     multiply(m2) {
-        this.m[0] = this.m[0] * m2[0] + this.m[3] * m2[1] + this.m[6] * m2[2];
-        this.m[1] = this.m[1] * m2[0] + this.m[4] * m2[1] + this.m[7] * m2[2];
-        this.m[2] = this.m[2] * m2[0] + this.m[5] * m2[1] + this.m[8] * m2[2];
+        this.m[0] = this.m[0] * m2.m[0] + this.m[3] * m2.m[1] + this.m[6] * m2.m[2];
+        this.m[1] = this.m[1] * m2.m[0] + this.m[4] * m2.m[1] + this.m[7] * m2.m[2];
+        this.m[2] = this.m[2] * m2.m[0] + this.m[5] * m2.m[1] + this.m[8] * m2.m[2];
 
-        this.m[3] = this.m[0] * m2[3] + this.m[3] * m2[4] + this.m[6] * m2[5];
-        this.m[4] = this.m[1] * m2[3] + this.m[4] * m2[4] + this.m[7] * m2[5];
-        this.m[5] = this.m[2] * m2[3] + this.m[5] * m2[4] + this.m[8] * m2[5];
+        this.m[3] = this.m[0] * m2.m[3] + this.m[3] * m2.m[4] + this.m[6] * m2.m[5];
+        this.m[4] = this.m[1] * m2.m[3] + this.m[4] * m2.m[4] + this.m[7] * m2.m[5];
+        this.m[5] = this.m[2] * m2.m[3] + this.m[5] * m2.m[4] + this.m[8] * m2.m[5];
 
-        this.m[6] = this.m[0] * m2[6] + this.m[3] * m2[7] + this.m[6] * m2[8];
-        this.m[7] = this.m[1] * m2[6] + this.m[4] * m2[7] + this.m[7] * m2[8];
-        this.m[8] = this.m[2] * m2[6] + this.m[5] * m2[7] + this.m[8] * m2[8];
+        this.m[6] = this.m[0] * m2.m[6] + this.m[3] * m2.m[7] + this.m[6] * m2.m[8];
+        this.m[7] = this.m[1] * m2.m[6] + this.m[4] * m2.m[7] + this.m[7] * m2.m[8];
+        this.m[8] = this.m[2] * m2.m[6] + this.m[5] * m2.m[7] + this.m[8] * m2.m[8];
+        return this;
     }
 }

@@ -21,6 +21,7 @@ export default class GameObject extends Updateable {
         }
         this.components[component.className].push(component);
         component.gameObject = this;
+        component.onComponentAdd();
         return true;
     }
 
@@ -59,7 +60,7 @@ export default class GameObject extends Updateable {
         return true;
     }
 
-    hasComponent(className) {
+    hasComponent(componentName) {
         if (this.components[componentName] == null) {
             return false;
         }

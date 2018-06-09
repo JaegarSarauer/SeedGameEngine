@@ -30,12 +30,12 @@ export class _RenderManager extends Manager {
         let positions = [
             //t1
             0, 0,
-            0, 0.5,
-            0.5, 0,
+            0, 100,
+            100, 0,
             //t2
-            0.5, 0,
-            0.5, 0.5,
-            0, 0.5,
+            100, 0,
+            100, 100,
+            0, 100,
         ];
 
         this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(positions), this.GL.STATIC_DRAW);
@@ -57,38 +57,40 @@ export class _RenderManager extends Manager {
         let vertexOffset = 0;        // start at the beginning of the buffer
         this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
 
-        // Tell WebGL how to convert from clip space to pixels
-        this.GL.viewport(0, 0, this.GL.canvas.width, this.GL.canvas.height);
+        // // Tell WebGL how to convert from clip space to pixels
+        // this.GL.viewport(0, 0, this.GL.canvas.width, this.GL.canvas.height);
 
-        // Clear the canvas
-        this.GL.clearColor(.9, .9, .9, 1);
-        this.GL.clear(this.GL.COLOR_BUFFER_BIT);
+        // // Clear the canvas
+        // this.GL.clearColor(0, 0, 1, 1);
+        // this.GL.clear(this.GL.COLOR_BUFFER_BIT);
 
-        // Tell it to use our program (pair of shaders)
-        this.GL.useProgram(this.program);
+        // // Tell it to use our program (pair of shaders)
+        // this.GL.useProgram(this.program);
 
-        // draw
-        let primitiveType = this.GL.TRIANGLES;
-        let count = 6;
-        this.GL.drawArrays(primitiveType, 0, count);
+        // this.GL.uniform2f(this.resolutionUniformLocation, this.GL.canvas.width, this.GL.canvas.height);
+        // this.GL.uniform4fv(this.colorLocation, [1,0,0, 1]);
+        // this.GL.uniformMatrix3fv(this.matrixLocation, false, [1,0,0,0,1,0,0,0,1]);
+
+        // // draw
+        // let primitiveType = this.GL.TRIANGLES;
+        // let count = 6;
+        // this.GL.drawArrays(primitiveType, 0, count);
     }
 
     update() {
-        return;
         
 
-        gl.clearColor(0, 0, 0, 0);
+        this.GL.clearColor(0, 0, 0, 0);
     
-        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-        
+        this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);
 
         let viewports = SceneManager.getCurrentScene().viewports;
-        let viewportKeys = Object.keys(viewports);
 
-        for (let vi = 0; vi < viewportKeys.length; vi++) {
-            let viewport = viewports[viewportKeys[vi]];
+        for (let vi = 0; vi < viewports.length; vi++) {
+            let viewport = viewports[vi];
 
-            gl.viewport(viewport.bounds.p1.x, viewport.bounds.p1.y, viewport.bounds.p2.x, viewport.bounds.p2.y);
+            this.GL.viewport(viewport.bounds.p1.x, viewport.bounds.p1.y, viewport.bounds.p2.x, viewport.bounds.p2.y);
+            this.GL.uniform2f(this.resolutionUniformLocation, this.GL.canvas.width, this.GL.canvas.height);
 
             //setup camera from viewport
 
@@ -96,24 +98,43 @@ export class _RenderManager extends Manager {
             let renderableKeys = Object.keys(renderables);
             for (let ri = 0; ri < renderableKeys.length; ri++) {
                 let renderable = renderables[renderableKeys[ri]];
+                this.GL.useProgram(this.program);
 
-                gl.useProgram(renderable.program);
+                console.info(renderable)
 
-                let vao = gl.createVertexArray();
-                gl.createVertexArray(vao);
+                this.GL.uniform4fv(this.colorLocation, [0, 1, 0, 1]);
+                this.GL.uniformMatrix3fv(this.matrixLocation, false, renderable.getMatrix().m);
 
-                let positionAttributeLocation = this.GL.getAttribLocation(program, "a_position");
-                let matrixLocation = gl.getUniformLocation(program, "u_matrix");
-                var colorLocation = gl.getUniformLocation(program, "u_color");
+                // Create a buffer and put three 2d clip space points in it
+                let positionBuffer = this.GL.createBuffer();
 
-                gl.uniform4fv(colorLocation, color);
+                // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
+                this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
+
+                this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(renderable.renderPositions), this.GL.STATIC_DRAW);
+
+                // draw
+                let primitiveType = this.GL.TRIANGLES;
+                let count = 6;
+                this.GL.drawArrays(primitiveType, 0, count);
+
+                // gl.useProgram(renderable.program);
+
+                // let vao = gl.createVertexArray();
+                // gl.createVertexArray(vao);
+
+                // let positionAttributeLocation = this.GL.getAttribLocation(program, "a_position");
+                // let matrixLocation = gl.getUniformLocation(program, "u_matrix");
+                // var colorLocation = gl.getUniformLocation(program, "u_color");
+
+                // gl.uniform4fv(colorLocation, color);
                 
-                gl.uniformMatrix3fv(renderable.matrix, false, matrix);
+                // gl.uniformMatrix3fv(renderable.matrix, false, matrix);
 
-                gl.drawArrays(primitiveType, offset, count);
+                // gl.drawArrays(primitiveType, offset, count);
 
-                var primitiveType = gl.TRIANGLES;
-                gl.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
+                // var primitiveType = gl.TRIANGLES;
+                // gl.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }
         }
     

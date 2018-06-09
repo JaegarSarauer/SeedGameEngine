@@ -1,9 +1,14 @@
 import Point from './Point';
 
 export default class Bounds {
-    constructor(p1 = new Point(), p2 = new Point()) {
-        this.p1 = p1;
-        this.p2 = p2;
+    constructor(x, y, w, h) {
+        this.p1 = new Point(x, y);
+        this.p2 = new Point(w, h);
+    }
+
+    set(x, y, w, h) {
+        this.p1.set(x, y);
+        this.p2.set(w, h);
     }
 
     isInBounds(point) {

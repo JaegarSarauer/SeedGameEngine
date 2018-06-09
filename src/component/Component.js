@@ -12,4 +12,9 @@ export default class Component extends Updateable {
         super();
         this.isUnique = unique;
     }
+
+    /**
+     * Called when the component is successfully added to a GameObject.
+     */
+    onComponentAdd() {}
 }
