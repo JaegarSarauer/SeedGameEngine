@@ -13,21 +13,41 @@ export class _RenderManager extends Manager {
     start() {
         this.GL = DOMManager.GL;
 
-        let program = this.createProgram(VertexShader.DEFAULT_V, FragmentShader.DEFAULT_F);
-
-        this.createBuffer();
+        this.program = this.createProgram(VertexShader.DEFAULT_V, FragmentShader.DEFAULT_F);
         
         // look up where the vertex data needs to go.
-        let positionAttributeLocation = this.GL.getAttribLocation(program, "a_position");
+        this.positionAttributeLocation = this.GL.getAttribLocation(this.program, "a_position");
+        this.resolutionUniformLocation = this.GL.getUniformLocation(this.program, "u_resolution");
+        this.colorLocation = this.GL.getUniformLocation(this.program, "u_color");
+        this.matrixLocation = this.GL.getUniformLocation(this.program, "u_matrix");
+
+        // Create a buffer and put three 2d clip space points in it
+        let positionBuffer = this.GL.createBuffer();
+
+        // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
+        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
+
+        let positions = [
+            //t1
+            0, 0,
+            0, 0.5,
+            0.5, 0,
+            //t2
+            0.5, 0,
+            0.5, 0.5,
+            0, 0.5,
+        ];
+
+        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(positions), this.GL.STATIC_DRAW);
 
         // Create a vertex array object (attribute state)
-        let vao = this.GL.createVertexArray();
+        var vao = this.GL.createVertexArray();
 
         // and make it the one we're currently working with
         this.GL.bindVertexArray(vao);
 
         // Turn on the attribute
-        this.GL.enableVertexAttribArray(positionAttributeLocation);
+        this.GL.enableVertexAttribArray(this.positionAttributeLocation);
 
         // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
         let size = 2;          // 2 components per iteration
@@ -35,7 +55,7 @@ export class _RenderManager extends Manager {
         let normalize = false; // don't normalize the data
         let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
         let vertexOffset = 0;        // start at the beginning of the buffer
-        this.GL.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, vertexOffset);
+        this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
 
         // Tell WebGL how to convert from clip space to pixels
         this.GL.viewport(0, 0, this.GL.canvas.width, this.GL.canvas.height);
@@ -45,15 +65,11 @@ export class _RenderManager extends Manager {
         this.GL.clear(this.GL.COLOR_BUFFER_BIT);
 
         // Tell it to use our program (pair of shaders)
-        this.GL.useProgram(program);
-
-        // Bind the attribute/buffer set we want.
-        this.GL.bindVertexArray(vao);
+        this.GL.useProgram(this.program);
 
         // draw
         let primitiveType = this.GL.TRIANGLES;
-        let offset = 0;
-        let count = 3;
+        let count = 6;
         this.GL.drawArrays(primitiveType, 0, count);
     }
 
@@ -163,24 +179,6 @@ export class _RenderManager extends Manager {
 
         // Link the two shaders into a program
         return this.createShadersProgram(vertexShader, fragmentShader);
-    }
-
-    createBuffer() {
-
-        // Create a buffer and put three 2d clip space points in it
-        let positionBuffer = this.GL.createBuffer();
-
-        // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
-        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
-
-        let positions = [
-            0, 0,
-            0, 0.5,
-            0.7, 0,
-        ];
-
-        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(positions), this.GL.STATIC_DRAW);
-
     }
 }
 const RenderManager = new _RenderManager();
