@@ -3,6 +3,7 @@ import DOMManager from './DOMManager';
 import SceneManager from './SceneManager';
 import * as VertexShader from '../const/VertexShader';
 import * as FragmentShader from '../const/FragmentShader';
+import Matrix3 from '../render/WebGL/Matrix3';
 
 export class _RenderManager extends Manager {
     constructor() {
@@ -17,7 +18,6 @@ export class _RenderManager extends Manager {
         
         // look up where the vertex data needs to go.
         this.positionAttributeLocation = this.GL.getAttribLocation(this.program, "a_position");
-        this.resolutionUniformLocation = this.GL.getUniformLocation(this.program, "u_resolution");
         this.colorLocation = this.GL.getUniformLocation(this.program, "u_color");
         this.matrixLocation = this.GL.getUniformLocation(this.program, "u_matrix");
 
@@ -89,8 +89,10 @@ export class _RenderManager extends Manager {
         for (let vi = 0; vi < viewports.length; vi++) {
             let viewport = viewports[vi];
 
+            let viewPortWidth = viewport.bounds.p2.x - viewport.bounds.p1.x;
+            let viewPortHeight = viewport.bounds.p2.y - viewport.bounds.p1.y;
+
             this.GL.viewport(viewport.bounds.p1.x, viewport.bounds.p1.y, viewport.bounds.p2.x, viewport.bounds.p2.y);
-            this.GL.uniform2f(this.resolutionUniformLocation, this.GL.canvas.width, this.GL.canvas.height);
 
             //setup camera from viewport
 
@@ -100,8 +102,8 @@ export class _RenderManager extends Manager {
                 let renderable = renderables[renderableKeys[ri]];
                 this.GL.useProgram(this.program);
 
-                this.GL.uniform4fv(this.colorLocation, [0, 1, 0, 1]);
-                this.GL.uniformMatrix3fv(this.matrixLocation, false, renderable.getMatrix().m);
+                this.GL.uniform4fv(this.colorLocation, renderable.color.color);
+                this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
                 // Create a buffer and put three 2d clip space points in it
                 let positionBuffer = this.GL.createBuffer();

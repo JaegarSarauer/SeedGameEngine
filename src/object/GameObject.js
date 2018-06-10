@@ -9,6 +9,7 @@ export default class GameObject extends Updateable {
 
         this.components = {};
         this.addComponent(new Transform(x, y, z, scaleX, scaleY, scaleZ, rotation));
+        this.transform = this.getComponent("Transform");
     }
 
     addComponent(component) {

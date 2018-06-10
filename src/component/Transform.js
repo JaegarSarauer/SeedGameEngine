@@ -8,6 +8,7 @@ export default class Transform extends Component {
         this.position = new Point(x, y, z);
         this.rotation = rotation;
         this.scaleSize = new Point(scaleX, scaleY, scaleZ);
+        this.originOffset = new Point(0, 0, 0);
         this.renderable = null;
     }
 
@@ -15,6 +16,21 @@ export default class Transform extends Component {
         this.position.set(x, y, z);
         if (this.renderable != null) {
             this.renderable.updatePosition(this.position);
+        }
+    }
+
+    centerOrigin(center = true) {
+        if (center) {
+            this.setOriginOffset(-.5, -.5, -.5);
+        } else {
+            this.setOriginOffset(0, 0, 0);
+        }
+    }
+
+    setOriginOffset(x = this.originOffset.x, y = this.originOffset.y, z = this.originOffset.z) {
+        this.originOffset.set(x, y, z);
+        if (this.renderable != null) {
+            this.renderable.updateOriginOffset(this.originOffset);
         }
     }
 
