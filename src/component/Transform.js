@@ -6,7 +6,7 @@ export default class Transform extends Component {
         super(true);
         this.className='Transform';
         this.position = new Point(x, y, z);
-        this.rotation = 0;
+        this.rotation = rotation;
         this.scaleSize = new Point(scaleX, scaleY, scaleZ);
         this.renderable = null;
     }
@@ -55,5 +55,17 @@ export default class Transform extends Component {
         if (this.renderable != null) {
             this.renderable.updateScale(this.scaleSize);
         }
+    }
+
+    getPosition() {
+        return this.position;
+    }
+
+    getScale() {
+        return this.scaleSize;
+    }
+
+    getRotation() {
+        return this.rotation;
     }
 }

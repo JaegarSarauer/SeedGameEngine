@@ -16,5 +16,5 @@ export default class Component extends Updateable {
     /**
      * Called when the component is successfully added to a GameObject.
      */
-    onComponentAdd() {}
+    onAddComponent() {}
 }

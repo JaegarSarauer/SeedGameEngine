@@ -3,12 +3,12 @@ import Component from '../component/Component';
 import Transform from '../component/Transform';
 
 export default class GameObject extends Updateable {
-    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, rotation = 0) {
+    constructor(x = 0, y = 0, z = 0, scaleX = 1, scaleY = 1, scaleZ = 1, rotation = 0) {
         super();
         this.className = 'GameObject';
 
         this.components = {};
-        this.addComponent(new Transform(x, y, z, scaleX, scaleY, rotation));
+        this.addComponent(new Transform(x, y, z, scaleX, scaleY, scaleZ, rotation));
     }
 
     addComponent(component) {
@@ -21,7 +21,7 @@ export default class GameObject extends Updateable {
         }
         this.components[component.className].push(component);
         component.gameObject = this;
-        component.onComponentAdd();
+        component.onAddComponent();
         return true;
     }
 
