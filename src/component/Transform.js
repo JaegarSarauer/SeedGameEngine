@@ -15,7 +15,7 @@ export default class Transform extends Component {
     setPosition(x = this.position.x, y = this.position.y, z = this.position.z) {
         this.position.set(x, y, z);
         if (this.renderable != null) {
-            this.renderable.updatePosition(this.position);
+            this.renderable.setPosition(this.position);
         }
     }
 
@@ -30,21 +30,21 @@ export default class Transform extends Component {
     setOriginOffset(x = this.originOffset.x, y = this.originOffset.y, z = this.originOffset.z) {
         this.originOffset.set(x, y, z);
         if (this.renderable != null) {
-            this.renderable.updateOriginOffset(this.originOffset);
+            this.renderable.setOriginOffset(this.originOffset);
         }
     }
 
     setRotation(rotation) {
         this.rotation = rotation;
         if (this.renderable != null) {
-            this.renderable.updateRotation(this.rotation);
+            this.renderable.setRotation(this.rotation);
         }
     }
 
     setScale(scaleX = this.scaleX, scaleY = this.scaleY, scaleZ = this.scaleZ) {
         this.scaleSize.set(scaleX, scaleY, scaleZ);
         if (this.renderable != null) {
-            this.renderable.updateScale(this.scaleSize);
+            this.renderable.setScale(this.scaleSize);
         }
     }
 
@@ -53,14 +53,14 @@ export default class Transform extends Component {
         this.position.y += y;
         this.position.z += z;
         if (this.renderable != null) {
-            this.renderable.updatePosition(this.position);
+            this.renderable.setPosition(this.position);
         }
     }
 
     rotate(rotation) {
         this.rotation += rotation;
         if (this.renderable != null) {
-            this.renderable.updateRotation(this.rotation);
+            this.renderable.setRotation(this.rotation);
         }
     }
 
@@ -69,7 +69,7 @@ export default class Transform extends Component {
         this.scaleSize.y += scaleY;
         this.scaleSize.z += scaleZ;
         if (this.renderable != null) {
-            this.renderable.updateScale(this.scaleSize);
+            this.renderable.setScale(this.scaleSize);
         }
     }
 

@@ -1,7 +1,6 @@
 'use-strict';
 
 import EngineManager from './manager/EngineManager';
-import DOMManager from './manager/DOMManager';
 import Manager from './manager/Manager';
 
 /**
@@ -19,7 +18,6 @@ export class _Engine {
      * Starts the engine.
      */
     start() {
-        DOMManager.start();
         EngineManager.start();
     }
 

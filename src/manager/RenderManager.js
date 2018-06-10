@@ -1,5 +1,6 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
+import ProgramManager from './ProgramManager';
 import SceneManager from './SceneManager';
 import * as VertexShader from '../const/VertexShader';
 import * as FragmentShader from '../const/FragmentShader';
@@ -9,17 +10,19 @@ export class _RenderManager extends Manager {
     constructor() {
         super();
         this.GL = null;
+        this.currentProgram = null;
     }
 
     start() {
         this.GL = DOMManager.GL;
 
-        this.program = this.createProgram(VertexShader.DEFAULT_V, FragmentShader.DEFAULT_F);
+        console.info(ProgramManager.getProgram('Default'))
+        this._updateProgram(ProgramManager.getProgram('Default'));
         
         // look up where the vertex data needs to go.
-        this.positionAttributeLocation = this.GL.getAttribLocation(this.program, "a_position");
-        this.colorLocation = this.GL.getUniformLocation(this.program, "u_color");
-        this.matrixLocation = this.GL.getUniformLocation(this.program, "u_matrix");
+        this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
+        this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
+        this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
 
         // // Create a buffer and put three 2d clip space points in it
         // let positionBuffer = this.GL.createBuffer();
@@ -77,6 +80,14 @@ export class _RenderManager extends Manager {
         // this.GL.drawArrays(primitiveType, 0, count);
     }
 
+    _updateProgram(program) {
+        if (this.currentProgram == null || this.currentProgram.id != program.id) {
+            console.info('switch')
+            this.GL.useProgram(program.program);
+            this.currentProgram = program;
+        }
+    }
+
     update() {
         
 
@@ -100,7 +111,8 @@ export class _RenderManager extends Manager {
             let renderableKeys = Object.keys(renderables);
             for (let ri = 0; ri < renderableKeys.length; ri++) {
                 let renderable = renderables[renderableKeys[ri]];
-                this.GL.useProgram(this.program);
+
+                this._updateProgram(renderable.program);
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
@@ -178,44 +190,6 @@ export class _RenderManager extends Manager {
         // for (let i = 0; i < objKeys.length; i++) {
         //     this.persistentObjects[objKeys[i]].unpause();
         // }
-    }
-
-    createShadersProgram(vertexShader, fragmentShader) {
-        let program = this.GL.createProgram();
-        this.GL.attachShader(program, vertexShader);
-        this.GL.attachShader(program, fragmentShader);
-        this.GL.linkProgram(program);
-        let success = this.GL.getProgramParameter(program, this.GL.LINK_STATUS);
-        if (success) {
-            return program;
-        }
-
-        console.error(this.GL.getProgramInfoLog(program));
-        this.GL.deleteProgram(program);
-        return null;
-    }
-
-    createShader(type, source) {
-        let shader = this.GL.createShader(type);
-        this.GL.shaderSource(shader, source);
-        this.GL.compileShader(shader);
-        let success = this.GL.getShaderParameter(shader, this.GL.COMPILE_STATUS);
-        if (success) {
-            return shader;
-        }
-
-        console.error(this.GL.getShaderInfoLog(shader));
-        this.GL.deleteShader(shader);
-        return null;
-    }
-
-    createProgram(vertexShaderSource, fragmentShaderSource) {
-        // create GLSL shaders, upload the GLSL source, compile the shaders
-        let vertexShader = this.createShader(this.GL.VERTEX_SHADER, vertexShaderSource);
-        let fragmentShader = this.createShader(this.GL.FRAGMENT_SHADER, fragmentShaderSource);
-
-        // Link the two shaders into a program
-        return this.createShadersProgram(vertexShader, fragmentShader);
     }
 }
 const RenderManager = new _RenderManager();

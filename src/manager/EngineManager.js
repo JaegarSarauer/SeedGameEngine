@@ -1,6 +1,8 @@
 import Manager from './Manager';
 import RenderManager from './RenderManager';
+import ProgramManager from './ProgramManager';
 import SceneManager from './SceneManager';
+import DOMManager from './DOMManager';
 import PersistentManager from './PersistentManager';
 
 /**
@@ -15,6 +17,7 @@ export class _EngineManager extends Manager {
     }
 
     start() {
+        DOMManager.start();
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {
                 this._update();
@@ -22,6 +25,7 @@ export class _EngineManager extends Manager {
         }, this.MS_PER_FRAME);
         PersistentManager.start();
         SceneManager.start();
+        ProgramManager.start();
         RenderManager.start();
     }
 
