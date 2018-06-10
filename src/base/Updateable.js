@@ -1,14 +1,14 @@
 import ObjectManager from '../manager/ObjectManager';
 
 /**
- * Baseclass for objects that follow the same pattern of the engine.
+ * Baseclass for objects that follow the same ECS pattern of the seed engine.
  * 
  * Used in anything that should follow a create, update, end loop 
  * handled by the Engine.
  * 
  * Many things will need to update/start/end. If you derive something that
  * has the start()/update()/end()... functions, the children should fill in
- * their respective callbacks (onStart()/onUpdate()/onEnd()).
+ * their respective callbacks (onStart()/onUpdate()/onEnd()/...).
  */
 export default class Updateable {
     constructor() {
@@ -18,6 +18,9 @@ export default class Updateable {
         this.deregister = ObjectManager.registerUpdateable(this);
     }
 
+    /**
+     * Base call function for when this Updateable is to be started.
+     */
     start() {
         if (!this.hasStarted) {
             this.onStart();
@@ -25,6 +28,9 @@ export default class Updateable {
         }
     }
 
+    /**
+     * Base call function for when this Updateable is to be updated.
+     */
     update() {
         if (this.hasPaused)
             return;
@@ -36,11 +42,17 @@ export default class Updateable {
         }
     }
 
+    /**
+     * Base call function for when this Updateable is to be ended.
+     */
     end() {
         this.onEnd();
         this.destructor();
     }
 
+    /**
+     * Base call function for when this Updateable is to be paused.
+     */
     pause() {
         if (!this.hasPaused) {
             this.onPause();
@@ -48,6 +60,9 @@ export default class Updateable {
         }
     }
 
+    /**
+     * Base call function for when this Updateable is to be unpaused.
+     */
     unpause() {
         if (this.hasPaused) {
             this.onUnpause();
@@ -55,6 +70,9 @@ export default class Updateable {
         }
     }
 
+    /**
+     * Cleanup code for when destroying an Updateable.
+     */
     destructor() {
         this.deregister();
     }

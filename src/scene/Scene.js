@@ -4,14 +4,18 @@ export default class Scene extends Updateable {
 
     constructor() {
         super();
-        this.sceneObjects = {};
+        this.sceneObjects = [];
         this.viewports = [];
     }
 
     registerSceneObject(sceneObject) {
-        this.sceneObjects[sceneObject.id] = sceneObject;
+        this.sceneObjects.push(sceneObject);
         let deregisterCallback = () => {
-            delete this.sceneObjects[sceneObject.id];
+            for (let i = 0; i < this.sceneObjects.length; i++) {
+                if (this.sceneObjects[i].id ==sceneObject.id)
+                    this.sceneObjects.splice(i, 1);
+                    return;
+            }
         }
         return deregisterCallback;
     }

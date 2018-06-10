@@ -37,11 +37,11 @@ export class _SceneManager extends Manager {
     }
 
     update() {
-        if (this.scenes.length > 0) {
-            this.scenes[this.scenes.length - 1].update();
-            let sceneObjectKeys = Object.keys(this.scenes[this.scenes.length - 1].sceneObjects);
-            for (let i = 0; i < sceneObjectKeys.length; i++) {
-                this.scenes[this.scenes.length - 1].sceneObjects[sceneObjectKeys[i]].update();
+        let scene = this.getCurrentScene();
+        if (scene != null) {
+            scene.update();
+            for (let i = 0; i < scene.sceneObjects.length; i++) {
+                scene.sceneObjects[i].update();
             }
         }
     }

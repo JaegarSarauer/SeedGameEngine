@@ -24,6 +24,32 @@ export class _RenderManager extends Manager {
         this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
         this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
 
+
+
+        // Create a buffer and put three 2d clip space points in it
+        let positionBuffer = this.GL.createBuffer();
+
+        // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
+        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
+
+        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]), this.GL.STATIC_DRAW);
+
+        this.vao = this.GL.createVertexArray();
+
+        // and make it the one we're currently working with
+        this.GL.bindVertexArray(this.vao);
+
+        // Turn on the attribute
+        this.GL.enableVertexAttribArray(this.positionAttributeLocation);
+
+        // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
+        let size = 2;          // 2 components per iteration
+        let type = this.GL.FLOAT;   // the data is 32bit floats
+        let normalize = false; // don't normalize the data
+        let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
+        let vertexOffset = 0;        // start at the beginning of the buffer
+        this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
+
         // // Create a buffer and put three 2d clip space points in it
         // let positionBuffer = this.GL.createBuffer();
 
@@ -117,29 +143,6 @@ export class _RenderManager extends Manager {
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
-                // Create a buffer and put three 2d clip space points in it
-                let positionBuffer = this.GL.createBuffer();
-
-                // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
-                this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
-
-                this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(renderable.renderPositions), this.GL.STATIC_DRAW);
-
-                let vao = this.GL.createVertexArray();
-
-                // and make it the one we're currently working with
-                this.GL.bindVertexArray(vao);
-        
-                // Turn on the attribute
-                this.GL.enableVertexAttribArray(this.positionAttributeLocation);
-        
-                // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
-                let size = 2;          // 2 components per iteration
-                let type = this.GL.FLOAT;   // the data is 32bit floats
-                let normalize = false; // don't normalize the data
-                let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
-                let vertexOffset = 0;        // start at the beginning of the buffer
-                this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
 
