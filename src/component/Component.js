@@ -1,5 +1,11 @@
 import Updateable from '../base/Updateable';
 
+/**
+ * A component may be added to any GameObject by using
+ * GameObject's function: addComponent(component).
+ * 
+ * A component should redefine the Updateable functions inherited with custom code to define the Component functionality.
+ */
 export default class Component extends Updateable {
     /**
      * Constructor for Base Components.

@@ -7,5 +7,8 @@ export class _AudioManager extends Manager {
 
 }
 
+/**
+ * Singleton reference to the Audio Manager.
+ */
 const AudioManager = new _AudioManager();
 export default AudioManager;

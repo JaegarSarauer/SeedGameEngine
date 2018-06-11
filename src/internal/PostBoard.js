@@ -1,3 +1,12 @@
+/**
+ * Experemental! Still looking at other ways to implement this that would be more useful
+ * for the engine, and lower lookup, post, and watch runtimes.
+ * 
+ * A "PostBoard" is a messaging system that anyone who has reference to may "post" updates to.
+ * Posts are any type of data, assigned by key.
+ * Other objects may look at "posts", and continuously watch a "post".
+ */
+
 export default class PostBoard {
     constructor() {
         this.posts = {};

@@ -30,7 +30,7 @@ import EngineManager from './manager/EngineManager';
 import InputManager from './manager/InputManager';
 import Manager from './manager/Manager';
 import NetworkManager from './manager/NetworkManager';
-import ObjectManager from './manager/ObjectManager';
+import UpdateableManager from './manager/UpdateableManager';
 import PersistentManager from './manager/PersistentManager';
 import PhysicsManager from './manager/PhysicsManager';
 import RenderManager from './manager/RenderManager';
@@ -85,7 +85,7 @@ export {
     InputManager,
     Manager,
     NetworkManager,
-    ObjectManager,
+    UpdateableManager,
     PersistentManager,
     PhysicsManager,
     RenderManager,

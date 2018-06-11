@@ -7,5 +7,8 @@ export class _NetworkManager extends Manager {
 
 }
 
+/**
+ * Singleton reference to the Network Manager.
+ */
 const NetworkManager = new _NetworkManager();
 export default NetworkManager;

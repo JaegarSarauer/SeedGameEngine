@@ -1,4 +1,4 @@
-import ObjectManager from '../manager/ObjectManager';
+import UpdateableManager from '../manager/UpdateableManager';
 
 /**
  * Baseclass for objects that follow the same ECS pattern of the seed engine.
@@ -15,17 +15,16 @@ export default class Updateable {
         this.hasStarted = false;
         this.hasPaused = false;
         this.id = -1;
-        this.deregister = ObjectManager.registerUpdateable(this);
+        this.deregister = UpdateableManager.registerUpdateable(this);
     }
 
     /**
      * Base call function for when this Updateable is to be started.
      */
     start() {
-        if (!this.hasStarted) {
-            this.onStart();
-            this.hasStarted = true;
-        }
+        this.onStart();
+        this.hasStarted = true;
+        this.update = this.postStartUpdate;
     }
 
     /**
@@ -35,11 +34,14 @@ export default class Updateable {
         if (this.hasPaused)
             return;
             
-        if (this.hasStarted) {
-            this.onUpdate();
-        } else {
-            this.start();
-        }
+        this.start();
+    }
+
+    postStartUpdate() {
+        if (this.hasPaused)
+            return;
+
+        this.onUpdate();
     }
 
     /**

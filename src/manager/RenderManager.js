@@ -13,110 +13,56 @@ export class _RenderManager extends Manager {
         this.currentProgram = null;
     }
 
+    /**
+     * Initial setup on GL rendering. 
+     */
     start() {
         this.GL = DOMManager.GL;
 
-        console.info(ProgramManager.getProgram('Default'))
         this._updateProgram(ProgramManager.getProgram('Default'));
         
-        // look up where the vertex data needs to go.
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
         this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
         this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
 
-
-
-        // Create a buffer and put three 2d clip space points in it
         let positionBuffer = this.GL.createBuffer();
 
-        // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
         this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
 
         this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]), this.GL.STATIC_DRAW);
 
         this.vao = this.GL.createVertexArray();
 
-        // and make it the one we're currently working with
         this.GL.bindVertexArray(this.vao);
 
-        // Turn on the attribute
         this.GL.enableVertexAttribArray(this.positionAttributeLocation);
 
-        // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
-        let size = 2;          // 2 components per iteration
-        let type = this.GL.FLOAT;   // the data is 32bit floats
-        let normalize = false; // don't normalize the data
-        let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
-        let vertexOffset = 0;        // start at the beginning of the buffer
+        let size = 2;
+        let type = this.GL.FLOAT;
+        let normalize = false;
+        let stride = 0;
+        let vertexOffset = 0;
         this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
-
-        // // Create a buffer and put three 2d clip space points in it
-        // let positionBuffer = this.GL.createBuffer();
-
-        // // Bind it to ARRAY_BUFFER (think of it as ARRAY_BUFFER = positionBuffer)
-        // this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
-
-        // let positions = [
-        //     //t1
-        //     0, 0,
-        //     0, 100,
-        //     100, 0,
-        //     //t2
-        //     100, 0,
-        //     100, 100,
-        //     0, 100,
-        // ];
-
-        // this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array(positions), this.GL.STATIC_DRAW);
-
-        // // Create a vertex array object (attribute state)
-        // var vao = this.GL.createVertexArray();
-
-        // // and make it the one we're currently working with
-        // this.GL.bindVertexArray(vao);
-
-        // // Turn on the attribute
-        // this.GL.enableVertexAttribArray(this.positionAttributeLocation);
-
-        // // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
-        // let size = 2;          // 2 components per iteration
-        // let type = this.GL.FLOAT;   // the data is 32bit floats
-        // let normalize = false; // don't normalize the data
-        // let stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
-        // let vertexOffset = 0;        // start at the beginning of the buffer
-        // this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
-
-        // // Tell WebGL how to convert from clip space to pixels
-        // this.GL.viewport(0, 0, this.GL.canvas.width, this.GL.canvas.height);
-
-        // // Clear the canvas
-        // this.GL.clearColor(0, 0, 1, 1);
-        // this.GL.clear(this.GL.COLOR_BUFFER_BIT);
-
-        // // Tell it to use our program (pair of shaders)
-        // this.GL.useProgram(this.program);
-
-        // this.GL.uniform2f(this.resolutionUniformLocation, this.GL.canvas.width, this.GL.canvas.height);
-        // this.GL.uniform4fv(this.colorLocation, [1,0,0, 1]);
-        // this.GL.uniformMatrix3fv(this.matrixLocation, false, [1,0,0,0,1,0,0,0,1]);
-
-        // // draw
-        // let primitiveType = this.GL.TRIANGLES;
-        // let count = 6;
-        // this.GL.drawArrays(primitiveType, 0, count);
     }
 
+    /**
+     * Checks if the program for the next object to draw must be changed.
+     * If it does, it will change WebGL programs.
+     * 
+     * @param {ProgramObject} program A program object returned from ProgramManager.getProgram()
+     */
     _updateProgram(program) {
         if (this.currentProgram == null || this.currentProgram.id != program.id) {
-            console.info('switch')
+            console.info('switching programs')
             this.GL.useProgram(program.program);
             this.currentProgram = program;
         }
     }
 
+    /**
+     * Update function for updating all renderable objects in each viewport in the current scene.
+     */
     update() {
-        
-
         this.GL.clearColor(0, 0, 0, 0);
     
         this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);
@@ -145,55 +91,13 @@ export class _RenderManager extends Manager {
 
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
-
-
-
-
-                // gl.useProgram(renderable.program);
-
-                // let vao = gl.createVertexArray();
-                // gl.createVertexArray(vao);
-
-                // let positionAttributeLocation = this.GL.getAttribLocation(program, "a_position");
-                // let matrixLocation = gl.getUniformLocation(program, "u_matrix");
-                // var colorLocation = gl.getUniformLocation(program, "u_color");
-
-                // gl.uniform4fv(colorLocation, color);
-                
-                // gl.uniformMatrix3fv(renderable.matrix, false, matrix);
-
-                // gl.drawArrays(primitiveType, offset, count);
-
-                // var primitiveType = gl.TRIANGLES;
-                // gl.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }
         }
-    
-        // Set the color.
-    
-        // Draw the geometry.
-    }
-
-    end() {
-        // let objKeys = Object.keys(this.persistentObjects);
-        // for (let i = 0; i < objKeys.length; i++) {
-        //     this.persistentObjects[objKeys[i]].end();
-        // }
-    }
-
-    pause() {
-        // let objKeys = Object.keys(this.persistentObjects);
-        // for (let i = 0; i < objKeys.length; i++) {
-        //     this.persistentObjects[objKeys[i]].pause();
-        // }
-    }
-
-    unpause() {
-        // let objKeys = Object.keys(this.persistentObjects);
-        // for (let i = 0; i < objKeys.length; i++) {
-        //     this.persistentObjects[objKeys[i]].unpause();
-        // }
     }
 }
+
+/**
+ * Singleton reference to the Rendering Manager.
+ */
 const RenderManager = new _RenderManager();
 export default RenderManager;

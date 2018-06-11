@@ -7,5 +7,8 @@ export class _InputManager extends Manager {
 
 }
 
+/**
+ * Singleton reference to the Input Manager.
+ */
 const InputManager = new _InputManager(); 
 export default InputManager;

@@ -7,5 +7,8 @@ export class _PhysicsManager extends Manager {
 
 }
 
+/**
+ * Singleton reference to the Physics Manager.
+ */
 const PhysicsManager = new _PhysicsManager();
 export default PhysicsManager;
