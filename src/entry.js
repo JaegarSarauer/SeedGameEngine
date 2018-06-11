@@ -47,7 +47,6 @@ import PersistentObject from './object/PersistentObject';
     //WebGL
     import Matrix from './render/WebGL/Matrix';
     import Matrix3 from './render/WebGL/Matrix3';
-    import Shader from './render/WebGL/Shader';
 import Camera from './render/Camera';
 import Light from './render/Light';
 import Viewport from './render/Viewport';
@@ -95,7 +94,6 @@ export {
     PersistentObject,
     Matrix,
     Matrix3,
-    Shader,
     Camera,
     Light,
     Viewport,

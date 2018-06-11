@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 386,
+  "end": 217,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 14,
+      "line": 16,
       "column": 2
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 386,
+    "end": 217,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 14,
+        "line": 16,
         "column": 2
       }
     },
@@ -30,15 +30,15 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 0,
-        "end": 386,
+        "start": 65,
+        "end": 217,
         "loc": {
           "start": {
-            "line": 1,
+            "line": 5,
             "column": 0
           },
           "end": {
-            "line": 14,
+            "line": 16,
             "column": 2
           }
         },
@@ -46,61 +46,62 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 7,
-          "end": 386,
+          "start": 72,
+          "end": 217,
           "loc": {
             "start": {
-              "line": 1,
+              "line": 5,
               "column": 7
             },
             "end": {
-              "line": 14,
+              "line": 16,
               "column": 2
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 13,
-              "end": 385,
+              "start": 78,
+              "end": 216,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 5,
                   "column": 13
                 },
                 "end": {
-                  "line": 14,
+                  "line": 16,
                   "column": 1
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 13,
-                "end": 22,
+                "start": 78,
+                "end": 87,
                 "loc": {
                   "start": {
-                    "line": 1,
+                    "line": 5,
                     "column": 13
                   },
                   "end": {
-                    "line": 1,
+                    "line": 5,
                     "column": 22
                   },
                   "identifierName": "DEFAULT_F"
                 },
-                "name": "DEFAULT_F"
+                "name": "DEFAULT_F",
+                "leadingComments": null
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 25,
-                "end": 385,
+                "start": 90,
+                "end": 216,
                 "loc": {
                   "start": {
-                    "line": 1,
+                    "line": 5,
                     "column": 25
                   },
                   "end": {
-                    "line": 14,
+                    "line": 16,
                     "column": 1
                   }
                 },
@@ -108,38 +109,107 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 26,
-                    "end": 384,
+                    "start": 91,
+                    "end": 215,
                     "loc": {
                       "start": {
-                        "line": 1,
+                        "line": 5,
                         "column": 26
                       },
                       "end": {
-                        "line": 14,
+                        "line": 16,
                         "column": 0
                       }
                     },
                     "value": {
-                      "raw": "#version 300 es\n\n// fragment shaders don't have a default precision so we need\n// to pick one. mediump is a good default. It means \"medium precision\"\nprecision mediump float;\n\n// we need to declare an output for the fragment shader\nout vec4 outColor;\n\nvoid main() {\n    // Just set the output to a constant redish-purple\n    outColor = vec4(1, 0, 0.5, 1);\n}\n",
-                      "cooked": "#version 300 es\n\n// fragment shaders don't have a default precision so we need\n// to pick one. mediump is a good default. It means \"medium precision\"\nprecision mediump float;\n\n// we need to declare an output for the fragment shader\nout vec4 outColor;\n\nvoid main() {\n    // Just set the output to a constant redish-purple\n    outColor = vec4(1, 0, 0.5, 1);\n}\n"
+                      "raw": "#version 300 es\n\nprecision mediump float;\n\nuniform vec4 u_color;\n\nout vec4 outColor;\n\nvoid main() {\n  outColor = u_color;\n}\n",
+                      "cooked": "#version 300 es\n\nprecision mediump float;\n\nuniform vec4 u_color;\n\nout vec4 outColor;\n\nvoid main() {\n  outColor = u_color;\n}\n"
                     },
                     "tail": true
                   }
                 ]
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * Default fragment shader which handles single colors.\n ",
+              "start": 0,
+              "end": 63,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 0
+                },
+                "end": {
+                  "line": 3,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Default fragment shader which handles single colors.\n ",
+            "start": 0,
+            "end": 63,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Default fragment shader which handles single colors.\n ",
+      "start": 0,
+      "end": 63,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Default fragment shader which handles single colors.\n ",
+      "start": 0,
+      "end": 63,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 3
+        }
+      }
+    },
     {
       "type": {
         "label": "export",
@@ -155,15 +225,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 0,
-      "end": 6,
+      "start": 65,
+      "end": 71,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 6
         }
       }
@@ -183,15 +253,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 7,
-      "end": 12,
+      "start": 72,
+      "end": 77,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 7
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 12
         }
       }
@@ -209,15 +279,15 @@
         "binop": null
       },
       "value": "DEFAULT_F",
-      "start": 13,
-      "end": 22,
+      "start": 78,
+      "end": 87,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 13
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 22
         }
       }
@@ -236,15 +306,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 23,
-      "end": 24,
+      "start": 88,
+      "end": 89,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 23
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 24
         }
       }
@@ -261,15 +331,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 25,
-      "end": 26,
+      "start": 90,
+      "end": 91,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 25
         },
         "end": {
-          "line": 1,
+          "line": 5,
           "column": 26
         }
       }
@@ -287,16 +357,16 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "#version 300 es\n\n// fragment shaders don't have a default precision so we need\n// to pick one. mediump is a good default. It means \"medium precision\"\nprecision mediump float;\n\n// we need to declare an output for the fragment shader\nout vec4 outColor;\n\nvoid main() {\n    // Just set the output to a constant redish-purple\n    outColor = vec4(1, 0, 0.5, 1);\n}\n",
-      "start": 26,
-      "end": 384,
+      "value": "#version 300 es\n\nprecision mediump float;\n\nuniform vec4 u_color;\n\nout vec4 outColor;\n\nvoid main() {\n  outColor = u_color;\n}\n",
+      "start": 91,
+      "end": 215,
       "loc": {
         "start": {
-          "line": 1,
+          "line": 5,
           "column": 26
         },
         "end": {
-          "line": 14,
+          "line": 16,
           "column": 0
         }
       }
@@ -313,15 +383,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 384,
-      "end": 385,
+      "start": 215,
+      "end": 216,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 16,
           "column": 1
         }
       }
@@ -339,15 +409,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 385,
-      "end": 386,
+      "start": 216,
+      "end": 217,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 16,
           "column": 1
         },
         "end": {
-          "line": 14,
+          "line": 16,
           "column": 2
         }
       }
@@ -365,15 +435,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 386,
-      "end": 386,
+      "start": 217,
+      "end": 217,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 14,
+          "line": 16,
           "column": 2
         }
       }

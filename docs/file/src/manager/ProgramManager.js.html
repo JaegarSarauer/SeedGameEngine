@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/manager/ProgramManager.js | seed-engine</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="seed-engine"><meta property="twitter:description" content="A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/JaegarSarauer/SeedGameEngine"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Engine.js~_Engine.html">_Engine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Engine">Engine</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#base">base</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/base/Updateable.js~Updateable.html">Updateable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#component">component</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/BoxCollider.js~BoxCollider.html">BoxCollider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/CircleCollider.js~CircleCollider.html">CircleCollider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Collider.js~Collider.html">Collider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Collider2D.js~Collider2D.html">Collider2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics.js~Physics.html">Physics</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics2D.js~Physics2D.html">Physics2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html">Renderable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Transform.js~Transform.html">Transform</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#const">const</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_F">DEFAULT_F</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_V">DEFAULT_V</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#internal">internal</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Bounds.js~Bounds.html">Bounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Color.js~Color.html">Color</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Point.js~Point.html">Point</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/PostBoard.js~PostBoard.html">PostBoard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#manager">manager</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/AudioManager.js~_AudioManager.html">_AudioManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/DOMManager.js~_DOMManager.html">_DOMManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/EngineManager.js~_EngineManager.html">_EngineManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/InputManager.js~_InputManager.html">_InputManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/Manager.js~Manager.html">Manager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/NetworkManager.js~_NetworkManager.html">_NetworkManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/PersistentManager.js~_PersistentManager.html">_PersistentManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/PhysicsManager.js~_PhysicsManager.html">_PhysicsManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/ProgramManager.js~_ProgramManager.html">_ProgramManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/RenderManager.js~_RenderManager.html">_RenderManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/SceneManager.js~_SceneManager.html">_SceneManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/UpdateableManager.js~_UpdateableManager.html">_UpdateableManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-AudioManager">AudioManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DOMManager">DOMManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EngineManager">EngineManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-InputManager">InputManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-NetworkManager">NetworkManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PersistentManager">PersistentManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PhysicsManager">PhysicsManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ProgramManager">ProgramManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RenderManager">RenderManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SceneManager">SceneManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UpdateableManager">UpdateableManager</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#object">object</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/object/GameObject.js~GameObject.html">GameObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/object/PersistentObject.js~PersistentObject.html">PersistentObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/object/SceneObject.js~SceneObject.html">SceneObject</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#render">render</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/render/Viewport.js~Viewport.html">Viewport</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#render-webgl">render/WebGL</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/render/WebGL/Matrix.js~Matrix.html">Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/render/WebGL/Matrix3.js~Matrix3.html">Matrix3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#scene">scene</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/scene/BasicScene.js~BasicScene.html">BasicScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/scene/Scene.js~Scene.html">Scene</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils">utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-degToRad">degToRad</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-radToDeg">radToDeg</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/manager/ProgramManager.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Manager from &apos;./Manager&apos;;
+import DOMManager from &apos;./DOMManager&apos;;
+import * as VertexShader from &apos;../const/VertexShader&apos;;
+import * as FragmentShader from &apos;../const/FragmentShader&apos;;
+
+/**
+ * Manages WebGL Programs so that they only need to be created once across the engine
+ * allowing multiple objects to still share the same reference.
+ * 
+ * Elliminates the need for the programmer to compile shaders and create programs, and eases 
+ * on-the-fly Shader compiling.
+ */
+export class _ProgramManager extends Manager {
+    constructor() {
+        super();
+        this.programIDCounter = 0;
+        this.programs = {};
+    }
+
+    /**
+     * Creates default programs for easy reference later on.
+     */
+    start() {
+        this.addProgram(&apos;Default&apos;, VertexShader.DEFAULT_V, FragmentShader.DEFAULT_F);
+    }
+
+    /**
+     * Returns a Program JSON Object containing the program, name and id.
+     * 
+     * @param {string} programKey Name of the program.
+     * 
+     * @returns {Program Object} Returns a JSON object with Program data.
+     */
+    getProgram(programKey) {
+        if (this.programs[programKey] == null)
+            throw &apos;Program does not exist!&apos;;
+        return this.programs[programKey];
+    }
+
+    /**
+     * Creates a Program JSON Object and initializes the program and metadata.
+     * The program is added to the programs array.
+     * 
+     * @param {string} programName Name of the program.
+     * @param {string} vertexShaderSource Source code of the vertex shader.
+     * @param {string} fragmentShaderSource Source code of the fragment shader.
+     */
+    addProgram(programName, vertexShaderSource, fragmentShaderSource) {
+        this.programs[programName] = {
+            name: programName,
+            id: this.programIDCounter++,
+            program: this._createProgram(vertexShaderSource, fragmentShaderSource),
+        };
+    }
+
+    /**
+     * Creates a WebGL program from a compiled vertex and fragment shader. The program is returned.
+     * 
+     * @param {CompiledVertexShader} vertexShader A compiled vertex shader.
+     * @param {CompiledFragmentShader} fragmentShader A compiled fragment shader.
+     * 
+     * @returns {Program} A WebGL program. Null if unsuccessful.
+     */
+    _createShadersProgram(vertexShader, fragmentShader) {
+        let program = DOMManager.GL.createProgram();
+        DOMManager.GL.attachShader(program, vertexShader);
+        DOMManager.GL.attachShader(program, fragmentShader);
+        DOMManager.GL.linkProgram(program);
+        let success = DOMManager.GL.getProgramParameter(program, DOMManager.GL.LINK_STATUS);
+        if (success) {
+            return program;
+        }
+
+        console.error(DOMManager.GL.getProgramInfoLog(program));
+        DOMManager.GL.deleteProgram(program);
+        return null;
+    }
+
+    /**
+     * Creates a shader of either Vertex or Fragment type and returns the compiled version.
+     * 
+     * @param {GLShaderType} type A GL shader type of either VERTEX_SHADER or FRAGMENT_SHADER.
+     * @param {string} source Source code for the shader type.
+     * 
+     * @returns {CompiledShader} A compiled shader. Null if unsuccessful.
+     */
+    _createShader(type, source) {
+        let shader = DOMManager.GL.createShader(type);
+        DOMManager.GL.shaderSource(shader, source);
+        DOMManager.GL.compileShader(shader);
+        let success = DOMManager.GL.getShaderParameter(shader, DOMManager.GL.COMPILE_STATUS);
+        if (success) {
+            return shader;
+        }
+
+        console.error(DOMManager.GL.getShaderInfoLog(shader));
+        DOMManager.GL.deleteShader(shader);
+        return null;
+    }
+
+    /**
+     * Compiles the vertex shader and fragment shader and returns a WebGL program.
+     * 
+     * @param {string} vertexShaderSource Source code for a vertex shader.
+     * @param {string} fragmentShaderSource Source code for a fragment shader.
+     * 
+     * @returns {Program} A program compiled from the two shader sources.
+     */
+    _createProgram(vertexShaderSource, fragmentShaderSource) {
+        let vertexShader = this._createShader(DOMManager.GL.VERTEX_SHADER, vertexShaderSource);
+        let fragmentShader = this._createShader(DOMManager.GL.FRAGMENT_SHADER, fragmentShaderSource);
+
+        return this._createShadersProgram(vertexShader, fragmentShader);
+    }
+}
+
+/**
+ * Singleton reference to the WebGL Program Manager.
+ */
+const ProgramManager = new _ProgramManager();
+export default ProgramManager;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 99,
+  "end": 341,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 12,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 99,
+    "end": 341,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 12,
         "column": 1
       }
     },
@@ -95,64 +95,83 @@
             "raw": "'./Collider2D'"
           },
           "value": "./Collider2D"
-        }
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A 2D Collider Component which can be attached to any GameObject.\n * \n * A CircleCollider Component monitors collisions with other Collider Components. \n * \n * This component is refined to a 2D circle. A point of origin and radius.\n ",
+            "start": 40,
+            "end": 281,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 40,
-        "end": 99,
+        "start": 282,
+        "end": 341,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 10,
             "column": 0
           },
           "end": {
-            "line": 5,
+            "line": 12,
             "column": 1
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 55,
-          "end": 99,
+          "start": 297,
+          "end": 341,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 10,
               "column": 15
             },
             "end": {
-              "line": 5,
+              "line": 12,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 61,
-            "end": 75,
+            "start": 303,
+            "end": 317,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 10,
                 "column": 21
               },
               "end": {
-                "line": 3,
+                "line": 10,
                 "column": 35
               },
               "identifierName": "CircleCollider"
             },
-            "name": "CircleCollider"
+            "name": "CircleCollider",
+            "leadingComments": null
           },
           "superClass": {
             "type": "Identifier",
-            "start": 84,
-            "end": 94,
+            "start": 326,
+            "end": 336,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 10,
                 "column": 44
               },
               "end": {
-                "line": 3,
+                "line": 10,
                 "column": 54
               },
               "identifierName": "Collider2D"
@@ -161,28 +180,80 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 95,
-            "end": 99,
+            "start": 337,
+            "end": 341,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 10,
                 "column": 55
               },
               "end": {
-                "line": 5,
+                "line": 12,
                 "column": 1
               }
             },
             "body": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * A 2D Collider Component which can be attached to any GameObject.\n * \n * A CircleCollider Component monitors collisions with other Collider Components. \n * \n * This component is refined to a 2D circle. A point of origin and radius.\n ",
+              "start": 40,
+              "end": 281,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 9,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A 2D Collider Component which can be attached to any GameObject.\n * \n * A CircleCollider Component monitors collisions with other Collider Components. \n * \n * This component is refined to a 2D circle. A point of origin and radius.\n ",
+            "start": 40,
+            "end": 281,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * A 2D Collider Component which can be attached to any GameObject.\n * \n * A CircleCollider Component monitors collisions with other Collider Components. \n * \n * This component is refined to a 2D circle. A point of origin and radius.\n ",
+      "start": 40,
+      "end": 281,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -318,6 +389,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * A 2D Collider Component which can be attached to any GameObject.\n * \n * A CircleCollider Component monitors collisions with other Collider Components. \n * \n * This component is refined to a 2D circle. A point of origin and radius.\n ",
+      "start": 40,
+      "end": 281,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -332,15 +419,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 40,
-      "end": 46,
+      "start": 282,
+      "end": 288,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 6
         }
       }
@@ -360,15 +447,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 47,
-      "end": 54,
+      "start": 289,
+      "end": 296,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 14
         }
       }
@@ -388,15 +475,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 55,
-      "end": 60,
+      "start": 297,
+      "end": 302,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 20
         }
       }
@@ -414,15 +501,15 @@
         "binop": null
       },
       "value": "CircleCollider",
-      "start": 61,
-      "end": 75,
+      "start": 303,
+      "end": 317,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 21
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 35
         }
       }
@@ -442,15 +529,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 76,
-      "end": 83,
+      "start": 318,
+      "end": 325,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 36
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 43
         }
       }
@@ -468,15 +555,15 @@
         "binop": null
       },
       "value": "Collider2D",
-      "start": 84,
-      "end": 94,
+      "start": 326,
+      "end": 336,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 44
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 54
         }
       }
@@ -493,15 +580,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 95,
-      "end": 96,
+      "start": 337,
+      "end": 338,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 10,
           "column": 55
         },
         "end": {
-          "line": 3,
+          "line": 10,
           "column": 56
         }
       }
@@ -518,15 +605,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 98,
-      "end": 99,
+      "start": 340,
+      "end": 341,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 12,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 12,
           "column": 1
         }
       }
@@ -544,15 +631,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 99,
-      "end": 99,
+      "start": 341,
+      "end": 341,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 12,
           "column": 1
         },
         "end": {
-          "line": 5,
+          "line": 12,
           "column": 1
         }
       }

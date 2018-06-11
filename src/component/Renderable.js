@@ -74,7 +74,7 @@ export default class Renderable extends Component {
      * 
      * TODO: Change to a rotation point for x, y, z rotation instead of just z.
      * 
-     * @param {Point} point A position point.
+     * @param {number} rotation A rotation in degrees.
      */
     setRotation(rotation) {
         this._matrixRotation.setRotation(rotation);
@@ -83,7 +83,7 @@ export default class Renderable extends Component {
     /**
      * Sets the scale matrix to the new scale point assigned.
      * 
-     * @param {Point} point A scale point.
+     * @param {Point} scale A scale point.
      */
     setScale(scale) {
         this._matrixScale.setScale(scale.x, scale.y);

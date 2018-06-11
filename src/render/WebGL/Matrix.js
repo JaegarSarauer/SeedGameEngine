@@ -1,6 +1,8 @@
-export default class Matrix {
 
-    pack(x, y, scaleX, scaleY, rotationDegree) {}
+/**
+ * Baseclass for a Matrix. Use Matrix3 or Matrix4 for 2D and 3D matrix math.
+ */
+export default class Matrix {
 
     setPosition(x, y) {}
 
@@ -10,7 +12,7 @@ export default class Matrix {
 
     copy() {}
 
-    add(m2) {}
+    add(m) {}
 
-    multiply(m2) {}
+    multiply(m) {}
 }

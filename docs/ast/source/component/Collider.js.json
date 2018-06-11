@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 90,
+  "end": 284,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 11,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 90,
+    "end": 284,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 11,
         "column": 1
       }
     },
@@ -95,64 +95,83 @@
             "raw": "'./Component'"
           },
           "value": "./Component"
-        }
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A Collider Component that checks bounds for collisions.\n * \n * This commponent has interface functions for calculating collisions\n * which have to be defined to work. See Subclasses.\n ",
+            "start": 38,
+            "end": 231,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 38,
-        "end": 90,
+        "start": 232,
+        "end": 284,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 9,
             "column": 0
           },
           "end": {
-            "line": 5,
+            "line": 11,
             "column": 1
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 53,
-          "end": 90,
+          "start": 247,
+          "end": 284,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 9,
               "column": 15
             },
             "end": {
-              "line": 5,
+              "line": 11,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 59,
-            "end": 67,
+            "start": 253,
+            "end": 261,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 9,
                 "column": 21
               },
               "end": {
-                "line": 3,
+                "line": 9,
                 "column": 29
               },
               "identifierName": "Collider"
             },
-            "name": "Collider"
+            "name": "Collider",
+            "leadingComments": null
           },
           "superClass": {
             "type": "Identifier",
-            "start": 76,
-            "end": 85,
+            "start": 270,
+            "end": 279,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 9,
                 "column": 38
               },
               "end": {
-                "line": 3,
+                "line": 9,
                 "column": 47
               },
               "identifierName": "Component"
@@ -161,28 +180,80 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 86,
-            "end": 90,
+            "start": 280,
+            "end": 284,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 9,
                 "column": 48
               },
               "end": {
-                "line": 5,
+                "line": 11,
                 "column": 1
               }
             },
             "body": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * A Collider Component that checks bounds for collisions.\n * \n * This commponent has interface functions for calculating collisions\n * which have to be defined to work. See Subclasses.\n ",
+              "start": 38,
+              "end": 231,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 8,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A Collider Component that checks bounds for collisions.\n * \n * This commponent has interface functions for calculating collisions\n * which have to be defined to work. See Subclasses.\n ",
+            "start": 38,
+            "end": 231,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * A Collider Component that checks bounds for collisions.\n * \n * This commponent has interface functions for calculating collisions\n * which have to be defined to work. See Subclasses.\n ",
+      "start": 38,
+      "end": 231,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -318,6 +389,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * A Collider Component that checks bounds for collisions.\n * \n * This commponent has interface functions for calculating collisions\n * which have to be defined to work. See Subclasses.\n ",
+      "start": 38,
+      "end": 231,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -332,15 +419,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 38,
-      "end": 44,
+      "start": 232,
+      "end": 238,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 6
         }
       }
@@ -360,15 +447,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 45,
-      "end": 52,
+      "start": 239,
+      "end": 246,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 14
         }
       }
@@ -388,15 +475,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 53,
-      "end": 58,
+      "start": 247,
+      "end": 252,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 20
         }
       }
@@ -414,15 +501,15 @@
         "binop": null
       },
       "value": "Collider",
-      "start": 59,
-      "end": 67,
+      "start": 253,
+      "end": 261,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 21
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 29
         }
       }
@@ -442,15 +529,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 68,
-      "end": 75,
+      "start": 262,
+      "end": 269,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 30
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 37
         }
       }
@@ -468,15 +555,15 @@
         "binop": null
       },
       "value": "Component",
-      "start": 76,
-      "end": 85,
+      "start": 270,
+      "end": 279,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 38
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 47
         }
       }
@@ -493,15 +580,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 86,
-      "end": 87,
+      "start": 280,
+      "end": 281,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 48
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 49
         }
       }
@@ -518,15 +605,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 89,
-      "end": 90,
+      "start": 283,
+      "end": 284,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 11,
           "column": 1
         }
       }
@@ -544,15 +631,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 90,
-      "end": 90,
+      "start": 284,
+      "end": 284,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 11,
           "column": 1
         },
         "end": {
-          "line": 5,
+          "line": 11,
           "column": 1
         }
       }

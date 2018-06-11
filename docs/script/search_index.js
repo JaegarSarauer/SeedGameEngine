@@ -48,6 +48,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "seed-engine/src/internal/color.js~color",
+    "class/src/internal/Color.js~Color.html",
+    "<span>Color</span> <span class=\"search-result-import-path\">seed-engine/src/internal/Color.js</span>",
+    "class"
+  ],
+  [
     "seed-engine/src/component/component.js~component",
     "class/src/component/Component.js~Component.html",
     "<span>Component</span> <span class=\"search-result-import-path\">seed-engine/src/component/Component.js</span>",
@@ -120,12 +126,6 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "seed-engine/src/manager/objectmanager.js~objectmanager",
-    "variable/index.html#static-variable-ObjectManager",
-    "<span>ObjectManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/ObjectManager.js</span>",
-    "variable"
-  ],
-  [
     "seed-engine/src/manager/persistentmanager.js~persistentmanager",
     "variable/index.html#static-variable-PersistentManager",
     "<span>PersistentManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/PersistentManager.js</span>",
@@ -160,6 +160,18 @@ window.esdocSearchIndex = [
     "class/src/internal/Point.js~Point.html",
     "<span>Point</span> <span class=\"search-result-import-path\">seed-engine/src/internal/Point.js</span>",
     "class"
+  ],
+  [
+    "seed-engine/src/internal/postboard.js~postboard",
+    "class/src/internal/PostBoard.js~PostBoard.html",
+    "<span>PostBoard</span> <span class=\"search-result-import-path\">seed-engine/src/internal/PostBoard.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/manager/programmanager.js~programmanager",
+    "variable/index.html#static-variable-ProgramManager",
+    "<span>ProgramManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/ProgramManager.js</span>",
+    "variable"
   ],
   [
     "seed-engine/src/manager/rendermanager.js~rendermanager",
@@ -204,12 +216,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "seed-engine/src/render/webgl/shader.js~shader",
-    "class/src/render/WebGL/Shader.js~Shader.html",
-    "<span>Shader</span> <span class=\"search-result-import-path\">seed-engine/src/render/WebGL/Shader.js</span>",
-    "class"
-  ],
-  [
     "seed-engine/src/component/transform.js~transform",
     "class/src/component/Transform.js~Transform.html",
     "<span>Transform</span> <span class=\"search-result-import-path\">seed-engine/src/component/Transform.js</span>",
@@ -220,6 +226,12 @@ window.esdocSearchIndex = [
     "class/src/base/Updateable.js~Updateable.html",
     "<span>Updateable</span> <span class=\"search-result-import-path\">seed-engine/src/base/Updateable.js</span>",
     "class"
+  ],
+  [
+    "seed-engine/src/manager/updateablemanager.js~updateablemanager",
+    "variable/index.html#static-variable-UpdateableManager",
+    "<span>UpdateableManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/UpdateableManager.js</span>",
+    "variable"
   ],
   [
     "seed-engine/src/render/viewport.js~viewport",
@@ -264,12 +276,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "seed-engine/src/manager/objectmanager.js~_objectmanager",
-    "class/src/manager/ObjectManager.js~_ObjectManager.html",
-    "<span>_ObjectManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/ObjectManager.js</span>",
-    "class"
-  ],
-  [
     "seed-engine/src/manager/persistentmanager.js~_persistentmanager",
     "class/src/manager/PersistentManager.js~_PersistentManager.html",
     "<span>_PersistentManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/PersistentManager.js</span>",
@@ -282,6 +288,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "seed-engine/src/manager/programmanager.js~_programmanager",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html",
+    "<span>_ProgramManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/ProgramManager.js</span>",
+    "class"
+  ],
+  [
     "seed-engine/src/manager/rendermanager.js~_rendermanager",
     "class/src/manager/RenderManager.js~_RenderManager.html",
     "<span>_RenderManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/RenderManager.js</span>",
@@ -291,6 +303,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/manager/scenemanager.js~_scenemanager",
     "class/src/manager/SceneManager.js~_SceneManager.html",
     "<span>_SceneManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/SceneManager.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/manager/updateablemanager.js~_updateablemanager",
+    "class/src/manager/UpdateableManager.js~_UpdateableManager.html",
+    "<span>_UpdateableManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/UpdateableManager.js</span>",
     "class"
   ],
   [
@@ -708,6 +726,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/base/updateable.js~updateable#poststartupdate",
+    "class/src/base/Updateable.js~Updateable.html#instance-method-postStartUpdate",
+    "src/base/Updateable.js~Updateable#postStartUpdate",
+    "method"
+  ],
+  [
     "src/base/updateable.js~updateable#start",
     "class/src/base/Updateable.js~Updateable.html#instance-method-start",
     "src/base/Updateable.js~Updateable#start",
@@ -774,6 +798,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/component/component.js~component#onaddcomponent",
+    "class/src/component/Component.js~Component.html#instance-method-onAddComponent",
+    "src/component/Component.js~Component#onAddComponent",
+    "method"
+  ],
+  [
     "src/component/physics.js",
     "file/src/component/Physics.js.html",
     "src/component/Physics.js",
@@ -792,10 +822,40 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/component/renderable.js~renderable#_matrixoriginoffset",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-_matrixOriginOffset",
+    "src/component/Renderable.js~Renderable#_matrixOriginOffset",
+    "member"
+  ],
+  [
+    "src/component/renderable.js~renderable#_matrixposition",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-_matrixPosition",
+    "src/component/Renderable.js~Renderable#_matrixPosition",
+    "member"
+  ],
+  [
+    "src/component/renderable.js~renderable#_matrixrotation",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-_matrixRotation",
+    "src/component/Renderable.js~Renderable#_matrixRotation",
+    "member"
+  ],
+  [
+    "src/component/renderable.js~renderable#_matrixscale",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-_matrixScale",
+    "src/component/Renderable.js~Renderable#_matrixScale",
+    "member"
+  ],
+  [
     "src/component/renderable.js~renderable#addtoviewport",
     "class/src/component/Renderable.js~Renderable.html#instance-method-addToViewport",
     "src/component/Renderable.js~Renderable#addToViewport",
     "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#color",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-color",
+    "src/component/Renderable.js~Renderable#color",
+    "member"
   ],
   [
     "src/component/renderable.js~renderable#constructor",
@@ -810,21 +870,15 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/component/renderable.js~renderable#init",
-    "class/src/component/Renderable.js~Renderable.html#instance-method-init",
-    "src/component/Renderable.js~Renderable#init",
+    "src/component/renderable.js~renderable#getmatrix",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-getMatrix",
+    "src/component/Renderable.js~Renderable#getMatrix",
     "method"
   ],
   [
-    "src/component/renderable.js~renderable#matrix",
-    "class/src/component/Renderable.js~Renderable.html#instance-member-matrix",
-    "src/component/Renderable.js~Renderable#matrix",
-    "member"
-  ],
-  [
-    "src/component/renderable.js~renderable#onstart",
-    "class/src/component/Renderable.js~Renderable.html#instance-method-onStart",
-    "src/component/Renderable.js~Renderable#onStart",
+    "src/component/renderable.js~renderable#onaddcomponent",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-onAddComponent",
+    "src/component/Renderable.js~Renderable#onAddComponent",
     "method"
   ],
   [
@@ -846,9 +900,39 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/component/renderable.js~renderable#removefromviewport",
-    "class/src/component/Renderable.js~Renderable.html#instance-method-removeFromViewport",
-    "src/component/Renderable.js~Renderable#removeFromViewport",
+    "src/component/renderable.js~renderable#removefromviewports",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-removeFromViewports",
+    "src/component/Renderable.js~Renderable#removeFromViewports",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#renderpositions",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-renderPositions",
+    "src/component/Renderable.js~Renderable#renderPositions",
+    "member"
+  ],
+  [
+    "src/component/renderable.js~renderable#setoriginoffset",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setOriginOffset",
+    "src/component/Renderable.js~Renderable#setOriginOffset",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#setposition",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setPosition",
+    "src/component/Renderable.js~Renderable#setPosition",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#setrotation",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setRotation",
+    "src/component/Renderable.js~Renderable#setRotation",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#setscale",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setScale",
+    "src/component/Renderable.js~Renderable#setScale",
     "method"
   ],
   [
@@ -856,6 +940,12 @@ window.esdocSearchIndex = [
     "file/src/component/Renderable2D.js.html",
     "src/component/Renderable2D.js",
     "file"
+  ],
+  [
+    "src/component/renderable2d.js~renderable2d#classname",
+    "class/src/component/Renderable2D.js~Renderable2D.html#instance-member-className",
+    "src/component/Renderable2D.js~Renderable2D#className",
+    "member"
   ],
   [
     "src/component/renderable2d.js~renderable2d#constructor",
@@ -876,15 +966,75 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/component/transform.js~transform#_originoffset",
+    "class/src/component/Transform.js~Transform.html#instance-member-_originOffset",
+    "src/component/Transform.js~Transform#_originOffset",
+    "member"
+  ],
+  [
+    "src/component/transform.js~transform#_position",
+    "class/src/component/Transform.js~Transform.html#instance-member-_position",
+    "src/component/Transform.js~Transform#_position",
+    "member"
+  ],
+  [
+    "src/component/transform.js~transform#_rotation",
+    "class/src/component/Transform.js~Transform.html#instance-member-_rotation",
+    "src/component/Transform.js~Transform#_rotation",
+    "member"
+  ],
+  [
+    "src/component/transform.js~transform#_scale",
+    "class/src/component/Transform.js~Transform.html#instance-member-_scale",
+    "src/component/Transform.js~Transform#_scale",
+    "member"
+  ],
+  [
+    "src/component/transform.js~transform#centerorigin",
+    "class/src/component/Transform.js~Transform.html#instance-method-centerOrigin",
+    "src/component/Transform.js~Transform#centerOrigin",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#classname",
+    "class/src/component/Transform.js~Transform.html#instance-member-className",
+    "src/component/Transform.js~Transform#className",
+    "member"
+  ],
+  [
     "src/component/transform.js~transform#constructor",
     "class/src/component/Transform.js~Transform.html#instance-constructor-constructor",
     "src/component/Transform.js~Transform#constructor",
     "method"
   ],
   [
-    "src/component/transform.js~transform#position",
-    "class/src/component/Transform.js~Transform.html#instance-member-position",
-    "src/component/Transform.js~Transform#position",
+    "src/component/transform.js~transform#getoriginoffset",
+    "class/src/component/Transform.js~Transform.html#instance-method-getOriginOffset",
+    "src/component/Transform.js~Transform#getOriginOffset",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#getposition",
+    "class/src/component/Transform.js~Transform.html#instance-method-getPosition",
+    "src/component/Transform.js~Transform#getPosition",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#getrotation",
+    "class/src/component/Transform.js~Transform.html#instance-method-getRotation",
+    "src/component/Transform.js~Transform#getRotation",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#getscale",
+    "class/src/component/Transform.js~Transform.html#instance-method-getScale",
+    "src/component/Transform.js~Transform#getScale",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#renderable",
+    "class/src/component/Transform.js~Transform.html#instance-member-renderable",
+    "src/component/Transform.js~Transform#renderable",
     "member"
   ],
   [
@@ -894,28 +1044,16 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/transform.js~transform#rotation",
-    "class/src/component/Transform.js~Transform.html#instance-member-rotation",
-    "src/component/Transform.js~Transform#rotation",
-    "member"
-  ],
-  [
     "src/component/transform.js~transform#scale",
     "class/src/component/Transform.js~Transform.html#instance-method-scale",
     "src/component/Transform.js~Transform#scale",
     "method"
   ],
   [
-    "src/component/transform.js~transform#scalex",
-    "class/src/component/Transform.js~Transform.html#instance-member-scaleX",
-    "src/component/Transform.js~Transform#scaleX",
-    "member"
-  ],
-  [
-    "src/component/transform.js~transform#scaley",
-    "class/src/component/Transform.js~Transform.html#instance-member-scaleY",
-    "src/component/Transform.js~Transform#scaleY",
-    "member"
+    "src/component/transform.js~transform#setoriginoffset",
+    "class/src/component/Transform.js~Transform.html#instance-method-setOriginOffset",
+    "src/component/Transform.js~Transform#setOriginOffset",
+    "method"
   ],
   [
     "src/component/transform.js~transform#setposition",
@@ -990,6 +1128,60 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/internal/bounds.js~bounds#set",
+    "class/src/internal/Bounds.js~Bounds.html#instance-method-set",
+    "src/internal/Bounds.js~Bounds#set",
+    "method"
+  ],
+  [
+    "src/internal/color.js",
+    "file/src/internal/Color.js.html",
+    "src/internal/Color.js",
+    "file"
+  ],
+  [
+    "src/internal/color.js~color#color",
+    "class/src/internal/Color.js~Color.html#instance-member-color",
+    "src/internal/Color.js~Color#color",
+    "member"
+  ],
+  [
+    "src/internal/color.js~color#constructor",
+    "class/src/internal/Color.js~Color.html#instance-constructor-constructor",
+    "src/internal/Color.js~Color#constructor",
+    "method"
+  ],
+  [
+    "src/internal/color.js~color#set",
+    "class/src/internal/Color.js~Color.html#instance-method-set",
+    "src/internal/Color.js~Color#set",
+    "method"
+  ],
+  [
+    "src/internal/color.js~color.blue",
+    "class/src/internal/Color.js~Color.html#static-method-blue",
+    "src/internal/Color.js~Color.blue",
+    "method"
+  ],
+  [
+    "src/internal/color.js~color.green",
+    "class/src/internal/Color.js~Color.html#static-method-green",
+    "src/internal/Color.js~Color.green",
+    "method"
+  ],
+  [
+    "src/internal/color.js~color.pink",
+    "class/src/internal/Color.js~Color.html#static-method-pink",
+    "src/internal/Color.js~Color.pink",
+    "method"
+  ],
+  [
+    "src/internal/color.js~color.red",
+    "class/src/internal/Color.js~Color.html#static-method-red",
+    "src/internal/Color.js~Color.red",
+    "method"
+  ],
+  [
     "src/internal/point.js",
     "file/src/internal/Point.js.html",
     "src/internal/Point.js",
@@ -999,6 +1191,12 @@ window.esdocSearchIndex = [
     "src/internal/point.js~point#constructor",
     "class/src/internal/Point.js~Point.html#instance-constructor-constructor",
     "src/internal/Point.js~Point#constructor",
+    "method"
+  ],
+  [
+    "src/internal/point.js~point#set",
+    "class/src/internal/Point.js~Point.html#instance-method-set",
+    "src/internal/Point.js~Point#set",
     "method"
   ],
   [
@@ -1017,6 +1215,66 @@ window.esdocSearchIndex = [
     "src/internal/point.js~point#z",
     "class/src/internal/Point.js~Point.html#instance-member-z",
     "src/internal/Point.js~Point#z",
+    "member"
+  ],
+  [
+    "src/internal/postboard.js",
+    "file/src/internal/PostBoard.js.html",
+    "src/internal/PostBoard.js",
+    "file"
+  ],
+  [
+    "src/internal/postboard.js~postboard#close",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-method-close",
+    "src/internal/PostBoard.js~PostBoard#close",
+    "method"
+  ],
+  [
+    "src/internal/postboard.js~postboard#closeall",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-method-closeAll",
+    "src/internal/PostBoard.js~PostBoard#closeAll",
+    "method"
+  ],
+  [
+    "src/internal/postboard.js~postboard#constructor",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-constructor-constructor",
+    "src/internal/PostBoard.js~PostBoard#constructor",
+    "method"
+  ],
+  [
+    "src/internal/postboard.js~postboard#look",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-method-look",
+    "src/internal/PostBoard.js~PostBoard#look",
+    "method"
+  ],
+  [
+    "src/internal/postboard.js~postboard#post",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-method-post",
+    "src/internal/PostBoard.js~PostBoard#post",
+    "method"
+  ],
+  [
+    "src/internal/postboard.js~postboard#posts",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-member-posts",
+    "src/internal/PostBoard.js~PostBoard#posts",
+    "member"
+  ],
+  [
+    "src/internal/postboard.js~postboard#watch",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-method-watch",
+    "src/internal/PostBoard.js~PostBoard#watch",
+    "method"
+  ],
+  [
+    "src/internal/postboard.js~postboard#watcherid",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-member-watcherID",
+    "src/internal/PostBoard.js~PostBoard#watcherID",
+    "member"
+  ],
+  [
+    "src/internal/postboard.js~postboard#watchers",
+    "class/src/internal/PostBoard.js~PostBoard.html#instance-member-watchers",
+    "src/internal/PostBoard.js~PostBoard#watchers",
     "member"
   ],
   [
@@ -1080,12 +1338,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/manager/enginemanager.js~_enginemanager#_update",
-    "class/src/manager/EngineManager.js~_EngineManager.html#instance-method-_update",
-    "src/manager/EngineManager.js~_EngineManager#_update",
-    "method"
-  ],
-  [
     "src/manager/enginemanager.js~_enginemanager#constructor",
     "class/src/manager/EngineManager.js~_EngineManager.html#instance-constructor-constructor",
     "src/manager/EngineManager.js~_EngineManager#constructor",
@@ -1128,6 +1380,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/manager/enginemanager.js~_enginemanager#update",
+    "class/src/manager/EngineManager.js~_EngineManager.html#instance-method-update",
+    "src/manager/EngineManager.js~_EngineManager#update",
+    "method"
+  ],
+  [
     "src/manager/inputmanager.js",
     "file/src/manager/InputManager.js.html",
     "src/manager/InputManager.js",
@@ -1146,6 +1404,42 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/manager/manager.js~manager#constructor",
+    "class/src/manager/Manager.js~Manager.html#instance-constructor-constructor",
+    "src/manager/Manager.js~Manager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/manager.js~manager#end",
+    "class/src/manager/Manager.js~Manager.html#instance-method-end",
+    "src/manager/Manager.js~Manager#end",
+    "method"
+  ],
+  [
+    "src/manager/manager.js~manager#pause",
+    "class/src/manager/Manager.js~Manager.html#instance-method-pause",
+    "src/manager/Manager.js~Manager#pause",
+    "method"
+  ],
+  [
+    "src/manager/manager.js~manager#start",
+    "class/src/manager/Manager.js~Manager.html#instance-method-start",
+    "src/manager/Manager.js~Manager#start",
+    "method"
+  ],
+  [
+    "src/manager/manager.js~manager#unpause",
+    "class/src/manager/Manager.js~Manager.html#instance-method-unpause",
+    "src/manager/Manager.js~Manager#unpause",
+    "method"
+  ],
+  [
+    "src/manager/manager.js~manager#update",
+    "class/src/manager/Manager.js~Manager.html#instance-method-update",
+    "src/manager/Manager.js~Manager#update",
+    "method"
+  ],
+  [
     "src/manager/networkmanager.js",
     "file/src/manager/NetworkManager.js.html",
     "src/manager/NetworkManager.js",
@@ -1155,30 +1449,6 @@ window.esdocSearchIndex = [
     "src/manager/networkmanager.js~_networkmanager#constructor",
     "class/src/manager/NetworkManager.js~_NetworkManager.html#instance-constructor-constructor",
     "src/manager/NetworkManager.js~_NetworkManager#constructor",
-    "method"
-  ],
-  [
-    "src/manager/objectmanager.js",
-    "file/src/manager/ObjectManager.js.html",
-    "src/manager/ObjectManager.js",
-    "file"
-  ],
-  [
-    "src/manager/objectmanager.js~_objectmanager#constructor",
-    "class/src/manager/ObjectManager.js~_ObjectManager.html#instance-constructor-constructor",
-    "src/manager/ObjectManager.js~_ObjectManager#constructor",
-    "method"
-  ],
-  [
-    "src/manager/objectmanager.js~_objectmanager#gameobjectidcounter",
-    "class/src/manager/ObjectManager.js~_ObjectManager.html#instance-member-gameObjectIDCounter",
-    "src/manager/ObjectManager.js~_ObjectManager#gameObjectIDCounter",
-    "member"
-  ],
-  [
-    "src/manager/objectmanager.js~_objectmanager#registerupdateable",
-    "class/src/manager/ObjectManager.js~_ObjectManager.html#instance-method-registerUpdateable",
-    "src/manager/ObjectManager.js~_ObjectManager#registerUpdateable",
     "method"
   ],
   [
@@ -1218,12 +1488,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/manager/persistentmanager.js~_persistentmanager#start",
-    "class/src/manager/PersistentManager.js~_PersistentManager.html#instance-method-start",
-    "src/manager/PersistentManager.js~_PersistentManager#start",
-    "method"
-  ],
-  [
     "src/manager/persistentmanager.js~_persistentmanager#unpause",
     "class/src/manager/PersistentManager.js~_PersistentManager.html#instance-method-unpause",
     "src/manager/PersistentManager.js~_PersistentManager#unpause",
@@ -1248,6 +1512,66 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/manager/programmanager.js",
+    "file/src/manager/ProgramManager.js.html",
+    "src/manager/ProgramManager.js",
+    "file"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#_createprogram",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_createProgram",
+    "src/manager/ProgramManager.js~_ProgramManager#_createProgram",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#_createshader",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_createShader",
+    "src/manager/ProgramManager.js~_ProgramManager#_createShader",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#_createshadersprogram",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_createShadersProgram",
+    "src/manager/ProgramManager.js~_ProgramManager#_createShadersProgram",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#addprogram",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-addProgram",
+    "src/manager/ProgramManager.js~_ProgramManager#addProgram",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#constructor",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-constructor-constructor",
+    "src/manager/ProgramManager.js~_ProgramManager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#getprogram",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-getProgram",
+    "src/manager/ProgramManager.js~_ProgramManager#getProgram",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#programidcounter",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-member-programIDCounter",
+    "src/manager/ProgramManager.js~_ProgramManager#programIDCounter",
+    "member"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#programs",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-member-programs",
+    "src/manager/ProgramManager.js~_ProgramManager#programs",
+    "member"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#start",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-start",
+    "src/manager/ProgramManager.js~_ProgramManager#start",
+    "method"
+  ],
+  [
     "src/manager/rendermanager.js",
     "file/src/manager/RenderManager.js.html",
     "src/manager/RenderManager.js",
@@ -1260,51 +1584,39 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/manager/rendermanager.js~_rendermanager#_updateprogram",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-_updateProgram",
+    "src/manager/RenderManager.js~_RenderManager#_updateProgram",
+    "method"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#colorlocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-colorLocation",
+    "src/manager/RenderManager.js~_RenderManager#colorLocation",
+    "member"
+  ],
+  [
     "src/manager/rendermanager.js~_rendermanager#constructor",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-constructor-constructor",
     "src/manager/RenderManager.js~_RenderManager#constructor",
     "method"
   ],
   [
-    "src/manager/rendermanager.js~_rendermanager#createbuffer",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-createBuffer",
-    "src/manager/RenderManager.js~_RenderManager#createBuffer",
-    "method"
+    "src/manager/rendermanager.js~_rendermanager#currentprogram",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-currentProgram",
+    "src/manager/RenderManager.js~_RenderManager#currentProgram",
+    "member"
   ],
   [
-    "src/manager/rendermanager.js~_rendermanager#createprogram",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-createProgram",
-    "src/manager/RenderManager.js~_RenderManager#createProgram",
-    "method"
+    "src/manager/rendermanager.js~_rendermanager#matrixlocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-matrixLocation",
+    "src/manager/RenderManager.js~_RenderManager#matrixLocation",
+    "member"
   ],
   [
-    "src/manager/rendermanager.js~_rendermanager#createshader",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-createShader",
-    "src/manager/RenderManager.js~_RenderManager#createShader",
-    "method"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#createshadersprogram",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-createShadersProgram",
-    "src/manager/RenderManager.js~_RenderManager#createShadersProgram",
-    "method"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#end",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-end",
-    "src/manager/RenderManager.js~_RenderManager#end",
-    "method"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#pause",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-pause",
-    "src/manager/RenderManager.js~_RenderManager#pause",
-    "method"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#program",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-program",
-    "src/manager/RenderManager.js~_RenderManager#program",
+    "src/manager/rendermanager.js~_rendermanager#positionattributelocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-positionAttributeLocation",
+    "src/manager/RenderManager.js~_RenderManager#positionAttributeLocation",
     "member"
   ],
   [
@@ -1314,16 +1626,16 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/manager/rendermanager.js~_rendermanager#unpause",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-unpause",
-    "src/manager/RenderManager.js~_RenderManager#unpause",
-    "method"
-  ],
-  [
     "src/manager/rendermanager.js~_rendermanager#update",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-update",
     "src/manager/RenderManager.js~_RenderManager#update",
     "method"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#vao",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-vao",
+    "src/manager/RenderManager.js~_RenderManager#vao",
+    "member"
   ],
   [
     "src/manager/scenemanager.js",
@@ -1404,6 +1716,30 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/manager/updateablemanager.js",
+    "file/src/manager/UpdateableManager.js.html",
+    "src/manager/UpdateableManager.js",
+    "file"
+  ],
+  [
+    "src/manager/updateablemanager.js~_updateablemanager#constructor",
+    "class/src/manager/UpdateableManager.js~_UpdateableManager.html#instance-constructor-constructor",
+    "src/manager/UpdateableManager.js~_UpdateableManager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/updateablemanager.js~_updateablemanager#registerupdateable",
+    "class/src/manager/UpdateableManager.js~_UpdateableManager.html#instance-method-registerUpdateable",
+    "src/manager/UpdateableManager.js~_UpdateableManager#registerUpdateable",
+    "method"
+  ],
+  [
+    "src/manager/updateablemanager.js~_updateablemanager#updateableidcounter",
+    "class/src/manager/UpdateableManager.js~_UpdateableManager.html#instance-member-updateableIDCounter",
+    "src/manager/UpdateableManager.js~_UpdateableManager#updateableIDCounter",
+    "member"
+  ],
+  [
     "src/object/gameobject.js",
     "file/src/object/GameObject.js.html",
     "src/object/GameObject.js",
@@ -1440,6 +1776,42 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/object/gameobject.js~gameobject#hascomponent",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-hasComponent",
+    "src/object/GameObject.js~GameObject#hasComponent",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#onpostupdate",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-onPostUpdate",
+    "src/object/GameObject.js~GameObject#onPostUpdate",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#onpreupdate",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-onPreUpdate",
+    "src/object/GameObject.js~GameObject#onPreUpdate",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#poststartupdate",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-postStartUpdate",
+    "src/object/GameObject.js~GameObject#postStartUpdate",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#postupdate",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-postUpdate",
+    "src/object/GameObject.js~GameObject#postUpdate",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#preupdate",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-preUpdate",
+    "src/object/GameObject.js~GameObject#preUpdate",
+    "method"
+  ],
+  [
     "src/object/gameobject.js~gameobject#removeallcomponents",
     "class/src/object/GameObject.js~GameObject.html#instance-method-removeAllComponents",
     "src/object/GameObject.js~GameObject#removeAllComponents",
@@ -1452,15 +1824,21 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/object/gameobject.js~gameobject#removecomponentbyid",
-    "class/src/object/GameObject.js~GameObject.html#instance-method-removeComponentByID",
-    "src/object/GameObject.js~GameObject#removeComponentByID",
-    "method"
-  ],
-  [
     "src/object/gameobject.js~gameobject#removecomponents",
     "class/src/object/GameObject.js~GameObject.html#instance-method-removeComponents",
     "src/object/GameObject.js~GameObject#removeComponents",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#transform",
+    "class/src/object/GameObject.js~GameObject.html#instance-member-transform",
+    "src/object/GameObject.js~GameObject#transform",
+    "member"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#updatecomponents",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-updateComponents",
+    "src/object/GameObject.js~GameObject#updateComponents",
     "method"
   ],
   [
@@ -1482,12 +1860,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/object/persistentobject.js~persistentobject#onend",
-    "class/src/object/PersistentObject.js~PersistentObject.html#instance-method-onEnd",
-    "src/object/PersistentObject.js~PersistentObject#onEnd",
-    "method"
-  ],
-  [
     "src/object/sceneobject.js",
     "file/src/object/SceneObject.js.html",
     "src/object/SceneObject.js",
@@ -1504,12 +1876,6 @@ window.esdocSearchIndex = [
     "class/src/object/SceneObject.js~SceneObject.html#instance-member-deregister",
     "src/object/SceneObject.js~SceneObject#deregister",
     "member"
-  ],
-  [
-    "src/object/sceneobject.js~sceneobject#onend",
-    "class/src/object/SceneObject.js~SceneObject.html#instance-method-onEnd",
-    "src/object/SceneObject.js~SceneObject#onEnd",
-    "method"
   ],
   [
     "src/render/camera.js",
@@ -1542,12 +1908,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/render/viewport.js~viewport#deregister",
-    "class/src/render/Viewport.js~Viewport.html#instance-member-deregister",
-    "src/render/Viewport.js~Viewport#deregister",
-    "member"
-  ],
-  [
     "src/render/viewport.js~viewport#registerrenderablecomponent",
     "class/src/render/Viewport.js~Viewport.html#instance-method-registerRenderableComponent",
     "src/render/Viewport.js~Viewport#registerRenderableComponent",
@@ -1572,15 +1932,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/render/webgl/matrix.js~matrix#multiply",
-    "class/src/render/WebGL/Matrix.js~Matrix.html#instance-method-multiply",
-    "src/render/WebGL/Matrix.js~Matrix#multiply",
+    "src/render/webgl/matrix.js~matrix#copy",
+    "class/src/render/WebGL/Matrix.js~Matrix.html#instance-method-copy",
+    "src/render/WebGL/Matrix.js~Matrix#copy",
     "method"
   ],
   [
-    "src/render/webgl/matrix.js~matrix#pack",
-    "class/src/render/WebGL/Matrix.js~Matrix.html#instance-method-pack",
-    "src/render/WebGL/Matrix.js~Matrix#pack",
+    "src/render/webgl/matrix.js~matrix#multiply",
+    "class/src/render/WebGL/Matrix.js~Matrix.html#instance-method-multiply",
+    "src/render/WebGL/Matrix.js~Matrix#multiply",
     "method"
   ],
   [
@@ -1632,12 +1992,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/render/webgl/matrix3.js~matrix3#pack",
-    "class/src/render/WebGL/Matrix3.js~Matrix3.html#instance-method-pack",
-    "src/render/WebGL/Matrix3.js~Matrix3#pack",
-    "method"
-  ],
-  [
     "src/render/webgl/matrix3.js~matrix3#setposition",
     "class/src/render/WebGL/Matrix3.js~Matrix3.html#instance-method-setPosition",
     "src/render/WebGL/Matrix3.js~Matrix3#setPosition",
@@ -1656,40 +2010,28 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/render/webgl/shader.js",
-    "file/src/render/WebGL/Shader.js.html",
-    "src/render/WebGL/Shader.js",
-    "file"
-  ],
-  [
-    "src/render/webgl/shader.js~shader#compiled",
-    "class/src/render/WebGL/Shader.js~Shader.html#instance-member-compiled",
-    "src/render/WebGL/Shader.js~Shader#compiled",
-    "member"
-  ],
-  [
-    "src/render/webgl/shader.js~shader#constructor",
-    "class/src/render/WebGL/Shader.js~Shader.html#instance-constructor-constructor",
-    "src/render/WebGL/Shader.js~Shader#constructor",
+    "src/render/webgl/matrix3.js~matrix3.copy",
+    "class/src/render/WebGL/Matrix3.js~Matrix3.html#static-method-copy",
+    "src/render/WebGL/Matrix3.js~Matrix3.copy",
     "method"
   ],
   [
-    "src/render/webgl/shader.js~shader#source",
-    "class/src/render/WebGL/Shader.js~Shader.html#instance-member-source",
-    "src/render/WebGL/Shader.js~Shader#source",
-    "member"
-  ],
-  [
-    "src/render/webgl/shader.js~shader#uniforms",
-    "class/src/render/WebGL/Shader.js~Shader.html#instance-member-uniforms",
-    "src/render/WebGL/Shader.js~Shader#uniforms",
-    "member"
+    "src/render/webgl/matrix3.js~matrix3.projection",
+    "class/src/render/WebGL/Matrix3.js~Matrix3.html#static-method-projection",
+    "src/render/WebGL/Matrix3.js~Matrix3.projection",
+    "method"
   ],
   [
     "src/scene/basicscene.js",
     "file/src/scene/BasicScene.js.html",
     "src/scene/BasicScene.js",
     "file"
+  ],
+  [
+    "src/scene/basicscene.js~basicscene#constructor",
+    "class/src/scene/BasicScene.js~BasicScene.html#instance-constructor-constructor",
+    "src/scene/BasicScene.js~BasicScene#constructor",
+    "method"
   ],
   [
     "src/scene/scene.js",
@@ -1725,6 +2067,12 @@ window.esdocSearchIndex = [
     "src/scene/scene.js~scene#sceneobjects",
     "class/src/scene/Scene.js~Scene.html#instance-member-sceneObjects",
     "src/scene/Scene.js~Scene#sceneObjects",
+    "member"
+  ],
+  [
+    "src/scene/scene.js~scene#viewportindex",
+    "class/src/scene/Scene.js~Scene.html#instance-member-viewportIndex",
+    "src/scene/Scene.js~Scene#viewportIndex",
     "member"
   ],
   [

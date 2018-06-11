@@ -42,5 +42,9 @@ export class _Engine {
         EngineManager.unpause();
     }
 }
+
+/**
+ * Singleton reference to the Engine.
+ */
 const Engine = new _Engine();
 export default Engine;

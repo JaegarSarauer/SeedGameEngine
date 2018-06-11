@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 93,
+  "end": 564,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 16,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 93,
+    "end": 564,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 16,
         "column": 1
       }
     },
@@ -95,64 +95,83 @@
             "raw": "'./Component'"
           },
           "value": "./Component"
-        }
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A Physics Component can be added to any GameObject and will give it\n * physical properties which can be toggled and adjusted.\n * \n * This Component should have nothing to do with collisions. Instead, Physics\n * should provide pre and post reactions to collisions, gravity, frictions,\n * and anything else that should respond to an effect or change.\n * \n * This is intended to be a base class for more specific physics handling\n * depending on the application.\n ",
+            "start": 38,
+            "end": 508,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 13,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 38,
-        "end": 93,
+        "start": 509,
+        "end": 564,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 14,
             "column": 0
           },
           "end": {
-            "line": 5,
+            "line": 16,
             "column": 1
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 53,
-          "end": 93,
+          "start": 524,
+          "end": 564,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 14,
               "column": 15
             },
             "end": {
-              "line": 5,
+              "line": 16,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 59,
-            "end": 66,
+            "start": 530,
+            "end": 537,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 14,
                 "column": 21
               },
               "end": {
-                "line": 3,
+                "line": 14,
                 "column": 28
               },
               "identifierName": "Physics"
             },
-            "name": "Physics"
+            "name": "Physics",
+            "leadingComments": null
           },
           "superClass": {
             "type": "Identifier",
-            "start": 75,
-            "end": 84,
+            "start": 546,
+            "end": 555,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 14,
                 "column": 37
               },
               "end": {
-                "line": 3,
+                "line": 14,
                 "column": 46
               },
               "identifierName": "Component"
@@ -161,28 +180,80 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 85,
-            "end": 93,
+            "start": 556,
+            "end": 564,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 14,
                 "column": 47
               },
               "end": {
-                "line": 5,
+                "line": 16,
                 "column": 1
               }
             },
             "body": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * A Physics Component can be added to any GameObject and will give it\n * physical properties which can be toggled and adjusted.\n * \n * This Component should have nothing to do with collisions. Instead, Physics\n * should provide pre and post reactions to collisions, gravity, frictions,\n * and anything else that should respond to an effect or change.\n * \n * This is intended to be a base class for more specific physics handling\n * depending on the application.\n ",
+              "start": 38,
+              "end": 508,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 13,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A Physics Component can be added to any GameObject and will give it\n * physical properties which can be toggled and adjusted.\n * \n * This Component should have nothing to do with collisions. Instead, Physics\n * should provide pre and post reactions to collisions, gravity, frictions,\n * and anything else that should respond to an effect or change.\n * \n * This is intended to be a base class for more specific physics handling\n * depending on the application.\n ",
+            "start": 38,
+            "end": 508,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 13,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * A Physics Component can be added to any GameObject and will give it\n * physical properties which can be toggled and adjusted.\n * \n * This Component should have nothing to do with collisions. Instead, Physics\n * should provide pre and post reactions to collisions, gravity, frictions,\n * and anything else that should respond to an effect or change.\n * \n * This is intended to be a base class for more specific physics handling\n * depending on the application.\n ",
+      "start": 38,
+      "end": 508,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -318,6 +389,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * A Physics Component can be added to any GameObject and will give it\n * physical properties which can be toggled and adjusted.\n * \n * This Component should have nothing to do with collisions. Instead, Physics\n * should provide pre and post reactions to collisions, gravity, frictions,\n * and anything else that should respond to an effect or change.\n * \n * This is intended to be a base class for more specific physics handling\n * depending on the application.\n ",
+      "start": 38,
+      "end": 508,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -332,15 +419,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 38,
-      "end": 44,
+      "start": 509,
+      "end": 515,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 6
         }
       }
@@ -360,15 +447,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 45,
-      "end": 52,
+      "start": 516,
+      "end": 523,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 14
         }
       }
@@ -388,15 +475,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 53,
-      "end": 58,
+      "start": 524,
+      "end": 529,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 20
         }
       }
@@ -414,15 +501,15 @@
         "binop": null
       },
       "value": "Physics",
-      "start": 59,
-      "end": 66,
+      "start": 530,
+      "end": 537,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 21
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 28
         }
       }
@@ -442,15 +529,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 67,
-      "end": 74,
+      "start": 538,
+      "end": 545,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 29
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 36
         }
       }
@@ -468,15 +555,15 @@
         "binop": null
       },
       "value": "Component",
-      "start": 75,
-      "end": 84,
+      "start": 546,
+      "end": 555,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 37
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 46
         }
       }
@@ -493,15 +580,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 85,
-      "end": 86,
+      "start": 556,
+      "end": 557,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 14,
           "column": 47
         },
         "end": {
-          "line": 3,
+          "line": 14,
           "column": 48
         }
       }
@@ -518,15 +605,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 92,
-      "end": 93,
+      "start": 563,
+      "end": 564,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 1
         }
       }
@@ -544,15 +631,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 93,
-      "end": 93,
+      "start": 564,
+      "end": 564,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 16,
           "column": 1
         },
         "end": {
-          "line": 5,
+          "line": 16,
           "column": 1
         }
       }

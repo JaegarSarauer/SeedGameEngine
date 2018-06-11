@@ -50,7 +50,7 @@ export default class GameObject extends Updateable {
     /**
      * Removes a single component from this GameObject by ID.
      * 
-     * @param {number} component Id of the component to remove.
+     * @param {number} componentID Id of the component to remove.
      */
     removeComponent(componentID) {
         if (this.components[component.className] == null)

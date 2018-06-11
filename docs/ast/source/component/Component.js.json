@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 444,
+  "end": 797,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 15,
+      "line": 26,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 444,
+    "end": 797,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 15,
+        "line": 26,
         "column": 1
       }
     },
@@ -95,64 +95,83 @@
             "raw": "'../base/Updateable'"
           },
           "value": "../base/Updateable"
-        }
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A component may be added to any GameObject by using\n * GameObject's function: addComponent(component).\n * \n * A component should redefine the Updateable functions inherited with custom code to define the Component functionality.\n ",
+            "start": 46,
+            "end": 285,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 46,
-        "end": 444,
+        "start": 286,
+        "end": 797,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 9,
             "column": 0
           },
           "end": {
-            "line": 15,
+            "line": 26,
             "column": 1
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 61,
-          "end": 444,
+          "start": 301,
+          "end": 797,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 9,
               "column": 15
             },
             "end": {
-              "line": 15,
+              "line": 26,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 67,
-            "end": 76,
+            "start": 307,
+            "end": 316,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 9,
                 "column": 21
               },
               "end": {
-                "line": 3,
+                "line": 9,
                 "column": 30
               },
               "identifierName": "Component"
             },
-            "name": "Component"
+            "name": "Component",
+            "leadingComments": null
           },
           "superClass": {
             "type": "Identifier",
-            "start": 85,
-            "end": 95,
+            "start": 325,
+            "end": 335,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 9,
                 "column": 39
               },
               "end": {
-                "line": 3,
+                "line": 9,
                 "column": 49
               },
               "identifierName": "Updateable"
@@ -161,30 +180,30 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 96,
-            "end": 444,
+            "start": 336,
+            "end": 797,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 9,
                 "column": 50
               },
               "end": {
-                "line": 15,
+                "line": 26,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ClassMethod",
-                "start": 366,
-                "end": 442,
+                "start": 606,
+                "end": 682,
                 "loc": {
                   "start": {
-                    "line": 11,
+                    "line": 17,
                     "column": 4
                   },
                   "end": {
-                    "line": 14,
+                    "line": 20,
                     "column": 5
                   }
                 },
@@ -192,15 +211,15 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 366,
-                  "end": 377,
+                  "start": 606,
+                  "end": 617,
                   "loc": {
                     "start": {
-                      "line": 11,
+                      "line": 17,
                       "column": 4
                     },
                     "end": {
-                      "line": 11,
+                      "line": 17,
                       "column": 15
                     },
                     "identifierName": "constructor"
@@ -216,15 +235,15 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 378,
-                    "end": 384,
+                    "start": 618,
+                    "end": 624,
                     "loc": {
                       "start": {
-                        "line": 11,
+                        "line": 17,
                         "column": 16
                       },
                       "end": {
-                        "line": 11,
+                        "line": 17,
                         "column": 22
                       },
                       "identifierName": "unique"
@@ -234,58 +253,58 @@
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 386,
-                  "end": 442,
+                  "start": 626,
+                  "end": 682,
                   "loc": {
                     "start": {
-                      "line": 11,
+                      "line": 17,
                       "column": 24
                     },
                     "end": {
-                      "line": 14,
+                      "line": 20,
                       "column": 5
                     }
                   },
                   "body": [
                     {
                       "type": "ExpressionStatement",
-                      "start": 396,
-                      "end": 404,
+                      "start": 636,
+                      "end": 644,
                       "loc": {
                         "start": {
-                          "line": 12,
+                          "line": 18,
                           "column": 8
                         },
                         "end": {
-                          "line": 12,
+                          "line": 18,
                           "column": 16
                         }
                       },
                       "expression": {
                         "type": "CallExpression",
-                        "start": 396,
-                        "end": 403,
+                        "start": 636,
+                        "end": 643,
                         "loc": {
                           "start": {
-                            "line": 12,
+                            "line": 18,
                             "column": 8
                           },
                           "end": {
-                            "line": 12,
+                            "line": 18,
                             "column": 15
                           }
                         },
                         "callee": {
                           "type": "Super",
-                          "start": 396,
-                          "end": 401,
+                          "start": 636,
+                          "end": 641,
                           "loc": {
                             "start": {
-                              "line": 12,
+                              "line": 18,
                               "column": 8
                             },
                             "end": {
-                              "line": 12,
+                              "line": 18,
                               "column": 13
                             }
                           }
@@ -295,73 +314,73 @@
                     },
                     {
                       "type": "ExpressionStatement",
-                      "start": 413,
-                      "end": 436,
+                      "start": 653,
+                      "end": 676,
                       "loc": {
                         "start": {
-                          "line": 13,
+                          "line": 19,
                           "column": 8
                         },
                         "end": {
-                          "line": 13,
+                          "line": 19,
                           "column": 31
                         }
                       },
                       "expression": {
                         "type": "AssignmentExpression",
-                        "start": 413,
-                        "end": 435,
+                        "start": 653,
+                        "end": 675,
                         "loc": {
                           "start": {
-                            "line": 13,
+                            "line": 19,
                             "column": 8
                           },
                           "end": {
-                            "line": 13,
+                            "line": 19,
                             "column": 30
                           }
                         },
                         "operator": "=",
                         "left": {
                           "type": "MemberExpression",
-                          "start": 413,
-                          "end": 426,
+                          "start": 653,
+                          "end": 666,
                           "loc": {
                             "start": {
-                              "line": 13,
+                              "line": 19,
                               "column": 8
                             },
                             "end": {
-                              "line": 13,
+                              "line": 19,
                               "column": 21
                             }
                           },
                           "object": {
                             "type": "ThisExpression",
-                            "start": 413,
-                            "end": 417,
+                            "start": 653,
+                            "end": 657,
                             "loc": {
                               "start": {
-                                "line": 13,
+                                "line": 19,
                                 "column": 8
                               },
                               "end": {
-                                "line": 13,
+                                "line": 19,
                                 "column": 12
                               }
                             }
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 418,
-                            "end": 426,
+                            "start": 658,
+                            "end": 666,
                             "loc": {
                               "start": {
-                                "line": 13,
+                                "line": 19,
                                 "column": 13
                               },
                               "end": {
-                                "line": 13,
+                                "line": 19,
                                 "column": 21
                               },
                               "identifierName": "isUnique"
@@ -372,15 +391,15 @@
                         },
                         "right": {
                           "type": "Identifier",
-                          "start": 429,
-                          "end": 435,
+                          "start": 669,
+                          "end": 675,
                           "loc": {
                             "start": {
-                              "line": 13,
+                              "line": 19,
                               "column": 24
                             },
                             "end": {
-                              "line": 13,
+                              "line": 19,
                               "column": 30
                             },
                             "identifierName": "unique"
@@ -390,21 +409,116 @@
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
                     "value": "*\n     * Constructor for Base Components.\n     * Requires a boolean to indicate if a GameObject can contain multiple\n     * components of this type.\n     * \n     * @param {boolean} unique Is there only one of these component allowed on a GameObject?\n     ",
-                    "start": 102,
-                    "end": 361,
+                    "start": 342,
+                    "end": 601,
                     "loc": {
                       "start": {
-                        "line": 4,
+                        "line": 10,
                         "column": 4
                       },
                       "end": {
-                        "line": 10,
+                        "line": 16,
+                        "column": 7
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n     * Called when the component is successfully added to a GameObject.\n     ",
+                    "start": 688,
+                    "end": 771,
+                    "loc": {
+                      "start": {
+                        "line": 22,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 24,
+                        "column": 7
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ClassMethod",
+                "start": 776,
+                "end": 795,
+                "loc": {
+                  "start": {
+                    "line": 25,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 25,
+                    "column": 23
+                  }
+                },
+                "static": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 776,
+                  "end": 790,
+                  "loc": {
+                    "start": {
+                      "line": 25,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 18
+                    },
+                    "identifierName": "onAddComponent"
+                  },
+                  "name": "onAddComponent",
+                  "leadingComments": null
+                },
+                "kind": "method",
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 793,
+                  "end": 795,
+                  "loc": {
+                    "start": {
+                      "line": 25,
+                      "column": 21
+                    },
+                    "end": {
+                      "line": 25,
+                      "column": 23
+                    }
+                  },
+                  "body": [],
+                  "directives": []
+                },
+                "leadingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n     * Called when the component is successfully added to a GameObject.\n     ",
+                    "start": 688,
+                    "end": 771,
+                    "loc": {
+                      "start": {
+                        "line": 22,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 24,
                         "column": 7
                       }
                     }
@@ -413,9 +527,44 @@
               }
             ]
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * A component may be added to any GameObject by using\n * GameObject's function: addComponent(component).\n * \n * A component should redefine the Updateable functions inherited with custom code to define the Component functionality.\n ",
+              "start": 46,
+              "end": 285,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 8,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * A component may be added to any GameObject by using\n * GameObject's function: addComponent(component).\n * \n * A component should redefine the Updateable functions inherited with custom code to define the Component functionality.\n ",
+            "start": 46,
+            "end": 285,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
@@ -423,16 +572,48 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n     * Constructor for Base Components.\n     * Requires a boolean to indicate if a GameObject can contain multiple\n     * components of this type.\n     * \n     * @param {boolean} unique Is there only one of these component allowed on a GameObject?\n     ",
-      "start": 102,
-      "end": 361,
+      "value": "*\n * A component may be added to any GameObject by using\n * GameObject's function: addComponent(component).\n * \n * A component should redefine the Updateable functions inherited with custom code to define the Component functionality.\n ",
+      "start": 46,
+      "end": 285,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n     * Constructor for Base Components.\n     * Requires a boolean to indicate if a GameObject can contain multiple\n     * components of this type.\n     * \n     * @param {boolean} unique Is there only one of these component allowed on a GameObject?\n     ",
+      "start": 342,
+      "end": 601,
+      "loc": {
+        "start": {
+          "line": 10,
           "column": 4
         },
         "end": {
-          "line": 10,
+          "line": 16,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n     * Called when the component is successfully added to a GameObject.\n     ",
+      "start": 688,
+      "end": 771,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 4
+        },
+        "end": {
+          "line": 24,
           "column": 7
         }
       }
@@ -573,6 +754,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * A component may be added to any GameObject by using\n * GameObject's function: addComponent(component).\n * \n * A component should redefine the Updateable functions inherited with custom code to define the Component functionality.\n ",
+      "start": 46,
+      "end": 285,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -587,15 +784,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 46,
-      "end": 52,
+      "start": 286,
+      "end": 292,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 6
         }
       }
@@ -615,15 +812,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 53,
-      "end": 60,
+      "start": 293,
+      "end": 300,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 14
         }
       }
@@ -643,15 +840,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 61,
-      "end": 66,
+      "start": 301,
+      "end": 306,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 20
         }
       }
@@ -669,15 +866,15 @@
         "binop": null
       },
       "value": "Component",
-      "start": 67,
-      "end": 76,
+      "start": 307,
+      "end": 316,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 21
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 30
         }
       }
@@ -697,15 +894,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 77,
-      "end": 84,
+      "start": 317,
+      "end": 324,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 31
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 38
         }
       }
@@ -723,15 +920,15 @@
         "binop": null
       },
       "value": "Updateable",
-      "start": 85,
-      "end": 95,
+      "start": 325,
+      "end": 335,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 39
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 49
         }
       }
@@ -748,15 +945,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 96,
-      "end": 97,
+      "start": 336,
+      "end": 337,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 9,
           "column": 50
         },
         "end": {
-          "line": 3,
+          "line": 9,
           "column": 51
         }
       }
@@ -764,15 +961,15 @@
     {
       "type": "CommentBlock",
       "value": "*\n     * Constructor for Base Components.\n     * Requires a boolean to indicate if a GameObject can contain multiple\n     * components of this type.\n     * \n     * @param {boolean} unique Is there only one of these component allowed on a GameObject?\n     ",
-      "start": 102,
-      "end": 361,
+      "start": 342,
+      "end": 601,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 4
         },
         "end": {
-          "line": 10,
+          "line": 16,
           "column": 7
         }
       }
@@ -790,15 +987,15 @@
         "binop": null
       },
       "value": "constructor",
-      "start": 366,
-      "end": 377,
+      "start": 606,
+      "end": 617,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 4
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 15
         }
       }
@@ -815,15 +1012,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 377,
-      "end": 378,
+      "start": 617,
+      "end": 618,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 15
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 16
         }
       }
@@ -841,15 +1038,15 @@
         "binop": null
       },
       "value": "unique",
-      "start": 378,
-      "end": 384,
+      "start": 618,
+      "end": 624,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 16
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 22
         }
       }
@@ -866,15 +1063,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 384,
-      "end": 385,
+      "start": 624,
+      "end": 625,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 22
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 23
         }
       }
@@ -891,15 +1088,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 386,
-      "end": 387,
+      "start": 626,
+      "end": 627,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 17,
           "column": 24
         },
         "end": {
-          "line": 11,
+          "line": 17,
           "column": 25
         }
       }
@@ -919,15 +1116,15 @@
         "updateContext": null
       },
       "value": "super",
-      "start": 396,
-      "end": 401,
+      "start": 636,
+      "end": 641,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 8
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 13
         }
       }
@@ -944,15 +1141,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 401,
-      "end": 402,
+      "start": 641,
+      "end": 642,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 13
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 14
         }
       }
@@ -969,15 +1166,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 402,
-      "end": 403,
+      "start": 642,
+      "end": 643,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 14
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 15
         }
       }
@@ -995,15 +1192,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 403,
-      "end": 404,
+      "start": 643,
+      "end": 644,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 18,
           "column": 15
         },
         "end": {
-          "line": 12,
+          "line": 18,
           "column": 16
         }
       }
@@ -1023,15 +1220,15 @@
         "updateContext": null
       },
       "value": "this",
-      "start": 413,
-      "end": 417,
+      "start": 653,
+      "end": 657,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 19,
           "column": 8
         },
         "end": {
-          "line": 13,
+          "line": 19,
           "column": 12
         }
       }
@@ -1049,15 +1246,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 417,
-      "end": 418,
+      "start": 657,
+      "end": 658,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 19,
           "column": 12
         },
         "end": {
-          "line": 13,
+          "line": 19,
           "column": 13
         }
       }
@@ -1075,15 +1272,15 @@
         "binop": null
       },
       "value": "isUnique",
-      "start": 418,
-      "end": 426,
+      "start": 658,
+      "end": 666,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 19,
           "column": 13
         },
         "end": {
-          "line": 13,
+          "line": 19,
           "column": 21
         }
       }
@@ -1102,15 +1299,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 427,
-      "end": 428,
+      "start": 667,
+      "end": 668,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 19,
           "column": 22
         },
         "end": {
-          "line": 13,
+          "line": 19,
           "column": 23
         }
       }
@@ -1128,15 +1325,15 @@
         "binop": null
       },
       "value": "unique",
-      "start": 429,
-      "end": 435,
+      "start": 669,
+      "end": 675,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 19,
           "column": 24
         },
         "end": {
-          "line": 13,
+          "line": 19,
           "column": 30
         }
       }
@@ -1154,15 +1351,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 435,
-      "end": 436,
+      "start": 675,
+      "end": 676,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 19,
           "column": 30
         },
         "end": {
-          "line": 13,
+          "line": 19,
           "column": 31
         }
       }
@@ -1179,16 +1376,133 @@
         "postfix": false,
         "binop": null
       },
-      "start": 441,
-      "end": 442,
+      "start": 681,
+      "end": 682,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 20,
           "column": 4
         },
         "end": {
-          "line": 14,
+          "line": 20,
           "column": 5
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n     * Called when the component is successfully added to a GameObject.\n     ",
+      "start": 688,
+      "end": 771,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 4
+        },
+        "end": {
+          "line": 24,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "onAddComponent",
+      "start": 776,
+      "end": 790,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 4
+        },
+        "end": {
+          "line": 25,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 790,
+      "end": 791,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 18
+        },
+        "end": {
+          "line": 25,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 791,
+      "end": 792,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 19
+        },
+        "end": {
+          "line": 25,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 793,
+      "end": 794,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 21
+        },
+        "end": {
+          "line": 25,
+          "column": 22
         }
       }
     },
@@ -1204,15 +1518,40 @@
         "postfix": false,
         "binop": null
       },
-      "start": 443,
-      "end": 444,
+      "start": 794,
+      "end": 795,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 25,
+          "column": 22
+        },
+        "end": {
+          "line": 25,
+          "column": 23
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 796,
+      "end": 797,
+      "loc": {
+        "start": {
+          "line": 26,
           "column": 0
         },
         "end": {
-          "line": 15,
+          "line": 26,
           "column": 1
         }
       }
@@ -1230,15 +1569,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 444,
-      "end": 444,
+      "start": 797,
+      "end": 797,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 26,
           "column": 1
         },
         "end": {
-          "line": 15,
+          "line": 26,
           "column": 1
         }
       }

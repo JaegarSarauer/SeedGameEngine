@@ -24,7 +24,7 @@ export default class Color {
      * @param {number} b Blue value between 0 - 1. Defaults to previous value.
      * @param {number} a Alpha value between 0 - 1. Defaults to previous value.
      */
-    set(r = this.color[0], b = this.color[1], g = this.color[2], a = this.color[3]) {
+    set(r = this.color[0], g = this.color[1], b = this.color[2], a = this.color[3]) {
         this.color = [r, g, b, a];
     }
 

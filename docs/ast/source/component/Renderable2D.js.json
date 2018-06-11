@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 138,
+  "end": 347,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 7,
+      "line": 13,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 138,
+    "end": 347,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 7,
+        "line": 13,
         "column": 1
       }
     },
@@ -98,61 +98,149 @@
         }
       },
       {
-        "type": "ExportDefaultDeclaration",
-        "start": 40,
-        "end": 138,
+        "type": "ImportDeclaration",
+        "start": 39,
+        "end": 85,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 2,
             "column": 0
           },
           "end": {
-            "line": 7,
+            "line": 2,
+            "column": 46
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 46,
+            "end": 53,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 7
+              },
+              "end": {
+                "line": 2,
+                "column": 14
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 46,
+              "end": 53,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 7
+                },
+                "end": {
+                  "line": 2,
+                  "column": 14
+                },
+                "identifierName": "Matrix3"
+              },
+              "name": "Matrix3"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 59,
+          "end": 84,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 20
+            },
+            "end": {
+              "line": 2,
+              "column": 45
+            }
+          },
+          "extra": {
+            "rawValue": "../render/WebGL/Matrix3",
+            "raw": "'../render/WebGL/Matrix3'"
+          },
+          "value": "../render/WebGL/Matrix3"
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Renderable2D is a renderable component which focusses on\n * 2D shaders and matricies for 2D space rendering.\n ",
+            "start": 87,
+            "end": 206,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 3
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 207,
+        "end": 347,
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 0
+          },
+          "end": {
+            "line": 13,
             "column": 1
           }
         },
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 55,
-          "end": 138,
+          "start": 222,
+          "end": 347,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 8,
               "column": 15
             },
             "end": {
-              "line": 7,
+              "line": 13,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 61,
-            "end": 73,
+            "start": 228,
+            "end": 240,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 8,
                 "column": 21
               },
               "end": {
-                "line": 3,
+                "line": 8,
                 "column": 33
               },
               "identifierName": "Renderable2D"
             },
-            "name": "Renderable2D"
+            "name": "Renderable2D",
+            "leadingComments": null
           },
           "superClass": {
             "type": "Identifier",
-            "start": 82,
-            "end": 92,
+            "start": 249,
+            "end": 259,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 8,
                 "column": 42
               },
               "end": {
-                "line": 3,
+                "line": 8,
                 "column": 52
               },
               "identifierName": "Renderable"
@@ -161,30 +249,30 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 93,
-            "end": 138,
+            "start": 260,
+            "end": 347,
             "loc": {
               "start": {
-                "line": 3,
+                "line": 8,
                 "column": 53
               },
               "end": {
-                "line": 7,
+                "line": 13,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ClassMethod",
-                "start": 99,
-                "end": 136,
+                "start": 266,
+                "end": 345,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 9,
                     "column": 4
                   },
                   "end": {
-                    "line": 6,
+                    "line": 12,
                     "column": 5
                   }
                 },
@@ -192,15 +280,15 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 99,
-                  "end": 110,
+                  "start": 266,
+                  "end": 277,
                   "loc": {
                     "start": {
-                      "line": 4,
+                      "line": 9,
                       "column": 4
                     },
                     "end": {
-                      "line": 4,
+                      "line": 9,
                       "column": 15
                     },
                     "identifierName": "constructor"
@@ -215,63 +303,162 @@
                 "params": [],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 113,
-                  "end": 136,
+                  "start": 280,
+                  "end": 345,
                   "loc": {
                     "start": {
-                      "line": 4,
+                      "line": 9,
                       "column": 18
                     },
                     "end": {
-                      "line": 6,
+                      "line": 12,
                       "column": 5
                     }
                   },
                   "body": [
                     {
                       "type": "ExpressionStatement",
-                      "start": 123,
-                      "end": 130,
+                      "start": 290,
+                      "end": 298,
                       "loc": {
                         "start": {
-                          "line": 5,
+                          "line": 10,
                           "column": 8
                         },
                         "end": {
-                          "line": 5,
-                          "column": 15
+                          "line": 10,
+                          "column": 16
                         }
                       },
                       "expression": {
                         "type": "CallExpression",
-                        "start": 123,
-                        "end": 130,
+                        "start": 290,
+                        "end": 297,
                         "loc": {
                           "start": {
-                            "line": 5,
+                            "line": 10,
                             "column": 8
                           },
                           "end": {
-                            "line": 5,
+                            "line": 10,
                             "column": 15
                           }
                         },
                         "callee": {
                           "type": "Super",
-                          "start": 123,
-                          "end": 128,
+                          "start": 290,
+                          "end": 295,
                           "loc": {
                             "start": {
-                              "line": 5,
+                              "line": 10,
                               "column": 8
                             },
                             "end": {
-                              "line": 5,
+                              "line": 10,
                               "column": 13
                             }
                           }
                         },
                         "arguments": []
+                      }
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 307,
+                      "end": 339,
+                      "loc": {
+                        "start": {
+                          "line": 11,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 40
+                        }
+                      },
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "start": 307,
+                        "end": 338,
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 39
+                          }
+                        },
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "start": 307,
+                          "end": 321,
+                          "loc": {
+                            "start": {
+                              "line": 11,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 22
+                            }
+                          },
+                          "object": {
+                            "type": "ThisExpression",
+                            "start": 307,
+                            "end": 311,
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 12
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 312,
+                            "end": 321,
+                            "loc": {
+                              "start": {
+                                "line": 11,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 11,
+                                "column": 22
+                              },
+                              "identifierName": "className"
+                            },
+                            "name": "className"
+                          },
+                          "computed": false
+                        },
+                        "right": {
+                          "type": "StringLiteral",
+                          "start": 324,
+                          "end": 338,
+                          "loc": {
+                            "start": {
+                              "line": 11,
+                              "column": 25
+                            },
+                            "end": {
+                              "line": 11,
+                              "column": 39
+                            }
+                          },
+                          "extra": {
+                            "rawValue": "Renderable2D",
+                            "raw": "'Renderable2D'"
+                          },
+                          "value": "Renderable2D"
+                        }
                       }
                     }
                   ],
@@ -280,14 +467,66 @@
               }
             ]
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * Renderable2D is a renderable component which focusses on\n * 2D shaders and matricies for 2D space rendering.\n ",
+              "start": 87,
+              "end": 206,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 0
+                },
+                "end": {
+                  "line": 7,
+                  "column": 3
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * Renderable2D is a renderable component which focusses on\n * 2D shaders and matricies for 2D space rendering.\n ",
+            "start": 87,
+            "end": 206,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Renderable2D is a renderable component which focusses on\n * 2D shaders and matricies for 2D space rendering.\n ",
+      "start": 87,
+      "end": 206,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 7,
+          "column": 3
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -424,6 +663,155 @@
     },
     {
       "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 39,
+      "end": 45,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Matrix3",
+      "start": 46,
+      "end": 53,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 2,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 54,
+      "end": 58,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 15
+        },
+        "end": {
+          "line": 2,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "../render/WebGL/Matrix3",
+      "start": 59,
+      "end": 84,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 20
+        },
+        "end": {
+          "line": 2,
+          "column": 45
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 84,
+      "end": 85,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 45
+        },
+        "end": {
+          "line": 2,
+          "column": 46
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * Renderable2D is a renderable component which focusses on\n * 2D shaders and matricies for 2D space rendering.\n ",
+      "start": 87,
+      "end": 206,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 7,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": {
         "label": "export",
         "keyword": "export",
         "beforeExpr": false,
@@ -437,15 +825,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 40,
-      "end": 46,
+      "start": 207,
+      "end": 213,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 6
         }
       }
@@ -465,15 +853,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 47,
-      "end": 54,
+      "start": 214,
+      "end": 221,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 14
         }
       }
@@ -493,15 +881,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 55,
-      "end": 60,
+      "start": 222,
+      "end": 227,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 20
         }
       }
@@ -519,15 +907,15 @@
         "binop": null
       },
       "value": "Renderable2D",
-      "start": 61,
-      "end": 73,
+      "start": 228,
+      "end": 240,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 21
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 33
         }
       }
@@ -547,15 +935,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 74,
-      "end": 81,
+      "start": 241,
+      "end": 248,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 34
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 41
         }
       }
@@ -573,15 +961,15 @@
         "binop": null
       },
       "value": "Renderable",
-      "start": 82,
-      "end": 92,
+      "start": 249,
+      "end": 259,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 42
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 52
         }
       }
@@ -598,15 +986,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 93,
-      "end": 94,
+      "start": 260,
+      "end": 261,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 8,
           "column": 53
         },
         "end": {
-          "line": 3,
+          "line": 8,
           "column": 54
         }
       }
@@ -624,15 +1012,15 @@
         "binop": null
       },
       "value": "constructor",
-      "start": 99,
-      "end": 110,
+      "start": 266,
+      "end": 277,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 9,
           "column": 4
         },
         "end": {
-          "line": 4,
+          "line": 9,
           "column": 15
         }
       }
@@ -649,15 +1037,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 110,
-      "end": 111,
+      "start": 277,
+      "end": 278,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 9,
           "column": 15
         },
         "end": {
-          "line": 4,
+          "line": 9,
           "column": 16
         }
       }
@@ -674,15 +1062,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 111,
-      "end": 112,
+      "start": 278,
+      "end": 279,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 9,
           "column": 16
         },
         "end": {
-          "line": 4,
+          "line": 9,
           "column": 17
         }
       }
@@ -699,15 +1087,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 113,
-      "end": 114,
+      "start": 280,
+      "end": 281,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 9,
           "column": 18
         },
         "end": {
-          "line": 4,
+          "line": 9,
           "column": 19
         }
       }
@@ -727,15 +1115,15 @@
         "updateContext": null
       },
       "value": "super",
-      "start": 123,
-      "end": 128,
+      "start": 290,
+      "end": 295,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 10,
           "column": 8
         },
         "end": {
-          "line": 5,
+          "line": 10,
           "column": 13
         }
       }
@@ -752,15 +1140,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 128,
-      "end": 129,
+      "start": 295,
+      "end": 296,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 10,
           "column": 13
         },
         "end": {
-          "line": 5,
+          "line": 10,
           "column": 14
         }
       }
@@ -777,16 +1165,202 @@
         "postfix": false,
         "binop": null
       },
-      "start": 129,
-      "end": 130,
+      "start": 296,
+      "end": 297,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 10,
           "column": 14
         },
         "end": {
-          "line": 5,
+          "line": 10,
           "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 297,
+      "end": 298,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 15
+        },
+        "end": {
+          "line": 10,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "this",
+        "keyword": "this",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "this",
+      "start": 307,
+      "end": 311,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 8
+        },
+        "end": {
+          "line": 11,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 311,
+      "end": 312,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 12
+        },
+        "end": {
+          "line": 11,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "className",
+      "start": 312,
+      "end": 321,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 13
+        },
+        "end": {
+          "line": 11,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 322,
+      "end": 323,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 23
+        },
+        "end": {
+          "line": 11,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "Renderable2D",
+      "start": 324,
+      "end": 338,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 25
+        },
+        "end": {
+          "line": 11,
+          "column": 39
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 338,
+      "end": 339,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 39
+        },
+        "end": {
+          "line": 11,
+          "column": 40
         }
       }
     },
@@ -802,15 +1376,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 135,
-      "end": 136,
+      "start": 344,
+      "end": 345,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 12,
           "column": 4
         },
         "end": {
-          "line": 6,
+          "line": 12,
           "column": 5
         }
       }
@@ -827,15 +1401,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 137,
-      "end": 138,
+      "start": 346,
+      "end": 347,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 13,
           "column": 1
         }
       }
@@ -853,15 +1427,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 138,
-      "end": 138,
+      "start": 347,
+      "end": 347,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 13,
           "column": 1
         },
         "end": {
-          "line": 7,
+          "line": 13,
           "column": 1
         }
       }
