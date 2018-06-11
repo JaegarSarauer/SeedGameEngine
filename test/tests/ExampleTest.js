@@ -29,4 +29,4 @@ class ExampleTest extends Test {
     }
 }
 
-module.exports = new ExampleTest();
+module.exports = ExampleTest;
