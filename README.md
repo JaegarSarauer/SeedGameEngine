@@ -11,7 +11,12 @@ npm i seed-engine --save
 
 Now you can reference the Engine like so:
 ```
-import 'Engine' from 'seed-engine';
+import {Engine} from 'seed-engine';
+```
+
+Each file is its own class, similar to react. Multiple imports may look something like:
+```
+import {Engine, SceneObject, Transform, Renderable2D} from 'seed-engine';
 ```
 
 ### Documentation

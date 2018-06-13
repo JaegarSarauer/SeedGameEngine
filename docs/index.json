@@ -2829,7 +2829,7 @@
     "__docId__": 170,
     "kind": "file",
     "name": "src/internal/Point.js",
-    "content": "/**\n * A point with x, y, z values.\n */\nexport default class Point {\n    constructor(x = 0, y = 0, z = 0) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n    }\n    \n    set(x = this.x, y = this.y, z = this.z) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n    }\n}",
+    "content": "/**\n * A point with x, y, z values. It may also be referred to as a Vector.\n */\nexport default class Point {\n    /**\n     * An x, y, z point. Default parameters are set as 0.\n     * \n     * @param {number} x X position of the point.\n     * @param {number} y Y position of the point.\n     * @param {number} z Z position of the point.\n     */\n    constructor(x = 0, y = 0, z = 0) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n    }\n    \n    /**\n     * Sets the point to a new x, y, z. Previous values are set\n     * as default parameters.\n     * \n     * @param {number} x X position of the point.\n     * @param {number} y Y position of the point.\n     * @param {number} z Z position of the point.\n     */\n    set(x = this.x, y = this.y, z = this.z) {\n        this.x = x;\n        this.y = y;\n        this.z = z;\n    }\n}",
     "static": true,
     "longname": "/Users/jaegarsarauer/Documents/DATA/CajartyComputing/Seed/SeedGameEngine/src/internal/Point.js",
     "access": "public",
@@ -2847,7 +2847,7 @@
     "export": true,
     "importPath": "seed-engine/src/internal/Point.js",
     "importStyle": "Point",
-    "description": "A point with x, y, z values.",
+    "description": "A point with x, y, z values. It may also be referred to as a Vector.",
     "lineNumber": 4,
     "interface": false
   },
@@ -2861,9 +2861,40 @@
     "static": false,
     "longname": "src/internal/Point.js~Point#constructor",
     "access": "public",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true
+    "description": "An x, y, z point. Default parameters are set as 0.",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "X position of the point."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "Y position of the point."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "z",
+        "description": "Z position of the point."
+      }
+    ]
   },
   {
     "__docId__": 173,
@@ -2874,7 +2905,7 @@
     "longname": "src/internal/Point.js~Point#x",
     "access": "public",
     "description": null,
-    "lineNumber": 6,
+    "lineNumber": 13,
     "undocument": true,
     "type": {
       "types": [
@@ -2891,7 +2922,7 @@
     "longname": "src/internal/Point.js~Point#y",
     "access": "public",
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 14,
     "undocument": true,
     "type": {
       "types": [
@@ -2908,7 +2939,7 @@
     "longname": "src/internal/Point.js~Point#z",
     "access": "public",
     "description": null,
-    "lineNumber": 8,
+    "lineNumber": 15,
     "undocument": true,
     "type": {
       "types": [
@@ -2926,30 +2957,38 @@
     "static": false,
     "longname": "src/internal/Point.js~Point#set",
     "access": "public",
-    "description": null,
-    "lineNumber": 11,
-    "undocument": true,
+    "description": "Sets the point to a new x, y, z. Previous values are set\nas default parameters.",
+    "lineNumber": 26,
     "params": [
       {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "x",
-        "optional": true,
-        "types": [
-          "*"
-        ]
+        "description": "X position of the point."
       },
       {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "y",
-        "optional": true,
-        "types": [
-          "*"
-        ]
+        "description": "Y position of the point."
       },
       {
-        "name": "z",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "z",
+        "description": "Z position of the point."
       }
     ],
     "return": null
