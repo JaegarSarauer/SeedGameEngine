@@ -1,7 +1,7 @@
-const log = require('./Log');
-const TestManager = require('./TestManager');
+import {success, error, info} from './Log';
+import TestManager from './TestManager';
 
-class Test {
+export default class Test {
     constructor(name) {
         this.name = name;
         this.tests = [];
@@ -11,20 +11,20 @@ class Test {
     run() {
         this.steps();
         let i = 0;
-        log.info('[Running]: ' + this.name);
+        info('[Running]: ' + this.name);
         while(i < this.tests.length) {
             if (this.tests[i].test()) {
-                log.success('\t' + this.tests[i].name);
+                success('\t' + this.tests[i].name);
                 i++;
             } else {
-                log.error('\t' + this.tests[i].name);
+                error('\t' + this.tests[i].name);
                 break;
             }
         }
         if (i >= this.tests.length) {
-            log.success('[Success]: ' + this.name);
+            success('[Success]: ' + this.name);
         } else {
-            log.error('[Failed]: ' + this.name);
+            error('[Failed]: ' + this.name);
         }
     }
 
@@ -39,5 +39,3 @@ class Test {
         });
     }
 }
-
-module.exports = Test;

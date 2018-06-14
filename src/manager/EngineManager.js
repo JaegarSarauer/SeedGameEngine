@@ -17,7 +17,7 @@ import PersistentManager from './PersistentManager';
 export class _EngineManager extends Manager {
     constructor() {
         super();
-        this.MS_PER_FRAME = 30;
+        this.MS_PER_FRAME = 16;
         this.coreUpdateLoopHandle = null;
         this.hasPaused = false;
     }
