@@ -11,12 +11,8 @@ export class _Storage {
     constructor() {
         this.listenerIDCount = 0;
         this.store = {
-            user: {
-                name: {
-                    first: 'bob',
-                    last: 'johnson',
-                }
-            }
+            _d: {},
+            _w: [],
         };
     }
 
@@ -26,7 +22,7 @@ export class _Storage {
      * @param {string} location Location to parse.
      */
     _parseLocation(location) {
-        return location.split('');
+        return location.split('/');
     }
 
     /**
@@ -36,10 +32,10 @@ export class _Storage {
      */
     get(location) {
         let loc = this._parseLocation(location);
-        let data = loc.reduce((data, key) => {
-            return (typeof data == "undefined" || data === null) ? data : data[key];
+        let data = loc.reduce((curLoc, key) => {
+            return (typeof curLoc == "undefined" || curLoc === null) ? curLoc : curLoc._d[key];
         }, this.store);
-        console.info(data)
+        return typeof data == 'undefined' ? null : data._d;
     }
 
     /**
@@ -49,34 +45,104 @@ export class _Storage {
      * @param {*} data Data to set to the location.
      */
     set(location, data) {
-
+        let loc = this._parseLocation(location);
+        let watchers = [];
+        loc.reduce((curLoc, key) => {
+            watchers = watchers.concat(curLoc._w);
+            if (curLoc._d[key] == null) {
+                curLoc._d[key] = {
+                    _d: {},
+                    _w: []
+                };
+            }
+            if (key === loc[loc.length - 1]) {
+                curLoc._d[key]._d = data;
+                watchers.concat(curLoc._d[key]._w);
+            }
+            return curLoc._d[key];
+        }, this.store);
+        this.notify(location, watchers, data);
+        return true;
     }
 
     /**
      * Notifies of a data change location.
      */
-    notify(location) {
+    notify(location, watchers = null, data = null) {
+        if (watchers == null)
+            watchers = this._getWatchers(location);
 
+        if (data == null)
+            data = this.get(location);
+        
+        for (let i = 0; i < watchers.length; i++) {
+            watchers[i].callback(data);
+        }
     }
 
     /**
-     * Listens to a location in storage and notifies the callback of new data
+     * Collects all watchers from root to location specified.
+     * 
+     * @param {string} location Location of the data to collect until.
+     */
+    _getWatchers(location) { 
+        let loc = this._parseLocation(location);
+        let watchers = [];
+        loc.reduce((curLoc, key) => {
+            watchers = watchers.concat(curLoc._w);
+            if (curLoc._d[key] == null) {
+                return;
+            }
+            if (key === loc[loc.length - 1]) {
+                watchers.concat(curLoc._d[key]._w);
+            }
+            return curLoc._d[key];
+        }, this.store);
+        return watchers;
+    }
+
+    /**
+     * Watches a location in storage and notifies the callback of new data
      * when it is changed.
      * 
-     * Returns a callback to stop listening.
+     * Returns a callback to stop watching.
      */
-    listen(location, callback) {
+    watch(location, callback) {
         let id = this.listenerIDCount++;
 
-
+        let loc = this._parseLocation(location);
+        loc.reduce((curLoc, key) => {
+            if (curLoc._d[key] == null) {
+                curLoc._d[key] = {
+                    _d: {},
+                    _w: []
+                };
+            }
+            if (key === loc[loc.length - 1]) {
+                curLoc._d[key]._w.push({id, callback});
+            }
+            return curLoc._d[key];
+            //concat listeners array as we reduce.
+        }, this.store);
 
         return () => {
             this.close(location, id);
         }
     }
 
-    close() {
-
+    close(location, id) {
+        let loc = this._parseLocation(location);
+        let watchers = loc.reduce((curLoc, key) => {
+            return (typeof curLoc == "undefined" || curLoc === null) ? curLoc : curLoc._d[key];
+        }, this.store);
+        if (watchers._w == null)
+            return;
+        for (let i = 0; i < watchers.length; i++) {
+            if (watchers[i].id == id) {
+                watchers.splice(i, 1);
+                return;
+            }
+        }
     }
 }
 

@@ -13,11 +13,15 @@ export default class Test {
         let i = 0;
         info('[Running]: ' + this.name);
         while(i < this.tests.length) {
-            if (this.tests[i].test()) {
-                success('\t' + this.tests[i].name);
+            let tStart = performance.now();
+            let result = this.tests[i].test();
+            if (result) {
+                let tEnd = performance.now();
+                success('\t' + this.tests[i].name + " Time: " + (tEnd - tStart));
                 i++;
             } else {
-                error('\t' + this.tests[i].name);
+                let tEnd = performance.now();
+                error('\t' + this.tests[i].name + " Time: " + (tEnd - tStart));
                 break;
             }
         }
