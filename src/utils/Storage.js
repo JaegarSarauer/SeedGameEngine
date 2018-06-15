@@ -32,10 +32,9 @@ export class _Storage {
      */
     get(location) {
         let loc = this._parseLocation(location);
-        let data = loc.reduce((curLoc, key) => {
-            return (typeof curLoc == "undefined" || curLoc === null) ? curLoc : curLoc._d[key];
-        }, this.store);
-        return typeof data == 'undefined' ? null : data._d;
+        return loc.reduce((curLoc, key) => {
+            return (curLoc == null) ? curLoc : curLoc._d[key];
+        }, this.store)._d;
     }
 
     /**
@@ -46,9 +45,7 @@ export class _Storage {
      */
     set(location, data) {
         let loc = this._parseLocation(location);
-        let watchers = [];
         loc.reduce((curLoc, key) => {
-            watchers = watchers.concat(curLoc._w);
             if (curLoc._d[key] == null) {
                 curLoc._d[key] = {
                     _d: {},
@@ -57,48 +54,32 @@ export class _Storage {
             }
             if (key === loc[loc.length - 1]) {
                 curLoc._d[key]._d = data;
-                watchers.concat(curLoc._d[key]._w);
             }
             return curLoc._d[key];
         }, this.store);
-        this.notify(location, watchers, data);
+        this.notify();
         return true;
+    }
+
+        //notify all descnedants.
+    notify() {
+        let loc = this._parseLocation(location);
+        loc.reduce((curLoc, key) => {
+            this._notifyWatchers(curLoc._w, curLoc._d);
+            if (key === loc[loc.length - 1]) {
+                this._notifyWatchers(curLoc._d[key]._w, curLoc._d[key]._d);
+            }
+            return curLoc._d[key];
+        }, this.store);
     }
 
     /**
      * Notifies of a data change location.
      */
-    notify(location, watchers = null, data = null) {
-        if (watchers == null)
-            watchers = this._getWatchers(location);
-
-        if (data == null)
-            data = this.get(location);
-        
+    _notifyWatchers(watchers, data) {
         for (let i = 0; i < watchers.length; i++) {
             watchers[i].callback(data);
         }
-    }
-
-    /**
-     * Collects all watchers from root to location specified.
-     * 
-     * @param {string} location Location of the data to collect until.
-     */
-    _getWatchers(location) { 
-        let loc = this._parseLocation(location);
-        let watchers = [];
-        loc.reduce((curLoc, key) => {
-            watchers = watchers.concat(curLoc._w);
-            if (curLoc._d[key] == null) {
-                return;
-            }
-            if (key === loc[loc.length - 1]) {
-                watchers.concat(curLoc._d[key]._w);
-            }
-            return curLoc._d[key];
-        }, this.store);
-        return watchers;
     }
 
     /**
@@ -120,9 +101,9 @@ export class _Storage {
             }
             if (key === loc[loc.length - 1]) {
                 curLoc._d[key]._w.push({id, callback});
+                callback(curLoc._d[key]._d);
             }
             return curLoc._d[key];
-            //concat listeners array as we reduce.
         }, this.store);
 
         return () => {
@@ -130,10 +111,17 @@ export class _Storage {
         }
     }
 
+    /**
+     * Stops a watcher from watching at this location. It must be
+     * the same location as the original watch call.
+     * 
+     * @param {string} location Location of the listener to close.
+     * @param {number} id ID of the listener to remove.
+     */
     close(location, id) {
         let loc = this._parseLocation(location);
         let watchers = loc.reduce((curLoc, key) => {
-            return (typeof curLoc == "undefined" || curLoc === null) ? curLoc : curLoc._d[key];
+            return (curLoc == null) ? curLoc : curLoc._d[key];
         }, this.store);
         if (watchers._w == null)
             return;

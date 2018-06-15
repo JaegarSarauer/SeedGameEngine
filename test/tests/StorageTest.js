@@ -39,20 +39,21 @@ export default class StorageTest extends Test {
         this.addStep('WatchSet', () => {
             let succ = false;
 
-            Storage.watch('multi/test', (data) => {
-                succ = (data === 'wow');
+            Storage.watch('multi/test2', (data) => {
+                console.info(data)
+                succ = (data.watcher === 'wow');
             });
-            Storage.set('multi/test/watcher', 'wow');
+            Storage.set('multi/test2/watcher', 'wow');
             return succ;
         })
         this.addStep('SetWatchSet', () => {
             let succ = false;
 
-            Storage.set('multi/test/watcher', 'crazy');
-            Storage.watch('multi/test', (data) => {
+            Storage.set('multi/test3/watcher', 'crazy');
+            Storage.watch('multi/test3', (data) => {
                 succ = (data === 'wow');
             });
-            Storage.set('multi/test/watcher', 'wow');
+            Storage.set('multi/test3/watcher', 'wow');
             return succ;
         })
         // this.addStep('MultiWatchSet', () => {
