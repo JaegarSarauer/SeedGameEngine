@@ -1,12 +1,12 @@
-const log = require('../helper/Log');
-const Test = require('../helper/Test');
+import log from '../helper/Log';
+import Test from '../helper/Test';
 
 /**
  * Example test. Runs a few simple assertions and chains them.
  * The third one fails on purpose.
  * @test 
  */
-class ExampleTest extends Test {
+export default class ExampleTest extends Test {
     constructor() {
         super('Example Test');
 
@@ -28,5 +28,3 @@ class ExampleTest extends Test {
         });
     }
 }
-
-module.exports = ExampleTest;
