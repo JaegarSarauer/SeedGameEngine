@@ -57,6 +57,7 @@ import BasicScene from './scene/BasicScene';
 
 //utils
 import * as MathUtil from './utils/MathUtil';
+import Messager from './utils/Messager';
 
 import Engine from './Engine';
 
@@ -100,6 +101,7 @@ export {
     Scene,
     BasicScene,
     MathUtil,
+    Messager,
     Engine,
 };
 
