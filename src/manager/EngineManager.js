@@ -4,6 +4,7 @@ import ProgramManager from './ProgramManager';
 import SceneManager from './SceneManager';
 import DOMManager from './DOMManager';
 import PersistentManager from './PersistentManager';
+import InputManager from './InputManager';
 
 /**
  *  A singleton & Manager.
@@ -36,6 +37,7 @@ export class _EngineManager extends Manager {
         //Needs to be ahead of RenderManager to init Programs for WebGL.
         ProgramManager.start();
         RenderManager.start();
+        InputManager.start();
 
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {

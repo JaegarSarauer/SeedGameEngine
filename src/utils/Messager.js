@@ -1,8 +1,8 @@
 /**
  * 
  */
-export class _Messager {
-    constructor(data) {
+export default class Messager {
+    constructor() {
         this.listenerIDCounter = 0;
         this.data = {};
         this.listeners = {};
@@ -52,6 +52,3 @@ export class _Messager {
         return token;
     }
 }
-
-const Messager = new _Messager();
-export default Messager;

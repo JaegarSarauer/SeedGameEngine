@@ -13,6 +13,11 @@ export class _DOMManager extends Manager {
         super();
         this.canvas = null;
         this.GL = null;
+
+        this.canvasWidth = 0;
+        this.canvasHeight = 0;
+        this.canvasDPIWidth = 0;
+        this.canvasDPIHeight = 0;
     }
 
     /**
@@ -20,6 +25,7 @@ export class _DOMManager extends Manager {
      */
     start() {
         this.loadCanvas();
+        this.adjust();
     }
     
     /**
@@ -31,6 +37,20 @@ export class _DOMManager extends Manager {
         if (this.canvas == null)
             throw "Error finding DOM Canvas. The canvas requires an id='game'";
         this.GL = this.canvas.getContext('webgl2');
+    }
+
+    /*
+    Any function that plays with sizing, ratio, or other 
+    DOM elements with the canvas should call this after.
+    */
+    adjust() {
+        this.GL.imageSmoothingEnabled = false;
+        this.GL.webkitImageSmoothingEnabled = false;
+
+        this.canvasWidth = this.canvas.width;
+        this.canvasHeight = this.canvas.height;
+        this.canvasDPIWidth = this.canvasWidth / this.canvas.clientWidth;
+        this.canvasDPIHeight = this.canvasHeight / this.canvas.clientHeight;
     }
 }
 

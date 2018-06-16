@@ -1,38 +1,26 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
+import Messager from '../utils/Messager';
 
 export class _InputManager extends Manager {
     constructor() {
-        super();            
-        this.events = {
-            LeftClick: new Subscriber({
-                x: -1,
-                y: -1,
-                shiftHeld: false,
-                ctrlHeld: false,
-            }),
-            RightClick: new Subscriber({
-                x: -1,
-                y: -1,
-                shiftHeld: false,
-                ctrlHeld: false,
-            }),
-            KeyDown: new Subscriber({
-                key: '',
-                keyCode: 0,
-                shiftHeld: false,
-                ctrlHeld: false,
-                repeat: false,
-            })
+        super();     
+        this.events = new Messager();
+        this.EVENT = {
+            MOUSE_LEFT: 'mouseLeftClicked',
+            MOUSE_RIGHT: 'mouseRightClicked',
+            KEY_DOWN: 'keyDown',
+            KEY_UP: 'keyUp',
+            KEY: 'keyDownRepeat',
         };
     }
 
-    onStart() {
+    start() {
         //left click manager
         DOMManager.canvas.addEventListener('click', (event) => {
-            this.events.LeftClick.set({
-                x: event.offsetX * Engine.CanvasManager.DPIWidth,
-                y: event.offsetY * Engine.CanvasManager.DPIHeight,
+            this.events.set(this.EVENT.MOUSE_LEFT, {
+                x: event.offsetX * DOMManager.canvasDPIWidth,
+                y: event.offsetY * DOMManager.canvasDPIHeight,
                 shiftHeld: event.shiftKey,
                 ctrlHeld: event.ctrlKey,
             });
@@ -41,9 +29,9 @@ export class _InputManager extends Manager {
         //right click manager
         DOMManager.canvas.oncontextmenu = (event) => {
             event.preventDefault();
-            this.events.RightClick.set({
-                x: event.offsetX * Engine.CanvasManager.DPIWidth,
-                y: event.offsetY * Engine.CanvasManager.DPIHeight,
+            this.events.set(this.EVENT.MOUSE_RIGHT, {
+                x: event.offsetX * DOMManager.canvasDPIWidth,
+                y: event.offsetY * DOMManager.canvasDPIHeight,
                 shiftHeld: event.shiftKey,
                 ctrlHeld: event.ctrlKey,
             });
@@ -51,8 +39,27 @@ export class _InputManager extends Manager {
 
         //Key down manager
         DOMManager.canvas.addEventListener('keydown', (event) => {
-            console.info(event);
-            this.events.KeyDown.set({
+            if (!event.repeat) {
+                this.events.set(this.EVENT.KEY_DOWN, {
+                    key: event.key,
+                    keyCode: event.keyCode,
+                    shiftHeld: event.shiftKey,
+                    ctrlHeld: event.ctrlKey,
+                    repeat: event.repeat,
+                });
+            }
+            this.events.set(this.EVENT.KEY, {
+                key: event.key,
+                keyCode: event.keyCode,
+                shiftHeld: event.shiftKey,
+                ctrlHeld: event.ctrlKey,
+                repeat: event.repeat,
+            });
+        });
+
+        //Key up manager
+        DOMManager.canvas.addEventListener('keyup', (event) => {
+            this.events.set(this.EVENT.KEY_UP, {
                 key: event.key,
                 keyCode: event.keyCode,
                 shiftHeld: event.shiftKey,
