@@ -17,20 +17,20 @@ export default class StorageTest extends Test {
             return Storage.set('scores/points', 100);
         });
         this.addStep('GetNumber', () => {
-            return Storage.get('scores/points') === 100;
+            return Storage.get('scores/points').val() === 100;
         });
         this.addStep('SetObject', () => {
             return Storage.set('scores/users/user1', {score: 60, tag: 'JOE'});
         });
         this.addStep('GetObject', () => {
-            return Storage.get('scores/users/user1').tag === 'JOE';
+            return Storage.get('scores/users/user1').val().tag === 'JOE';
         });
-        this.addStep('SetGet1000', () => {
-            for (let i = 0; i < 1000; i++) {
+        this.addStep('SetGet10000', () => {
+            for (let i = 0; i < 10000; i++) {
                 Storage.set('multi/test/' + i, i);
             }
 
-            for (let i = 0; i < 1000; i++) {
+            for (let i = 0; i < 10000; i++) {
                 if (Storage.get('multi/test/' + i) !== i)
                     return false;
             }
@@ -39,9 +39,11 @@ export default class StorageTest extends Test {
         this.addStep('WatchSet', () => {
             let succ = false;
 
-            Storage.watch('multi/test2', (data) => {
+            Storage.watchNow('multi/test2', (data) => {
                 console.info(data)
-                succ = (data.watcher === 'wow');
+                if (data == null)
+                    return;
+                succ = (data.watcher.val() === 'wow');
             });
             Storage.set('multi/test2/watcher', 'wow');
             return succ;
@@ -51,39 +53,67 @@ export default class StorageTest extends Test {
 
             Storage.set('multi/test3/watcher', 'crazy');
             Storage.watch('multi/test3', (data) => {
-                succ = (data === 'wow');
+                if (data == null)
+                    return;
+                succ = (data.watcher.val() === 'wow');
             });
             Storage.set('multi/test3/watcher', 'wow');
             return succ;
         })
-        // this.addStep('MultiWatchSet', () => {
-        //     let succ = true;
+        this.addStep('MultiWatchSet', () => {
+            let succ = true;
 
-        //     Storage.watch('another', (data) => {
-        //         succ = succ && (data.quick.test[434] === 'wow');
-        //     });
+            Storage.watchNow('another', (data) => {
+                if (data == null)
+                    return;
+                succ = succ && (data.quick.test[434].val() === 1000);
+            });
 
-        //     Storage.watch('another/quick', (data) => {
-        //         succ = succ && (data.test[434] === 'wow');
-        //     });
+            Storage.watchNow('another/quick', (data) => {
+                if (data == null)
+                    return;
+                succ = succ && (data.test[434].val() === 1000);
+            });
 
-        //     Storage.watch('another/quick/test', (data) => {
-        //         succ = succ && (data[434] === 'wow');
-        //     });
+            Storage.watchNow('another/quick/test', (data) => {
+                if (data == null)
+                    return;
+                succ = succ && (data[434].val() === 1000);
+            });
 
-        //     Storage.watch('another/quick/test/434', (data) => {
-        //         succ = succ && (data === 'wow');
-        //     });
-        //     Storage.set('another/quick/test/434', 1000);
-        //     return succ;
-        // })
-        // this.addStep('InheritWatchSet')
-        // this.addStep('InheritWatchSet')
-        // this.addStep('WatchTrigger')
-        // this.addStep('WatchSetTrigger')
-        // this.addStep('WatchSetTrigger')
-        // this.addStep('WatchSetCloseSet')
-        // this.addStep('WatchCloseClose')
+            Storage.watchNow('another/quick/test/434', (data) => {
+                if (data == null)
+                    return;
+                succ = succ && (data.val() === 1000);
+            });
+            Storage.set('another/quick/test/434', 1000);
+            return succ;
+        })
+        this.addStep('WatchSetCloseSet', () => {
+            let succ = true;
+
+            let closeCallback = Storage.watchNow('closing/test1', (data) => {
+                if (data == null)
+                    return;
+                succ = succ && data.val();
+            });
+            Storage.set('closing/test1', true);
+            closeCallback();
+            Storage.set('closing/test1', false);
+            return succ;
+        })
+        this.addStep('WatchCloseClose', () => {
+            let succ = false;
+            let closeCallback = Storage.watchNow('closing/test1', (data) => {
+                if (data == null)
+                    return;
+                succ = data.val();
+            });
+            Storage.set('closing/test1', true);
+            closeCallback();
+            closeCallback();
+            return succ;
+        })
         // this.addStep('WatchesCloseAllSetMultiple')
     }
 }

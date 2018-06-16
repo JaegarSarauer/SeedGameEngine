@@ -1,3 +1,9 @@
+const DIRECTORY = {
+    __d: null,
+    __w: [],
+    val: 'function',
+};
+
 /**
  * Storage is a path delimited messaging system for global use. Data may be
  * stored and retrieved from a path location, returning null on empty locations.
@@ -10,10 +16,7 @@
 export class _Storage {
     constructor() {
         this.listenerIDCount = 0;
-        this.store = {
-            _d: {},
-            _w: [],
-        };
+        this.store = this._createDir();
     }
 
     /**
@@ -33,8 +36,8 @@ export class _Storage {
     get(location) {
         let loc = this._parseLocation(location);
         return loc.reduce((curLoc, key) => {
-            return (curLoc == null) ? curLoc : curLoc._d[key];
-        }, this.store)._d;
+            return (curLoc == null) ? curLoc : curLoc[key];
+        }, this.store);
     }
 
     /**
@@ -46,31 +49,31 @@ export class _Storage {
     set(location, data) {
         let loc = this._parseLocation(location);
         loc.reduce((curLoc, key) => {
-            if (curLoc._d[key] == null) {
-                curLoc._d[key] = {
-                    _d: {},
-                    _w: []
-                };
+            if (curLoc[key] == null) {
+                curLoc[key] = this._createDir();
             }
             if (key === loc[loc.length - 1]) {
-                curLoc._d[key]._d = data;
+                curLoc[key].__d = data;
             }
-            return curLoc._d[key];
+            return curLoc[key];
         }, this.store);
-        this.notify();
+        this.notify(location);
         return true;
     }
 
         //notify all descnedants.
-    notify() {
+    notify(location) {
         let loc = this._parseLocation(location);
         loc.reduce((curLoc, key) => {
-            this._notifyWatchers(curLoc._w, curLoc._d);
-            if (key === loc[loc.length - 1]) {
-                this._notifyWatchers(curLoc._d[key]._w, curLoc._d[key]._d);
-            }
-            return curLoc._d[key];
+            this._notifyWatchers(curLoc.__w, curLoc);
+            return curLoc[key];
         }, this.store);
+    }
+
+    _createDir() {
+        let newDir = Object.assign({}, DIRECTORY);
+        newDir.val = () => {return newDir.__d;};
+        return newDir;
     }
 
     /**
@@ -84,7 +87,34 @@ export class _Storage {
 
     /**
      * Watches a location in storage and notifies the callback of new data
-     * when it is changed.
+     * when it is changed. When you watchNow, it will only notify on new changes.
+     * It will not trigger the callback.
+     * 
+     * Returns a callback to stop watching.
+     */
+    watchNow(location, callback) {
+        let id = this.listenerIDCount++;
+
+        let loc = this._parseLocation(location);
+        loc.reduce((curLoc, key) => {
+            console.info(curLoc, key)
+            if (curLoc[key] == null) {
+                curLoc[key] = this._createDir();
+            }
+            if (key === loc[loc.length - 1]) {
+                curLoc[key].__w.push({id, callback});
+            }
+            return curLoc[key];
+        }, this.store);
+
+        return () => {
+            this.close(location, id);
+        }
+    }
+
+    /**
+     * Watches a location in storage and notifies the callback of new data
+     * when it is changed. When you watch, you see it at first, and all changes.
      * 
      * Returns a callback to stop watching.
      */
@@ -93,17 +123,14 @@ export class _Storage {
 
         let loc = this._parseLocation(location);
         loc.reduce((curLoc, key) => {
-            if (curLoc._d[key] == null) {
-                curLoc._d[key] = {
-                    _d: {},
-                    _w: []
-                };
+            if (curLoc[key] == null) {
+                curLoc[key] = this._createDir();
             }
             if (key === loc[loc.length - 1]) {
-                curLoc._d[key]._w.push({id, callback});
-                callback(curLoc._d[key]._d);
+                curLoc[key].__w.push({id, callback});
+                callback(curLoc[key]);
             }
-            return curLoc._d[key];
+            return curLoc[key];
         }, this.store);
 
         return () => {
@@ -121,9 +148,9 @@ export class _Storage {
     close(location, id) {
         let loc = this._parseLocation(location);
         let watchers = loc.reduce((curLoc, key) => {
-            return (curLoc == null) ? curLoc : curLoc._d[key];
+            return (curLoc == null) ? curLoc : curLoc[key];
         }, this.store);
-        if (watchers._w == null)
+        if (watchers.__w == null)
             return;
         for (let i = 0; i < watchers.length; i++) {
             if (watchers[i].id == id) {
