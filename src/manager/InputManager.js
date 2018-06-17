@@ -1,6 +1,7 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
 import Messager from '../utils/Messager';
+import KeyCode from '../const/KeyCode';
 
 export class _InputManager extends Manager {
     constructor() {
@@ -13,6 +14,28 @@ export class _InputManager extends Manager {
             KEY_UP: 'keyUp',
             KEY: 'keyDownRepeat',
         };
+        this.KEY_DOWN = [];
+        this.KEY_PRESSED = [];
+        this.KEY_UP = [];
+
+        const AllKeys = 256;
+        for (let i = 0; i < AllKeys; i++) {
+            this.KEY_DOWN[i] = false;
+            this.KEY_PRESSED[i] = false;
+            this.KEY_UP[i] = false;
+        }
+    }
+
+    isKeyDown(KeyCode) {
+        return this.KEY_DOWN[KeyCode];
+    }
+
+    isKeyPressed(KeyCode) {
+        return this.KEY_PRESSED[KeyCode];
+    }
+
+    isKeyUp(KeyCode) {
+        return this.KEY_UP[KeyCode];
     }
 
     start() {
@@ -39,10 +62,13 @@ export class _InputManager extends Manager {
 
         //Key down manager
         DOMManager.canvas.addEventListener('keydown', (event) => {
+            let code = event.which || event.keyCode;
+            this.KEY_DOWN[code] = true;
+            this.KEY_PRESSED[code] = true;
             if (!event.repeat) {
                 this.events.set(this.EVENT.KEY_DOWN, {
                     key: event.key,
-                    keyCode: event.keyCode,
+                    code,
                     shiftHeld: event.shiftKey,
                     ctrlHeld: event.ctrlKey,
                     repeat: event.repeat,
@@ -50,7 +76,7 @@ export class _InputManager extends Manager {
             }
             this.events.set(this.EVENT.KEY, {
                 key: event.key,
-                keyCode: event.keyCode,
+                code,
                 shiftHeld: event.shiftKey,
                 ctrlHeld: event.ctrlKey,
                 repeat: event.repeat,
@@ -59,14 +85,23 @@ export class _InputManager extends Manager {
 
         //Key up manager
         DOMManager.canvas.addEventListener('keyup', (event) => {
+            let code = event.which || event.keyCode;
+            this.KEY_DOWN[code] = false;
+            this.KEY_PRESSED[code] = false;
+            this.KEY_UP[code] = true;
             this.events.set(this.EVENT.KEY_UP, {
                 key: event.key,
-                keyCode: event.keyCode,
+                code,
                 shiftHeld: event.shiftKey,
                 ctrlHeld: event.ctrlKey,
                 repeat: event.repeat,
             });
         });
+    }
+
+    update() {
+        this.KEY_DOWN = [];
+        this.KEY_UP = [];
     }
 }
 

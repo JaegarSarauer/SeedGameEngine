@@ -54,6 +54,7 @@ export class _EngineManager extends Manager {
         PersistentManager.update();
         SceneManager.update();
         RenderManager.update();
+        InputManager.update();
     }
 
     /**

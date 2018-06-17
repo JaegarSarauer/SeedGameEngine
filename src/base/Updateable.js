@@ -29,6 +29,8 @@ export default class Updateable {
 
     /**
      * Base call function for when this Updateable is to be updated.
+     * 
+     * Is overwritten on successful start to a simpler update loop.
      */
     update() {
         if (this.hasPaused)

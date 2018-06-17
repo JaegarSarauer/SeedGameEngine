@@ -28,4 +28,38 @@ export default class Point {
         this.y = y;
         this.z = z;
     }
+
+    divide(divX, divY = divX, divZ = divX) {
+        this.x /= divX;
+        this.y /= divY;
+        this.z /= divZ;
+    }
+
+    multiply(multiX, multiY = multiX, multiZ = multiX) {
+        this.x *= multiX;
+        this.y *= multiY;
+        this.z *= multiZ;
+    }
+
+    add(addX, addY = addX, addZ = addX) {
+        this.x += addX;
+        this.y += addY;
+        this.z += addZ;
+    }
+
+    subtract(subX, subY = subX, subZ = subX) {
+        this.x -= subX;
+        this.y += subY;
+        this.z += subZ;
+    }
+
+    length() {
+        return Math.sqrt((this.x * this.x) + (this.y * this.y) + (this.z * this.z));
+    }
+
+    normalize() {
+        let len = this.length();
+        if (len !== 0)
+            this.divide(len);
+    }
 }
