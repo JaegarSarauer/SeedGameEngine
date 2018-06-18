@@ -17,6 +17,8 @@ export class _InputManager extends Manager {
         this.KEY_DOWN = [];
         this.KEY_PRESSED = [];
         this.KEY_UP = [];
+        this.LEFT_CLICK = [];
+        this.RIGHT_CLICK = [];
 
         const AllKeys = 256;
         for (let i = 0; i < AllKeys; i++) {
@@ -97,11 +99,21 @@ export class _InputManager extends Manager {
                 repeat: event.repeat,
             });
         });
+
+        this.events.watch(this.EVENT.MOUSE_LEFT, (event) => {
+            this.LEFT_CLICK.push(event);
+        });
+
+        this.events.watch(this.EVENT.MOUSE_RIGHT, (event) => {
+            this.RIGHT_CLICK.push(event);
+        });
     }
 
     update() {
         this.KEY_DOWN = [];
         this.KEY_UP = [];
+        this.LEFT_CLICK = [];
+        this.RIGHT_CLICK = [];
     }
 }
 

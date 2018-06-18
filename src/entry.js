@@ -9,13 +9,14 @@ import Collider from './component/Collider';
 import Collider2D from './component/Collider2D';
 import Component from './component/Component';
 import Controller from './component/Controller';
+import ClickController from './component/ClickController';
 import Physics from './component/Physics';
 import Physics2D from './component/Physics2D';
 import Renderable from './component/Renderable';
 import Renderable2D from './component/Renderable2D';
 import RenderableSquare from './component/RenderableSquare';
+import TopDownController from './component/TopDownController';
 import Transform from './component/Transform';
-import WASDController from './component/WASDController';
 
 //const
 import FragmentShader from './const/FragmentShader';
@@ -106,7 +107,8 @@ export {
     MathUtil,
     Messager,
     Engine,
-    WASDController,
+    TopDownController,
+    ClickController
 };
 
 

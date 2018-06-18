@@ -29,28 +29,36 @@ export default class Point {
         this.z = z;
     }
 
+    static copy(point) {
+        return new Point(point.x, point.y, point.z);
+    }
+
     divide(divX, divY = divX, divZ = divX) {
         this.x /= divX;
         this.y /= divY;
         this.z /= divZ;
+        return this;
     }
 
     multiply(multiX, multiY = multiX, multiZ = multiX) {
         this.x *= multiX;
         this.y *= multiY;
         this.z *= multiZ;
+        return this;
     }
 
     add(addX, addY = addX, addZ = addX) {
         this.x += addX;
         this.y += addY;
         this.z += addZ;
+        return this;
     }
 
     subtract(subX, subY = subX, subZ = subX) {
         this.x -= subX;
         this.y += subY;
         this.z += subZ;
+        return this;
     }
 
     length() {

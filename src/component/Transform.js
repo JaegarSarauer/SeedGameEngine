@@ -157,27 +157,27 @@ export default class Transform extends Component {
      * @returns {Point} The transform's position.
      */
     getPosition() {
-        return this._position;
+        return Point.copy(this._position);
     }
 
     /**
      * @returns {Point} The transform's scale.
      */
     getScale() {
-        return this._scale;
+        return Point.copy(this._scale);
     }
 
     /**
      * @returns {number} The transform's rotation.
      */
     getRotation() {
-        return this._rotation;
+        return Point.copy(this._rotation);
     }
 
     /**
      * @returns {Point} The transform's origin offset.
      */
     getOriginOffset() {
-        return this._originOffset;
+        return Point.copy(this._originOffset);
     }
 }
