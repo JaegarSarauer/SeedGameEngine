@@ -37,6 +37,9 @@ export class _DOMManager extends Manager {
         if (this.canvas == null)
             throw "Error finding DOM Canvas. The canvas requires an id='game'";
         this.GL = this.canvas.getContext('webgl2');
+        window.addEventListener('resize', () => {
+            this.adjust();
+        })
     }
 
     /*
