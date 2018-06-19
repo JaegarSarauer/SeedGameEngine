@@ -42,24 +42,28 @@ export class _InputManager extends Manager {
 
     start() {
         //left click manager
-        DOMManager.canvas.addEventListener('click', (event) => {
-            this.events.set(this.EVENT.MOUSE_LEFT, {
-                x: event.offsetX * DOMManager.canvasDPIWidth,
-                y: event.offsetY * DOMManager.canvasDPIHeight,
-                shiftHeld: event.shiftKey,
-                ctrlHeld: event.ctrlKey,
-            });
+        DOMManager.canvas.addEventListener('click', (ev) => {
+            let event = {
+                x: ev.offsetX * DOMManager.canvasDPIWidth,
+                y: ev.offsetY * DOMManager.canvasDPIHeight,
+                shiftHeld: ev.shiftKey,
+                ctrlHeld: ev.ctrlKey,
+            };
+            this.events.set(this.EVENT.MOUSE_LEFT, event);
+            this.LEFT_CLICK.push(event);
         });
 
         //right click manager
-        DOMManager.canvas.oncontextmenu = (event) => {
-            event.preventDefault();
-            this.events.set(this.EVENT.MOUSE_RIGHT, {
-                x: event.offsetX * DOMManager.canvasDPIWidth,
-                y: event.offsetY * DOMManager.canvasDPIHeight,
-                shiftHeld: event.shiftKey,
-                ctrlHeld: event.ctrlKey,
-            });
+        DOMManager.canvas.oncontextmenu = (ev) => {
+            ev.preventDefault();
+            let event = {
+                x: ev.offsetX * DOMManager.canvasDPIWidth,
+                y: ev.offsetY * DOMManager.canvasDPIHeight,
+                shiftHeld: ev.shiftKey,
+                ctrlHeld: ev.ctrlKey,
+            };
+            this.events.set(this.EVENT.MOUSE_RIGHT, event);
+            this.RIGHT_CLICK.push(event);
         };
 
         //Key down manager
@@ -98,14 +102,6 @@ export class _InputManager extends Manager {
                 ctrlHeld: event.ctrlKey,
                 repeat: event.repeat,
             });
-        });
-
-        this.events.watch(this.EVENT.MOUSE_LEFT, (event) => {
-            this.LEFT_CLICK.push(event);
-        });
-
-        this.events.watch(this.EVENT.MOUSE_RIGHT, (event) => {
-            this.RIGHT_CLICK.push(event);
         });
     }
 
