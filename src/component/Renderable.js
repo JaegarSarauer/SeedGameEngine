@@ -97,9 +97,9 @@ export default class Renderable extends Component {
     onAddComponent() {
         let transform = this.gameObject.getComponent("Transform");
         transform.renderable = this;
-        this.setPosition(transform.getPosition());
-        this.setScale(transform.getScale());
-        this.setRotation(transform.getRotation());
+        this.setPosition(transform._position);
+        this.setScale(transform._scale);
+        this.setRotation(transform._rotation);
     }
 
     /**

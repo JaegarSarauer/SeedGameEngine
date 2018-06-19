@@ -1,7 +1,7 @@
 'use-strict';
 
-const TestManager = require('./helper/TestManager');
-const ExampleTest = require('./tests/ExampleTest');
+import TestManager from './helper/TestManager';
+import StorageTest from './tests/StorageTest';
 
-new ExampleTest();
+new StorageTest();
 TestManager.run();

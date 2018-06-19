@@ -1,4 +1,4 @@
-class TestManager {
+export class _TestManager {
     constructor() {
         this.tests = [];
     }
@@ -14,4 +14,5 @@ class TestManager {
     }
 }
 
-module.exports = new TestManager();
+const TestManager = new _TestManager();
+export default TestManager;

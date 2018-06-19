@@ -4,6 +4,7 @@ import ProgramManager from './ProgramManager';
 import SceneManager from './SceneManager';
 import DOMManager from './DOMManager';
 import PersistentManager from './PersistentManager';
+import InputManager from './InputManager';
 
 /**
  *  A singleton & Manager.
@@ -17,7 +18,7 @@ import PersistentManager from './PersistentManager';
 export class _EngineManager extends Manager {
     constructor() {
         super();
-        this.MS_PER_FRAME = 30;
+        this.MS_PER_FRAME = 16;
         this.coreUpdateLoopHandle = null;
         this.hasPaused = false;
     }
@@ -36,6 +37,7 @@ export class _EngineManager extends Manager {
         //Needs to be ahead of RenderManager to init Programs for WebGL.
         ProgramManager.start();
         RenderManager.start();
+        InputManager.start();
 
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {
@@ -52,6 +54,7 @@ export class _EngineManager extends Manager {
         PersistentManager.update();
         SceneManager.update();
         RenderManager.update();
+        InputManager.update();
     }
 
     /**
