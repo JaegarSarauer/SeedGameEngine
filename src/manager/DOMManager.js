@@ -47,6 +47,8 @@ export class _DOMManager extends Manager {
     DOM elements with the canvas should call this after.
     */
     adjust() {
+        if (this.GL == null)
+            return;
         this.GL.imageSmoothingEnabled = false;
         this.GL.webkitImageSmoothingEnabled = false;
 

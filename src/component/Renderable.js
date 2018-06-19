@@ -40,6 +40,13 @@ export default class Renderable extends Component {
         this.renderPositions = [0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1];
         this.primitiveType = RenderManager.GL.TRIANGLES;
         this.primitiveCount = 6;
+
+        //textures
+        this.texture = null;
+    }
+
+    addTexture(textureObject) {
+        this.texture = textureObject;
     }
 
     /**

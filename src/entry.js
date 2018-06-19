@@ -38,6 +38,7 @@ import PersistentManager from './manager/PersistentManager';
 import PhysicsManager from './manager/PhysicsManager';
 import RenderManager from './manager/RenderManager';
 import SceneManager from './manager/SceneManager';
+import TextureManager from './manager/TextureManager';
 
 //object
 import GameObject from './object/GameObject';
@@ -108,7 +109,8 @@ export {
     Messager,
     Engine,
     TopDownController,
-    ClickController
+    ClickController,
+    TextureManager
 };
 
 

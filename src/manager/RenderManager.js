@@ -20,10 +20,14 @@ export class _RenderManager extends Manager {
         this.GL = DOMManager.GL;
 
         this._updateProgram(ProgramManager.getProgram('Default'));
+
+        this.textureUnit = 0;
         
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
         this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
         this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
+        this.texcoordAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_texcoord");
+        this.textureLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_texture");
 
         let positionBuffer = this.GL.createBuffer();
 
@@ -43,6 +47,23 @@ export class _RenderManager extends Manager {
         let stride = 0;
         let vertexOffset = 0;
         this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
+
+        //textures
+        this.texcoordBuffer = this.GL.createBuffer();
+        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, this.texcoordBuffer);
+        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]), this.GL.STATIC_DRAW);
+
+        // Turn on the attribute
+        this.GL.enableVertexAttribArray(this.texcoordAttributeLocation);
+
+        // Tell the attribute how to get data out of colorBuffer (ARRAY_BUFFER)
+        let t_size = 2;          // 3 components per iteration
+        let t_type = this.GL.FLOAT;   // the data is 32bit floats
+        let t_normalize = true;  // convert from 0-255 to 0.0-1.0
+        let t_stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next color
+        let t_offset = 0;        // start at the beginning of the buffer
+        this.GL.vertexAttribPointer(
+            this.texcoordAttributeLocation, t_size, t_type, t_normalize, t_stride, t_offset);
     }
 
     /**
@@ -89,6 +110,11 @@ export class _RenderManager extends Manager {
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
+                this.GL.uniform1i(this.textureLocation, this.textureUnit);
+ 
+                // Bind the texture to texture unit 0
+                this.GL.activeTexture(this.GL.TEXTURE0 + this.textureUnit);
+                this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }
