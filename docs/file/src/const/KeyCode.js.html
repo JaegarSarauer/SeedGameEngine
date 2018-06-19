@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/const/KeyCode.js | seed-engine</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="seed-engine"><meta property="twitter:description" content="A Lightweight 2D game engine using WebGL2. The engine is designed on the focus of creating a bridge between creating and publishing games to the Seed Network as modules."></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/JaegarSarauer/SeedGameEngine"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Engine.js~_Engine.html">_Engine</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-Engine">Engine</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#base">base</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/base/Updateable.js~Updateable.html">Updateable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#component">component</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/BoxCollider.js~BoxCollider.html">BoxCollider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/CircleCollider.js~CircleCollider.html">CircleCollider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/ClickController.js~ClickController.html">ClickController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Collider.js~Collider.html">Collider</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Collider2D.js~Collider2D.html">Collider2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Component.js~Component.html">Component</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Controller.js~Controller.html">Controller</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics.js~Physics.html">Physics</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics2D.js~Physics2D.html">Physics2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html">Renderable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/TopDownController.js~TopDownController.html">TopDownController</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Transform.js~Transform.html">Transform</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#const">const</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_F">DEFAULT_F</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KeyCode">KeyCode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_V">DEFAULT_V</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#internal">internal</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Bounds.js~Bounds.html">Bounds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Color.js~Color.html">Color</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Point.js~Point.html">Point</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/PostBoard.js~PostBoard.html">PostBoard</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#manager">manager</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/AudioManager.js~_AudioManager.html">_AudioManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/DOMManager.js~_DOMManager.html">_DOMManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/EngineManager.js~_EngineManager.html">_EngineManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/InputManager.js~_InputManager.html">_InputManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/Manager.js~Manager.html">Manager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/NetworkManager.js~_NetworkManager.html">_NetworkManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/PersistentManager.js~_PersistentManager.html">_PersistentManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/PhysicsManager.js~_PhysicsManager.html">_PhysicsManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/ProgramManager.js~_ProgramManager.html">_ProgramManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/RenderManager.js~_RenderManager.html">_RenderManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/SceneManager.js~_SceneManager.html">_SceneManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/manager/UpdateableManager.js~_UpdateableManager.html">_UpdateableManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-AudioManager">AudioManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DOMManager">DOMManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-EngineManager">EngineManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-InputManager">InputManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-NetworkManager">NetworkManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PersistentManager">PersistentManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-PhysicsManager">PhysicsManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ProgramManager">ProgramManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RenderManager">RenderManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-SceneManager">SceneManager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-UpdateableManager">UpdateableManager</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#object">object</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/object/GameObject.js~GameObject.html">GameObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/object/PersistentObject.js~PersistentObject.html">PersistentObject</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/object/SceneObject.js~SceneObject.html">SceneObject</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#render">render</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/render/Viewport.js~Viewport.html">Viewport</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#render-webgl">render/WebGL</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/render/WebGL/Matrix.js~Matrix.html">Matrix</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/render/WebGL/Matrix3.js~Matrix3.html">Matrix3</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#scene">scene</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/scene/BasicScene.js~BasicScene.html">BasicScene</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/scene/Scene.js~Scene.html">Scene</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#utils">utils</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/Messager.js~Messager.html">Messager</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-degToRad">degToRad</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-radToDeg">radToDeg</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/const/KeyCode.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const KeyCode = {
+    _0: 0,
+    _1: 1,
+    _2: 2,
+    CANCEL: 3,
+    _4: 4,
+    _5: 5,
+    HELP: 6,
+    _7: 7,
+    BACK_SPACE: 8,
+    TAB: 9,
+    _10: 10,
+    _11: 11,
+    CLEAR: 12,
+    ENTER: 13,
+    ENTER_SPECIAL: 14,
+    _15: 15,
+    SHIFT: 16,
+    CONTROL: 17,
+    ALT: 18,
+    PAUSE: 19,
+    CAPS_LOCK: 20,
+    KANA: 21,
+    EISU: 22,
+    JUNJA: 23,
+    FINAL: 24,
+    HANJA: 25,
+    _26: 26,
+    ESCAPE: 27,
+    CONVERT: 28,
+    NONCONVERT: 29,
+    ACCEPT: 30,
+    MODECHANGE: 31,
+    SPACE: 32,
+    PAGE_UP: 33,
+    PAGE_DOWN: 34,
+    END: 35,
+    HOME: 36,
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    SELECT: 41,
+    PRINT: 42,
+    EXECUTE: 43,
+    PRINTSCREEN: 44,
+    INSERT: 45,
+    DELETE: 46,
+    _47: 47,
+    NUMBER_0: 48,
+    NUMBER_1: 49,
+    NUMBER_2: 50,
+    NUMBER_3: 51,
+    NUMBER_4: 52,
+    NUMBER_5: 53,
+    NUMBER_6: 54,
+    NUMBER_7: 55,
+    NUMBER_8: 56,
+    NUMBER_9: 57,
+    COLON: 58,
+    SEMICOLON: 59,
+    LESS_THAN: 60,
+    EQUALS: 61,
+    GREATER_THAN: 62,
+    QUESTION_MARK: 63,
+    AT: 64,
+    A: 65,
+    B: 66,
+    C: 67,
+    D: 68,
+    E: 69,
+    F: 70,
+    G: 71,
+    H: 72,
+    I: 73,
+    J: 74,
+    K: 75,
+    L: 76,
+    M: 77,
+    N: 78,
+    O: 79,
+    P: 80,
+    Q: 81,
+    R: 82,
+    S: 83,
+    T: 84,
+    U: 85,
+    V: 86,
+    W: 87,
+    X: 88,
+    Y: 89,
+    Z: 90,
+    OS_KEY: 91,
+    _92: 92,
+    CONTEXT_MENU: 93,
+    _94: 94,
+    SLEEP: 95,
+    NUMPAD0: 96,
+    NUMPAD1: 97,
+    NUMPAD2: 98,
+    NUMPAD3: 99,
+    NUMPAD4: 100,
+    NUMPAD5: 101,
+    NUMPAD6: 102,
+    NUMPAD7: 103,
+    NUMPAD8: 104,
+    NUMPAD9: 105,
+    MULTIPLY: 106,
+    ADD: 107,
+    SEPARATOR: 108,
+    SUBTRACT: 109,
+    DECIMAL: 110,
+    DIVIDE: 111,
+    F1: 112,
+    F2: 113,
+    F3: 114,
+    F4: 115,
+    F5: 116,
+    F6: 117,
+    F7: 118,
+    F8: 119,
+    F9: 120,
+    F10: 121,
+    F11: 122,
+    F12: 123,
+    F13: 124,
+    F14: 125,
+    F15: 126,
+    F16: 127,
+    F17: 128,
+    F18: 129,
+    F19: 130,
+    F20: 131,
+    F21: 132,
+    F22: 133,
+    F23: 134,
+    F24: 135,
+    _136: 136,
+    _137: 137,
+    _138: 138,
+    _139: 139,
+    _140: 140,
+    _141: 141,
+    _142: 142,
+    _143: 143,
+    NUM_LOCK: 144,
+    SCROLL_LOCK: 145,
+    WIN_OEM_FJ_JISHO: 146,
+    WIN_OEM_FJ_MASSHOU: 147,
+    WIN_OEM_FJ_TOUROKU: 148,
+    WIN_OEM_FJ_LOYA: 149,
+    WIN_OEM_FJ_ROYA: 150,
+    _151: 151,
+    _152: 152,
+    _153: 153,
+    _154: 154,
+    _155: 155,
+    _156: 156,
+    _157: 157,
+    _158: 158,
+    _159: 159,
+    CIRCUMFLEX: 160,
+    EXCLAMATION: 161,
+    DOUBLE_QUOTE: 162,
+    HASH: 163,
+    DOLLAR: 164,
+    PERCENT: 165,
+    AMPERSAND: 166,
+    UNDERSCORE: 167,
+    OPEN_PAREN: 168,
+    CLOSE_PAREN: 169,
+    ASTERISK: 170,
+    PLUS: 171,
+    PIPE: 172,
+    HYPHEN_MINUS: 173,
+    OPEN_CURLY_BRACKET: 174,
+    CLOSE_CURLY_BRACKET: 175,
+    TILDE: 176,
+    _177: 177,
+    _178: 178,
+    _179: 179,
+    _180: 180,
+    VOLUME_MUTE: 181,
+    VOLUME_DOWN: 182,
+    VOLUME_UP: 183,
+    _184: 184,
+    _185: 185,
+    SEMICOLON: 186,
+    EQUALS: 187,
+    COMMA: 188,
+    MINUS: 189,
+    PERIOD: 190,
+    SLASH: 191,
+    BACK_QUOTE: 192,
+    _193: 193,
+    _194: 194,
+    _195: 195,
+    _196: 196,
+    _197: 197,
+    _198: 198,
+    _199: 199,
+    _200: 200,
+    _201: 201,
+    _202: 202,
+    _203: 203,
+    _204: 204,
+    _205: 205,
+    _206: 206,
+    _207: 207,
+    _208: 208,
+    _209: 209,
+    _210: 210,
+    _211: 211,
+    _212: 212,
+    _213: 213,
+    _214: 214,
+    _215: 215,
+    _216: 216,
+    _217: 217,
+    _218: 218,
+    OPEN_BRACKET: 219,
+    BACK_SLASH: 220,
+    CLOSE_BRACKET: 221,
+    QUOTE: 222,
+    _223: 223,
+    META: 224,
+    ALTGR: 225,
+    _226: 226,
+    WIN_ICO_HELP: 227,
+    WIN_ICO_00: 228,
+    _229: 229,
+    WIN_ICO_CLEAR: 230,
+    _231: 231,
+    _232: 232,
+    WIN_OEM_RESET: 233,
+    WIN_OEM_JUMP: 234,
+    WIN_OEM_PA1: 235,
+    WIN_OEM_PA2: 236,
+    WIN_OEM_PA3: 237,
+    WIN_OEM_WSCTRL: 238,
+    WIN_OEM_CUSEL: 239,
+    WIN_OEM_ATTN: 240,
+    WIN_OEM_FINISH: 241,
+    WIN_OEM_COPY: 242,
+    WIN_OEM_AUTO: 243,
+    WIN_OEM_ENLW: 244,
+    WIN_OEM_BACKTAB: 245,
+    ATTN: 246,
+    CRSEL: 247,
+    EXSEL: 248,
+    EREOF: 249,
+    PLAY: 250,
+    ZOOM: 251,
+    _252: 252,
+    PA1: 253,
+    WIN_OEM_CLEAR: 254,
+    _255: 255,
+};
+
+export default KeyCode;</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

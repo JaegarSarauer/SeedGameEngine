@@ -36,6 +36,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "seed-engine/src/component/clickcontroller.js~clickcontroller",
+    "class/src/component/ClickController.js~ClickController.html",
+    "<span>ClickController</span> <span class=\"search-result-import-path\">seed-engine/src/component/ClickController.js</span>",
+    "class"
+  ],
+  [
     "seed-engine/src/component/collider2d.js~collider2d",
     "class/src/component/Collider2D.js~Collider2D.html",
     "<span>Collider2D</span> <span class=\"search-result-import-path\">seed-engine/src/component/Collider2D.js</span>",
@@ -57,6 +63,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/component/component.js~component",
     "class/src/component/Component.js~Component.html",
     "<span>Component</span> <span class=\"search-result-import-path\">seed-engine/src/component/Component.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/component/controller.js~controller",
+    "class/src/component/Controller.js~Controller.html",
+    "<span>Controller</span> <span class=\"search-result-import-path\">seed-engine/src/component/Controller.js</span>",
     "class"
   ],
   [
@@ -102,6 +114,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "seed-engine/src/const/keycode.js~keycode",
+    "variable/index.html#static-variable-KeyCode",
+    "<span>KeyCode</span> <span class=\"search-result-import-path\">seed-engine/src/const/KeyCode.js</span>",
+    "variable"
+  ],
+  [
     "seed-engine/src/manager/manager.js~manager",
     "class/src/manager/Manager.js~Manager.html",
     "<span>Manager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/Manager.js</span>",
@@ -117,6 +135,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/render/webgl/matrix.js~matrix",
     "class/src/render/WebGL/Matrix.js~Matrix.html",
     "<span>Matrix</span> <span class=\"search-result-import-path\">seed-engine/src/render/WebGL/Matrix.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/utils/messager.js~messager",
+    "class/src/utils/Messager.js~Messager.html",
+    "<span>Messager</span> <span class=\"search-result-import-path\">seed-engine/src/utils/Messager.js</span>",
     "class"
   ],
   [
@@ -213,6 +237,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/object/sceneobject.js~sceneobject",
     "class/src/object/SceneObject.js~SceneObject.html",
     "<span>SceneObject</span> <span class=\"search-result-import-path\">seed-engine/src/object/SceneObject.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/component/topdowncontroller.js~topdowncontroller",
+    "class/src/component/TopDownController.js~TopDownController.html",
+    "<span>TopDownController</span> <span class=\"search-result-import-path\">seed-engine/src/component/TopDownController.js</span>",
     "class"
   ],
   [
@@ -768,6 +798,36 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/component/clickcontroller.js",
+    "file/src/component/ClickController.js.html",
+    "src/component/ClickController.js",
+    "file"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#constructor",
+    "class/src/component/ClickController.js~ClickController.html#instance-constructor-constructor",
+    "src/component/ClickController.js~ClickController#constructor",
+    "method"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onleftclick",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onLeftClick",
+    "src/component/ClickController.js~ClickController#onLeftClick",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onrightclick",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onRightClick",
+    "src/component/ClickController.js~ClickController#onRightClick",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onupdate",
+    "class/src/component/ClickController.js~ClickController.html#instance-method-onUpdate",
+    "src/component/ClickController.js~ClickController#onUpdate",
+    "method"
+  ],
+  [
     "src/component/collider.js",
     "file/src/component/Collider.js.html",
     "src/component/Collider.js",
@@ -801,6 +861,18 @@ window.esdocSearchIndex = [
     "src/component/component.js~component#onaddcomponent",
     "class/src/component/Component.js~Component.html#instance-method-onAddComponent",
     "src/component/Component.js~Component#onAddComponent",
+    "method"
+  ],
+  [
+    "src/component/controller.js",
+    "file/src/component/Controller.js.html",
+    "src/component/Controller.js",
+    "file"
+  ],
+  [
+    "src/component/controller.js~controller#constructor",
+    "class/src/component/Controller.js~Controller.html#instance-constructor-constructor",
+    "src/component/Controller.js~Controller#constructor",
     "method"
   ],
   [
@@ -960,6 +1032,42 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/component/topdowncontroller.js",
+    "file/src/component/TopDownController.js.html",
+    "src/component/TopDownController.js",
+    "file"
+  ],
+  [
+    "src/component/topdowncontroller.js~topdowncontroller#constructor",
+    "class/src/component/TopDownController.js~TopDownController.html#instance-constructor-constructor",
+    "src/component/TopDownController.js~TopDownController#constructor",
+    "method"
+  ],
+  [
+    "src/component/topdowncontroller.js~topdowncontroller#isdownpressed",
+    "class/src/component/TopDownController.js~TopDownController.html#instance-method-isDownPressed",
+    "src/component/TopDownController.js~TopDownController#isDownPressed",
+    "method"
+  ],
+  [
+    "src/component/topdowncontroller.js~topdowncontroller#isleftpressed",
+    "class/src/component/TopDownController.js~TopDownController.html#instance-method-isLeftPressed",
+    "src/component/TopDownController.js~TopDownController#isLeftPressed",
+    "method"
+  ],
+  [
+    "src/component/topdowncontroller.js~topdowncontroller#isrightpressed",
+    "class/src/component/TopDownController.js~TopDownController.html#instance-method-isRightPressed",
+    "src/component/TopDownController.js~TopDownController#isRightPressed",
+    "method"
+  ],
+  [
+    "src/component/topdowncontroller.js~topdowncontroller#isuppressed",
+    "class/src/component/TopDownController.js~TopDownController.html#instance-method-isUpPressed",
+    "src/component/TopDownController.js~TopDownController#isUpPressed",
+    "method"
+  ],
+  [
     "src/component/transform.js",
     "file/src/component/Transform.js.html",
     "src/component/Transform.js",
@@ -1086,6 +1194,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/const/keycode.js",
+    "file/src/const/KeyCode.js.html",
+    "src/const/KeyCode.js",
+    "file"
+  ],
+  [
     "src/const/vertexshader.js",
     "file/src/const/VertexShader.js.html",
     "src/const/VertexShader.js",
@@ -1188,15 +1302,51 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/internal/point.js~point#add",
+    "class/src/internal/Point.js~Point.html#instance-method-add",
+    "src/internal/Point.js~Point#add",
+    "method"
+  ],
+  [
     "src/internal/point.js~point#constructor",
     "class/src/internal/Point.js~Point.html#instance-constructor-constructor",
     "src/internal/Point.js~Point#constructor",
     "method"
   ],
   [
+    "src/internal/point.js~point#divide",
+    "class/src/internal/Point.js~Point.html#instance-method-divide",
+    "src/internal/Point.js~Point#divide",
+    "method"
+  ],
+  [
+    "src/internal/point.js~point#length",
+    "class/src/internal/Point.js~Point.html#instance-method-length",
+    "src/internal/Point.js~Point#length",
+    "method"
+  ],
+  [
+    "src/internal/point.js~point#multiply",
+    "class/src/internal/Point.js~Point.html#instance-method-multiply",
+    "src/internal/Point.js~Point#multiply",
+    "method"
+  ],
+  [
+    "src/internal/point.js~point#normalize",
+    "class/src/internal/Point.js~Point.html#instance-method-normalize",
+    "src/internal/Point.js~Point#normalize",
+    "method"
+  ],
+  [
     "src/internal/point.js~point#set",
     "class/src/internal/Point.js~Point.html#instance-method-set",
     "src/internal/Point.js~Point#set",
+    "method"
+  ],
+  [
+    "src/internal/point.js~point#subtract",
+    "class/src/internal/Point.js~Point.html#instance-method-subtract",
+    "src/internal/Point.js~Point#subtract",
     "method"
   ],
   [
@@ -1216,6 +1366,12 @@ window.esdocSearchIndex = [
     "class/src/internal/Point.js~Point.html#instance-member-z",
     "src/internal/Point.js~Point#z",
     "member"
+  ],
+  [
+    "src/internal/point.js~point.copy",
+    "class/src/internal/Point.js~Point.html#static-method-copy",
+    "src/internal/Point.js~Point.copy",
+    "method"
   ],
   [
     "src/internal/postboard.js",
@@ -1302,9 +1458,39 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/manager/dommanager.js~_dommanager#adjust",
+    "class/src/manager/DOMManager.js~_DOMManager.html#instance-method-adjust",
+    "src/manager/DOMManager.js~_DOMManager#adjust",
+    "method"
+  ],
+  [
     "src/manager/dommanager.js~_dommanager#canvas",
     "class/src/manager/DOMManager.js~_DOMManager.html#instance-member-canvas",
     "src/manager/DOMManager.js~_DOMManager#canvas",
+    "member"
+  ],
+  [
+    "src/manager/dommanager.js~_dommanager#canvasdpiheight",
+    "class/src/manager/DOMManager.js~_DOMManager.html#instance-member-canvasDPIHeight",
+    "src/manager/DOMManager.js~_DOMManager#canvasDPIHeight",
+    "member"
+  ],
+  [
+    "src/manager/dommanager.js~_dommanager#canvasdpiwidth",
+    "class/src/manager/DOMManager.js~_DOMManager.html#instance-member-canvasDPIWidth",
+    "src/manager/DOMManager.js~_DOMManager#canvasDPIWidth",
+    "member"
+  ],
+  [
+    "src/manager/dommanager.js~_dommanager#canvasheight",
+    "class/src/manager/DOMManager.js~_DOMManager.html#instance-member-canvasHeight",
+    "src/manager/DOMManager.js~_DOMManager#canvasHeight",
+    "member"
+  ],
+  [
+    "src/manager/dommanager.js~_dommanager#canvaswidth",
+    "class/src/manager/DOMManager.js~_DOMManager.html#instance-member-canvasWidth",
+    "src/manager/DOMManager.js~_DOMManager#canvasWidth",
     "member"
   ],
   [
@@ -1392,9 +1578,81 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/manager/inputmanager.js~_inputmanager#event",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-EVENT",
+    "src/manager/InputManager.js~_InputManager#EVENT",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#key_down",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-KEY_DOWN",
+    "src/manager/InputManager.js~_InputManager#KEY_DOWN",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#key_pressed",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-KEY_PRESSED",
+    "src/manager/InputManager.js~_InputManager#KEY_PRESSED",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#key_up",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-KEY_UP",
+    "src/manager/InputManager.js~_InputManager#KEY_UP",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#left_click",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-LEFT_CLICK",
+    "src/manager/InputManager.js~_InputManager#LEFT_CLICK",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#right_click",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-RIGHT_CLICK",
+    "src/manager/InputManager.js~_InputManager#RIGHT_CLICK",
+    "member"
+  ],
+  [
     "src/manager/inputmanager.js~_inputmanager#constructor",
     "class/src/manager/InputManager.js~_InputManager.html#instance-constructor-constructor",
     "src/manager/InputManager.js~_InputManager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#events",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-events",
+    "src/manager/InputManager.js~_InputManager#events",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#iskeydown",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-method-isKeyDown",
+    "src/manager/InputManager.js~_InputManager#isKeyDown",
+    "method"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#iskeypressed",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-method-isKeyPressed",
+    "src/manager/InputManager.js~_InputManager#isKeyPressed",
+    "method"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#iskeyup",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-method-isKeyUp",
+    "src/manager/InputManager.js~_InputManager#isKeyUp",
+    "method"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#start",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-method-start",
+    "src/manager/InputManager.js~_InputManager#start",
+    "method"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#update",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-method-update",
+    "src/manager/InputManager.js~_InputManager#update",
     "method"
   ],
   [
@@ -2082,10 +2340,70 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/utils/globalmessager.js",
+    "file/src/utils/GlobalMessager.js.html",
+    "src/utils/GlobalMessager.js",
+    "file"
+  ],
+  [
     "src/utils/mathutil.js",
     "file/src/utils/MathUtil.js.html",
     "src/utils/MathUtil.js",
     "file"
+  ],
+  [
+    "src/utils/messager.js",
+    "file/src/utils/Messager.js.html",
+    "src/utils/Messager.js",
+    "file"
+  ],
+  [
+    "src/utils/messager.js~messager#constructor",
+    "class/src/utils/Messager.js~Messager.html#instance-constructor-constructor",
+    "src/utils/Messager.js~Messager#constructor",
+    "method"
+  ],
+  [
+    "src/utils/messager.js~messager#data",
+    "class/src/utils/Messager.js~Messager.html#instance-member-data",
+    "src/utils/Messager.js~Messager#data",
+    "member"
+  ],
+  [
+    "src/utils/messager.js~messager#get",
+    "class/src/utils/Messager.js~Messager.html#instance-method-get",
+    "src/utils/Messager.js~Messager#get",
+    "method"
+  ],
+  [
+    "src/utils/messager.js~messager#listeneridcounter",
+    "class/src/utils/Messager.js~Messager.html#instance-member-listenerIDCounter",
+    "src/utils/Messager.js~Messager#listenerIDCounter",
+    "member"
+  ],
+  [
+    "src/utils/messager.js~messager#listeners",
+    "class/src/utils/Messager.js~Messager.html#instance-member-listeners",
+    "src/utils/Messager.js~Messager#listeners",
+    "member"
+  ],
+  [
+    "src/utils/messager.js~messager#notify",
+    "class/src/utils/Messager.js~Messager.html#instance-method-notify",
+    "src/utils/Messager.js~Messager#notify",
+    "method"
+  ],
+  [
+    "src/utils/messager.js~messager#set",
+    "class/src/utils/Messager.js~Messager.html#instance-method-set",
+    "src/utils/Messager.js~Messager#set",
+    "method"
+  ],
+  [
+    "src/utils/messager.js~messager#watch",
+    "class/src/utils/Messager.js~Messager.html#instance-method-watch",
+    "src/utils/Messager.js~Messager#watch",
+    "method"
   ],
   [
     "test/helper/test.js",
