@@ -7,7 +7,7 @@ import InputManager from '../manager/InputManager';
  */
 export default class ClickController extends Controller {
     constructor(onLeft = (event) => {}, onRight = (event) => {}) {
-        super(true);
+        super();
         this.onLeftClick = onLeft;
         this.onRightClick = onRight;
     }
