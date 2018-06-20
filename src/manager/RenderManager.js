@@ -24,6 +24,7 @@ export class _RenderManager extends Manager {
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
         this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
         this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
+        this.depthLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_depth");
 
         //textures
         this.texcoordAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_texcoord");
@@ -65,6 +66,10 @@ export class _RenderManager extends Manager {
         let t_offset = 0;        // start at the beginning of the buffer
         this.GL.vertexAttribPointer(
             this.texcoordAttributeLocation, t_size, t_type, t_normalize, t_stride, t_offset);
+
+        this.GL.enable(this.GL.DEPTH_TEST);
+        this.GL.depthFunc(this.GL.LESS);      
+        this.GL.enable(this.GL.BLEND);
     }
 
     /**
@@ -115,11 +120,11 @@ export class _RenderManager extends Manager {
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
+                this.GL.uniform1ui(this.depthLocation, renderable.depth);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
                 this.GL.uniform1i(this.textureLocation, renderable.texture.id);
  
-                // Bind the texture to texture unit 0
                 this.GL.activeTexture(this.GL.TEXTURE0 + renderable.texture.id);
                 this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
 

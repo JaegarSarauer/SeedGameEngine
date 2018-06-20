@@ -24,10 +24,11 @@ void main() {
   subTexcoord.xy *= u_subTexcoord.zw;
   vec4 fragColor = texture(u_texture, subTexcoord) * u_color;
 
-  if(fragColor.a == 0.0) {
+  if(fragColor.a < 0.25) {
     discard;
   }
 
-  outColor = fragColor;
+  //1 should be lighting
+  outColor = vec4(fragColor.rgb, u_color.a);
 }
 `;

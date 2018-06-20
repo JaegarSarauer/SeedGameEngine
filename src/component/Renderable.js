@@ -5,6 +5,8 @@ import ProgramManager from '../manager/ProgramManager';
 import Matrix3 from '../render/WebGL/Matrix3';
 import Color from '../internal/Color';
 
+const DepthRange = 10000000;
+
 /**
  * Base Renderable Component for all Components that want to draw to the screen. If
  * you want to show something on screen, it should derive Renderable.
@@ -44,6 +46,13 @@ export default class Renderable extends Component {
         //textures
         this.texture = null;
         this._subSpriteData = [0, 0, 1, 1];
+        
+        this.depth = 0.5;
+    }
+
+    setDepth(depth) {
+        this.depth = (Math.max(-DepthRange, Math.min(depth, DepthRange)) + DepthRange) / (DepthRange * 2);
+        console.info(this.depth)
     }
 
     setSubIndex(spriteIndex) {
