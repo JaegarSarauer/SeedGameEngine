@@ -20,8 +20,6 @@ export class _RenderManager extends Manager {
         this.GL = DOMManager.GL;
 
         this._updateProgram(ProgramManager.getProgram('Default'));
-
-        this.textureUnit = 0;
         
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
         this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
@@ -110,10 +108,10 @@ export class _RenderManager extends Manager {
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
-                this.GL.uniform1i(this.textureLocation, this.textureUnit);
+                this.GL.uniform1i(this.textureLocation, renderable.texture.id);
  
                 // Bind the texture to texture unit 0
-                this.GL.activeTexture(this.GL.TEXTURE0 + this.textureUnit);
+                this.GL.activeTexture(this.GL.TEXTURE0 + renderable.texture.id);
                 this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
