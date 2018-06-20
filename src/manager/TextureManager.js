@@ -39,13 +39,15 @@ export class _TextureManager extends Manager {
      * @param {string} fragmentShaderSource Source code of the fragment shader.
      */
     addTexture(texName, textureImageAsset, frameWidth, frameHeight) {
-        this.textures[texName] = Object.assign({
-            name: texName,
-            id: this.textureIDCounter++,
-            frameWidth,
-            frameHeight,
-        }, this._createTextureFromAsset(textureImageAsset));
-        return this.textures[texName];
+        return this._createTextureFromAsset(textureImageAsset).then((textureData) => {
+            this.textures[texName] = Object.assign({
+                name: texName,
+                id: this.textureIDCounter++,
+                frameWidth,
+                frameHeight,
+            }, textureData);
+            return this.textures[texName];
+        })
     }
 
     _createTextureFromAsset(asset) {
@@ -59,18 +61,19 @@ export class _TextureManager extends Manager {
         DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_S, DOMManager.GL.CLAMP_TO_EDGE);
         DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_T, DOMManager.GL.CLAMP_TO_EDGE);
 
-        var assetLoaded = new Image();
-        assetLoaded.addEventListener('load', function() {
-            texInfo.width = assetLoaded.width;
-            texInfo.height = assetLoaded.height;
-    
-            DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texInfo.tex);
-            DOMManager.GL.texImage2D(DOMManager.GL.TEXTURE_2D, 0, DOMManager.GL.RGBA, DOMManager.GL.RGBA, DOMManager.GL.UNSIGNED_BYTE, assetLoaded);
-            DOMManager.GL.generateMipmap(DOMManager.GL.TEXTURE_2D);
-        });
-        assetLoaded.src = asset;
-       
-        return texInfo;
+        return new Promise((res, rej) => {
+            let assetLoaded = new Image();
+            assetLoaded.addEventListener('load', () => {
+                texInfo.width = assetLoaded.width;
+                texInfo.height = assetLoaded.height;
+        
+                DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texInfo.tex);
+                DOMManager.GL.texImage2D(DOMManager.GL.TEXTURE_2D, 0, DOMManager.GL.RGBA, DOMManager.GL.RGBA, DOMManager.GL.UNSIGNED_BYTE, assetLoaded);
+                DOMManager.GL.generateMipmap(DOMManager.GL.TEXTURE_2D);
+                return res(texInfo);
+            });
+            assetLoaded.src = asset;
+        })
     }
 }
 

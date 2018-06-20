@@ -24,8 +24,11 @@ export class _RenderManager extends Manager {
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
         this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
         this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
+
+        //textures
         this.texcoordAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_texcoord");
         this.textureLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_texture");
+        this.subTexcoordLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_subTexcoord");
 
         let positionBuffer = this.GL.createBuffer();
 
@@ -86,7 +89,12 @@ export class _RenderManager extends Manager {
     
         this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);
 
-        let viewports = SceneManager.getCurrentScene().viewports;
+        let scene = SceneManager.getCurrentScene();
+        
+        if (scene == null)
+            return;
+
+        let viewports = scene.viewports;
 
         for (let vi = 0; vi < viewports.length; vi++) {
             let viewport = viewports[vi];
@@ -106,6 +114,7 @@ export class _RenderManager extends Manager {
                 this._updateProgram(renderable.program);
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
+                this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
                 this.GL.uniform1i(this.textureLocation, renderable.texture.id);

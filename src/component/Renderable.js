@@ -43,9 +43,23 @@ export default class Renderable extends Component {
 
         //textures
         this.texture = null;
+        this._subSpriteData = [0, 0, 1, 1];
     }
 
-    addTexture(textureObject) {
+    setSubIndex(spriteIndex) {
+        if (this.texture == null)
+            return;
+
+        let framesWidth = this.texture.frameWidth / this.texture.width;
+        let framesHeight = this.texture.frameHeight / this.texture.height;
+
+        let frameWidthIndex = spriteIndex % (1 / framesWidth);
+        let frameHeightIndex = Math.floor(spriteIndex * framesWidth);
+
+        this._subSpriteData = [-frameWidthIndex, -frameHeightIndex, framesWidth, framesHeight];
+    }
+
+    setTexture(textureObject) {
         this.texture = textureObject;
     }
 

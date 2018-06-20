@@ -13,7 +13,7 @@ export default class Color {
      * @param {number} b Blue value between 0 - 1
      * @param {number} a Alpha value between 0 - 1
      */
-    constructor(r = 1, g = 0.078, b = 0.576, a = 1) {
+    constructor(r = 1, g = 1, b = 1, a = 1) {
         this.color = [r, g, b, a];
     }
 

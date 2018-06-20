@@ -3,11 +3,14 @@
  */
 export const DEFAULT_V = `#version 300 es
 
+//in
 in vec2 a_position;
 in vec2 a_texcoord;
 
+//local
 uniform mat3 u_matrix;
 
+//out
 out vec2 v_texcoord;
 
 void main() {

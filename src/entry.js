@@ -62,6 +62,7 @@ import BasicScene from './scene/BasicScene';
 //utils
 import * as MathUtil from './utils/MathUtil';
 import Messager from './utils/Messager';
+import Loader from './utils/Loader';
 
 import Engine from './Engine';
 
@@ -110,7 +111,8 @@ export {
     Engine,
     TopDownController,
     ClickController,
-    TextureManager
+    TextureManager,
+    Loader
 };
 
 

@@ -125,6 +125,20 @@ export default class Transform extends Component {
         }
     }
 
+    flipX() {
+        this._scale.x = -this._scale.x;
+        if (this.renderable != null) {
+            this.renderable.setScale(this._scale);
+        }
+    }
+
+    flipY() {
+        this._scale.y = -this._scale.y;
+        if (this.renderable != null) {
+            this.renderable.setScale(this._scale);
+        }
+    }
+
     /**
      * Adds the rotation parameter to the current Transform rotation.
      * 
