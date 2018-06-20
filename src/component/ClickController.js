@@ -14,16 +14,18 @@ export default class ClickController extends Controller {
 
     onUpdate() {
         let pos = this.gameObject.transform.getPosition();
-        let sca = this.gameObject.transform.getScale().divide(2);
+        let offset = this.gameObject.transform.getOriginOffset();
+        let sca = this.gameObject.transform.getScale();
+        pos.subtract(sca.x * offset.x, sca.y * offset.y);
         for (let i = 0; i < InputManager.LEFT_CLICK.length; i++) {
             let ev = InputManager.LEFT_CLICK[i];
-            if (pos.x - sca.x <= ev.x && pos.x + sca.x >= ev.x && pos.y - sca.y <= ev.y && pos.y + sca.y >= ev.y) {
+            if (pos.x <= ev.x && pos.x + sca.x >= ev.x && pos.y <= ev.y && pos.y + sca.y >= ev.y) {
                 this.onLeftClick(ev);
             }
         }
         for (let i = 0; i < InputManager.RIGHT_CLICK.length; i++) {
             let ev = InputManager.RIGHT_CLICK[i];
-            if (pos.x - sca.x <= ev.x && pos.x + sca.x >= ev.x && pos.y - sca.y <= ev.y && pos.y + sca.y >= ev.y) {
+            if (pos.x <= ev.x && pos.x + sca.x >= ev.x && pos.y <= ev.y && pos.y + sca.y >= ev.y) {
                 this.onRightClick(ev);
             }
         }

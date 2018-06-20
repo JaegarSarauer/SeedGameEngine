@@ -52,7 +52,6 @@ export default class Renderable extends Component {
 
     setDepth(depth) {
         this.depth = (Math.max(-DepthRange, Math.min(depth, DepthRange)) + DepthRange) / (DepthRange * 2);
-        console.info(this.depth)
     }
 
     setSubIndex(spriteIndex) {
