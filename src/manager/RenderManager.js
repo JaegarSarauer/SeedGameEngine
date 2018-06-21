@@ -91,7 +91,7 @@ export class _RenderManager extends Manager {
      */
     update() {
         this.GL.clearColor(0, 0, 0, 0);
-    
+        this.GL.clearDepth(1.0);
         this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);
 
         let scene = SceneManager.getCurrentScene();
@@ -120,7 +120,7 @@ export class _RenderManager extends Manager {
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
-                this.GL.uniform1ui(this.depthLocation, renderable.depth);
+                this.GL.uniform1f(this.depthLocation, renderable.depth);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
                 this.GL.uniform1i(this.textureLocation, renderable.texture.id);

@@ -7,7 +7,7 @@ export const DEFAULT_V = `#version 300 es
 in vec2 a_position;
 in vec2 a_texcoord;
 uniform mat3 u_matrix;
-uniform uint u_depth;
+uniform float u_depth;
 
 
 //out

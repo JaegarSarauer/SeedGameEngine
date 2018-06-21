@@ -28,7 +28,6 @@ void main() {
     discard;
   }
 
-  //1 should be lighting
   outColor = vec4(fragColor.rgb, u_color.a);
 }
 `;
