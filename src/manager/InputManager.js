@@ -69,9 +69,9 @@ export class _InputManager extends Manager {
         //Key down manager
         DOMManager.canvas.addEventListener('keydown', (event) => {
             let code = event.which || event.keyCode;
-            this.KEY_DOWN[code] = true;
             this.KEY_PRESSED[code] = true;
             if (!event.repeat) {
+                this.KEY_DOWN[code] = true;
                 this.events.set(this.EVENT.KEY_DOWN, {
                     key: event.key,
                     code,

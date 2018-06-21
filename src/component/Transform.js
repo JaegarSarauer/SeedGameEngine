@@ -185,7 +185,7 @@ export default class Transform extends Component {
      * @returns {number} The transform's rotation.
      */
     getRotation() {
-        return Point.copy(this._rotation);
+        return this._rotation;
     }
 
     /**

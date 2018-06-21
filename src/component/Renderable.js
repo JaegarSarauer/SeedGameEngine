@@ -48,6 +48,16 @@ export default class Renderable extends Component {
         this._subSpriteData = [0, 0, 1, 1];
         
         this.depth = 0.5;
+
+        this.enabled = true;
+    }
+
+    enable() {
+        this.enabled = true;
+    }
+
+    disable() {
+        this.enabled = false;
     }
 
     setDepth(depth) {

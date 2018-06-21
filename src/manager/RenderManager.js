@@ -116,6 +116,9 @@ export class _RenderManager extends Manager {
             for (let ri = 0; ri < renderableKeys.length; ri++) {
                 let renderable = renderables[renderableKeys[ri]];
 
+                if (!renderable.enabled)
+                    continue;
+
                 this._updateProgram(renderable.program);
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);

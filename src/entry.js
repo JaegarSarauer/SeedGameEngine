@@ -2,6 +2,7 @@
 import Updateable from './base/Updateable';
 
 //component
+import Animation from './component/Animation';
 import Audio from './component/Audio';
 import BoxCollider from './component/BoxCollider';
 import CircleCollider from './component/CircleCollider';
@@ -112,7 +113,8 @@ export {
     TopDownController,
     ClickController,
     TextureManager,
-    Loader
+    Loader,
+    Animation
 };
 
 
