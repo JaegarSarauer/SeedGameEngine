@@ -26,6 +26,15 @@ export default class Animation extends Component {
         };
     }
 
+    clearAnimation(key) {
+        delete this.interpolationData[key];
+    }
+
+    clearAnimations() {
+        this.interpolationData = [];
+        this.animationFrames = 0;
+    }
+
     interpolatePosition(posX = 0, posY = 0, posZ = 0, frames = 1, cycles = 1, reset = false) {
         let start = this.gameObject.transform.getPosition();
         this._buildInterpolation('position', frames, () => {

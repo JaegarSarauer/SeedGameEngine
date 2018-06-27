@@ -1,7 +1,5 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
-import * as VertexShader from '../const/VertexShader';
-import * as FragmentShader from '../const/FragmentShader';
 
 /**
  * Manages WebGL Programs so that they only need to be created once across the engine
