@@ -1,5 +1,5 @@
 /**
- * Default fragment shader which handles single colors.
+ * Default fragment shader which handles single colors and Texture sprite sheets.
  */
 
 export const DEFAULT_F = `#version 300 es

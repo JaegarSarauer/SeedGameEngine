@@ -1,3 +1,7 @@
+/**
+ * Export management for all Engine files.
+ */
+
 //base
 import Updateable from './base/Updateable';
 

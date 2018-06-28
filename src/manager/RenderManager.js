@@ -6,6 +6,10 @@ import * as VertexShader from '../const/VertexShader';
 import * as FragmentShader from '../const/FragmentShader';
 import Matrix3 from '../render/WebGL/Matrix3';
 
+/**
+ * Manages the WebGL2 rendering of all renderable components in the scene.
+ * This manager is not intended to be referenced directly.
+ */
 export class _RenderManager extends Manager {
     constructor() {
         super();

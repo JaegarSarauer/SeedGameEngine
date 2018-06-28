@@ -1,12 +1,10 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
 
+
 /**
- * Manages WebGL Programs so that they only need to be created once across the engine
- * allowing multiple objects to still share the same reference.
- * 
- * Elliminates the need for the programmer to compile shaders and create programs, and eases 
- * on-the-fly Shader compiling.
+ * Manages textures in the engine so the RendererManager and Renderables
+ * can reference one location for Textures. Essentially a texture library.
  */
 export class _TextureManager extends Manager {
     constructor() {
@@ -18,7 +16,7 @@ export class _TextureManager extends Manager {
     /**
      * Returns a texture JSON Object containing the texture, texture data, name and id.
      * 
-     * @param {number} texID Name of the program.
+     * @param {number} texID Name of the texture.
      * 
      * @returns {Texture Object} Returns a JSON object with Texture data.
      */
@@ -28,13 +26,23 @@ export class _TextureManager extends Manager {
         return this.textures[texID];
     }
 
+
+
     /**
-     * Creates a Program JSON Object and initializes the program and metadata.
-     * The program is added to the programs array.
+     * Creates a Texture JSON Object and initializes the Texture with WebGL.
+     * The Texture is added to the textures array.
      * 
-     * @param {string} programName Name of the program.
+     * @param {string} programName Name of the texture.
      * @param {string} vertexShaderSource Source code of the vertex shader.
      * @param {string} fragmentShaderSource Source code of the fragment shader.
+     *
+     * 
+     * @param {string} texName Name of the texture.
+     * @param {string} textureImageAsset Path to the texture image to load.
+     * @param {number} frameWidth Width of sprite in spritesheet. -1 for full.
+     * @param {number} frameHeight Height of sprite in spritesheet. -1 for full.
+     * 
+     * @returns {Promise} A pending promise which will return the texture reference after complete.
      */
     addTexture(texName, textureImageAsset, frameWidth, frameHeight) {
         return this._createTextureFromAsset(textureImageAsset).then((textureData) => {
@@ -48,6 +56,14 @@ export class _TextureManager extends Manager {
         })
     }
 
+    /**
+     * Private function used for initializing a Texture from a path and
+     * binding it with WebGL.
+     * 
+     * @param {string} asset Path to texture file.
+     * 
+     * @returns {Promise} Returns a pending promise.
+     */
     _createTextureFromAsset(asset) {
         let texInfo = {
             tex: DOMManager.GL.createTexture(),
