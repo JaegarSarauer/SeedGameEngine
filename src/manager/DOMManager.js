@@ -36,7 +36,7 @@ export class _DOMManager extends Manager {
         this.canvas = document.getElementById('game');
         if (this.canvas == null)
             throw "Error finding DOM Canvas. The canvas requires an id='game'";
-        this.GL = this.canvas.getContext('webgl2');
+        this.GL = this.canvas.getContext('webgl2', {alpha: false});
         window.addEventListener('resize', () => {
             this.adjust();
         })
@@ -47,6 +47,8 @@ export class _DOMManager extends Manager {
     DOM elements with the canvas should call this after.
     */
     adjust() {
+        if (this.GL == null)
+            return;
         this.GL.imageSmoothingEnabled = false;
         this.GL.webkitImageSmoothingEnabled = false;
 

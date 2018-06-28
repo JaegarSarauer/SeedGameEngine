@@ -1,7 +1,12 @@
+/**
+ * Export management for all Engine files.
+ */
+
 //base
 import Updateable from './base/Updateable';
 
 //component
+import Animation from './component/Animation';
 import Audio from './component/Audio';
 import BoxCollider from './component/BoxCollider';
 import CircleCollider from './component/CircleCollider';
@@ -38,6 +43,7 @@ import PersistentManager from './manager/PersistentManager';
 import PhysicsManager from './manager/PhysicsManager';
 import RenderManager from './manager/RenderManager';
 import SceneManager from './manager/SceneManager';
+import TextureManager from './manager/TextureManager';
 
 //object
 import GameObject from './object/GameObject';
@@ -61,6 +67,7 @@ import BasicScene from './scene/BasicScene';
 //utils
 import * as MathUtil from './utils/MathUtil';
 import Messager from './utils/Messager';
+import Loader from './utils/Loader';
 
 import Engine from './Engine';
 
@@ -108,7 +115,10 @@ export {
     Messager,
     Engine,
     TopDownController,
-    ClickController
+    ClickController,
+    TextureManager,
+    Loader,
+    Animation
 };
 
 

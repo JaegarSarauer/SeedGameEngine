@@ -14,6 +14,7 @@ export default class Scene extends Updateable {
      */
     constructor() {
         super();
+        this.viewportIDCounter = 0;
         this.sceneObjects = [];
         this.viewports = [];
     }
@@ -59,11 +60,11 @@ export default class Scene extends Updateable {
      * @param {Viewport} viewport A Viewport to register.
      */
     registerViewport(viewport) {
+        viewport.viewportIndex = this.viewportIDCounter++;
         this.viewports.push(viewport);
-        this.viewportIndex = this.viewports.length - 1;
         let deregisterCallback = () => {
             for (let i = 0; i < this.viewports.length; i++) {
-                if (this.viewports[i].id === viewport.id) {
+                if (this.viewports[i].viewportIndex === viewport.viewportIndex) {
                     this.viewports[i].splice(i, 1);
                     return;
                 }
