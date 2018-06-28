@@ -1,5 +1,6 @@
 import GameObject from "./GameObject";
 import SceneManager from '../manager/SceneManager';
+import Point from '../internal/Point';
 
 /**
  * A GameObject which exists only on the current active scene.

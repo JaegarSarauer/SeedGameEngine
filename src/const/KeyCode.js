@@ -1,3 +1,6 @@
+/**
+ * Keycode ENUM of Key: KeyCodeValue. Keys which start with an underscore should be ignored.
+ */
 const KeyCode = {
     _0: 0,
     _1: 1,

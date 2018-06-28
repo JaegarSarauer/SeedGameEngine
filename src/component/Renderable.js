@@ -5,6 +5,8 @@ import ProgramManager from '../manager/ProgramManager';
 import Matrix3 from '../render/WebGL/Matrix3';
 import Color from '../internal/Color';
 
+const DepthRange = 10000000;
+
 /**
  * Base Renderable Component for all Components that want to draw to the screen. If
  * you want to show something on screen, it should derive Renderable.
@@ -40,6 +42,43 @@ export default class Renderable extends Component {
         this.renderPositions = [0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1];
         this.primitiveType = RenderManager.GL.TRIANGLES;
         this.primitiveCount = 6;
+
+        //textures
+        this.texture = null;
+        this._subSpriteData = [0, 0, 1, 1];
+        
+        this.depth = 0.5;
+
+        this.enabled = true;
+    }
+
+    enable() {
+        this.enabled = true;
+    }
+
+    disable() {
+        this.enabled = false;
+    }
+
+    setDepth(depth) {
+        this.depth = (Math.max(-DepthRange, Math.min(depth, DepthRange)) + DepthRange) / (DepthRange * 2);
+    }
+
+    setSubIndex(spriteIndex) {
+        if (this.texture == null)
+            return;
+
+        let framesWidth = this.texture.frameWidth / this.texture.width;
+        let framesHeight = this.texture.frameHeight / this.texture.height;
+
+        let frameWidthIndex = spriteIndex % (1 / framesWidth);
+        let frameHeightIndex = Math.floor(spriteIndex * framesWidth);
+
+        this._subSpriteData = [-frameWidthIndex, -frameHeightIndex, framesWidth, framesHeight];
+    }
+
+    setTexture(textureObject) {
+        this.texture = textureObject;
     }
 
     /**
