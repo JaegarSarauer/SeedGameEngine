@@ -6,8 +6,9 @@ import InputManager from '../manager/InputManager';
  * 
  */
 export default class ClickController extends Controller {
-    constructor(onLeft = (event) => {}, onRight = (event) => {}) {
+    constructor(viewportID, onLeft = (event) => {}, onRight = (event) => {}) {
         super();
+        this.viewportID = viewportID;
         this.onLeftClick = onLeft;
         this.onRightClick = onRight;
     }
@@ -17,14 +18,14 @@ export default class ClickController extends Controller {
         let offset = this.gameObject.transform.getOriginOffset();
         let sca = this.gameObject.transform.getScale();
         pos.subtract(sca.x * offset.x, sca.y * offset.y);
-        for (let i = 0; i < InputManager.LEFT_CLICK.length; i++) {
-            let ev = InputManager.LEFT_CLICK[i];
+        for (let i = 0; i < InputManager.LEFT_CLICK[this.viewportID].length; i++) {
+            let ev = InputManager.LEFT_CLICK[this.viewportID][i];
             if (pos.x <= ev.x && pos.x + sca.x >= ev.x && pos.y <= ev.y && pos.y + sca.y >= ev.y) {
                 this.onLeftClick(ev);
             }
         }
-        for (let i = 0; i < InputManager.RIGHT_CLICK.length; i++) {
-            let ev = InputManager.RIGHT_CLICK[i];
+        for (let i = 0; i < InputManager.RIGHT_CLICK[this.viewportID].length; i++) {
+            let ev = InputManager.RIGHT_CLICK[this.viewportID][i];
             if (pos.x <= ev.x && pos.x + sca.x >= ev.x && pos.y <= ev.y && pos.y + sca.y >= ev.y) {
                 this.onRightClick(ev);
             }

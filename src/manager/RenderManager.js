@@ -104,10 +104,10 @@ export class _RenderManager extends Manager {
         for (let vi = 0; vi < viewports.length; vi++) {
             let viewport = viewports[vi];
 
-            let viewPortWidth = viewport.bounds.p2.x;
-            let viewPortHeight = viewport.bounds.p2.y;
+            let viewPortWidth = viewport._rendererBounds.p2.x;
+            let viewPortHeight = viewport._rendererBounds.p2.y;
 
-            this.GL.viewport(viewport.bounds.p1.x, viewport.bounds.p1.y, viewPortWidth, viewPortHeight);
+            this.GL.viewport(viewport._rendererBounds.p1.x, viewport._rendererBounds.p1.y, viewPortWidth, viewPortHeight);
 
             //setup camera from viewport
 

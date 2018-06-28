@@ -23,9 +23,20 @@ import Bounds from '../internal/Bounds';
 export default class Viewport extends Updateable {
     constructor(x, y, w, h) {
         super();
-        this.bounds = new Bounds(x, DOMManager.canvasHeight - y - h, w, h);
+        this._bounds = null;
+        this._rendererBounds = null;
+        this.setBounds(x, y, w, h);
 
         this.renderables = {};
+    }
+
+    setBounds(x, y, w, h) {
+        this._bounds = new Bounds(x, y, x + w, y + h);
+        this._rendererBounds = new Bounds(x, DOMManager.canvasHeight - y - h, w, h);
+    }
+
+    getBounds() {
+        return this._bounds;
     }
 
     /**

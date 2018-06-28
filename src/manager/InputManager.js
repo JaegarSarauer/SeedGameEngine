@@ -2,6 +2,7 @@ import Manager from './Manager';
 import DOMManager from './DOMManager';
 import Messager from '../utils/Messager';
 import KeyCode from '../const/KeyCode';
+import { SceneManager, Point } from '../entry';
 
 export class _InputManager extends Manager {
     constructor() {
@@ -49,8 +50,22 @@ export class _InputManager extends Manager {
                 shiftHeld: ev.shiftKey,
                 ctrlHeld: ev.ctrlKey,
             };
+            let curScene = SceneManager.getCurrentScene();
+            if (curScene != null) {
+                for (let i = 0; i < curScene.viewports.length; i++) {
+                    
+                    console.info(curScene.viewports[i], curScene.viewports[i].getBounds(), event, new Point(event.x, event.y), 
+                    curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y)))
+                        
+                    if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
+                        let relEvent = Object.assign({}, event);
+                        relEvent.x -= curScene.viewports[i].getBounds().p1.x;
+                        relEvent.y -= curScene.viewports[i].getBounds().p1.y;
+                        this.LEFT_CLICK[i].push(relEvent);
+                    }
+                }
+            }
             this.events.set(this.EVENT.MOUSE_LEFT, event);
-            this.LEFT_CLICK.push(event);
         });
 
         //right click manager
@@ -62,8 +77,18 @@ export class _InputManager extends Manager {
                 shiftHeld: ev.shiftKey,
                 ctrlHeld: ev.ctrlKey,
             };
+            let curScene = SceneManager.getCurrentScene();
+            if (curScene != null) {
+                for (let i = 0; i < curScene.viewports.length; i++) {
+                    if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
+                        let relEvent = Object.assign({}, event);
+                        relEvent.x -= curScene.viewports[i].getBounds().p1.x;
+                        relEvent.y -= curScene.viewports[i].getBounds().p1.y;
+                        this.RIGHT_CLICK[i].push(relEvent);
+                    }
+                }
+            }
             this.events.set(this.EVENT.MOUSE_RIGHT, event);
-            this.RIGHT_CLICK.push(event);
         };
 
         //Key down manager
@@ -110,6 +135,15 @@ export class _InputManager extends Manager {
         this.KEY_UP = [];
         this.LEFT_CLICK = [];
         this.RIGHT_CLICK = [];
+
+        let scene = null;
+        if ((scene = SceneManager.getCurrentScene()) == null)
+            return;
+
+        for (let i = 0; i < scene.viewports.length; i++) {
+            this.LEFT_CLICK.push([]);
+            this.RIGHT_CLICK.push([]);
+        }
     }
 }
 
