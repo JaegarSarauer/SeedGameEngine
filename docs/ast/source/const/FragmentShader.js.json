@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 217,
+  "end": 593,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 16,
+      "line": 33,
       "column": 2
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 217,
+    "end": 593,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 16,
+        "line": 33,
         "column": 2
       }
     },
@@ -30,15 +30,15 @@
     "body": [
       {
         "type": "ExportNamedDeclaration",
-        "start": 65,
-        "end": 217,
+        "start": 91,
+        "end": 593,
         "loc": {
           "start": {
             "line": 5,
             "column": 0
           },
           "end": {
-            "line": 16,
+            "line": 33,
             "column": 2
           }
         },
@@ -46,37 +46,37 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 72,
-          "end": 217,
+          "start": 98,
+          "end": 593,
           "loc": {
             "start": {
               "line": 5,
               "column": 7
             },
             "end": {
-              "line": 16,
+              "line": 33,
               "column": 2
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 78,
-              "end": 216,
+              "start": 104,
+              "end": 592,
               "loc": {
                 "start": {
                   "line": 5,
                   "column": 13
                 },
                 "end": {
-                  "line": 16,
+                  "line": 33,
                   "column": 1
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 78,
-                "end": 87,
+                "start": 104,
+                "end": 113,
                 "loc": {
                   "start": {
                     "line": 5,
@@ -93,15 +93,15 @@
               },
               "init": {
                 "type": "TemplateLiteral",
-                "start": 90,
-                "end": 216,
+                "start": 116,
+                "end": 592,
                 "loc": {
                   "start": {
                     "line": 5,
                     "column": 25
                   },
                   "end": {
-                    "line": 16,
+                    "line": 33,
                     "column": 1
                   }
                 },
@@ -109,21 +109,21 @@
                 "quasis": [
                   {
                     "type": "TemplateElement",
-                    "start": 91,
-                    "end": 215,
+                    "start": 117,
+                    "end": 591,
                     "loc": {
                       "start": {
                         "line": 5,
                         "column": 26
                       },
                       "end": {
-                        "line": 16,
+                        "line": 33,
                         "column": 0
                       }
                     },
                     "value": {
-                      "raw": "#version 300 es\n\nprecision mediump float;\n\nuniform vec4 u_color;\n\nout vec4 outColor;\n\nvoid main() {\n  outColor = u_color;\n}\n",
-                      "cooked": "#version 300 es\n\nprecision mediump float;\n\nuniform vec4 u_color;\n\nout vec4 outColor;\n\nvoid main() {\n  outColor = u_color;\n}\n"
+                      "raw": "#version 300 es\n\nprecision mediump float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\nuniform vec4 u_subTexcoord;\n\n//local\nuniform sampler2D u_texture;\nvec2 subTexcoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n  subTexcoord = v_texcoord;\n  subTexcoord.xy -= u_subTexcoord.xy;\n  subTexcoord.xy *= u_subTexcoord.zw;\n  vec4 fragColor = texture(u_texture, subTexcoord) * u_color;\n\n  if(fragColor.a < 0.25) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n",
+                      "cooked": "#version 300 es\n\nprecision mediump float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\nuniform vec4 u_subTexcoord;\n\n//local\nuniform sampler2D u_texture;\nvec2 subTexcoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n  subTexcoord = v_texcoord;\n  subTexcoord.xy -= u_subTexcoord.xy;\n  subTexcoord.xy *= u_subTexcoord.zw;\n  vec4 fragColor = texture(u_texture, subTexcoord) * u_color;\n\n  if(fragColor.a < 0.25) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n"
                     },
                     "tail": true
                   }
@@ -136,9 +136,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n * Default fragment shader which handles single colors.\n ",
+              "value": "*\n * Default fragment shader which handles single colors and Texture sprite sheets.\n ",
               "start": 0,
-              "end": 63,
+              "end": 89,
               "loc": {
                 "start": {
                   "line": 1,
@@ -156,9 +156,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * Default fragment shader which handles single colors.\n ",
+            "value": "*\n * Default fragment shader which handles single colors and Texture sprite sheets.\n ",
             "start": 0,
-            "end": 63,
+            "end": 89,
             "loc": {
               "start": {
                 "line": 1,
@@ -178,9 +178,9 @@
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n * Default fragment shader which handles single colors.\n ",
+      "value": "*\n * Default fragment shader which handles single colors and Texture sprite sheets.\n ",
       "start": 0,
-      "end": 63,
+      "end": 89,
       "loc": {
         "start": {
           "line": 1,
@@ -196,9 +196,9 @@
   "tokens": [
     {
       "type": "CommentBlock",
-      "value": "*\n * Default fragment shader which handles single colors.\n ",
+      "value": "*\n * Default fragment shader which handles single colors and Texture sprite sheets.\n ",
       "start": 0,
-      "end": 63,
+      "end": 89,
       "loc": {
         "start": {
           "line": 1,
@@ -225,8 +225,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 65,
-      "end": 71,
+      "start": 91,
+      "end": 97,
       "loc": {
         "start": {
           "line": 5,
@@ -253,8 +253,8 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 72,
-      "end": 77,
+      "start": 98,
+      "end": 103,
       "loc": {
         "start": {
           "line": 5,
@@ -279,8 +279,8 @@
         "binop": null
       },
       "value": "DEFAULT_F",
-      "start": 78,
-      "end": 87,
+      "start": 104,
+      "end": 113,
       "loc": {
         "start": {
           "line": 5,
@@ -306,8 +306,8 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 88,
-      "end": 89,
+      "start": 114,
+      "end": 115,
       "loc": {
         "start": {
           "line": 5,
@@ -331,8 +331,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 90,
-      "end": 91,
+      "start": 116,
+      "end": 117,
       "loc": {
         "start": {
           "line": 5,
@@ -357,16 +357,16 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "#version 300 es\n\nprecision mediump float;\n\nuniform vec4 u_color;\n\nout vec4 outColor;\n\nvoid main() {\n  outColor = u_color;\n}\n",
-      "start": 91,
-      "end": 215,
+      "value": "#version 300 es\n\nprecision mediump float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\nuniform vec4 u_subTexcoord;\n\n//local\nuniform sampler2D u_texture;\nvec2 subTexcoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n  subTexcoord = v_texcoord;\n  subTexcoord.xy -= u_subTexcoord.xy;\n  subTexcoord.xy *= u_subTexcoord.zw;\n  vec4 fragColor = texture(u_texture, subTexcoord) * u_color;\n\n  if(fragColor.a < 0.25) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n",
+      "start": 117,
+      "end": 591,
       "loc": {
         "start": {
           "line": 5,
           "column": 26
         },
         "end": {
-          "line": 16,
+          "line": 33,
           "column": 0
         }
       }
@@ -383,15 +383,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 215,
-      "end": 216,
+      "start": 591,
+      "end": 592,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 33,
           "column": 0
         },
         "end": {
-          "line": 16,
+          "line": 33,
           "column": 1
         }
       }
@@ -409,15 +409,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 216,
-      "end": 217,
+      "start": 592,
+      "end": 593,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 33,
           "column": 1
         },
         "end": {
-          "line": 16,
+          "line": 33,
           "column": 2
         }
       }
@@ -435,15 +435,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 217,
-      "end": 217,
+      "start": 593,
+      "end": 593,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 33,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 33,
           "column": 2
         }
       }

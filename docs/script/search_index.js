@@ -1,5 +1,11 @@
 window.esdocSearchIndex = [
   [
+    "seed-engine/src/component/animation.js~animation",
+    "class/src/component/Animation.js~Animation.html",
+    "<span>Animation</span> <span class=\"search-result-import-path\">seed-engine/src/component/Animation.js</span>",
+    "class"
+  ],
+  [
     "seed-engine/src/component/audio.js~audio",
     "class/src/component/Audio.js~Audio.html",
     "<span>Audio</span> <span class=\"search-result-import-path\">seed-engine/src/component/Audio.js</span>",
@@ -118,6 +124,12 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-KeyCode",
     "<span>KeyCode</span> <span class=\"search-result-import-path\">seed-engine/src/const/KeyCode.js</span>",
     "variable"
+  ],
+  [
+    "seed-engine/src/utils/loader.js~loader",
+    "class/src/utils/Loader.js~Loader.html",
+    "<span>Loader</span> <span class=\"search-result-import-path\">seed-engine/src/utils/Loader.js</span>",
+    "class"
   ],
   [
     "seed-engine/src/manager/manager.js~manager",
@@ -240,6 +252,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "seed-engine/src/manager/texturemanager.js~texturemanager",
+    "variable/index.html#static-variable-TextureManager",
+    "<span>TextureManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/TextureManager.js</span>",
+    "variable"
+  ],
+  [
     "seed-engine/src/component/topdowncontroller.js~topdowncontroller",
     "class/src/component/TopDownController.js~TopDownController.html",
     "<span>TopDownController</span> <span class=\"search-result-import-path\">seed-engine/src/component/TopDownController.js</span>",
@@ -333,6 +351,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/manager/scenemanager.js~_scenemanager",
     "class/src/manager/SceneManager.js~_SceneManager.html",
     "<span>_SceneManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/SceneManager.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/manager/texturemanager.js~_texturemanager",
+    "class/src/manager/TextureManager.js~_TextureManager.html",
+    "<span>_TextureManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/TextureManager.js</span>",
     "class"
   ],
   [
@@ -780,6 +804,90 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/animation.js",
+    "file/src/component/Animation.js.html",
+    "src/component/Animation.js",
+    "file"
+  ],
+  [
+    "src/component/animation.js~animation#_buildinterpolation",
+    "class/src/component/Animation.js~Animation.html#instance-method-_buildInterpolation",
+    "src/component/Animation.js~Animation#_buildInterpolation",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#animationframes",
+    "class/src/component/Animation.js~Animation.html#instance-member-animationFrames",
+    "src/component/Animation.js~Animation#animationFrames",
+    "member"
+  ],
+  [
+    "src/component/animation.js~animation#animationframesleft",
+    "class/src/component/Animation.js~Animation.html#instance-method-animationFramesLeft",
+    "src/component/Animation.js~Animation#animationFramesLeft",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#classname",
+    "class/src/component/Animation.js~Animation.html#instance-member-className",
+    "src/component/Animation.js~Animation#className",
+    "member"
+  ],
+  [
+    "src/component/animation.js~animation#clearanimation",
+    "class/src/component/Animation.js~Animation.html#instance-method-clearAnimation",
+    "src/component/Animation.js~Animation#clearAnimation",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#clearanimations",
+    "class/src/component/Animation.js~Animation.html#instance-method-clearAnimations",
+    "src/component/Animation.js~Animation#clearAnimations",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#constructor",
+    "class/src/component/Animation.js~Animation.html#instance-constructor-constructor",
+    "src/component/Animation.js~Animation#constructor",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#interpolateposition",
+    "class/src/component/Animation.js~Animation.html#instance-method-interpolatePosition",
+    "src/component/Animation.js~Animation#interpolatePosition",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#interpolaterotation",
+    "class/src/component/Animation.js~Animation.html#instance-method-interpolateRotation",
+    "src/component/Animation.js~Animation#interpolateRotation",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#interpolatescale",
+    "class/src/component/Animation.js~Animation.html#instance-method-interpolateScale",
+    "src/component/Animation.js~Animation#interpolateScale",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#interpolationdata",
+    "class/src/component/Animation.js~Animation.html#instance-member-interpolationData",
+    "src/component/Animation.js~Animation#interpolationData",
+    "member"
+  ],
+  [
+    "src/component/animation.js~animation#isanimating",
+    "class/src/component/Animation.js~Animation.html#instance-method-isAnimating",
+    "src/component/Animation.js~Animation#isAnimating",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#onupdate",
+    "class/src/component/Animation.js~Animation.html#instance-method-onUpdate",
+    "src/component/Animation.js~Animation#onUpdate",
+    "method"
+  ],
+  [
     "src/component/audio.js",
     "file/src/component/Audio.js.html",
     "src/component/Audio.js",
@@ -826,6 +934,12 @@ window.esdocSearchIndex = [
     "class/src/component/ClickController.js~ClickController.html#instance-method-onUpdate",
     "src/component/ClickController.js~ClickController#onUpdate",
     "method"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#viewportid",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-viewportID",
+    "src/component/ClickController.js~ClickController#viewportID",
+    "member"
   ],
   [
     "src/component/collider.js",
@@ -918,6 +1032,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/component/renderable.js~renderable#_subspritedata",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-_subSpriteData",
+    "src/component/Renderable.js~Renderable#_subSpriteData",
+    "member"
+  ],
+  [
     "src/component/renderable.js~renderable#addtoviewport",
     "class/src/component/Renderable.js~Renderable.html#instance-method-addToViewport",
     "src/component/Renderable.js~Renderable#addToViewport",
@@ -936,9 +1056,33 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/renderable.js~renderable#depth",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-depth",
+    "src/component/Renderable.js~Renderable#depth",
+    "member"
+  ],
+  [
     "src/component/renderable.js~renderable#deregisterviewports",
     "class/src/component/Renderable.js~Renderable.html#instance-member-deregisterViewports",
     "src/component/Renderable.js~Renderable#deregisterViewports",
+    "member"
+  ],
+  [
+    "src/component/renderable.js~renderable#disable",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-disable",
+    "src/component/Renderable.js~Renderable#disable",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#enable",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-enable",
+    "src/component/Renderable.js~Renderable#enable",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#enabled",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-enabled",
+    "src/component/Renderable.js~Renderable#enabled",
     "member"
   ],
   [
@@ -984,6 +1128,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/component/renderable.js~renderable#setdepth",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setDepth",
+    "src/component/Renderable.js~Renderable#setDepth",
+    "method"
+  ],
+  [
     "src/component/renderable.js~renderable#setoriginoffset",
     "class/src/component/Renderable.js~Renderable.html#instance-method-setOriginOffset",
     "src/component/Renderable.js~Renderable#setOriginOffset",
@@ -1006,6 +1156,24 @@ window.esdocSearchIndex = [
     "class/src/component/Renderable.js~Renderable.html#instance-method-setScale",
     "src/component/Renderable.js~Renderable#setScale",
     "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#setsubindex",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setSubIndex",
+    "src/component/Renderable.js~Renderable#setSubIndex",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#settexture",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setTexture",
+    "src/component/Renderable.js~Renderable#setTexture",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#texture",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-texture",
+    "src/component/Renderable.js~Renderable#texture",
+    "member"
   ],
   [
     "src/component/renderable2d.js",
@@ -1113,6 +1281,18 @@ window.esdocSearchIndex = [
     "src/component/transform.js~transform#constructor",
     "class/src/component/Transform.js~Transform.html#instance-constructor-constructor",
     "src/component/Transform.js~Transform#constructor",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#flipx",
+    "class/src/component/Transform.js~Transform.html#instance-method-flipX",
+    "src/component/Transform.js~Transform#flipX",
+    "method"
+  ],
+  [
+    "src/component/transform.js~transform#flipy",
+    "class/src/component/Transform.js~Transform.html#instance-method-flipY",
+    "src/component/Transform.js~Transform#flipY",
     "method"
   ],
   [
@@ -1866,6 +2046,12 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/manager/rendermanager.js~_rendermanager#depthlocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-depthLocation",
+    "src/manager/RenderManager.js~_RenderManager#depthLocation",
+    "member"
+  ],
+  [
     "src/manager/rendermanager.js~_rendermanager#matrixlocation",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-matrixLocation",
     "src/manager/RenderManager.js~_RenderManager#matrixLocation",
@@ -1882,6 +2068,30 @@ window.esdocSearchIndex = [
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-start",
     "src/manager/RenderManager.js~_RenderManager#start",
     "method"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#subtexcoordlocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-subTexcoordLocation",
+    "src/manager/RenderManager.js~_RenderManager#subTexcoordLocation",
+    "member"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#texcoordattributelocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-texcoordAttributeLocation",
+    "src/manager/RenderManager.js~_RenderManager#texcoordAttributeLocation",
+    "member"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#texcoordbuffer",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-texcoordBuffer",
+    "src/manager/RenderManager.js~_RenderManager#texcoordBuffer",
+    "member"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#texturelocation",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-textureLocation",
+    "src/manager/RenderManager.js~_RenderManager#textureLocation",
+    "member"
   ],
   [
     "src/manager/rendermanager.js~_rendermanager#update",
@@ -1972,6 +2182,48 @@ window.esdocSearchIndex = [
     "class/src/manager/SceneManager.js~_SceneManager.html#instance-method-update",
     "src/manager/SceneManager.js~_SceneManager#update",
     "method"
+  ],
+  [
+    "src/manager/texturemanager.js",
+    "file/src/manager/TextureManager.js.html",
+    "src/manager/TextureManager.js",
+    "file"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#_createtexturefromasset",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-_createTextureFromAsset",
+    "src/manager/TextureManager.js~_TextureManager#_createTextureFromAsset",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#addtexture",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-addTexture",
+    "src/manager/TextureManager.js~_TextureManager#addTexture",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#constructor",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-constructor-constructor",
+    "src/manager/TextureManager.js~_TextureManager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#gettexture",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-getTexture",
+    "src/manager/TextureManager.js~_TextureManager#getTexture",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#textureidcounter",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-member-textureIDCounter",
+    "src/manager/TextureManager.js~_TextureManager#textureIDCounter",
+    "member"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#textures",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-member-textures",
+    "src/manager/TextureManager.js~_TextureManager#textures",
+    "member"
   ],
   [
     "src/manager/updateablemanager.js",
@@ -2154,15 +2406,27 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/render/viewport.js~viewport#bounds",
-    "class/src/render/Viewport.js~Viewport.html#instance-member-bounds",
-    "src/render/Viewport.js~Viewport#bounds",
+    "src/render/viewport.js~viewport#_bounds",
+    "class/src/render/Viewport.js~Viewport.html#instance-member-_bounds",
+    "src/render/Viewport.js~Viewport#_bounds",
+    "member"
+  ],
+  [
+    "src/render/viewport.js~viewport#_rendererbounds",
+    "class/src/render/Viewport.js~Viewport.html#instance-member-_rendererBounds",
+    "src/render/Viewport.js~Viewport#_rendererBounds",
     "member"
   ],
   [
     "src/render/viewport.js~viewport#constructor",
     "class/src/render/Viewport.js~Viewport.html#instance-constructor-constructor",
     "src/render/Viewport.js~Viewport#constructor",
+    "method"
+  ],
+  [
+    "src/render/viewport.js~viewport#getbounds",
+    "class/src/render/Viewport.js~Viewport.html#instance-method-getBounds",
+    "src/render/Viewport.js~Viewport#getBounds",
     "method"
   ],
   [
@@ -2176,6 +2440,12 @@ window.esdocSearchIndex = [
     "class/src/render/Viewport.js~Viewport.html#instance-member-renderables",
     "src/render/Viewport.js~Viewport#renderables",
     "member"
+  ],
+  [
+    "src/render/viewport.js~viewport#setbounds",
+    "class/src/render/Viewport.js~Viewport.html#instance-method-setBounds",
+    "src/render/Viewport.js~Viewport#setBounds",
+    "method"
   ],
   [
     "src/render/webgl/matrix.js",
@@ -2328,9 +2598,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/scene/scene.js~scene#viewportindex",
-    "class/src/scene/Scene.js~Scene.html#instance-member-viewportIndex",
-    "src/scene/Scene.js~Scene#viewportIndex",
+    "src/scene/scene.js~scene#viewportidcounter",
+    "class/src/scene/Scene.js~Scene.html#instance-member-viewportIDCounter",
+    "src/scene/Scene.js~Scene#viewportIDCounter",
     "member"
   ],
   [
@@ -2344,6 +2614,60 @@ window.esdocSearchIndex = [
     "file/src/utils/GlobalMessager.js.html",
     "src/utils/GlobalMessager.js",
     "file"
+  ],
+  [
+    "src/utils/loader.js",
+    "file/src/utils/Loader.js.html",
+    "src/utils/Loader.js",
+    "file"
+  ],
+  [
+    "src/utils/loader.js~loader#constructor",
+    "class/src/utils/Loader.js~Loader.html#instance-constructor-constructor",
+    "src/utils/Loader.js~Loader#constructor",
+    "method"
+  ],
+  [
+    "src/utils/loader.js~loader#load",
+    "class/src/utils/Loader.js~Loader.html#instance-method-load",
+    "src/utils/Loader.js~Loader#load",
+    "method"
+  ],
+  [
+    "src/utils/loader.js~loader#loadcompletecallback",
+    "class/src/utils/Loader.js~Loader.html#instance-member-loadCompleteCallback",
+    "src/utils/Loader.js~Loader#loadCompleteCallback",
+    "member"
+  ],
+  [
+    "src/utils/loader.js~loader#loadcount",
+    "class/src/utils/Loader.js~Loader.html#instance-member-loadCount",
+    "src/utils/Loader.js~Loader#loadCount",
+    "member"
+  ],
+  [
+    "src/utils/loader.js~loader#loadcountqueued",
+    "class/src/utils/Loader.js~Loader.html#instance-member-loadCountQueued",
+    "src/utils/Loader.js~Loader#loadCountQueued",
+    "member"
+  ],
+  [
+    "src/utils/loader.js~loader#objectstoload",
+    "class/src/utils/Loader.js~Loader.html#instance-member-objectsToLoad",
+    "src/utils/Loader.js~Loader#objectsToLoad",
+    "member"
+  ],
+  [
+    "src/utils/loader.js~loader#start",
+    "class/src/utils/Loader.js~Loader.html#instance-method-start",
+    "src/utils/Loader.js~Loader#start",
+    "method"
+  ],
+  [
+    "src/utils/loader.js~loader#started",
+    "class/src/utils/Loader.js~Loader.html#instance-member-started",
+    "src/utils/Loader.js~Loader#started",
+    "member"
   ],
   [
     "src/utils/mathutil.js",
