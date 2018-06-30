@@ -15,6 +15,7 @@ export class _RenderManager extends Manager {
         super();
         this.GL = null;
         this.currentProgram = null;
+        this.activeTextureID = -1;
     }
 
     /**
@@ -130,10 +131,12 @@ export class _RenderManager extends Manager {
                 this.GL.uniform1f(this.depthLocation, renderable.depth);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
-                this.GL.uniform1i(this.textureLocation, renderable.texture.id);
- 
-                this.GL.activeTexture(this.GL.TEXTURE0 + renderable.texture.id);
-                this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
+                if (this.activeTextureID !== renderable.textureID) {
+                    this.activeTextureID = renderable.textureID;
+                    this.GL.uniform1i(this.textureLocation, renderable.textureID);
+                    this.GL.activeTexture(this.GL.TEXTURE0 + renderable.textureID);
+                    this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
+                }
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }

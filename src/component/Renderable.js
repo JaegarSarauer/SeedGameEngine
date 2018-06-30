@@ -45,6 +45,7 @@ export default class Renderable extends Component {
 
         //textures
         this.texture = null;
+        this.textureID = -1;
         this._subSpriteData = [0, 0, 1, 1];
         
         this.depth = 0.5;
@@ -79,6 +80,7 @@ export default class Renderable extends Component {
 
     setTexture(textureObject) {
         this.texture = textureObject;
+        this.textureID = this.texture.id;
     }
 
     /**
