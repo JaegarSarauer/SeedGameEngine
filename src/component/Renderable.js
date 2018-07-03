@@ -78,6 +78,16 @@ export default class Renderable extends Component {
         this._subSpriteData = [-frameWidthIndex, -frameHeightIndex, framesWidth, framesHeight];
     }
 
+    setUniformData(positionMatrix) {
+        this.program.setUniforms({
+            'u_color': this.color.color,
+            'u_matrix': positionMatrix,
+            'u_depth': this.depth,
+            'u_texture': this.textureID,
+            'u_subTexcoord': this._subSpriteData,
+        });
+    }
+
     setTexture(textureObject) {
         this.texture = textureObject;
         this.textureID = this.texture.id;

@@ -27,14 +27,9 @@ export class _RenderManager extends Manager {
         this._updateProgram(ProgramManager.getProgram('Default'));
         
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
-        this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
-        this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
-        this.depthLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_depth");
 
         //textures
         this.texcoordAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_texcoord");
-        this.textureLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_texture");
-        this.subTexcoordLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_subTexcoord");
 
         let positionBuffer = this.GL.createBuffer();
 
@@ -126,14 +121,15 @@ export class _RenderManager extends Manager {
 
                 this._updateProgram(renderable.program);
 
-                this.GL.uniform4fv(this.colorLocation, renderable.color.color);
-                this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
-                this.GL.uniform1f(this.depthLocation, renderable.depth);
-                this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
+                renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
+                // this.GL.uniform4fv(this.colorLocation, renderable.color.color);
+                // this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
+                // this.GL.uniform1f(this.depthLocation, renderable.depth);
+                //this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
                 if (this.activeTextureID !== renderable.textureID) {
                     this.activeTextureID = renderable.textureID;
-                    this.GL.uniform1i(this.textureLocation, renderable.textureID);
+                    //this.GL.uniform1i(this.textureLocation, renderable.textureID);
                     this.GL.activeTexture(this.GL.TEXTURE0 + renderable.textureID);
                     this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
                 }
