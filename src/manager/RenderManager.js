@@ -81,8 +81,8 @@ export class _RenderManager extends Manager {
         this.GL.enable(this.GL.DEPTH_TEST);
         this.GL.depthFunc(this.GL.LESS);      
         this.GL.enable(this.GL.BLEND);
-        this.GL.enable(this.GL.CULL_FACE);
-        this.GL.cullFace(this.GL.FRONT);
+        // this.GL.enable(this.GL.CULL_FACE);
+        // this.GL.cullFace(this.GL.FRONT);
 
         let scene = SceneManager.getCurrentScene();
         
@@ -114,19 +114,6 @@ export class _RenderManager extends Manager {
                 this._bindVAO(this.vao, this.positionAttributeLocation);
                 this._updatePositionsBuffer(renderable.textureBuffer, renderable.texturePositions);
                 this._bindVAO(this.vao, this.texcoordAttributeLocation);
-
-
-        // Turn on the attribute
-        this.GL.enableVertexAttribArray(this.texcoordAttributeLocation);
-
-        // Tell the attribute how to get data out of colorBuffer (ARRAY_BUFFER)
-        let t_size = 2;          // 3 components per iteration
-        let t_type = this.GL.FLOAT;   // the data is 32bit floats
-        let t_normalize = true;  // convert from 0-255 to 0.0-1.0
-        let t_stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next color
-        let t_offset = 0;        // start at the beginning of the buffer
-        this.GL.vertexAttribPointer(
-            this.texcoordAttributeLocation, t_size, t_type, t_normalize, t_stride, t_offset);
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
                 //this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);

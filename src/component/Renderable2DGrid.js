@@ -16,9 +16,13 @@ export default class Renderable2DGrid extends Renderable {
 
     setVertexPositions() {
         let vertexPosArray = [];
-        for (let h = 0; h < this.gridHeight; h++) {
-            for (let w = 0; w < this.gridWidth; w++) {
-                vertexPosArray.concat(0 + w, 0 + h, 1 + w, 0 + h, 0 + w, 1 + h, 0 + w, 1 + h, 1 + w, 0 + h, 1 + w, 1 + h);
+
+        let wInc = 1 /this.gridWidth;
+        let hInc = 1 / this.gridHeight;
+
+        for (let h = 0; h < 1; h += hInc) {
+            for (let w = 0; w < 1; w += wInc) {
+                vertexPosArray = vertexPosArray.concat(0 + w, 0 + h, 1 + w, 0 + h, 0 + w, 1 + h, 0 + w, 1 + h, 1 + w, 0 + h, 1 + w, 1 + h);
             }
         }
         this.primitiveCount = this.gridHeight * this.gridWidth * 6;
@@ -26,24 +30,32 @@ export default class Renderable2DGrid extends Renderable {
     }
 
     setSubIndex(subIndexArray) {
-
-        let textureMap = [];
-
         if (this.texture == null || !Array.isArray(subIndexArray))
             return;
+
+        let textureMap = [];
 
         let framesWidth = this.texture.frameWidth / this.texture.width;
         let framesHeight = this.texture.frameHeight / this.texture.height;
 
-        for (let h = 0; h < this.gridHeight; h++) {
-            for (let w = 0; w < this.gridWidth; w++) {
-                let i = (h * this.gridWidth) + w;
+        for (let i = 0; i < subIndexArray.length; i++) {
 
-                let frW = subIndexArray[i] % (1 / framesWidth);
-                let frH = Math.floor(subIndexArray[i] * framesWidth);
+            let frW = subIndexArray[i] % (1 / framesWidth);
+            let frH = Math.floor(subIndexArray[i] * framesWidth);
 
-                textureMap.concat(0 + frW, 0 + frH, 1 + frW, 0 + frH, 0 + frW, 1 + frH, 0 + frW, 1 + frH, 1 + frW, 0 + frH, 1 + frW, 1 + frH);
-            }
+            textureMap = textureMap.concat([
+                framesWidth * frW, 
+                framesHeight * frH, 
+                framesWidth * (1 + frW), 
+                framesHeight * frH, 
+                framesWidth * frW, 
+                framesHeight * (1 + frH), 
+                framesWidth * frW, 
+                framesHeight * (1 + frH), 
+                framesWidth * (1 + frW), 
+                framesHeight * frH, 
+                framesWidth * (1 + frW), 
+                framesHeight * (1 + frH)]);
         }
 
         this.texturePositions = new Float32Array(textureMap);

@@ -85,20 +85,6 @@ export default class Renderable extends Component {
         let frW = spriteIndex % (1 / framesWidth);
         let frH = Math.floor(spriteIndex * framesWidth);
 
-        console.info(frW, frH, [
-            framesWidth * frW, 
-            framesHeight * frH, 
-            framesWidth * (1 + frW), 
-            framesHeight * frH, 
-            framesWidth * frW, 
-            framesHeight * (1 + frH), 
-            framesWidth * frW, 
-            framesHeight * (1 + frH), 
-            framesWidth * (1 + frW), 
-            framesHeight * frH, 
-            framesWidth * (1 + frW), 
-            framesHeight * (1 + frH)])
-
         this.texturePositions = new Float32Array([
             framesWidth * frW, 
             framesHeight * frH, 
