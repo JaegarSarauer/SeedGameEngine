@@ -39,14 +39,19 @@ export default class Renderable extends Component {
         this._matrixRotation = new Matrix3();
         this._matrixOriginOffset = new Matrix3();
         this.color = new Color();
-        this.renderPositions = [0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1];
+
+        //vertex data
+        this.vertexBuffer = RenderManager.GL.createBuffer();
+        this.vertexPositions = null;
         this.primitiveType = RenderManager.GL.TRIANGLES;
         this.primitiveCount = 6;
 
-        //textures
+
+        //texture data
+        this.textureBuffer = RenderManager.GL.createBuffer();
         this.texture = null;
         this.textureID = -1;
-        this._subSpriteData = [0, 0, 1, 1];
+        this.texturePositions = new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]);
         
         this.depth = 0.5;
 
@@ -65,6 +70,11 @@ export default class Renderable extends Component {
         this.depth = (Math.max(-DepthRange, Math.min(depth, DepthRange)) + DepthRange) / (DepthRange * 2);
     }
 
+    setVertexPositions() {
+        this.vertexPositions = new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]);
+        this.primitiveCount = 6;
+    }
+
     setSubIndex(spriteIndex) {
         if (this.texture == null)
             return;
@@ -72,10 +82,36 @@ export default class Renderable extends Component {
         let framesWidth = this.texture.frameWidth / this.texture.width;
         let framesHeight = this.texture.frameHeight / this.texture.height;
 
-        let frameWidthIndex = spriteIndex % (1 / framesWidth);
-        let frameHeightIndex = Math.floor(spriteIndex * framesWidth);
+        let frW = spriteIndex % (1 / framesWidth);
+        let frH = Math.floor(spriteIndex * framesWidth);
 
-        this._subSpriteData = [-frameWidthIndex, -frameHeightIndex, framesWidth, framesHeight];
+        console.info(frW, frH, [
+            framesWidth * frW, 
+            framesHeight * frH, 
+            framesWidth * (1 + frW), 
+            framesHeight * frH, 
+            framesWidth * frW, 
+            framesHeight * (1 + frH), 
+            framesWidth * frW, 
+            framesHeight * (1 + frH), 
+            framesWidth * (1 + frW), 
+            framesHeight * frH, 
+            framesWidth * (1 + frW), 
+            framesHeight * (1 + frH)])
+
+        this.texturePositions = new Float32Array([
+            framesWidth * frW, 
+            framesHeight * frH, 
+            framesWidth * (1 + frW), 
+            framesHeight * frH, 
+            framesWidth * frW, 
+            framesHeight * (1 + frH), 
+            framesWidth * frW, 
+            framesHeight * (1 + frH), 
+            framesWidth * (1 + frW), 
+            framesHeight * frH, 
+            framesWidth * (1 + frW), 
+            framesHeight * (1 + frH)]);
     }
 
     setTexture(textureObject) {
@@ -149,6 +185,8 @@ export default class Renderable extends Component {
      * @param {number} viewportID Object ID of the viewport.
      */
     addToViewport(viewportID) {
+        if (this.vertexPositions == null)
+            this.setVertexPositions();
         this.deregisterViewports[viewportID] = SceneManager.getCurrentScene().registerRenderableComponent(this, viewportID);
         return this;
     }

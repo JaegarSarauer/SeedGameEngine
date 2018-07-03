@@ -9,7 +9,6 @@ precision mediump float;
 //in
 in vec2 v_texcoord;
 uniform vec4 u_color;
-uniform vec4 u_subTexcoord;
 
 //local
 uniform sampler2D u_texture;
@@ -19,10 +18,7 @@ vec2 subTexcoord;
 out vec4 outColor;
 
 void main() {
-  subTexcoord = v_texcoord;
-  subTexcoord.xy -= u_subTexcoord.xy;
-  subTexcoord.xy *= u_subTexcoord.zw;
-  vec4 fragColor = texture(u_texture, subTexcoord) * u_color;
+  vec4 fragColor = texture(u_texture, v_texcoord) * u_color;
 
   if(fragColor.a < 0.25) {
     discard;

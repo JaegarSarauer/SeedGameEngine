@@ -17,4 +17,4 @@ void main() {
   gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, u_depth, 1);
   v_texcoord = a_texcoord;
 }
-`
+`;

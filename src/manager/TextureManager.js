@@ -26,8 +26,6 @@ export class _TextureManager extends Manager {
         return this.textures[texID];
     }
 
-
-
     /**
      * Creates a Texture JSON Object and initializes the Texture with WebGL.
      * The Texture is added to the textures array.
@@ -70,10 +68,6 @@ export class _TextureManager extends Manager {
             width: 0,
             height: 0,
         };
-        DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texInfo.tex);
-       
-        DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_S, DOMManager.GL.CLAMP_TO_EDGE);
-        DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_T, DOMManager.GL.CLAMP_TO_EDGE);
 
         return new Promise((res, rej) => {
             let assetLoaded = new Image();
@@ -81,9 +75,14 @@ export class _TextureManager extends Manager {
                 texInfo.width = assetLoaded.width;
                 texInfo.height = assetLoaded.height;
         
-                DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texInfo.tex);
+                DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texInfo.tex);                
                 DOMManager.GL.texImage2D(DOMManager.GL.TEXTURE_2D, 0, DOMManager.GL.RGBA, DOMManager.GL.RGBA, DOMManager.GL.UNSIGNED_BYTE, assetLoaded);
-                DOMManager.GL.generateMipmap(DOMManager.GL.TEXTURE_2D);
+                //DOMManager.GL.generateMipmap(DOMManager.GL.TEXTURE_2D);
+                DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_S, DOMManager.GL.CLAMP_TO_EDGE);
+                DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_T, DOMManager.GL.CLAMP_TO_EDGE);
+                DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_MIN_FILTER, DOMManager.GL.NEAREST);
+                DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_MAG_FILTER, DOMManager.GL.NEAREST);
+
                 return res(texInfo);
             });
             assetLoaded.src = asset;

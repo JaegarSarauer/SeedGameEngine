@@ -34,47 +34,8 @@ export class _RenderManager extends Manager {
         //textures
         this.texcoordAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_texcoord");
         this.textureLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_texture");
-        this.subTexcoordLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_subTexcoord");
-
-        let positionBuffer = this.GL.createBuffer();
-
-        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, positionBuffer);
-
-        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]), this.GL.STATIC_DRAW);
 
         this.vao = this.GL.createVertexArray();
-
-        this.GL.bindVertexArray(this.vao);
-
-        this.GL.enableVertexAttribArray(this.positionAttributeLocation);
-
-        let size = 2;
-        let type = this.GL.FLOAT;
-        let normalize = false;
-        let stride = 0;
-        let vertexOffset = 0;
-        this.GL.vertexAttribPointer(this.positionAttributeLocation, size, type, normalize, stride, vertexOffset);
-
-        //textures
-        this.texcoordBuffer = this.GL.createBuffer();
-        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, this.texcoordBuffer);
-        this.GL.bufferData(this.GL.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1]), this.GL.STATIC_DRAW);
-
-        // Turn on the attribute
-        this.GL.enableVertexAttribArray(this.texcoordAttributeLocation);
-
-        // Tell the attribute how to get data out of colorBuffer (ARRAY_BUFFER)
-        let t_size = 2;          // 3 components per iteration
-        let t_type = this.GL.FLOAT;   // the data is 32bit floats
-        let t_normalize = true;  // convert from 0-255 to 0.0-1.0
-        let t_stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next color
-        let t_offset = 0;        // start at the beginning of the buffer
-        this.GL.vertexAttribPointer(
-            this.texcoordAttributeLocation, t_size, t_type, t_normalize, t_stride, t_offset);
-
-        this.GL.enable(this.GL.DEPTH_TEST);
-        this.GL.depthFunc(this.GL.LESS);      
-        this.GL.enable(this.GL.BLEND);
     }
 
     /**
@@ -91,6 +52,23 @@ export class _RenderManager extends Manager {
         }
     }
 
+    _updatePositionsBuffer(buffer, positions) {
+        this.GL.bindBuffer(this.GL.ARRAY_BUFFER, buffer);
+        this.GL.bufferData(this.GL.ARRAY_BUFFER, positions, this.GL.DYNAMIC_DRAW);
+    }
+
+    _bindVAO(vao, attribLocation) {
+        this.GL.bindVertexArray(vao);
+        this.GL.enableVertexAttribArray(attribLocation);
+
+        let size = 2;
+        let type = this.GL.FLOAT;
+        let normalize = false;
+        let stride = 0;
+        let vertexOffset = 0;
+        this.GL.vertexAttribPointer(attribLocation, size, type, normalize, stride, vertexOffset);
+    }
+
     /**
      * Update function for updating all renderable objects in each viewport in the current scene.
      */
@@ -98,6 +76,13 @@ export class _RenderManager extends Manager {
         this.GL.clearColor(0, 0, 0, 0);
         this.GL.clearDepth(1.0);
         this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);
+
+
+        this.GL.enable(this.GL.DEPTH_TEST);
+        this.GL.depthFunc(this.GL.LESS);      
+        this.GL.enable(this.GL.BLEND);
+        this.GL.enable(this.GL.CULL_FACE);
+        this.GL.cullFace(this.GL.FRONT);
 
         let scene = SceneManager.getCurrentScene();
         
@@ -125,9 +110,26 @@ export class _RenderManager extends Manager {
                     continue;
 
                 this._updateProgram(renderable.program);
+                this._updatePositionsBuffer(renderable.vertexBuffer, renderable.vertexPositions);
+                this._bindVAO(this.vao, this.positionAttributeLocation);
+                this._updatePositionsBuffer(renderable.textureBuffer, renderable.texturePositions);
+                this._bindVAO(this.vao, this.texcoordAttributeLocation);
+
+
+        // Turn on the attribute
+        this.GL.enableVertexAttribArray(this.texcoordAttributeLocation);
+
+        // Tell the attribute how to get data out of colorBuffer (ARRAY_BUFFER)
+        let t_size = 2;          // 3 components per iteration
+        let t_type = this.GL.FLOAT;   // the data is 32bit floats
+        let t_normalize = true;  // convert from 0-255 to 0.0-1.0
+        let t_stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next color
+        let t_offset = 0;        // start at the beginning of the buffer
+        this.GL.vertexAttribPointer(
+            this.texcoordAttributeLocation, t_size, t_type, t_normalize, t_stride, t_offset);
 
                 this.GL.uniform4fv(this.colorLocation, renderable.color.color);
-                this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
+                //this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
                 this.GL.uniform1f(this.depthLocation, renderable.depth);
                 this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
