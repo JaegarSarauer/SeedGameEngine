@@ -15,7 +15,7 @@ export class _RenderManager extends Manager {
         super();
         this.GL = null;
         this.currentProgram = null;
-        this.activeTextureID = -1;
+        this.activeTextureIDs = [];
     }
 
     /**
@@ -86,6 +86,27 @@ export class _RenderManager extends Manager {
         }
     }
 
+    _updateTextures(textures) {
+        let newActiveTextures = [];
+        for (let t = 0; t < textures.length; t++) {
+            let textureActive = false;
+            for (let actI = 0; actI < this.activeTextureIDs.length; actI++) {
+                if (this.activeTextureIDs[actI] === textures[t].id) {
+                    textureActive = true;
+                    break;
+                }
+            }
+
+            if (textureActive)
+                continue;
+
+            newActiveTextures.push(textures[t].id);
+            this.GL.activeTexture(this.GL.TEXTURE0 + textures[t].id);
+            this.GL.bindTexture(this.GL.TEXTURE_2D, textures[t].tex);
+        }
+        this.activeTextureIDs = newActiveTextures;
+    }
+
     /**
      * Update function for updating all renderable objects in each viewport in the current scene.
      */
@@ -122,17 +143,15 @@ export class _RenderManager extends Manager {
                 this._updateProgram(renderable.program);
 
                 renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
-                // this.GL.uniform4fv(this.colorLocation, renderable.color.color);
-                // this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
-                // this.GL.uniform1f(this.depthLocation, renderable.depth);
-                //this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
 
-                if (this.activeTextureID !== renderable.textureID) {
-                    this.activeTextureID = renderable.textureID;
-                    //this.GL.uniform1i(this.textureLocation, renderable.textureID);
-                    this.GL.activeTexture(this.GL.TEXTURE0 + renderable.textureID);
-                    this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
-                }
+                //this._updateTextures(renderable.textures);
+                this._updateTextures(renderable.textures);
+                // if (this.activeTextureID !== renderable.textures[0].id) {
+                //     this.activeTextureID = renderable.textures[0].id;
+                //     //this.GL.uniform1i(this.textureLocation, renderable.textureID);
+                //     this.GL.activeTexture(this.GL.TEXTURE0 + renderable.textures[0].id);
+                //     this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.textures[0].tex);
+                // }
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }

@@ -44,8 +44,7 @@ export default class Renderable extends Component {
         this.primitiveCount = 6;
 
         //textures
-        this.texture = null;
-        this.textureID = -1;
+        this.textures = [];
         this._subSpriteData = [0, 0, 1, 1];
         
         this.depth = 0.5;
@@ -66,11 +65,11 @@ export default class Renderable extends Component {
     }
 
     setSubIndex(spriteIndex) {
-        if (this.texture == null)
+        if (this.textures.length < 1)
             return;
 
-        let framesWidth = this.texture.frameWidth / this.texture.width;
-        let framesHeight = this.texture.frameHeight / this.texture.height;
+        let framesWidth = this.textures[0].frameWidth / this.textures[0].width;
+        let framesHeight = this.textures[0].frameHeight / this.textures[0].height;
 
         let frameWidthIndex = spriteIndex % (1 / framesWidth);
         let frameHeightIndex = Math.floor(spriteIndex * framesWidth);
@@ -83,14 +82,13 @@ export default class Renderable extends Component {
             'u_color': this.color.color,
             'u_matrix': positionMatrix,
             'u_depth': this.depth,
-            'u_texture': this.textureID,
+            'u_texture': this.textures[0].id,
             'u_subTexcoord': this._subSpriteData,
         });
     }
 
     setTexture(textureObject) {
-        this.texture = textureObject;
-        this.textureID = this.texture.id;
+        this.textures[0] = textureObject;
     }
 
     /**
