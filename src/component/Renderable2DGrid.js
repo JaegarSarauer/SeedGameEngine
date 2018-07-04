@@ -39,16 +39,16 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         */
         this.shaderTileData = [
             30, 25, 8, 8, 
-            30, 22, 5, 5, 
+            30, 21, 5, 5, 
             0.125, 0.125, 1, 1, 
             1, 1, 1, 1
         ];
     }
 
-    buildShaderTileData(viewportX1, viewportY1) {
+    buildShaderTileData(viewportX1, viewportY1, viewportWidth, viewportHeight) {
         this.shaderTileData = [
             30, 25, 8, 8, 
-            30, 22, viewportX1, viewportY1, 
+            viewportWidth, viewportHeight, viewportX1, viewportY1, 
             0.125, 0.125, 1, 1, 
             1, 1, 1, 1
         ];
@@ -57,7 +57,6 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
     setUniformData(positionMatrix) {
         if (this.textures.length < 2)
             return false;
-            console.info(this.shaderTileData)
         this.program.setUniforms({
             'u_color': this.color.color,
             'u_matrix': positionMatrix,

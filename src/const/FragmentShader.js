@@ -79,30 +79,22 @@ out vec4 outColor;
 void main() {
 
   //get this tile xy coordinate for the tile ID.
-  mapTilecoord.x = (u_tileData[1][2] + floor(v_texcoord.x * u_tileData[1][0])) / u_tileData[0][0];
-  mapTilecoord.y = (u_tileData[1][3] + floor(v_texcoord.y * u_tileData[1][1])) / u_tileData[0][1];
-
-  // mapTilecoord.x = 0.5f;
-  // mapTilecoord.y = 0.0f;
+  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);
+  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);
 
   //get the tile ID from the texture.
   float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);
-
-  //float tileID = 2.0f;
 
   //get xy positions of texture from the ID, normalized.
   subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];
   subTexcoord.y = -floor(tileID / u_tileData[0][3]) / u_tileData[0][3];
 
-  //always ID 1 for now.
-  // subTexcoord.x = -0.125f;
-  // subTexcoord.y = -0.0f;
 
-  drawCoord.x = fract((v_texcoord.x) * u_tileData[1][0]);
-  drawCoord.y = fract((v_texcoord.y) * u_tileData[1][1]);
+  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);
+  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);
 
-  drawCoord.x /= u_tileData[0][2] + 0.1f;
-  drawCoord.y /= u_tileData[0][3] + 0.1f;
+  drawCoord.x /= u_tileData[0][2] + 0.05f;
+  drawCoord.y /= u_tileData[0][3] + 0.05f;
 
   drawCoord.x -= subTexcoord.x;
   drawCoord.y -= subTexcoord.y;
