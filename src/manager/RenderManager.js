@@ -80,7 +80,6 @@ export class _RenderManager extends Manager {
      */
     _updateProgram(program) {
         if (this.currentProgram == null || this.currentProgram.id != program.id) {
-            console.info('switching programs')
             this.GL.useProgram(program.program);
             this.currentProgram = program;
         }
@@ -142,7 +141,8 @@ export class _RenderManager extends Manager {
 
                 this._updateProgram(renderable.program);
 
-                renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
+                if (!renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m))
+                    continue;
 
                 //this._updateTextures(renderable.textures);
                 this._updateTextures(renderable.textures);

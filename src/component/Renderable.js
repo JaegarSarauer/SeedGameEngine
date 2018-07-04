@@ -85,6 +85,7 @@ export default class Renderable extends Component {
             'u_texture': this.textures[0].id,
             'u_subTexcoord': this._subSpriteData,
         });
+        return true;
     }
 
     setTexture(textureObject) {

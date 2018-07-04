@@ -29,6 +29,14 @@ export class _ProgramManager extends Manager {
             'u_texture': 'uniform1i',
             'u_subTexcoord': 'uniform4fv',
         });
+        this.addProgram('2DGrid', VertexShader.DEFAULT_V, FragmentShader.TILEMAP_F, {
+            'u_color': 'uniform4fv',
+            'u_matrix': 'uniformMatrix3fv',
+            'u_depth': 'uniform1f',
+            'u_mapDataTexture': 'uniform1i',
+            'u_texture': 'uniform1i',
+            'u_tileData': 'uniformMatrix4fv'
+        });
     }
 
     /**
@@ -56,7 +64,6 @@ export class _ProgramManager extends Manager {
     addProgram(programName, vertexShaderSource, fragmentShaderSource, uniforms) {
         let program = this._createProgram(vertexShaderSource, fragmentShaderSource);
         let uniformSetters = this._createProgramLocationSetters(program, uniforms);
-        console.info(uniformSetters)
         this.programs[programName] = {
             name: programName,
             id: this.programIDCounter++,
@@ -145,6 +152,7 @@ export class _ProgramManager extends Manager {
         return {
             'uniform4fv': (gl, uniformData) => { gl.uniform4fv(location, uniformData); },
             'uniformMatrix3fv': (gl, uniformData) => { gl.uniformMatrix3fv(location, false, uniformData); },
+            'uniformMatrix4fv': (gl, uniformData) => { gl.uniformMatrix4fv(location, false, uniformData); },
             'uniform1f': (gl, uniformData) => { gl.uniform1f(location, uniformData); },
             'uniform1i': (gl, uniformData) => { gl.uniform1i(location, uniformData); },
         }[type];

@@ -19,6 +19,7 @@ import Physics from './component/Physics';
 import Physics2D from './component/Physics2D';
 import Renderable from './component/Renderable';
 import Renderable2D from './component/Renderable2D';
+import Renderable2DGrid from './component/Renderable2DGrid';
 import RenderableSquare from './component/RenderableSquare';
 import TopDownController from './component/TopDownController';
 import Transform from './component/Transform';
@@ -118,7 +119,8 @@ export {
     ClickController,
     TextureManager,
     Loader,
-    Animation
+    Animation,
+    Renderable2DGrid
 };
 
 
