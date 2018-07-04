@@ -96,8 +96,8 @@ void main() {
   drawCoord.x /= u_tileData[0][2] + 0.05f;
   drawCoord.y /= u_tileData[0][3] + 0.05f;
 
-  drawCoord.x -= subTexcoord.x;
-  drawCoord.y -= subTexcoord.y;
+  drawCoord.x -= subTexcoord.x - 0.0001f;
+  drawCoord.y -= subTexcoord.y - 0.0001f;
 
   vec4 fragColor = texture(u_texture , drawCoord) * u_color;
 
