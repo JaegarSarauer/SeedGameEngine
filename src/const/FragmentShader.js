@@ -87,7 +87,7 @@ void main() {
 
   //get xy positions of texture from the ID, normalized.
   subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];
-  subTexcoord.y = -floor(tileID / u_tileData[0][3]) / u_tileData[0][3];
+  subTexcoord.y = -floor(tileID / u_tileData[0][2]) / u_tileData[0][3];
 
 
   drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);

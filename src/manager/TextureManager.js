@@ -22,11 +22,9 @@ export class _TextureManager extends Manager {
      */
     getTexture(texID) {
         if (this.textures[texID] == null)
-            throw 'Texture does not exist!';
+            return null;
         return this.textures[texID];
     }
-
-
 
     /**
      * Creates a Texture JSON Object and initializes the Texture with WebGL.
@@ -36,16 +34,32 @@ export class _TextureManager extends Manager {
      * @param {string} textureImageAsset Path to the texture image to load.
      * @param {number} frameWidth Width of sprite in spritesheet. -1 for full.
      * @param {number} frameHeight Height of sprite in spritesheet. -1 for full.
+     * @param {JSON Object} glyphInfo Object defining additional info for letters to be used as a mapping for writing text.
+     * Fonts should have these for displaying letters. Format the ojject like so:
+     * {
+     *     //height of all letters
+     *     height: 8, 
+     * 
+     *     //letter corrosponding to the location and size defined inside.
+     *     'A': {
+     *         //the x position in pixels for this character.
+     *         x: 0,
+     * 
+     *         //width in pixels for this character.
+     *         width: 8
+     *     }
+     * }
      * 
      * @returns {Promise} A pending promise which will return the texture reference after complete.
      */
-    addTexture(texName, textureImageAsset, frameWidth, frameHeight) {
+    addTexture(texName, textureImageAsset, frameWidth, frameHeight, glyphInfo = null) {
         return this._createTextureFromAsset(textureImageAsset).then((textureData) => {
             this.textures[texName] = Object.assign({
                 name: texName,
                 id: this.textureIDCounter++,
                 frameWidth,
                 frameHeight,
+                glyphInfo,
             }, textureData);
             return this.textures[texName];
         })
@@ -71,14 +85,34 @@ export class _TextureManager extends Manager {
             frameHeight,
             width,
             height,
+            textureInternalFormat,
+            textureFormat,
+            textureByteType,
         }, {tex});
         return this.textures[texName];
+    }
+
+    updateDataTexture(texName, textureData, x1, y1, width, height) {
+        let texture = this.getTexture(texName);
+        DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texture.tex);
+        DOMManager.GL.texSubImage2D(DOMManager.GL.TEXTURE_2D, 0, x1, y1, width, height, texture.textureFormat, texture.textureByteType, textureData);
+    }
+
+    addGlyphInfoToTexture(texName, glyphInfo) {
+        let texture = this.getTexture(texName);
+        if (texture == null) {
+            console.error('Texture does not exist!');
+            return false;
+        }
+
+        texture.glyphInfo = glyphInfo;
     }
 
     _createTextureFromData(texData, textureInternalFormat, textureFormat, textureByteType, width, height) {
         let tex = DOMManager.GL.createTexture();
 
         DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, tex);
+        DOMManager.GL.pixelStorei(DOMManager.GL.UNPACK_FLIP_Y_WEBGL, false);
         
         DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_MIN_FILTER, DOMManager.GL.NEAREST);
         DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_MAG_FILTER, DOMManager.GL.NEAREST);

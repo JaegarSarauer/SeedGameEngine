@@ -5,6 +5,7 @@ import SceneManager from './SceneManager';
 import * as VertexShader from '../const/VertexShader';
 import * as FragmentShader from '../const/FragmentShader';
 import Matrix3 from '../render/WebGL/Matrix3';
+import { TextureManager } from '../entry';
 
 /**
  * Manages the WebGL2 rendering of all renderable components in the scene.
@@ -16,6 +17,9 @@ export class _RenderManager extends Manager {
         this.GL = null;
         this.currentProgram = null;
         this.activeTextureIDs = [];
+
+        //text
+        this.RenderableTextIDCounter = 0;
     }
 
     /**
@@ -104,6 +108,15 @@ export class _RenderManager extends Manager {
             this.GL.bindTexture(this.GL.TEXTURE_2D, textures[t].tex);
         }
         this.activeTextureIDs = newActiveTextures;
+    }
+
+    registerTextRenderable(textRenderable, width, height) {
+        textRenderable.renderableTextID = this.RenderableTextIDCounter++;
+        if (TextureManager.getTexture('TextData') == null) {
+            //data of the text data to be read in the FS for rendering. Defaults to 0's. If you have a character at location 0, 1st column, it will be the "empty" character.
+            let textDataTextureData = new Uint16Array(width * height);
+            TextureManager.addDataTexture('TextData', textDataTextureData, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
+        }
     }
 
     /**
