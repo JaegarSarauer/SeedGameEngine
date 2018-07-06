@@ -73,20 +73,20 @@ export default class RenderableText extends Renderable2DMultitex {
             let charData = this.fontTexture.glyphInfo[char];
             if (charData == null)
                 continue;
-            this.textData.textPixelArray.push((charData.x / 8) + (8 * charData.row));
-            // for (let x = charData.x; x < charData.x + charData.width; x++) {
-            //     this.textData.textPixelArray.push(x + (charData.row * this.fontTexture.width));
-            // }
+            //this.textData.textPixelArray.push((charData.x / 8) + (8 * charData.row));
+            for (let x = charData.x; x < charData.x + charData.width; x++) {
+                this.textData.textPixelArray.push(x + (charData.row * this.fontTexture.width));
+            }
         }
         this.textData.textPixelWidth = this.textData.textPixelArray.length;
-        this.gameObject.transform.setScale(this.textData.textPixelWidth * 8 * fontScale, this.fontTexture.glyphInfo.height * fontScale);
+        this.gameObject.transform.setScale(this.textData.textPixelWidth * fontScale, this.fontTexture.glyphInfo.height * fontScale);
         TextureManager.updateDataTexture('TextData', new Uint16Array(this.textData.textPixelArray), 0, this.renderableTextID, this.textData.textPixelWidth, 1);
         this.buildShaderTileData();
     }
 
     buildShaderTileData() {
         this.shaderFontData = [
-            1024, 128, 8, 5, 
+            1024, 128, 64, 5, 
             this.textData.textPixelWidth, 1, 0, this.renderableTextID, 
             0.015625, 0.2, 1, 1, 
             1, 1, 1, 1
