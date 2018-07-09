@@ -87,21 +87,21 @@ void main() {
 
   //get xy positions of texture from the ID, normalized.
   subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];
-  subTexcoord.y = -floor(tileID / u_tileData[0][2]) / u_tileData[0][3];
+  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);
 
 
-  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);
-  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);
+  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);// + 0.1f;
+  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);// + 0.1f;
 
   drawCoord.x /= u_tileData[0][2] + 0.05f;
   drawCoord.y /= u_tileData[0][3] + 0.05f;
 
-  drawCoord.x -= subTexcoord.x - 0.0001f;
-  drawCoord.y -= subTexcoord.y - 0.0001f;
+  drawCoord.x -= subTexcoord.x;// - 0.1f;
+  drawCoord.y -= subTexcoord.y;// - 0.1f;
 
   vec4 fragColor = texture(u_texture , drawCoord) * u_color;
 
-  if(fragColor.a < 0.25) {
+  if(fragColor.a < 0.6) {
     discard;
   }
 

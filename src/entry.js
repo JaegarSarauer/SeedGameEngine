@@ -26,10 +26,6 @@ import RenderableSquare from './component/RenderableSquare';
 import TopDownController from './component/TopDownController';
 import Transform from './component/Transform';
 
-//const
-import FragmentShader from './const/FragmentShader';
-import VertexShader from './const/VertexShader';
-
 //internal
 import Bounds from './internal/Bounds';
 import Point from './internal/Point';

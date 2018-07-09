@@ -86,7 +86,7 @@ export default class RenderableText extends Renderable2DMultitex {
 
     buildShaderTileData() {
         this.shaderFontData = [
-            1024, 128, 64, 5, 
+            1024, 128, this.fontTexture.width, Math.floor(this.fontTexture.height / this.fontTexture.frameHeight), 
             this.textData.textPixelWidth, 1, 0, this.renderableTextID, 
             0.015625, 0.2, 1, 1, 
             1, 1, 1, 1
