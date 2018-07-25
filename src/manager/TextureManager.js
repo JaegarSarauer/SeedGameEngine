@@ -54,13 +54,15 @@ export class _TextureManager extends Manager {
      */
     addTexture(texName, textureImageAsset, frameWidth, frameHeight, glyphInfo = null) {
         return this._createTextureFromAsset(textureImageAsset).then((textureData) => {
-            this.textures[texName] = Object.assign({
+            let texObj = this.textures[texName] = Object.assign({
                 name: texName,
                 id: this.textureIDCounter++,
                 frameWidth,
                 frameHeight,
                 glyphInfo,
             }, textureData);
+            this.textures[texName].framesWidth = texObj.width / texObj.frameWidth;
+            this.textures[texName].framesHeight = texObj.height / texObj.frameHeight;
             return this.textures[texName];
         })
     }
@@ -85,6 +87,8 @@ export class _TextureManager extends Manager {
             frameHeight,
             width,
             height,
+            framesWidth: width / frameWidth,
+            framesHeight: height / frameHeight,
             textureInternalFormat,
             textureFormat,
             textureByteType,
@@ -137,6 +141,8 @@ export class _TextureManager extends Manager {
             tex: DOMManager.GL.createTexture(),
             width: 0,
             height: 0,
+            framesWidth: 0,
+            framesHeight: 0,
         };
 
         return new Promise((res, rej) => {

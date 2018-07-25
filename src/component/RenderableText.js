@@ -73,7 +73,7 @@ export default class RenderableText extends Renderable2DMultitex {
             let charData = this.fontTexture.glyphInfo[char];
             if (charData == null)
                 continue;
-            //this.textData.textPixelArray.push((charData.x / 8) + (8 * charData.row));
+                
             for (let x = charData.x; x < charData.x + charData.width; x++) {
                 this.textData.textPixelArray.push(x + (charData.row * this.fontTexture.width));
             }
