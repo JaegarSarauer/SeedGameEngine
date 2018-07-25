@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 262,
+  "end": 371,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 13,
+      "line": 20,
       "column": 1
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 262,
+    "end": 371,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 13,
+        "line": 20,
         "column": 1
       }
     },
@@ -31,14 +31,14 @@
       {
         "type": "ExportNamedDeclaration",
         "start": 92,
-        "end": 262,
+        "end": 371,
         "loc": {
           "start": {
             "line": 4,
             "column": 0
           },
           "end": {
-            "line": 13,
+            "line": 20,
             "column": 1
           }
         },
@@ -47,14 +47,14 @@
         "declaration": {
           "type": "VariableDeclaration",
           "start": 99,
-          "end": 262,
+          "end": 371,
           "loc": {
             "start": {
               "line": 4,
               "column": 7
             },
             "end": {
-              "line": 13,
+              "line": 20,
               "column": 1
             }
           },
@@ -62,14 +62,14 @@
             {
               "type": "VariableDeclarator",
               "start": 105,
-              "end": 262,
+              "end": 371,
               "loc": {
                 "start": {
                   "line": 4,
                   "column": 13
                 },
                 "end": {
-                  "line": 13,
+                  "line": 20,
                   "column": 1
                 }
               },
@@ -94,14 +94,14 @@
               "init": {
                 "type": "TemplateLiteral",
                 "start": 117,
-                "end": 262,
+                "end": 371,
                 "loc": {
                   "start": {
                     "line": 4,
                     "column": 25
                   },
                   "end": {
-                    "line": 13,
+                    "line": 20,
                     "column": 1
                   }
                 },
@@ -110,20 +110,20 @@
                   {
                     "type": "TemplateElement",
                     "start": 118,
-                    "end": 261,
+                    "end": 370,
                     "loc": {
                       "start": {
                         "line": 4,
                         "column": 26
                       },
                       "end": {
-                        "line": 13,
+                        "line": 20,
                         "column": 0
                       }
                     },
                     "value": {
-                      "raw": "#version 300 es\n\nin vec2 a_position;\n\nuniform mat3 u_matrix;\n\nvoid main() {\n  gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, 0, 1);\n}\n",
-                      "cooked": "#version 300 es\n\nin vec2 a_position;\n\nuniform mat3 u_matrix;\n\nvoid main() {\n  gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, 0, 1);\n}\n"
+                      "raw": "#version 300 es\n\n//in\nin vec2 a_position;\nin vec2 a_texcoord;\nuniform mat3 u_matrix;\nuniform float u_depth;\n\n\n//out\nout vec2 v_texcoord;\n\nvoid main() {\n  gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, u_depth, 1);\n  v_texcoord = a_texcoord;\n}\n",
+                      "cooked": "#version 300 es\n\n//in\nin vec2 a_position;\nin vec2 a_texcoord;\nuniform mat3 u_matrix;\nuniform float u_depth;\n\n\n//out\nout vec2 v_texcoord;\n\nvoid main() {\n  gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, u_depth, 1);\n  v_texcoord = a_texcoord;\n}\n"
                     },
                     "tail": true
                   }
@@ -357,16 +357,16 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "#version 300 es\n\nin vec2 a_position;\n\nuniform mat3 u_matrix;\n\nvoid main() {\n  gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, 0, 1);\n}\n",
+      "value": "#version 300 es\n\n//in\nin vec2 a_position;\nin vec2 a_texcoord;\nuniform mat3 u_matrix;\nuniform float u_depth;\n\n\n//out\nout vec2 v_texcoord;\n\nvoid main() {\n  gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, u_depth, 1);\n  v_texcoord = a_texcoord;\n}\n",
       "start": 118,
-      "end": 261,
+      "end": 370,
       "loc": {
         "start": {
           "line": 4,
           "column": 26
         },
         "end": {
-          "line": 13,
+          "line": 20,
           "column": 0
         }
       }
@@ -383,15 +383,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 261,
-      "end": 262,
+      "start": 370,
+      "end": 371,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 20,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 20,
           "column": 1
         }
       }
@@ -409,15 +409,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 262,
-      "end": 262,
+      "start": 371,
+      "end": 371,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 20,
           "column": 1
         },
         "end": {
-          "line": 13,
+          "line": 20,
           "column": 1
         }
       }
