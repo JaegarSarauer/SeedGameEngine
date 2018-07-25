@@ -24,24 +24,19 @@ export default class Updateable {
     start() {
         this.onStart();
         this.hasStarted = true;
-        this.update = this.postStartUpdate;
     }
 
     /**
      * Base call function for when this Updateable is to be updated.
-     * 
-     * Is overwritten on successful start to a simpler update loop.
      */
     update() {
         if (this.hasPaused)
             return;
-            
-        this.start();
-    }
-
-    postStartUpdate() {
-        if (this.hasPaused)
+        
+        if (!this.hasStarted) {
+            this.start();
             return;
+        }
 
         this.onUpdate();
     }

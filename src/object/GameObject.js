@@ -139,13 +139,18 @@ export default class GameObject extends Updateable {
     }
     
     /**
-     * Rewritten postStartUpdate() functions which is originally defined in Updateable.
+     * Rewritten update() functions which is originally defined in Updateable.
      * The GameObject adds a pre and post update function, and respective overrideable callbacks
      * (onPreUpdate and onPostUpdate).
      */
-    postStartUpdate() {
+    update() {
         if (this.hasPaused)
             return;
+        
+        if (!this.hasStarted) {
+            this.start();
+            return;
+        }
         
         this.preUpdate();
         this.onUpdate();

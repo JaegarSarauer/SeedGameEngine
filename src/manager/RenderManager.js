@@ -5,6 +5,7 @@ import SceneManager from './SceneManager';
 import * as VertexShader from '../const/VertexShader';
 import * as FragmentShader from '../const/FragmentShader';
 import Matrix3 from '../render/WebGL/Matrix3';
+import { TextureManager } from '../entry';
 
 /**
  * Manages the WebGL2 rendering of all renderable components in the scene.
@@ -15,6 +16,10 @@ export class _RenderManager extends Manager {
         super();
         this.GL = null;
         this.currentProgram = null;
+        this.activeTextureIDs = [];
+
+        //text
+        this.RenderableTextIDCounter = 0;
     }
 
     /**
@@ -26,14 +31,9 @@ export class _RenderManager extends Manager {
         this._updateProgram(ProgramManager.getProgram('Default'));
         
         this.positionAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_position");
-        this.colorLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_color");
-        this.matrixLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_matrix");
-        this.depthLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_depth");
 
         //textures
         this.texcoordAttributeLocation = this.GL.getAttribLocation(this.currentProgram.program, "a_texcoord");
-        this.textureLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_texture");
-        this.subTexcoordLocation = this.GL.getUniformLocation(this.currentProgram.program, "u_subTexcoord");
 
         let positionBuffer = this.GL.createBuffer();
 
@@ -84,9 +84,38 @@ export class _RenderManager extends Manager {
      */
     _updateProgram(program) {
         if (this.currentProgram == null || this.currentProgram.id != program.id) {
-            console.info('switching programs')
             this.GL.useProgram(program.program);
             this.currentProgram = program;
+        }
+    }
+
+    _updateTextures(textures) {
+        let newActiveTextures = [];
+        for (let t = 0; t < textures.length; t++) {
+            let textureActive = false;
+            for (let actI = 0; actI < this.activeTextureIDs.length; actI++) {
+                if (this.activeTextureIDs[actI] === textures[t].id) {
+                    textureActive = true;
+                    break;
+                }
+            }
+
+            if (textureActive)
+                continue;
+
+            newActiveTextures.push(textures[t].id);
+            this.GL.activeTexture(this.GL.TEXTURE0 + textures[t].id);
+            this.GL.bindTexture(this.GL.TEXTURE_2D, textures[t].tex);
+        }
+        this.activeTextureIDs = newActiveTextures;
+    }
+
+    registerTextRenderable(textRenderable, width, height) {
+        textRenderable.renderableTextID = this.RenderableTextIDCounter++;
+        if (TextureManager.getTexture('TextData') == null) {
+            //data of the text data to be read in the FS for rendering. Defaults to 0's. If you have a character at location 0, 1st column, it will be the "empty" character.
+            let textDataTextureData = new Uint16Array(width * height);
+            TextureManager.addDataTexture('TextData', textDataTextureData, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
         }
     }
 
@@ -125,15 +154,17 @@ export class _RenderManager extends Manager {
 
                 this._updateProgram(renderable.program);
 
-                this.GL.uniform4fv(this.colorLocation, renderable.color.color);
-                this.GL.uniform4fv(this.subTexcoordLocation, renderable._subSpriteData);
-                this.GL.uniform1f(this.depthLocation, renderable.depth);
-                this.GL.uniformMatrix3fv(this.matrixLocation, false, Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m);
+                if (!renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m))
+                    continue;
 
-                this.GL.uniform1i(this.textureLocation, renderable.texture.id);
- 
-                this.GL.activeTexture(this.GL.TEXTURE0 + renderable.texture.id);
-                this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.texture.tex);
+                //this._updateTextures(renderable.textures);
+                this._updateTextures(renderable.textures);
+                // if (this.activeTextureID !== renderable.textures[0].id) {
+                //     this.activeTextureID = renderable.textures[0].id;
+                //     //this.GL.uniform1i(this.textureLocation, renderable.textureID);
+                //     this.GL.activeTexture(this.GL.TEXTURE0 + renderable.textures[0].id);
+                //     this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.textures[0].tex);
+                // }
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }
