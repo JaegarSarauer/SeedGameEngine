@@ -45,10 +45,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics2D.js~Physics2D.html">Physics2D</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html">Renderable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DGrid.js~Renderable2DGrid.html">Renderable2DGrid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html">Renderable2DMultitex</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableText.js~RenderableText.html">RenderableText</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/TopDownController.js~TopDownController.html">TopDownController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Transform.js~Transform.html">Transform</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#const">const</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_F">DEFAULT_F</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TILEMAP_F">TILEMAP_F</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KeyCode">KeyCode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_V">DEFAULT_V</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#internal">internal</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Bounds.js~Bounds.html">Bounds</a></span></span></li>
@@ -143,7 +147,7 @@ export default class Renderable extends Component {
         this.primitiveCount = 6;
 
         //textures
-        this.texture = null;
+        this.textures = [];
         this._subSpriteData = [0, 0, 1, 1];
         
         this.depth = 0.5;
@@ -164,11 +168,11 @@ export default class Renderable extends Component {
     }
 
     setSubIndex(spriteIndex) {
-        if (this.texture == null)
+        if (this.textures.length &lt; 1)
             return;
 
-        let framesWidth = this.texture.frameWidth / this.texture.width;
-        let framesHeight = this.texture.frameHeight / this.texture.height;
+        let framesWidth = this.textures[0].frameWidth / this.textures[0].width;
+        let framesHeight = this.textures[0].frameHeight / this.textures[0].height;
 
         let frameWidthIndex = spriteIndex % (1 / framesWidth);
         let frameHeightIndex = Math.floor(spriteIndex * framesWidth);
@@ -176,8 +180,19 @@ export default class Renderable extends Component {
         this._subSpriteData = [-frameWidthIndex, -frameHeightIndex, framesWidth, framesHeight];
     }
 
+    setUniformData(positionMatrix) {
+        this.program.setUniforms({
+            &apos;u_color&apos;: this.color.color,
+            &apos;u_matrix&apos;: positionMatrix,
+            &apos;u_depth&apos;: this.depth,
+            &apos;u_texture&apos;: this.textures[0].id,
+            &apos;u_subTexcoord&apos;: this._subSpriteData,
+        });
+        return true;
+    }
+
     setTexture(textureObject) {
-        this.texture = textureObject;
+        this.textures[0] = textureObject;
     }
 
     /**

@@ -45,10 +45,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics2D.js~Physics2D.html">Physics2D</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html">Renderable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DGrid.js~Renderable2DGrid.html">Renderable2DGrid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html">Renderable2DMultitex</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableText.js~RenderableText.html">RenderableText</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/TopDownController.js~TopDownController.html">TopDownController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Transform.js~Transform.html">Transform</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#const">const</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_F">DEFAULT_F</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TILEMAP_F">TILEMAP_F</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KeyCode">KeyCode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_V">DEFAULT_V</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#internal">internal</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Bounds.js~Bounds.html">Bounds</a></span></span></li>
@@ -114,8 +118,8 @@
   
   
   <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="class/src/base/Updateable.js~Updateable.html">Updateable</a></span> &#x2192; <span><a href="class/src/component/Component.js~Component.html">Component</a></span> &#x2192; Renderable</div></div>
-  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></div></div>
-  <div class="flat-list" data-ice="indirectSubclass"><h4>Indirect Subclass:</h4><div><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></div></div>
+  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span>, <span><a href="class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html">Renderable2DMultitex</a></span></div></div>
+  <div class="flat-list" data-ice="indirectSubclass"><h4>Indirect Subclass:</h4><div><span><a href="class/src/component/Renderable2DGrid.js~Renderable2DGrid.html">Renderable2DGrid</a></span>, <span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span>, <span><a href="class/src/component/RenderableText.js~RenderableText.html">RenderableText</a></span></div></div>
   
   
   
@@ -424,7 +428,7 @@ as needed to achieve certain effects.</p>
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html#instance-member-texture">texture</a></span></span><span class="code" data-ice="signature">: <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html#instance-member-textures">textures</a></span></span><span class="code" data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
         </p>
       </div>
       <div>
@@ -963,6 +967,34 @@ as needed to achieve certain effects.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html#instance-method-setUniformData">setUniformData</a></span></span><span class="code" data-ice="signature">(positionMatrix: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -1308,34 +1340,6 @@ as needed to achieve certain effects.</p>
         
         <div data-ice="description"><p>Base call function for when this Updateable is to be paused.</p>
 </div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-postStartUpdate">postStartUpdate</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
       </div>
     </td>
     <td>
@@ -1912,14 +1916,14 @@ having to call setter functions later.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-member-texture">
+  <h3 data-ice="anchor" id="instance-member-textures">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">texture</span><span class="code" data-ice="signature">: <span>*</span></span>
+    <span class="code" data-ice="name">textures</span><span class="code" data-ice="signature">: <span><span>*</span><span>[]</span></span></span>
     <span class="right-info">
       
       
@@ -2186,7 +2190,7 @@ having to call setter functions later.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber149">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber160">source</a></span></span>
     </span>
   </h3>
 
@@ -2345,7 +2349,7 @@ having to call setter functions later.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber87">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber98">source</a></span></span>
     </span>
   </h3>
 
@@ -2401,7 +2405,7 @@ having to call setter functions later.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber136">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber147">source</a></span></span>
     </span>
   </h3>
 
@@ -2446,7 +2450,7 @@ having to call setter functions later.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber157">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber168">source</a></span></span>
     </span>
   </h3>
 
@@ -2549,7 +2553,7 @@ having to call setter functions later.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber107">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber118">source</a></span></span>
     </span>
   </h3>
 
@@ -2612,7 +2616,7 @@ assignment. 0,0 is regular top left corner origin, -0.5, -0.5 centers the origin
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber96">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber107">source</a></span></span>
     </span>
   </h3>
 
@@ -2673,7 +2677,7 @@ assignment. 0,0 is regular top left corner origin, -0.5, -0.5 centers the origin
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber118">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber129">source</a></span></span>
     </span>
   </h3>
 
@@ -2735,7 +2739,7 @@ assignment. 0,0 is regular top left corner origin, -0.5, -0.5 centers the origin
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber127">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber138">source</a></span></span>
     </span>
   </h3>
 
@@ -2855,7 +2859,7 @@ assignment. 0,0 is regular top left corner origin, -0.5, -0.5 centers the origin
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber80">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber91">source</a></span></span>
     </span>
   </h3>
 
@@ -2886,6 +2890,77 @@ assignment. 0,0 is regular top left corner origin, -0.5, -0.5 centers the origin
 </div>
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-setUniformData">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">setUniformData</span><span class="code" data-ice="signature">(positionMatrix: <span>*</span>): <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/Renderable.js.html#lineNumber80">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">positionMatrix</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 

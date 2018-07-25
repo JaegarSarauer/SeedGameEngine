@@ -45,10 +45,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics2D.js~Physics2D.html">Physics2D</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html">Renderable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DGrid.js~Renderable2DGrid.html">Renderable2DGrid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html">Renderable2DMultitex</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableText.js~RenderableText.html">RenderableText</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/TopDownController.js~TopDownController.html">TopDownController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Transform.js~Transform.html">Transform</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#const">const</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_F">DEFAULT_F</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TILEMAP_F">TILEMAP_F</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KeyCode">KeyCode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_V">DEFAULT_V</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#internal">internal</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Bounds.js~Bounds.html">Bounds</a></span></span></li>
@@ -97,13 +101,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Animation from &apos;<span><a href="file/src/component/Animation.js.html#lineNumber3">seed-engine/src/component/Animation.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import Animation from &apos;<span><a href="file/src/component/Animation.js.html#lineNumber8">seed-engine/src/component/Animation.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/component/Animation.js.html#lineNumber3">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/component/Animation.js.html#lineNumber8">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -123,7 +127,10 @@
 
   
   
-  
+  <div class="description" data-ice="description"><p>Animation component to be added to a GameObject to create animations inline with
+the global game loop. Animation Components currently only offer transform interpolation
+frames. Using buildInterpolation can be used to make custom animations which last n frames.</p>
+</div>
   
 
   
@@ -161,7 +168,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Constructor for the animation component.</p>
+</div>
       </div>
     </td>
     <td>
@@ -287,7 +295,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Returns the frames left until all animations are complete.</p>
+</div>
       </div>
     </td>
     <td>
@@ -309,13 +318,43 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-clearAnimation">clearAnimation</a></span></span><span class="code" data-ice="signature">(key: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-buildInterpolation">buildInterpolation</a></span></span><span class="code" data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frameChange: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>, finalFrame: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>)</span>
         </p>
       </div>
       <div>
         
         
+        <div data-ice="description"><p>Adds an animation to the Animation component.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-clearAnimation">clearAnimation</a></span></span><span class="code" data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+        </p>
+      </div>
+      <div>
         
+        
+        <div data-ice="description"><p>Clears an animation from executing any more frames.</p>
+</div>
       </div>
     </td>
     <td>
@@ -343,7 +382,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Clear all animations on this Animation component.</p>
+</div>
       </div>
     </td>
     <td>
@@ -371,7 +411,8 @@
       <div>
         
         
-        
+        <div data-ice="description"><p>Wrapper function for creating animations of moving from one point to another (translating).</p>
+</div>
       </div>
     </td>
     <td>
@@ -393,13 +434,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-interpolateRotation">interpolateRotation</a></span></span><span class="code" data-ice="signature">(rotate: <span>*</span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-interpolateRotation">interpolateRotation</a></span></span><span class="code" data-ice="signature">(posX: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posY: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posZ: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Wrapper function for creating animations to rotate the GameObject.</p>
+</div>
       </div>
     </td>
     <td>
@@ -421,13 +463,14 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-interpolateScale">interpolateScale</a></span></span><span class="code" data-ice="signature">(scaleX: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, scaleY: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, scaleZ: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-interpolateScale">interpolateScale</a></span></span><span class="code" data-ice="signature">(posX: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posY: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posZ: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Wrapper function for creating animations to change the scale of the GameObject.</p>
+</div>
       </div>
     </td>
     <td>
@@ -449,13 +492,15 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-isAnimating">isAnimating</a></span></span><span class="code" data-ice="signature">(interpol: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span>): <span>*</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-isAnimating">isAnimating</a></span></span><span class="code" data-ice="signature">(interpol: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Checks to see if an animation, defined by the interpol animation key, 
+still has frames left to complete the animation.</p>
+</div>
       </div>
     </td>
     <td>
@@ -483,41 +528,8 @@
       <div>
         
         
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
-<table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Private Methods</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/component/Animation.js~Animation.html#instance-method-_buildInterpolation">_buildInterpolation</a></span></span><span class="code" data-ice="signature">(key: <span>*</span>, frames: <span>*</span>, frameChange: <span>*</span>, finalFrame: <span>*</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
+        <div data-ice="description"><p>onUpdate is called automatically as a Component.</p>
+</div>
       </div>
     </td>
     <td>
@@ -891,34 +903,6 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-postStartUpdate">postStartUpdate</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
           <span class="code" data-ice="name"><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-start">start</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
@@ -1076,16 +1060,14 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber4">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber13">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Constructor for Base Components.
-Requires a boolean to indicate if a GameObject can contain multiple
-components of this type.</p>
+  <div data-ice="description"><p>Constructor for the animation component. A GameObject may have more than one Animation component.</p>
 </div>
 
   <div data-ice="override"><h4>Override:</h4><span><a href="class/src/component/Component.js~Component.html#instance-constructor-constructor">Component#constructor</a></span></div>
@@ -1125,7 +1107,7 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber8">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber17">source</a></span></span>
     </span>
   </h3>
 
@@ -1168,7 +1150,7 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber6">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber15">source</a></span></span>
     </span>
   </h3>
 
@@ -1211,7 +1193,7 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber7">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber16">source</a></span></span>
     </span>
   </h3>
 
@@ -1257,14 +1239,15 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber11">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber23">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Returns the frames left until all animations are complete.</p>
+</div>
 
   
 
@@ -1301,25 +1284,28 @@ components of this type.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-clearAnimation">
+  <h3 data-ice="anchor" id="instance-method-buildInterpolation">
     <span class="access" data-ice="access">public</span>
     
     
     
     
     
-    <span class="code" data-ice="name">clearAnimation</span><span class="code" data-ice="signature">(key: <span>*</span>)</span>
+    <span class="code" data-ice="name">buildInterpolation</span><span class="code" data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frameChange: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>, finalFrame: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber29">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Adds an animation to the Animation component. The animation component will keep track
+and trigger the animation frames once per game tick until there are no more frames left.
+On the final frame, the finalFrame callback will be called instead.</p>
+</div>
 
   
 
@@ -1333,9 +1319,93 @@ components of this type.</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">key</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>Animation interpolation key.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">frames</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>How many game ticks will this animation run.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">frameChange</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Callback function executed once per animation frame.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">finalFrame</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">function</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Callback function execured as the last frame. Defaults to frameChange.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-clearAnimation">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">clearAnimation</span><span class="code" data-ice="signature">(key: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber63">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Clears an animation from executing any more frames. The animation to remove is defined
+by the key parameter.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">key</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Animation interpolation key.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1371,14 +1441,15 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber33">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber70">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Clear all animations on this Animation component.</p>
+</div>
 
   
 
@@ -1414,14 +1485,15 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber38">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber85">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Wrapper function for creating animations of moving from one point to another (translating).</p>
+</div>
 
   
 
@@ -1436,44 +1508,44 @@ components of this type.</p>
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">posX</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>X position move per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">posY</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Y position move per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">posZ</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Z position move per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">frames</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 1</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Amount of frames in this animation.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">cycles</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 1</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Amount of times to repeat this animation.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">reset</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: false</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Reset the position on animation finish.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1505,18 +1577,19 @@ components of this type.</p>
     
     
     
-    <span class="code" data-ice="name">interpolateRotation</span><span class="code" data-ice="signature">(rotate: <span>*</span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
+    <span class="code" data-ice="name">interpolateRotation</span><span class="code" data-ice="signature">(posX: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posY: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posZ: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber60">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber127">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Wrapper function for creating animations to rotate the GameObject.</p>
+</div>
 
   
 
@@ -1529,31 +1602,46 @@ components of this type.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">rotate</td>
-      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="name" class="code" data-depth="0">posX</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>X scale change per frame.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">posY</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Y scale change per frame.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">posZ</td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Z scale change per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">frames</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 1</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Amount of frames in this animation.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">cycles</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 1</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Amount of times to repeat this animation.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">reset</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: false</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Reset the position on animation finish.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1585,18 +1673,19 @@ components of this type.</p>
     
     
     
-    <span class="code" data-ice="name">interpolateScale</span><span class="code" data-ice="signature">(scaleX: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, scaleY: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, scaleZ: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
+    <span class="code" data-ice="name">interpolateScale</span><span class="code" data-ice="signature">(posX: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posY: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, posZ: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, frames: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, cycles: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>, reset: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber49">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber106">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Wrapper function for creating animations to change the scale of the GameObject.</p>
+</div>
 
   
 
@@ -1609,46 +1698,46 @@ components of this type.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">scaleX</td>
+      <td data-ice="name" class="code" data-depth="0">posX</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>X scale change per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">scaleY</td>
+      <td data-ice="name" class="code" data-depth="0">posY</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Y scale change per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">scaleZ</td>
+      <td data-ice="name" class="code" data-depth="0">posZ</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 0</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Z scale change per frame.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">frames</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 1</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Amount of frames in this animation.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">cycles</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: 1</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Amount of times to repeat this animation.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">reset</td>
       <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: false</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Reset the position on animation finish.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1680,18 +1769,20 @@ components of this type.</p>
     
     
     
-    <span class="code" data-ice="name">isAnimating</span><span class="code" data-ice="signature">(interpol: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span>): <span>*</span></span>
+    <span class="code" data-ice="name">isAnimating</span><span class="code" data-ice="signature">(interpol: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber15">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber33">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  
+  <div data-ice="description"><p>Checks to see if an animation, defined by the interpol animation key, 
+still has frames left to complete the animation.</p>
+</div>
 
   
 
@@ -1705,10 +1796,10 @@ components of this type.</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" class="code" data-depth="0">interpol</td>
-      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></span></td>
-      <td data-ice="appendix"><ul><li>optional</li>
-<li>default: undefined</li></ul></td>
-      <td data-ice="description"></td>
+      <td data-ice="type" class="code"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Animation interpolation key.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -1756,98 +1847,19 @@ components of this type.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber71">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber141">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Called on every update within the game, once the object has had onStart called.</p>
+  <div data-ice="description"><p>onUpdate is called automatically as a Component. Executes a frame for each animation.</p>
 </div>
 
   <div data-ice="override"><h4>Override:</h4><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-onUpdate">Updateable#onUpdate</a></span></div>
 
   <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<h2 data-ice="title">Private Methods</h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-_buildInterpolation">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">_buildInterpolation</span><span class="code" data-ice="signature">(key: <span>*</span>, frames: <span>*</span>, frameChange: <span>*</span>, finalFrame: <span>*</span>)</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/component/Animation.js.html#lineNumber21">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">key</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">frames</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">frameChange</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" class="code" data-depth="0">finalFrame</td>
-      <td data-ice="type" class="code"><span>*</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-</tbody>
-  </table>
-</div>
 </div>
 
   

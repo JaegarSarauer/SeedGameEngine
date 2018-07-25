@@ -222,6 +222,18 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "seed-engine/src/component/renderable2dgrid.js~renderable2dgrid",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html",
+    "<span>Renderable2DGrid</span> <span class=\"search-result-import-path\">seed-engine/src/component/Renderable2DGrid.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/component/renderable2dmultitex.js~renderable2dmultitex",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html",
+    "<span>Renderable2DMultitex</span> <span class=\"search-result-import-path\">seed-engine/src/component/Renderable2DMultitex.js</span>",
+    "class"
+  ],
+  [
     "seed-engine/src/component/renderable.js~renderable",
     "class/src/component/Renderable.js~Renderable.html",
     "<span>Renderable</span> <span class=\"search-result-import-path\">seed-engine/src/component/Renderable.js</span>",
@@ -231,6 +243,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/component/renderablesquare.js~renderablesquare",
     "class/src/component/RenderableSquare.js~RenderableSquare.html",
     "<span>RenderableSquare</span> <span class=\"search-result-import-path\">seed-engine/src/component/RenderableSquare.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/component/renderabletext.js~renderabletext",
+    "class/src/component/RenderableText.js~RenderableText.html",
+    "<span>RenderableText</span> <span class=\"search-result-import-path\">seed-engine/src/component/RenderableText.js</span>",
     "class"
   ],
   [
@@ -250,6 +268,12 @@ window.esdocSearchIndex = [
     "class/src/object/SceneObject.js~SceneObject.html",
     "<span>SceneObject</span> <span class=\"search-result-import-path\">seed-engine/src/object/SceneObject.js</span>",
     "class"
+  ],
+  [
+    "seed-engine/src/const/fragmentshader.js~tilemap_f",
+    "variable/index.html#static-variable-TILEMAP_F",
+    "<span>TILEMAP_F</span> <span class=\"search-result-import-path\">seed-engine/src/const/FragmentShader.js</span>",
+    "variable"
   ],
   [
     "seed-engine/src/manager/texturemanager.js~texturemanager",
@@ -780,12 +804,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/base/updateable.js~updateable#poststartupdate",
-    "class/src/base/Updateable.js~Updateable.html#instance-method-postStartUpdate",
-    "src/base/Updateable.js~Updateable#postStartUpdate",
-    "method"
-  ],
-  [
     "src/base/updateable.js~updateable#start",
     "class/src/base/Updateable.js~Updateable.html#instance-method-start",
     "src/base/Updateable.js~Updateable#start",
@@ -810,12 +828,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/component/animation.js~animation#_buildinterpolation",
-    "class/src/component/Animation.js~Animation.html#instance-method-_buildInterpolation",
-    "src/component/Animation.js~Animation#_buildInterpolation",
-    "method"
-  ],
-  [
     "src/component/animation.js~animation#animationframes",
     "class/src/component/Animation.js~Animation.html#instance-member-animationFrames",
     "src/component/Animation.js~Animation#animationFrames",
@@ -825,6 +837,12 @@ window.esdocSearchIndex = [
     "src/component/animation.js~animation#animationframesleft",
     "class/src/component/Animation.js~Animation.html#instance-method-animationFramesLeft",
     "src/component/Animation.js~Animation#animationFramesLeft",
+    "method"
+  ],
+  [
+    "src/component/animation.js~animation#buildinterpolation",
+    "class/src/component/Animation.js~Animation.html#instance-method-buildInterpolation",
+    "src/component/Animation.js~Animation#buildInterpolation",
     "method"
   ],
   [
@@ -1170,9 +1188,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/component/renderable.js~renderable#texture",
-    "class/src/component/Renderable.js~Renderable.html#instance-member-texture",
-    "src/component/Renderable.js~Renderable#texture",
+    "src/component/renderable.js~renderable#setuniformdata",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setUniformData",
+    "src/component/Renderable.js~Renderable#setUniformData",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#textures",
+    "class/src/component/Renderable.js~Renderable.html#instance-member-textures",
+    "src/component/Renderable.js~Renderable#textures",
     "member"
   ],
   [
@@ -1194,10 +1218,178 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/renderable2dgrid.js",
+    "file/src/component/Renderable2DGrid.js.html",
+    "src/component/Renderable2DGrid.js",
+    "file"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#buildshadertiledata",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-buildShaderTileData",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#buildShaderTileData",
+    "method"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#classname",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-className",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#className",
+    "member"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#constructor",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-constructor-constructor",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#constructor",
+    "method"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#maptilesdatatexturename",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-mapTilesDataTextureName",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#mapTilesDataTextureName",
+    "member"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#maptilestexture",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-mapTilesTexture",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#mapTilesTexture",
+    "member"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#setgriddata",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-setGridData",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#setGridData",
+    "method"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#setuniformdata",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-setUniformData",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#setUniformData",
+    "method"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#shadertiledata",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-shaderTileData",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#shaderTileData",
+    "member"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#updategriddata",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-updateGridData",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#updateGridData",
+    "method"
+  ],
+  [
+    "src/component/renderable2dmultitex.js",
+    "file/src/component/Renderable2DMultitex.js.html",
+    "src/component/Renderable2DMultitex.js",
+    "file"
+  ],
+  [
+    "src/component/renderable2dmultitex.js~renderable2dmultitex#addtexture",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html#instance-method-addTexture",
+    "src/component/Renderable2DMultitex.js~Renderable2DMultitex#addTexture",
+    "method"
+  ],
+  [
+    "src/component/renderable2dmultitex.js~renderable2dmultitex#classname",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html#instance-member-className",
+    "src/component/Renderable2DMultitex.js~Renderable2DMultitex#className",
+    "member"
+  ],
+  [
+    "src/component/renderable2dmultitex.js~renderable2dmultitex#constructor",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html#instance-constructor-constructor",
+    "src/component/Renderable2DMultitex.js~Renderable2DMultitex#constructor",
+    "method"
+  ],
+  [
+    "src/component/renderable2dmultitex.js~renderable2dmultitex#removetexture",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html#instance-method-removeTexture",
+    "src/component/Renderable2DMultitex.js~Renderable2DMultitex#removeTexture",
+    "method"
+  ],
+  [
+    "src/component/renderable2dmultitex.js~renderable2dmultitex#removetextures",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html#instance-method-removeTextures",
+    "src/component/Renderable2DMultitex.js~Renderable2DMultitex#removeTextures",
+    "method"
+  ],
+  [
+    "src/component/renderable2dmultitex.js~renderable2dmultitex#textures",
+    "class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html#instance-member-textures",
+    "src/component/Renderable2DMultitex.js~Renderable2DMultitex#textures",
+    "member"
+  ],
+  [
     "src/component/renderablesquare.js",
     "file/src/component/RenderableSquare.js.html",
     "src/component/RenderableSquare.js",
     "file"
+  ],
+  [
+    "src/component/renderabletext.js",
+    "file/src/component/RenderableText.js.html",
+    "src/component/RenderableText.js",
+    "file"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#buildshadertiledata",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-buildShaderTileData",
+    "src/component/RenderableText.js~RenderableText#buildShaderTileData",
+    "method"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#classname",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-member-className",
+    "src/component/RenderableText.js~RenderableText#className",
+    "member"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#constructor",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-constructor-constructor",
+    "src/component/RenderableText.js~RenderableText#constructor",
+    "method"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#fonttexture",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-member-fontTexture",
+    "src/component/RenderableText.js~RenderableText#fontTexture",
+    "member"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#renderabletextid",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-member-renderableTextID",
+    "src/component/RenderableText.js~RenderableText#renderableTextID",
+    "member"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#setgriddata",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-setGridData",
+    "src/component/RenderableText.js~RenderableText#setGridData",
+    "method"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#settext",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-setText",
+    "src/component/RenderableText.js~RenderableText#setText",
+    "method"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#setuniformdata",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-setUniformData",
+    "src/component/RenderableText.js~RenderableText#setUniformData",
+    "method"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#shaderfontdata",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-member-shaderFontData",
+    "src/component/RenderableText.js~RenderableText#shaderFontData",
+    "member"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#textdata",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-member-textData",
+    "src/component/RenderableText.js~RenderableText#textData",
+    "member"
   ],
   [
     "src/component/topdowncontroller.js",
@@ -1962,6 +2154,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/manager/programmanager.js~_programmanager#_createprogramlocationsetters",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_createProgramLocationSetters",
+    "src/manager/ProgramManager.js~_ProgramManager#_createProgramLocationSetters",
+    "method"
+  ],
+  [
     "src/manager/programmanager.js~_programmanager#_createshader",
     "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_createShader",
     "src/manager/ProgramManager.js~_ProgramManager#_createShader",
@@ -1971,6 +2169,12 @@ window.esdocSearchIndex = [
     "src/manager/programmanager.js~_programmanager#_createshadersprogram",
     "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_createShadersProgram",
     "src/manager/ProgramManager.js~_ProgramManager#_createShadersProgram",
+    "method"
+  ],
+  [
+    "src/manager/programmanager.js~_programmanager#_getuniformsetterfromstring",
+    "class/src/manager/ProgramManager.js~_ProgramManager.html#instance-method-_getUniformSetterFromString",
+    "src/manager/ProgramManager.js~_ProgramManager#_getUniformSetterFromString",
     "method"
   ],
   [
@@ -2022,15 +2226,27 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/manager/rendermanager.js~_rendermanager#renderabletextidcounter",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-RenderableTextIDCounter",
+    "src/manager/RenderManager.js~_RenderManager#RenderableTextIDCounter",
+    "member"
+  ],
+  [
     "src/manager/rendermanager.js~_rendermanager#_updateprogram",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-_updateProgram",
     "src/manager/RenderManager.js~_RenderManager#_updateProgram",
     "method"
   ],
   [
-    "src/manager/rendermanager.js~_rendermanager#colorlocation",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-colorLocation",
-    "src/manager/RenderManager.js~_RenderManager#colorLocation",
+    "src/manager/rendermanager.js~_rendermanager#_updatetextures",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-_updateTextures",
+    "src/manager/RenderManager.js~_RenderManager#_updateTextures",
+    "method"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#activetextureids",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-activeTextureIDs",
+    "src/manager/RenderManager.js~_RenderManager#activeTextureIDs",
     "member"
   ],
   [
@@ -2046,34 +2262,22 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/manager/rendermanager.js~_rendermanager#depthlocation",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-depthLocation",
-    "src/manager/RenderManager.js~_RenderManager#depthLocation",
-    "member"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#matrixlocation",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-matrixLocation",
-    "src/manager/RenderManager.js~_RenderManager#matrixLocation",
-    "member"
-  ],
-  [
     "src/manager/rendermanager.js~_rendermanager#positionattributelocation",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-positionAttributeLocation",
     "src/manager/RenderManager.js~_RenderManager#positionAttributeLocation",
     "member"
   ],
   [
+    "src/manager/rendermanager.js~_rendermanager#registertextrenderable",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-registerTextRenderable",
+    "src/manager/RenderManager.js~_RenderManager#registerTextRenderable",
+    "method"
+  ],
+  [
     "src/manager/rendermanager.js~_rendermanager#start",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-start",
     "src/manager/RenderManager.js~_RenderManager#start",
     "method"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#subtexcoordlocation",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-subTexcoordLocation",
-    "src/manager/RenderManager.js~_RenderManager#subTexcoordLocation",
-    "member"
   ],
   [
     "src/manager/rendermanager.js~_rendermanager#texcoordattributelocation",
@@ -2085,12 +2289,6 @@ window.esdocSearchIndex = [
     "src/manager/rendermanager.js~_rendermanager#texcoordbuffer",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-texcoordBuffer",
     "src/manager/RenderManager.js~_RenderManager#texcoordBuffer",
-    "member"
-  ],
-  [
-    "src/manager/rendermanager.js~_rendermanager#texturelocation",
-    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-textureLocation",
-    "src/manager/RenderManager.js~_RenderManager#textureLocation",
     "member"
   ],
   [
@@ -2196,6 +2394,24 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/manager/texturemanager.js~_texturemanager#_createtexturefromdata",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-_createTextureFromData",
+    "src/manager/TextureManager.js~_TextureManager#_createTextureFromData",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#adddatatexture",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-addDataTexture",
+    "src/manager/TextureManager.js~_TextureManager#addDataTexture",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#addglyphinfototexture",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-addGlyphInfoToTexture",
+    "src/manager/TextureManager.js~_TextureManager#addGlyphInfoToTexture",
+    "method"
+  ],
+  [
     "src/manager/texturemanager.js~_texturemanager#addtexture",
     "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-addTexture",
     "src/manager/TextureManager.js~_TextureManager#addTexture",
@@ -2224,6 +2440,12 @@ window.esdocSearchIndex = [
     "class/src/manager/TextureManager.js~_TextureManager.html#instance-member-textures",
     "src/manager/TextureManager.js~_TextureManager#textures",
     "member"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#updatedatatexture",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-updateDataTexture",
+    "src/manager/TextureManager.js~_TextureManager#updateDataTexture",
+    "method"
   ],
   [
     "src/manager/updateablemanager.js",
@@ -2304,12 +2526,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/object/gameobject.js~gameobject#poststartupdate",
-    "class/src/object/GameObject.js~GameObject.html#instance-method-postStartUpdate",
-    "src/object/GameObject.js~GameObject#postStartUpdate",
-    "method"
-  ],
-  [
     "src/object/gameobject.js~gameobject#postupdate",
     "class/src/object/GameObject.js~GameObject.html#instance-method-postUpdate",
     "src/object/GameObject.js~GameObject#postUpdate",
@@ -2344,6 +2560,12 @@ window.esdocSearchIndex = [
     "class/src/object/GameObject.js~GameObject.html#instance-member-transform",
     "src/object/GameObject.js~GameObject#transform",
     "member"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#update",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-update",
+    "src/object/GameObject.js~GameObject#update",
+    "method"
   ],
   [
     "src/object/gameobject.js~gameobject#updatecomponents",

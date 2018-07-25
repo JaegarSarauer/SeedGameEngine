@@ -45,10 +45,14 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Physics2D.js~Physics2D.html">Physics2D</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable.js~Renderable.html">Renderable</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2D.js~Renderable2D.html">Renderable2D</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DGrid.js~Renderable2DGrid.html">Renderable2DGrid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Renderable2DMultitex.js~Renderable2DMultitex.html">Renderable2DMultitex</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableSquare.js~RenderableSquare.html">RenderableSquare</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/RenderableText.js~RenderableText.html">RenderableText</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/TopDownController.js~TopDownController.html">TopDownController</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/component/Transform.js~Transform.html">Transform</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#const">const</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_F">DEFAULT_F</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-TILEMAP_F">TILEMAP_F</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-KeyCode">KeyCode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-DEFAULT_V">DEFAULT_V</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#internal">internal</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/internal/Bounds.js~Bounds.html">Bounds</a></span></span></li>
@@ -431,35 +435,6 @@ Instead, derive SceneObject or PersistentObject to create objects that exist the
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/object/GameObject.js~GameObject.html#instance-method-postStartUpdate">postStartUpdate</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Rewritten postStartUpdate() functions which is originally defined in Updateable.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
           <span class="code" data-ice="name"><span><a href="class/src/object/GameObject.js~GameObject.html#instance-method-postUpdate">postUpdate</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
@@ -583,6 +558,35 @@ Instead, derive SceneObject or PersistentObject to create objects that exist the
         
         
         <div data-ice="description"><p>Removes all Components of the named type.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/object/GameObject.js~GameObject.html#instance-method-update">update</a></span></span><span class="code" data-ice="signature">()</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Rewritten update() functions which is originally defined in Updateable.</p>
 </div>
       </div>
     </td>
@@ -965,34 +969,6 @@ Instead, derive SceneObject or PersistentObject to create objects that exist the
         
         <div data-ice="description"><p>Base call function for when this Updateable is to be paused.</p>
 </div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          
-          
-          
-          <span class="code" data-ice="name"><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-postStartUpdate">postStartUpdate</a></span></span><span class="code" data-ice="signature">()</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        
       </div>
     </td>
     <td>
@@ -1546,7 +1522,7 @@ Component of that type to return if there are more than 1. </p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber180">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber185">source</a></span></span>
     </span>
   </h3>
 
@@ -1590,7 +1566,7 @@ Component of that type to return if there are more than 1. </p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber175">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber180">source</a></span></span>
     </span>
   </h3>
 
@@ -1601,52 +1577,6 @@ Component of that type to return if there are more than 1. </p>
 </div>
 
   
-
-  <div data-ice="properties">
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-method-postStartUpdate">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    
-    <span class="code" data-ice="name">postStartUpdate</span><span class="code" data-ice="signature">()</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber146">source</a></span></span>
-    </span>
-  </h3>
-
-  
-  
-  
-  <div data-ice="description"><p>Rewritten postStartUpdate() functions which is originally defined in Updateable.
-The GameObject adds a pre and post update function, and respective overrideable callbacks
-(onPreUpdate and onPostUpdate).</p>
-</div>
-
-  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-postStartUpdate">Updateable#postStartUpdate</a></span></div>
 
   <div data-ice="properties">
 </div>
@@ -1680,7 +1610,7 @@ The GameObject adds a pre and post update function, and respective overrideable 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber168">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber173">source</a></span></span>
     </span>
   </h3>
 
@@ -1725,7 +1655,7 @@ calls the overrideable function, onPostUpdate.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber160">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber165">source</a></span></span>
     </span>
   </h3>
 
@@ -1944,6 +1874,52 @@ calls the overrideable function, onPreUpdate.</p>
     <div data-ice="returnProperties">
 </div>
   </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-update">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">update</span><span class="code" data-ice="signature">()</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/object/GameObject.js.html#lineNumber146">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Rewritten update() functions which is originally defined in Updateable.
+The GameObject adds a pre and post update function, and respective overrideable callbacks
+(onPreUpdate and onPostUpdate).</p>
+</div>
+
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/src/base/Updateable.js~Updateable.html#instance-method-update">Updateable#update</a></span></div>
+
+  <div data-ice="properties">
+</div>
+
+  
 
   
 

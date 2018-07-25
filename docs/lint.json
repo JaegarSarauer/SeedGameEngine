@@ -1,5 +1,135 @@
 [
   {
+    "name": "Animation#interpolateScale",
+    "filePath": "src/component/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 95,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 96,
+        "line": "     * Wrapper function for creating animations to change the scale of the GameObject."
+      },
+      {
+        "lineNumber": 97,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 98,
+        "line": "     * @param {number} posX X scale change per frame."
+      },
+      {
+        "lineNumber": 99,
+        "line": "     * @param {number} posY Y scale change per frame."
+      },
+      {
+        "lineNumber": 100,
+        "line": "     * @param {number} posZ Z scale change per frame."
+      },
+      {
+        "lineNumber": 101,
+        "line": "     * @param {number} frames Amount of frames in this animation."
+      },
+      {
+        "lineNumber": 102,
+        "line": "     * @param {number} cycles Amount of times to repeat this animation."
+      },
+      {
+        "lineNumber": 103,
+        "line": "     * @param {boolean} reset Reset the position on animation finish."
+      },
+      {
+        "lineNumber": 104,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 105,
+        "line": "    interpolateScale(scaleX = 0, scaleY = 0, scaleZ = 0, frames = 1, cycles = 1, reset = false) {"
+      }
+    ],
+    "codeParams": [
+      "scaleX",
+      "scaleY",
+      "scaleZ",
+      "frames",
+      "cycles",
+      "reset"
+    ],
+    "docParams": [
+      "posX",
+      "posY",
+      "posZ",
+      "frames",
+      "cycles",
+      "reset"
+    ]
+  },
+  {
+    "name": "Animation#interpolateRotation",
+    "filePath": "src/component/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 116,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 117,
+        "line": "     * Wrapper function for creating animations to rotate the GameObject."
+      },
+      {
+        "lineNumber": 118,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 119,
+        "line": "     * @param {number} posX X scale change per frame."
+      },
+      {
+        "lineNumber": 120,
+        "line": "     * @param {number} posY Y scale change per frame."
+      },
+      {
+        "lineNumber": 121,
+        "line": "     * @param {number} posZ Z scale change per frame."
+      },
+      {
+        "lineNumber": 122,
+        "line": "     * @param {number} frames Amount of frames in this animation."
+      },
+      {
+        "lineNumber": 123,
+        "line": "     * @param {number} cycles Amount of times to repeat this animation."
+      },
+      {
+        "lineNumber": 124,
+        "line": "     * @param {boolean} reset Reset the position on animation finish."
+      },
+      {
+        "lineNumber": 125,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 126,
+        "line": "    interpolateRotation(rotate, frames = 1, cycles = 1, reset = false) {"
+      }
+    ],
+    "codeParams": [
+      "rotate",
+      "frames",
+      "cycles",
+      "reset"
+    ],
+    "docParams": [
+      "posX",
+      "posY",
+      "posZ",
+      "frames",
+      "cycles",
+      "reset"
+    ]
+  },
+  {
     "name": "Point#multiply",
     "filePath": "src/internal/Point.js",
     "lines": [
@@ -180,92 +310,78 @@
     ]
   },
   {
-    "name": "_TextureManager#addTexture",
+    "name": "_TextureManager#addDataTexture",
     "filePath": "src/manager/TextureManager.js",
     "lines": [
       {
-        "lineNumber": 30,
+        "lineNumber": 69,
         "line": "    /**"
       },
       {
-        "lineNumber": 31,
-        "line": "     * Creates a Texture JSON Object and initializes the Texture with WebGL."
-      },
-      {
-        "lineNumber": 32,
-        "line": "     * The Texture is added to the textures array."
-      },
-      {
-        "lineNumber": 33,
+        "lineNumber": 70,
         "line": "     * "
       },
       {
-        "lineNumber": 34,
-        "line": "     * @param {string} programName Name of the texture."
+        "lineNumber": 71,
+        "line": "     * @param {string} texName The name of the texture."
       },
       {
-        "lineNumber": 35,
-        "line": "     * @param {string} vertexShaderSource Source code of the vertex shader."
+        "lineNumber": 72,
+        "line": "     * @param {Array *} textureData An array object of data, array type depending on the textureInternalFormat."
       },
       {
-        "lineNumber": 36,
-        "line": "     * @param {string} fragmentShaderSource Source code of the fragment shader."
+        "lineNumber": 73,
+        "line": "     * @param {GLint} textureInternalFormat Internal texture format type."
       },
       {
-        "lineNumber": 37,
-        "line": "     *"
+        "lineNumber": 74,
+        "line": "     * @param {GLint} textureFormat Texture format type."
       },
       {
-        "lineNumber": 38,
-        "line": "     * "
+        "lineNumber": 75,
+        "line": "     * @param {number} frameWidth Width of each sub sprite frame."
       },
       {
-        "lineNumber": 39,
-        "line": "     * @param {string} texName Name of the texture."
+        "lineNumber": 76,
+        "line": "     * @param {number} frameHeight Height of each sub sprite frame."
       },
       {
-        "lineNumber": 40,
-        "line": "     * @param {string} textureImageAsset Path to the texture image to load."
+        "lineNumber": 77,
+        "line": "     * @param {number} width Width of the texture."
       },
       {
-        "lineNumber": 41,
-        "line": "     * @param {number} frameWidth Width of sprite in spritesheet. -1 for full."
+        "lineNumber": 78,
+        "line": "     * @param {number} height Height of the texture."
       },
       {
-        "lineNumber": 42,
-        "line": "     * @param {number} frameHeight Height of sprite in spritesheet. -1 for full."
-      },
-      {
-        "lineNumber": 43,
-        "line": "     * "
-      },
-      {
-        "lineNumber": 44,
-        "line": "     * @returns {Promise} A pending promise which will return the texture reference after complete."
-      },
-      {
-        "lineNumber": 45,
+        "lineNumber": 79,
         "line": "     */"
       },
       {
-        "lineNumber": 46,
-        "line": "    addTexture(texName, textureImageAsset, frameWidth, frameHeight) {"
+        "lineNumber": 80,
+        "line": "    addDataTexture(texName, textureData, textureInternalFormat, textureFormat, textureByteType, frameWidth, frameHeight, width, height) {"
       }
     ],
     "codeParams": [
       "texName",
-      "textureImageAsset",
+      "textureData",
+      "textureInternalFormat",
+      "textureFormat",
+      "textureByteType",
       "frameWidth",
-      "frameHeight"
+      "frameHeight",
+      "width",
+      "height"
     ],
     "docParams": [
-      "programName",
-      "vertexShaderSource",
-      "fragmentShaderSource",
       "texName",
-      "textureImageAsset",
+      "textureData",
+      "textureInternalFormat",
+      "textureFormat",
       "frameWidth",
-      "frameHeight"
+      "frameHeight",
+      "width",
+      "height"
     ]
   }
 ]
