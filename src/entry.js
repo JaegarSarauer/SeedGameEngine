@@ -43,6 +43,7 @@ import PhysicsManager from './manager/PhysicsManager';
 import RenderManager from './manager/RenderManager';
 import SceneManager from './manager/SceneManager';
 import TextureManager from './manager/TextureManager';
+import UIManager from './manager/UIManager';
 
 //object
 import GameObject from './object/GameObject';
@@ -50,6 +51,7 @@ import SceneObject from './object/SceneObject';
 import PersistentObject from './object/PersistentObject';
 
 //prefab
+import UIButton from './prefab/ui/UIButton';
 
 //render
     //WebGL
@@ -119,7 +121,9 @@ export {
     Loader,
     Animation,
     Renderable2DGrid,
-    RenderableText
+    RenderableText,
+    UIButton,
+    UIManager
 };
 
 

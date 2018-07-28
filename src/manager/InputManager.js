@@ -25,8 +25,10 @@ export class _InputManager extends Manager {
         super();     
         this.events = new Messager();
         this.EVENT = {
-            MOUSE_LEFT: 'mouseLeftClicked',
-            MOUSE_RIGHT: 'mouseRightClicked',
+            LEFT_PRESSED: 'mouseLeftPressed',
+            LEFT_RELEASED: 'mouseLeftReleased',
+            RIGHT_PRESSED: 'mouseRightPressed',
+            RIGHT_RELEASED: 'mouseRightReleased',
             KEY_DOWN: 'keyDown',
             KEY_UP: 'keyUp',
             KEY: 'keyDownRepeat',
@@ -34,8 +36,10 @@ export class _InputManager extends Manager {
         this.KEY_DOWN = [];
         this.KEY_PRESSED = [];
         this.KEY_UP = [];
-        this.LEFT_CLICK = [];
-        this.RIGHT_CLICK = [];
+        this.LEFT_PRESSED = [];
+        this.LEFT_RELEASED = [];
+        this.RIGHT_PRESSED = [];
+        this.RIGHT_RELEASED = [];
 
         const AllKeys = 256;
         for (let i = 0; i < AllKeys; i++) {
@@ -87,8 +91,8 @@ export class _InputManager extends Manager {
      * Sets up event listeners on the DOM.
      */
     start() {
-        //left click manager
-        DOMManager.canvas.addEventListener('click', (ev) => {
+        DOMManager.canvas.addEventListener('mouseup', (ev) => {
+            ev.preventDefault();
             let event = {
                 x: ev.offsetX * DOMManager.canvasDPIWidth,
                 y: ev.offsetY * DOMManager.canvasDPIHeight,
@@ -102,15 +106,21 @@ export class _InputManager extends Manager {
                         let relEvent = Object.assign({}, event);
                         relEvent.x -= curScene.viewports[i].getBounds().p1.x;
                         relEvent.y -= curScene.viewports[i].getBounds().p1.y;
-                        this.LEFT_CLICK[i].push(relEvent);
+                        if (ev.button == 0) {
+                            this.LEFT_RELEASED[i].push(relEvent);
+                        } else if (ev.button == 2) {
+                            this.RIGHT_RELEASED[i].push(relEvent);
+                        }
                     }
                 }
             }
-            this.events.set(this.EVENT.MOUSE_LEFT, event);
-        });
-
-        //right click manager
-        DOMManager.canvas.oncontextmenu = (ev) => {
+            if (ev.button == 0) {
+                this.events.set(this.EVENT.LEFT_RELEASED, event);
+            } else if (ev.button == 2) {
+                this.events.set(this.EVENT.RIGHT_RELEASED, event);
+            }
+        })
+        DOMManager.canvas.addEventListener('mousedown', (ev) => {
             ev.preventDefault();
             let event = {
                 x: ev.offsetX * DOMManager.canvasDPIWidth,
@@ -120,16 +130,68 @@ export class _InputManager extends Manager {
             };
             let curScene = SceneManager.getCurrentScene();
             if (curScene != null) {
-                for (let i = 0; i < curScene.viewports.length; i++) {
+                for (let i = 0; i < curScene.viewports.length; i++) {                        
                     if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
                         let relEvent = Object.assign({}, event);
                         relEvent.x -= curScene.viewports[i].getBounds().p1.x;
                         relEvent.y -= curScene.viewports[i].getBounds().p1.y;
-                        this.RIGHT_CLICK[i].push(relEvent);
+                        if (ev.button == 0) {
+                            this.LEFT_PRESSED[i].push(relEvent);
+                        } else if (ev.button == 2) {
+                            this.RIGHT_PRESSED[i].push(relEvent);
+                        }
                     }
                 }
             }
-            this.events.set(this.EVENT.MOUSE_RIGHT, event);
+            if (ev.button == 0) {
+                this.events.set(this.EVENT.LEFT_PRESSED, event);
+            } else if (ev.button == 2) {
+                this.events.set(this.EVENT.RIGHT_PRESSED, event);
+            }
+        })
+        //left click manager
+        // DOMManager.canvas.addEventListener('click', (ev) => {
+        //     let event = {
+        //         x: ev.offsetX * DOMManager.canvasDPIWidth,
+        //         y: ev.offsetY * DOMManager.canvasDPIHeight,
+        //         shiftHeld: ev.shiftKey,
+        //         ctrlHeld: ev.ctrlKey,
+        //     };
+        //     let curScene = SceneManager.getCurrentScene();
+        //     if (curScene != null) {
+        //         for (let i = 0; i < curScene.viewports.length; i++) {                        
+        //             if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
+        //                 let relEvent = Object.assign({}, event);
+        //                 relEvent.x -= curScene.viewports[i].getBounds().p1.x;
+        //                 relEvent.y -= curScene.viewports[i].getBounds().p1.y;
+        //                 this.LEFT_CLICK[i].push(relEvent);
+        //             }
+        //         }
+        //     }
+        //     this.events.set(this.EVENT.MOUSE_LEFT, event);
+        // });
+
+        //right click manager
+        DOMManager.canvas.oncontextmenu = (ev) => {
+            ev.preventDefault();
+            // let event = {
+            //     x: ev.offsetX * DOMManager.canvasDPIWidth,
+            //     y: ev.offsetY * DOMManager.canvasDPIHeight,
+            //     shiftHeld: ev.shiftKey,
+            //     ctrlHeld: ev.ctrlKey,
+            // };
+            // let curScene = SceneManager.getCurrentScene();
+            // if (curScene != null) {
+            //     for (let i = 0; i < curScene.viewports.length; i++) {
+            //         if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
+            //             let relEvent = Object.assign({}, event);
+            //             relEvent.x -= curScene.viewports[i].getBounds().p1.x;
+            //             relEvent.y -= curScene.viewports[i].getBounds().p1.y;
+            //             this.RIGHT_CLICK[i].push(relEvent);
+            //         }
+            //     }
+            // }
+            // this.events.set(this.EVENT.MOUSE_RIGHT_RELEASED, event);
         };
 
         //Key down manager
@@ -178,16 +240,20 @@ export class _InputManager extends Manager {
     update() {
         this.KEY_DOWN = [];
         this.KEY_UP = [];
-        this.LEFT_CLICK = [];
-        this.RIGHT_CLICK = [];
+        this.LEFT_PRESSED = [];
+        this.LEFT_RELEASED = [];
+        this.RIGHT_PRESSED = [];
+        this.RIGHT_RELEASED = [];
 
         let scene = null;
         if ((scene = SceneManager.getCurrentScene()) == null)
             return;
 
         for (let i = 0; i < scene.viewports.length; i++) {
-            this.LEFT_CLICK.push([]);
-            this.RIGHT_CLICK.push([]);
+            this.LEFT_PRESSED.push([]);
+            this.LEFT_RELEASED.push([]);
+            this.RIGHT_PRESSED.push([]);
+            this.RIGHT_RELEASED.push([]);
         }
     }
 }
