@@ -149,7 +149,7 @@ export class _RenderManager extends Manager {
             for (let ri = 0; ri < renderableKeys.length; ri++) {
                 let renderable = renderables[renderableKeys[ri]];
 
-                if (!renderable.enabled)
+                if (renderable.hasPaused)
                     continue;
 
                 this._updateProgram(renderable.program);
@@ -157,14 +157,7 @@ export class _RenderManager extends Manager {
                 if (!renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m))
                     continue;
 
-                //this._updateTextures(renderable.textures);
                 this._updateTextures(renderable.textures);
-                // if (this.activeTextureID !== renderable.textures[0].id) {
-                //     this.activeTextureID = renderable.textures[0].id;
-                //     //this.GL.uniform1i(this.textureLocation, renderable.textureID);
-                //     this.GL.activeTexture(this.GL.TEXTURE0 + renderable.textures[0].id);
-                //     this.GL.bindTexture(this.GL.TEXTURE_2D, renderable.textures[0].tex);
-                // }
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }

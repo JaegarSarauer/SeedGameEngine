@@ -1,6 +1,8 @@
 import { ClickController, Point, SceneObject, Renderable2D, UIManager } from '../../entry';
+import UIElement from './UIElement';
 
-export default class UIButton extends SceneObject {
+
+export default class UIButton extends UIElement {
     constructor(viewport, x, y, w, h, onLeft, onRight = () => {}) {
         super(new Point(x, y, 0), new Point(w, h, 0), 0);
         this.uiStyle = UIManager.getCurrentStyle();
@@ -34,15 +36,5 @@ export default class UIButton extends SceneObject {
             this.renderable.setSubIndex(this.uiStyle.buttonPressedSubImage);
         });
         this.addComponent(this.clickController);
-    }
-
-    disable() {
-        this.renderable.disable();
-        this.clickController.disable();
-    }
-
-    enable() {
-        this.renderable.enable();
-        this.clickController.enable();
     }
 }

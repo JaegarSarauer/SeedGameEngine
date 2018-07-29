@@ -52,6 +52,8 @@ import PersistentObject from './object/PersistentObject';
 
 //prefab
 import UIButton from './prefab/ui/UIButton';
+import UIElement from './prefab/ui/UIElement';
+import UIPanel from './prefab/ui/UIPanel';
 
 //render
     //WebGL
@@ -122,8 +124,10 @@ export {
     Animation,
     Renderable2DGrid,
     RenderableText,
+    UIElement,
     UIButton,
-    UIManager
+    UIManager,
+    UIPanel
 };
 
 

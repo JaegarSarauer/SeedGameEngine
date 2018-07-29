@@ -13,22 +13,9 @@ export default class ClickController extends Controller {
         this.onRightReleased = onRightReleased;
         this.onLeftPressed = onLeftPressed;
         this.onRightPressed = onRightPressed;
-
-        this.disabled = false;
-    }
-
-    disable() {
-        this.disabled = true;
-    }
-
-    enable() {
-        this.disabled = false;
     }
 
     onUpdate() {
-        if (this.disabled)
-            return;
-
         let pos = this.gameObject.transform.getPosition();
         let offset = this.gameObject.transform.getOriginOffset();
         let sca = this.gameObject.transform.getScale();
