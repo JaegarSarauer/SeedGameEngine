@@ -2,7 +2,7 @@ import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIElement
 
 export default class UIPanel extends UIElement {
     constructor(viewport, x, y, w, h, textureName) {
-        super(new Point(x, y, 0), new Point(1600, 402, 0), 0);
+        super(new Point(x, y, 0), new Point(w, h, 0), 0);
 
         this.panel = new Renderable2D();
         this.addComponent(this.panel);

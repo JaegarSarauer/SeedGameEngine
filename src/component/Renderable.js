@@ -48,10 +48,18 @@ export default class Renderable extends Component {
         this._subSpriteData = [0, 0, 1, 1];
         
         this.depth = 0.5;
+        this.updateTextures = false;
+    }
+
+    requestRedraw() {
+        requestAnimationFrame(() => {
+            RenderManager.update();
+        });
     }
 
     setDepth(depth) {
         this.depth = (Math.max(-DepthRange, Math.min(depth, DepthRange)) + DepthRange) / (DepthRange * 2);
+        this.requestRedraw();
     }
 
     setSubIndex(spriteIndex) {
@@ -65,6 +73,7 @@ export default class Renderable extends Component {
         let frameHeightIndex = Math.floor(spriteIndex * framesWidth);
 
         this._subSpriteData = [-frameWidthIndex, -frameHeightIndex, framesWidth, framesHeight];
+        this.requestRedraw();
     }
 
     setUniformData(positionMatrix) {
@@ -80,6 +89,8 @@ export default class Renderable extends Component {
 
     setTexture(textureObject) {
         this.textures[0] = textureObject;
+        this.updateTextures = true;
+        this.requestRedraw();
     }
 
     /**
@@ -96,6 +107,7 @@ export default class Renderable extends Component {
      */
     setPosition(point) {
         this._matrixPosition.setPosition(point.x, point.y); //point.z if we had 3D to override this
+        this.requestRedraw();
     }
 
     /**
@@ -118,6 +130,7 @@ export default class Renderable extends Component {
      */
     setRotation(rotation) {
         this._matrixRotation.setRotation(rotation);
+        this.requestRedraw();
     }
 
     /**
@@ -127,6 +140,7 @@ export default class Renderable extends Component {
      */
     setScale(scale) {
         this._matrixScale.setScale(scale.x, scale.y);
+        this.requestRedraw();
     }
 
     /**
@@ -140,6 +154,7 @@ export default class Renderable extends Component {
         this.setPosition(transform._position);
         this.setScale(transform._scale);
         this.setRotation(transform._rotation);
+        this.requestRedraw();
     }
 
     /**
@@ -149,6 +164,7 @@ export default class Renderable extends Component {
      */
     addToViewport(viewportID) {
         this.deregisterViewports[viewportID] = SceneManager.getCurrentScene().registerRenderableComponent(this, viewportID);
+        this.requestRedraw();
         return this;
     }
 
@@ -160,5 +176,6 @@ export default class Renderable extends Component {
         for (let i = 0; i < objKeys.length; i++) {
             this.deregisterViewports[objKeys[i]]();
         }
+        this.requestRedraw();
     }
 }

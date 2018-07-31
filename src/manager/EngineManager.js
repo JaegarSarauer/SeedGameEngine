@@ -37,6 +37,7 @@ export class _EngineManager extends Manager {
         //Needs to be ahead of RenderManager to init Programs for WebGL.
         ProgramManager.start();
         RenderManager.start();
+        RenderManager.update();
         InputManager.start();
 
         this.coreUpdateLoopHandle = setInterval(() => {
@@ -53,7 +54,7 @@ export class _EngineManager extends Manager {
     update() {
         PersistentManager.update();
         SceneManager.update();
-        RenderManager.update();
+        //RenderManager.update(); Only called when a Renderable is updated.
         InputManager.update();
     }
 

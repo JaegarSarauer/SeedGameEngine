@@ -123,8 +123,8 @@ export class _RenderManager extends Manager {
      * Update function for updating all renderable objects in each viewport in the current scene.
      */
     update() {
-        this.GL.clearColor(0, 0, 0, 0);
-        this.GL.clearDepth(1.0);
+        // this.GL.clearColor(0, 0, 0, 0);
+        // this.GL.clearDepth(1.0);
         this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);
 
         let scene = SceneManager.getCurrentScene();
@@ -157,7 +157,10 @@ export class _RenderManager extends Manager {
                 if (!renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m))
                     continue;
 
-                this._updateTextures(renderable.textures);
+                if (renderable.updateTextures) {
+                    this._updateTextures(renderable.textures);
+                    renderable.updateTextures = false;
+                }
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }
