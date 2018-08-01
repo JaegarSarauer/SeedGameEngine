@@ -62,6 +62,8 @@ export default class RenderableText extends Renderable2DMultitex {
         
         //additional data for the shader for font data and such.
         this.buildShaderTileData();
+
+        this.updateTextures = true;
     }
 
     setText(textString, fontScale) {

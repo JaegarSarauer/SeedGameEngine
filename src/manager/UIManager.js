@@ -11,6 +11,7 @@ export class _UIManager extends Manager {
             buttonHoverSubImage: 0,
             buttonPressedSubImage: 1,
             buttonReleasedSubImage: 1,
+            fontTexture: TextureManager.getTexture('fontDefault'),
         };
         this.styles = [];
         this.currentStyle = null;

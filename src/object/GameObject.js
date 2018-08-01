@@ -137,6 +137,26 @@ export default class GameObject extends Updateable {
             }
         }
     }
+
+    onPause() {
+        let compTypes = Object.keys(this.components);
+        for (let i = 0; i < compTypes.length; i++) {
+            let thisCompType = compTypes[i];
+            for (let ii = 0; ii < this.components[thisCompType].length; ii++) {
+                this.components[thisCompType][ii].pause();
+            }
+        }
+    }
+
+    onUnpause() {
+        let compTypes = Object.keys(this.components);
+        for (let i = 0; i < compTypes.length; i++) {
+            let thisCompType = compTypes[i];
+            for (let ii = 0; ii < this.components[thisCompType].length; ii++) {
+                this.components[thisCompType][ii].unpause();
+            }
+        }
+    }
     
     /**
      * Rewritten update() functions which is originally defined in Updateable.

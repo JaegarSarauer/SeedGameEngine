@@ -1,54 +1,56 @@
-import { ClickController, Point, SceneObject, Renderable2D, UIManager } from '../../entry';
-import UIElement from './UIElement';
+import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIText } from '../../entry';
 
+export default class UIButton extends UIText {
+    constructor(viewport, x, y, w, h, text, onLeft, onRight = () => {}) {
+        super(viewport, x + (w * .2), y, w, h * .8, text);
 
-export default class UIButton extends UIElement {
-    constructor(viewport, x, y, w, h, onLeft, onRight = () => {}) {
-        super(new Point(x, y, 0), new Point(w, h, 0), 0);
-        this.uiStyle = UIManager.getCurrentStyle();
-        this.renderable = new Renderable2D();
+        this.buttonObject = new SceneObject(new Point(x, y, 0), new Point(w, h, 0), 0);
+        this.buttonObject.renderable = new Renderable2D();
+        this.buttonObject.addComponent(this.buttonObject.renderable);
+        this.buttonObject.renderable.addToViewport(viewport);
+        this.buttonObject.renderable.setTexture(this.uiStyle.buttonTexture);
+        this.buttonObject.renderable.setSubIndex(this.uiStyle.buttonSubImage);
+        this.buttonObject.renderable.setDepth(-1000);
 
-        this.addComponent(this.renderable);
-        this.renderable.addToViewport(viewport);
-        this.renderable.setTexture(this.uiStyle.buttonTexture);
-        this.renderable.setSubIndex(this.uiStyle.buttonSubImage);
-        this.renderable.setDepth(-5000);
-
-        this.clickController = null;
         this.viewport = viewport;
         this.onLeftClick = onLeft;
         this.onRightClick = onRight;
-    }
+        this.leftPressed = false;
+        this.rightPressed = false;
 
-    setStyle(uiStyleName) {
-        this.uiStyle = UIManager.getStyle(uiStyleName);
-    }
-
-    onStart() {
-
-        this.clickController = new ClickController(this.viewport, () => {
-            console.info('left released')
-            this.renderable.setSubIndex(this.uiStyle.buttonReleasedSubImage);
-            this.onLeftClick();
+        this.buttonObject.clickController = new ClickController(this.viewport, () => {
+            if (this.leftPressed) {
+                this.buttonObject.renderable.setSubIndex(this.uiStyle.buttonReleasedSubImage);
+                this.onLeftClick();
+                this.leftPressed = false;
+            }
         }, () => {
-            console.info('right released')
-            this.renderable.setSubIndex(this.uiStyle.buttonReleasedSubImage);
-            this.onRightClick();
+            if (this.rightPressed) {
+                this.buttonObject.renderable.setSubIndex(this.uiStyle.buttonReleasedSubImage);
+                this.onRightClick();
+                this.rightPressed = false;
+            }
         }, () => {
-            console.info('left pressed')
-            this.renderable.setSubIndex(this.uiStyle.buttonPressedSubImage);
+            this.leftPressed = true;
+            this.buttonObject.renderable.setSubIndex(this.uiStyle.buttonPressedSubImage);
         }, () => {
-            console.info('right pressed')
-            this.renderable.setSubIndex(this.uiStyle.buttonPressedSubImage);
+            this.rightPressed = true;
+            this.buttonObject.renderable.setSubIndex(this.uiStyle.buttonPressedSubImage);
         });
-        this.addComponent(this.clickController);
+        this.buttonObject.addComponent(this.buttonObject.clickController);
     }
 
     onPause() {
-        this.renderable.pause();
+        this.textObject.pause();
+        this.textObject.renderableText.pause();
+        this.buttonObject.pause();
+        this.buttonObject.clickController.pause();
     }
 
     onUnpause() {
-        this.renderable.unpause();
+        this.textObject.unpause();
+        this.textObject.renderableText.unpause();
+        this.buttonObject.unpause();
+        this.buttonObject.clickController.unpause();
     }
 }

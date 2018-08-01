@@ -4,18 +4,19 @@ export default class UIPanel extends UIElement {
     constructor(viewport, x, y, w, h, textureName) {
         super(new Point(x, y, 0), new Point(w, h, 0), 0);
 
-        this.panel = new Renderable2D();
-        this.addComponent(this.panel);
-        this.panel.addToViewport(viewport);
-        this.panel.setTexture(TextureManager.getTexture(textureName));
-        this.panel.setDepth(2000);
+        this.panelObject = new SceneObject(new Point(x, y, 0), new Point(w, h, 0), 0);
+        this.panelObject.renderable = new Renderable2D();
+        this.panelObject.addComponent(this.panelObject.renderable);
+        this.panelObject.renderable.addToViewport(viewport);
+        this.panelObject.renderable.setTexture(TextureManager.getTexture(textureName));
+        this.panelObject.renderable.setDepth(2000);
     }
 
     onPause() {
-        this.panel.pause();
+        this.panelObject.pause();
     }
 
     onUnpause() {
-        this.panel.unpause();
+        this.panelObject.unpause();
     }
 }
