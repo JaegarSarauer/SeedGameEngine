@@ -63,13 +63,15 @@ export default class Messager {
      * @returns {function} A callback function to de-register from watching data at the key location.
      */
     watch(key, callback, notifyNow = true) {
+        let id = this.listenerIDCounter++;
         let token = {
-            id: this.listenerIDCounter++,
+            id,
             callback,
             stop: () => {
                 for (let i = 0; i < this.listeners[key].length; i++) {
-                    if (this.listeners[key][i].id === token.id) {
-                        delete this.listeners[key][token.id];
+                    console.info(this.listeners[key])
+                    if (this.listeners[key][i].id === id) {
+                        this.listeners[key].splice(i, 1);
                     }
                 }
             }
