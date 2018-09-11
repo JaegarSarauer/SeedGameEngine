@@ -69,7 +69,6 @@ export default class Messager {
             callback,
             stop: () => {
                 for (let i = 0; i < this.listeners[key].length; i++) {
-                    console.info(this.listeners[key])
                     if (this.listeners[key][i].id === id) {
                         this.listeners[key].splice(i, 1);
                     }

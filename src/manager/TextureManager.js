@@ -100,6 +100,7 @@ export class _TextureManager extends Manager {
         let texture = this.getTexture(texName);
         DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, texture.tex);
         DOMManager.GL.texSubImage2D(DOMManager.GL.TEXTURE_2D, 0, x1, y1, width, height, texture.textureFormat, texture.textureByteType, textureData);
+        return texture;
     }
 
     addGlyphInfoToTexture(texName, glyphInfo) {

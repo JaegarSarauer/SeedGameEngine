@@ -106,7 +106,9 @@ export class _SceneManager extends Manager {
      * @param {Scene} scene The new scene.
      */
     addScene(scene) {
-        this.pause();
+        if (this.scenes.length > 0) {
+            this.scenes[this.scenes.length - 1].__proto__.__proto__.pause();
+        }
         this.scenes.push(scene);
     }
 
@@ -116,7 +118,7 @@ export class _SceneManager extends Manager {
      */
     removeScene() {
         this.scenes.pop().end();
-        this.unpause();
+        this.scenes[this.scenes.length - 1].__proto__.__proto__.unpause();
     }
 }
 

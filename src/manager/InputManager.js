@@ -29,6 +29,7 @@ export class _InputManager extends Manager {
             LEFT_RELEASED: 'mouseLeftReleased',
             RIGHT_PRESSED: 'mouseRightPressed',
             RIGHT_RELEASED: 'mouseRightReleased',
+            MOUSE_MOVE: 'mouseMove',
             KEY_DOWN: 'keyDown',
             KEY_UP: 'keyUp',
             KEY: 'keyDownRepeat',
@@ -149,53 +150,35 @@ export class _InputManager extends Manager {
                 this.events.set(this.EVENT.RIGHT_PRESSED, event);
             }
         })
-        //left click manager
-        // DOMManager.canvas.addEventListener('click', (ev) => {
-        //     let event = {
-        //         x: ev.offsetX * DOMManager.canvasDPIWidth,
-        //         y: ev.offsetY * DOMManager.canvasDPIHeight,
-        //         shiftHeld: ev.shiftKey,
-        //         ctrlHeld: ev.ctrlKey,
-        //     };
-        //     let curScene = SceneManager.getCurrentScene();
-        //     if (curScene != null) {
-        //         for (let i = 0; i < curScene.viewports.length; i++) {                        
-        //             if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
-        //                 let relEvent = Object.assign({}, event);
-        //                 relEvent.x -= curScene.viewports[i].getBounds().p1.x;
-        //                 relEvent.y -= curScene.viewports[i].getBounds().p1.y;
-        //                 this.LEFT_CLICK[i].push(relEvent);
-        //             }
-        //         }
-        //     }
-        //     this.events.set(this.EVENT.MOUSE_LEFT, event);
-        // });
+
+        DOMManager.canvas.addEventListener('mousemove', (ev) => {
+            ev.preventDefault();
+            let event = {
+                x: ev.offsetX * DOMManager.canvasDPIWidth,
+                y: ev.offsetY * DOMManager.canvasDPIHeight,
+                shiftHeld: ev.shiftKey,
+                ctrlHeld: ev.ctrlKey,
+            };
+            let curScene = SceneManager.getCurrentScene();
+            if (curScene != null) {
+                for (let i = 0; i < curScene.viewports.length; i++) {                        
+                    if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
+                        event.x -= curScene.viewports[i].getBounds().p1.x;
+                        event.y -= curScene.viewports[i].getBounds().p1.y;
+                    }
+                }
+            }
+            this.events.set(this.EVENT.MOUSE_MOVE, event);
+        })
 
         //right click manager
         DOMManager.canvas.oncontextmenu = (ev) => {
             ev.preventDefault();
-            // let event = {
-            //     x: ev.offsetX * DOMManager.canvasDPIWidth,
-            //     y: ev.offsetY * DOMManager.canvasDPIHeight,
-            //     shiftHeld: ev.shiftKey,
-            //     ctrlHeld: ev.ctrlKey,
-            // };
-            // let curScene = SceneManager.getCurrentScene();
-            // if (curScene != null) {
-            //     for (let i = 0; i < curScene.viewports.length; i++) {
-            //         if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
-            //             let relEvent = Object.assign({}, event);
-            //             relEvent.x -= curScene.viewports[i].getBounds().p1.x;
-            //             relEvent.y -= curScene.viewports[i].getBounds().p1.y;
-            //             this.RIGHT_CLICK[i].push(relEvent);
-            //         }
-            //     }
-            // }
-            // this.events.set(this.EVENT.MOUSE_RIGHT_RELEASED, event);
         };
 
         //Key down manager
-        DOMManager.canvas.addEventListener('keydown', (event) => {
+        document.addEventListener('keydown', (event) => {
+            event.preventDefault();
             let code = event.which || event.keyCode;
             this.KEY_PRESSED[code] = true;
             if (!event.repeat) {
@@ -218,7 +201,8 @@ export class _InputManager extends Manager {
         });
 
         //Key up manager
-        DOMManager.canvas.addEventListener('keyup', (event) => {
+        document.addEventListener('keyup', (event) => {
+            event.preventDefault();
             let code = event.which || event.keyCode;
             this.KEY_DOWN[code] = false;
             this.KEY_PRESSED[code] = false;

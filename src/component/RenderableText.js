@@ -48,6 +48,14 @@ export default class RenderableText extends Renderable2DMultitex {
         this.setGridData();
     }
 
+    onPause() {
+        this.requestRedraw();
+    }
+
+    onUnpause() {
+        this.requestRedraw();
+    }
+
     setGridData() {
         //text storage max width of 1024 px.
         let width = 1024;
@@ -62,8 +70,6 @@ export default class RenderableText extends Renderable2DMultitex {
         
         //additional data for the shader for font data and such.
         this.buildShaderTileData();
-
-        this.updateTextures = true;
     }
 
     setText(textString, fontScale) {
@@ -84,6 +90,16 @@ export default class RenderableText extends Renderable2DMultitex {
         this.gameObject.transform.setScale(this.textData.textPixelWidth * fontScale, this.fontTexture.glyphInfo.height * fontScale);
         TextureManager.updateDataTexture('TextData', new Uint16Array(this.textData.textPixelArray), 0, this.renderableTextID, this.textData.textPixelWidth, 1);
         this.buildShaderTileData();
+    }
+
+    setTextAlign(textAlign) {
+        if (textAlign == 'center') {
+            this.textAlign = 1;
+        } else if (textAlign == 'right') {
+            this.textAlign = 2;
+        } else {
+            this.textAlign = 0;
+        }
     }
 
     buildShaderTileData() {

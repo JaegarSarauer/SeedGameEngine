@@ -55,6 +55,7 @@ import UIElement from './prefab/ui/UIElement';
 import UIPanel from './prefab/ui/UIPanel';
 import UIText from './prefab/ui/UIText';
 import UIButton from './prefab/ui/UIButton';
+import UITextInput from './prefab/ui/UITextInput';
 
 //render
     //WebGL
@@ -129,7 +130,8 @@ export {
     UIButton,
     UIManager,
     UIPanel,
-    UIText
+    UIText,
+    UITextInput
 };
 
 

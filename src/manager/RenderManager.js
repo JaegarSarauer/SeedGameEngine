@@ -92,22 +92,10 @@ export class _RenderManager extends Manager {
     _updateTextures(textures) {
         let newActiveTextures = [];
         for (let t = 0; t < textures.length; t++) {
-            let textureActive = false;
-            for (let actI = 0; actI < this.activeTextureIDs.length; actI++) {
-                if (this.activeTextureIDs[actI] === textures[t].id) {
-                    textureActive = true;
-                    break;
-                }
-            }
-
-            if (textureActive)
-                continue;
-
             newActiveTextures.push(textures[t].id);
             this.GL.activeTexture(this.GL.TEXTURE0 + textures[t].id);
             this.GL.bindTexture(this.GL.TEXTURE_2D, textures[t].tex);
         }
-        this.activeTextureIDs = newActiveTextures;
     }
 
     registerTextRenderable(textRenderable, width, height) {
@@ -117,6 +105,12 @@ export class _RenderManager extends Manager {
             let textDataTextureData = new Uint16Array(width * height);
             TextureManager.addDataTexture('TextData', textDataTextureData, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
         }
+    }
+
+    forceUpdate() {
+        requestAnimationFrame(() => {
+            RenderManager.update();
+        });
     }
 
     /**
@@ -157,10 +151,10 @@ export class _RenderManager extends Manager {
                 if (!renderable.setUniformData(Matrix3.projection(viewPortWidth, viewPortHeight).multiply(renderable.getMatrix()).m))
                     continue;
 
-                if (renderable.updateTextures) {
+                //if (renderable.updateTextures) {
                     this._updateTextures(renderable.textures);
                     renderable.updateTextures = false;
-                }
+                //}
 
                 this.GL.drawArrays(renderable.primitiveType, 0, renderable.primitiveCount);
             }

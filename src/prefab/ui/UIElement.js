@@ -9,4 +9,8 @@ export default class UIElement extends SceneObject {
     setStyle(uiStyleName) {
         this.uiStyle = UIManager.getStyle(uiStyleName);
     }
+
+    setDepth(depth) {
+        
+    }
 }

@@ -5,6 +5,8 @@ import TextureManager from '../manager/TextureManager';
 import RenderManager from '../manager/RenderManager';
 import Renderable2DMultitex from './Renderable2DMultitex';
 
+var dataTexCounter = 0;
+
 /**
  * Renderable2DGrid is a renderable component which uses two textures to draw
  * tilemaps using the GPU, and just one renderable. Renderable2DGrid will expect one
@@ -53,7 +55,7 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         this.shaderTileData = [];
         this.mapTilesTexture = TextureManager.getTexture(mapTilesTextureName);
         this.addTexture(this.mapTilesTexture);
-        this.mapTilesDataTextureName = mapTilesTextureName + 'Data';
+        this.mapTilesDataTextureName = mapTilesTextureName + 'Data' + dataTexCounter++;
         this.setGridData(gridData, width, height, tileViewWidth, tileViewHeight);
     }
 
@@ -69,7 +71,9 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
      */
     updateGridData(data, x1, y1, width, height) {
         let dataArray = new Uint16Array(data);
+        this.buildShaderTileData(x1, y1, width, height);
         TextureManager.updateDataTexture(this.mapTilesDataTextureName, dataArray, x1, y1, width, height);
+        this.requestRedraw();
     }
 
     setGridData(data, width, height, tileViewWidth, tileViewHeight) {

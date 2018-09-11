@@ -48,13 +48,17 @@ export default class Renderable extends Component {
         this._subSpriteData = [0, 0, 1, 1];
         
         this.depth = 0.5;
-        this.updateTextures = false;
     }
 
     requestRedraw() {
         requestAnimationFrame(() => {
             RenderManager.update();
         });
+    }
+
+    setColor(r, g, b, a) {
+        this.color.set(r, g, b, a);
+        this.requestRedraw();
     }
 
     setDepth(depth) {
@@ -89,7 +93,6 @@ export default class Renderable extends Component {
 
     setTexture(textureObject) {
         this.textures[0] = textureObject;
-        this.updateTextures = true;
         this.requestRedraw();
     }
 
@@ -177,5 +180,9 @@ export default class Renderable extends Component {
             this.deregisterViewports[objKeys[i]]();
         }
         this.requestRedraw();
+    }
+
+    onEnd() {
+        this.removeFromViewports();
     }
 }
