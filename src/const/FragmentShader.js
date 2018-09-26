@@ -93,8 +93,8 @@ void main() {
   drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);// + 0.1f;
   drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);// + 0.1f;
 
-  drawCoord.x /= u_tileData[0][2] + 0.05f;
-  drawCoord.y /= u_tileData[0][3] + 0.05f;
+  drawCoord.x /= u_tileData[0][2];
+  drawCoord.y /= u_tileData[0][3];
 
   drawCoord.x -= subTexcoord.x;// - 0.1f;
   drawCoord.y -= subTexcoord.y;// - 0.1f;

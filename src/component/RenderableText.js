@@ -60,8 +60,8 @@ export default class RenderableText extends Renderable2DMultitex {
         //text storage max width of 1024 px.
         let width = 1024;
 
-        //128 lines of text storeable.
-        let height = 128; 
+        //512 lines of text storeable.
+        let height = 512; 
 
         //assigns an ID and sets up the statically used text data texture.
         RenderManager.registerTextRenderable(this, width, height);
@@ -73,6 +73,7 @@ export default class RenderableText extends Renderable2DMultitex {
     }
 
     setText(textString, fontScale) {
+        fontScale = Math.round(fontScale);
         this.textData.text = textString;
         this.textData.textPixelArray = [];
         this.textData.textPixelWidth = 0;
@@ -104,7 +105,7 @@ export default class RenderableText extends Renderable2DMultitex {
 
     buildShaderTileData() {
         this.shaderFontData = [
-            1024, 128, this.fontTexture.width, Math.floor(this.fontTexture.height / this.fontTexture.frameHeight), 
+            1024, 512, this.fontTexture.width, Math.floor(this.fontTexture.height / this.fontTexture.frameHeight), 
             this.textData.textPixelWidth, 1, 0, this.renderableTextID, 
             0.015625, 0.2, 1, 1, 
             1, 1, 1, 1

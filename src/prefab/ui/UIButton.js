@@ -47,7 +47,7 @@ export default class UIButton extends UIText {
     }
 
     setDepth(depth) {
-        this.renderable.setDepth(depth);
+        this.textObject.renderableText.setDepth(depth);
         this.buttonObject.setDepth(depth);
     }
 }
