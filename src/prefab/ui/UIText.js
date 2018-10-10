@@ -14,6 +14,11 @@ export default class UIText extends UIElement {
         this.textObject.renderableText.setDepth(-2000);
     }
 
+    translate(x, y) {
+        this.transform.translate(x, y);
+        this.textObject.transform.translate(x, y);
+    }
+
     setPosition(x, y) {
         this.transform.setPosition(x, y, 0);
         this.textObject.transform.setPosition(x, y, 0);
@@ -21,6 +26,10 @@ export default class UIText extends UIElement {
 
     setColor(r, g, b, a) {
         this.textObject.renderableText.setColor(r, g, b, a);
+    }
+
+    getTextWidth() {
+        return this.textObject.renderableText.textData.textPixelWidth;
     }
 
     getText() {

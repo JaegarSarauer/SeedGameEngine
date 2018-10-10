@@ -12,6 +12,20 @@ export default class UIPanel extends UIElement {
         this.panelObject.renderable.setDepth(2000);
     }
 
+    setPosition(x, y) {
+        this.transform.setPosition(x, y, 0);
+        this.panelObject.transform.setPosition(x, y, 0);
+    }
+
+    setScale(x, y) {
+        this.transform.setScale(x, y, 0);
+        this.panelObject.transform.setScale(x, y, 0);
+    }
+
+    setColor(r, g, b, a) {
+        this.panelObject.renderable.setColor(r, g, b, a);
+    }
+
     onPause() {
         this.panelObject.pause();
         this.panelObject.renderable.pause();

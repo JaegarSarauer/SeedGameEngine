@@ -51,9 +51,7 @@ export default class Renderable extends Component {
     }
 
     requestRedraw() {
-        requestAnimationFrame(() => {
-            RenderManager.update();
-        });
+        RenderManager.forceUpdate();
     }
 
     setColor(r, g, b, a) {

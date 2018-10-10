@@ -20,6 +20,9 @@ export class _RenderManager extends Manager {
 
         //text
         this.RenderableTextIDCounter = 0;
+
+        //last update microsecond
+        this.lastUpdate = -1;
     }
 
     /**
@@ -108,8 +111,11 @@ export class _RenderManager extends Manager {
     }
 
     forceUpdate() {
-        requestAnimationFrame(() => {
-            RenderManager.update();
+        requestAnimationFrame((time) => {
+            if (time > this.lastUpdate) {
+                this.lastUpdate = time;
+                RenderManager.update();
+            }
         });
     }
 
