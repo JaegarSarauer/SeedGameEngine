@@ -1,5 +1,6 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
+import AudioManager from './AudioManager';
 
 
 /**
@@ -9,8 +10,8 @@ import DOMManager from './DOMManager';
 export class _TextureManager extends Manager {
     constructor() {
         super();
-        this.textureIDCounter = 0;
         this.textures = {};
+        this.textureIDs = [];
     }
 
     /**
@@ -24,6 +25,16 @@ export class _TextureManager extends Manager {
         if (this.textures[texID] == null)
             return null;
         return this.textures[texID];
+    }
+
+    _setAvailableTextureID() {
+        for (let i = 0; i < this.textureIDs.length; i++)
+            if (!this.textureIDs[i]) {
+                this.textureIDs[i] = true;
+                return i;
+            }
+        this.textureIDs.push(true);
+        return this.textureIDs.length - 1;
     }
 
     /**
@@ -56,7 +67,7 @@ export class _TextureManager extends Manager {
         return this._createTextureFromAsset(textureImageAsset).then((textureData) => {
             let texObj = this.textures[texName] = Object.assign({
                 name: texName,
-                id: this.textureIDCounter++,
+                id: this._setAvailableTextureID(),
                 frameWidth,
                 frameHeight,
                 glyphInfo,
@@ -82,7 +93,7 @@ export class _TextureManager extends Manager {
         let tex = this._createTextureFromData(textureData, textureInternalFormat, textureFormat, textureByteType, width, height);
         this.textures[texName] = Object.assign({
             name: texName,
-            id: this.textureIDCounter++,
+            id: this._setAvailableTextureID(),
             frameWidth,
             frameHeight,
             width,
@@ -94,6 +105,15 @@ export class _TextureManager extends Manager {
             textureByteType,
         }, {tex});
         return this.textures[texName];
+    }
+
+    removeTexture(texName) {
+        if (this.textures[texName] == null)
+            return;
+        
+        let id = this.textures[texName].id;
+        this.textureIDs[id] = false;
+        this.textures[texName] = null;
     }
 
     updateDataTexture(texName, textureData, x1, y1, width, height) {
@@ -109,7 +129,7 @@ export class _TextureManager extends Manager {
             console.error('Texture does not exist!');
             return false;
         }
-
+        AudioManager.playSound('slash1', 1);
         texture.glyphInfo = glyphInfo;
     }
 

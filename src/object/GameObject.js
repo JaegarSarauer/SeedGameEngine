@@ -124,7 +124,7 @@ export default class GameObject extends Updateable {
         }
         return this.components[componentName][index];
     }
-
+    
     /**
      * Updates all components on this GameObject.
      */

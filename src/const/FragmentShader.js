@@ -38,7 +38,7 @@ void main() {
 
 export const TILEMAP_F = `#version 300 es
 
-precision mediump float;
+precision highp float;
 
 //in
 in vec2 v_texcoord;
@@ -78,7 +78,7 @@ out vec4 outColor;
 
 void main() {
 
-  //get this tile xy coordinate for the tile ID.
+  //get this tile xy coordinate to obtain the tile ID.
   mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);
   mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);
 
@@ -101,7 +101,7 @@ void main() {
 
   vec4 fragColor = texture(u_texture , drawCoord) * u_color;
 
-  if(fragColor.a < 0.6) {
+  if (fragColor.a < 0.6) {
     discard;
   }
 

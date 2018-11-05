@@ -74,9 +74,11 @@ export class _RenderManager extends Manager {
         this.GL.vertexAttribPointer(
             this.texcoordAttributeLocation, t_size, t_type, t_normalize, t_stride, t_offset);
 
+
         this.GL.enable(this.GL.DEPTH_TEST);
         this.GL.depthFunc(this.GL.LESS);      
         this.GL.enable(this.GL.BLEND);
+        //this.GL.blendFuncSeparate(this.GL.GL_SRC_ALPHA, this.GL.GL_ONE_MINUS_SRC_ALPHA, this.GL.GL_ONE, this.GL.GL_ONE_MINUS_SRC_ALPHA);
     }
 
     /**
@@ -102,7 +104,7 @@ export class _RenderManager extends Manager {
     }
 
     registerTextRenderable(textRenderable, width, height) {
-        textRenderable.renderableTextID = this.RenderableTextIDCounter++;
+        textRenderable.renderableTextID = this.RenderableTextIDCounter++ % 512;
         if (TextureManager.getTexture('TextData') == null) {
             //data of the text data to be read in the FS for rendering. Defaults to 0's. If you have a character at location 0, 1st column, it will be the "empty" character.
             let textDataTextureData = new Uint16Array(width * height);

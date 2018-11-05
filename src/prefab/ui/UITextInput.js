@@ -118,12 +118,22 @@ export default class UITextInput extends UIElement {
                 this.text += ' ';
 
             //numbers
-            if (event.code >= 48 && event.code <= 57)
+            if ((event.code >= 48 && event.code <= 57))
                 this.text += event.key;
 
             //letters
             if (event.code >= 64 && event.code <= 90)
                 this.text += event.key;
+
+            //      ; = , - . /
+            if (event.code >= 186 && event.code <= 191 || event.code == 219 || event.code == 221)
+                this.text += event.key;
+
+            //special
+            // if (event.code >= 48 && event.code <= 57)
+            //     this.text += event.key;
+
+
 
             this.setText(this.text);
         }, false);
@@ -152,3 +162,5 @@ export default class UITextInput extends UIElement {
             this.keyboardListenerHandle.stop();
     }
 }
+
+

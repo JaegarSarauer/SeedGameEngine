@@ -66,4 +66,8 @@ export default class ClickController extends Controller {
             }
         }
     }
+
+    onEnd() {
+        
+    }
 }

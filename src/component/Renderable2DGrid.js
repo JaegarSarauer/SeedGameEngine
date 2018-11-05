@@ -117,6 +117,11 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         this.shaderTileData[7] = viewportY1;
     }
 
+    onEnd() {
+        this.removeFromViewports();
+        TextureManager.removeTexture(this.mapTilesDataTextureName);
+    }
+
     /**
      * Updates the uniforms of this renderable. Requires a position matrix for 
      * perspective calculations by the RendererManager.

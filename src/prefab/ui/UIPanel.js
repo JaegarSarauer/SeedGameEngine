@@ -43,4 +43,9 @@ export default class UIPanel extends UIElement {
     setDepth(depth) {
         this.panelObject.renderable.setDepth(depth);
     }
+
+    onEnd() {
+        this.panelObject.renderable.end();
+        this.panelObject.end();
+    }
 }
