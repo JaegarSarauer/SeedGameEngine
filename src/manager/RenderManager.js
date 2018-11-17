@@ -98,7 +98,7 @@ export class _RenderManager extends Manager {
         let newActiveTextures = [];
         for (let t = 0; t < textures.length; t++) {
             newActiveTextures.push(textures[t].id);
-            this.GL.activeTexture(this.GL.TEXTURE0 + textures[t].id);
+            this.GL.activeTexture(this.GL.TEXTURE0 + t);
             this.GL.bindTexture(this.GL.TEXTURE_2D, textures[t].tex);
         }
     }

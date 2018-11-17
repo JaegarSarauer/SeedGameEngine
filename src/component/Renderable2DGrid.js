@@ -136,8 +136,8 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
             'u_matrix': positionMatrix,
             'u_depth': this.depth,
             'u_tileData': this.shaderTileData,
-            'u_texture': this.textures[0].id,
-            'u_mapDataTexture': this.textures[1].id,
+            'u_texture': 0,
+            'u_mapDataTexture': 1,
         });
         return true;
     }

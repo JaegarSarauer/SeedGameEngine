@@ -83,7 +83,7 @@ export default class Renderable extends Component {
             'u_color': this.color.color,
             'u_matrix': positionMatrix,
             'u_depth': this.depth,
-            'u_texture': this.textures[0].id,
+            'u_texture': 0,
             'u_subTexcoord': this._subSpriteData,
         });
         return true;
