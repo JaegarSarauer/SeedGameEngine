@@ -44,6 +44,7 @@ export default class UIButton extends UIText {
         this.textObject.renderableText.unpause();
         this.buttonObject.unpause();
         this.buttonObject.clickController.unpause();
+        this.setText(this.text);
     }
 
     setDepth(depth) {

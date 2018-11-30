@@ -5,6 +5,7 @@ import SceneManager from './SceneManager';
 import DOMManager from './DOMManager';
 import PersistentManager from './PersistentManager';
 import InputManager from './InputManager';
+import AudioManager from './AudioManager';
 
 /**
  *  A singleton & Manager.
@@ -39,6 +40,7 @@ export class _EngineManager extends Manager {
         RenderManager.start();
         RenderManager.update();
         InputManager.start();
+        AudioManager.start();
 
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {
@@ -67,6 +69,7 @@ export class _EngineManager extends Manager {
         RenderManager.end();
         clearInterval(this.coreUpdateLoopHandle);
         DOMManager.end();
+        AudioManager.end();
     }
 
     /**

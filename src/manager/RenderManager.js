@@ -30,6 +30,8 @@ export class _RenderManager extends Manager {
      */
     start() {
         this.GL = DOMManager.GL;
+        if (this.GL == null)
+            return;
 
         this._updateProgram(ProgramManager.getProgram('Default'));
         
@@ -125,6 +127,8 @@ export class _RenderManager extends Manager {
      * Update function for updating all renderable objects in each viewport in the current scene.
      */
     update() {
+        if (this.GL == null)
+            return;
         // this.GL.clearColor(0, 0, 0, 0);
         // this.GL.clearDepth(1.0);
         this.GL.clear(this.GL.COLOR_BUFFER_BIT | this.GL.DEPTH_BUFFER_BIT);

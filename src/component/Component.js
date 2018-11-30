@@ -16,6 +16,7 @@ export default class Component extends Updateable {
      */
     constructor(unique) {
         super();
+        this.className='Component';
         this.isUnique = unique;
     }
 

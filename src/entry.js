@@ -73,9 +73,13 @@ import * as MathUtil from './utils/MathUtil';
 import Messager from './utils/Messager';
 import Loader from './utils/Loader';
 
+//const
+import KeyCode from './const/KeyCode';
+
 import Engine from './Engine';
 
 export {
+    KeyCode,
     Updateable,
     Audio,
     BoxCollider,

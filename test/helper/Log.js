@@ -1,11 +1,11 @@
 export const error = (data) => {
-    console.info('\x1b[31m', data, '\x1b[0m');
+    console.info('%c' + data, 'color: red;');
 }
 
 export const success = (data) => {
-    console.info('\x1b[32m', data, '\x1b[0m');
+    console.info('%c' + data, 'color: green;');
 }
 
 export const info = (data) => {
-    console.info('\x1b[0m', data);
+    console.info(data);
 }

@@ -3,10 +3,14 @@ import Manager from './Manager';
 export class _AudioManager extends Manager {
     constructor() {
         super();
-        this.volume = 1;
+        this.masterVolume = 1;
         this.audioCtx = null;
 
         this.sounds = {};
+    }
+
+    setMasterVolume(volume) {
+        this.masterVolume = Math.max(0, Math.min(1, volume));
     }
 
     addSound(soundName, soundAssetPath) {
@@ -26,27 +30,29 @@ export class _AudioManager extends Manager {
             request.open('GET', assetPath, true);
             request.responseType = 'arraybuffer';
             request.addEventListener('load', () => {
-                this.audioCtx.decodeAudioData(request.response, function(buffer) {
+                this.audioCtx.decodeAudioData(request.response, (buffer) => {
                     soundInfo.buffer = buffer;
                     return res(soundInfo);
-                }, onError);
+                }, (err) => {
+                    console.error(err);
+                });
             });
             request.send();
         });
     }
 
-    playSound(soundName, volume) {
+    playSound(soundName, volume = 1) {
         // Find the sound to play.
         let sound = this.sounds[soundName];
         if (sound == null)
             return false;
         
-        if (!context.createGain) // For older browser support
-            context.createGain = context.createGainNode;
+        if (!this.audioCtx.createGain) // For older browser support
+            this.audioCtx.createGain = this.audioCtx.createGainNode;
 
         // Create the gain preference and set the volume
         let gainNode = this.audioCtx.createGain();
-        gainNode.gain.value = volume;
+        gainNode.gain.value = volume * this.masterVolume;
 
         // Set the audio buffer source.
         let source = this.audioCtx.createBufferSource();
@@ -74,6 +80,15 @@ export class _AudioManager extends Manager {
         catch(e) {
             console.info('Web Audio API is not supported in this browser');
         }
+    }
+
+    removeSound(soundName) {
+        delete this.sounds[soundName];
+    }
+
+    end() {
+        let soundNames = {};
+        //remove all loaded sounds
     }
 }
 

@@ -165,6 +165,8 @@ export class _InputManager extends Manager {
                     if (curScene.viewports[i].getBounds().isInBounds(new Point(event.x, event.y))) {
                         event.x -= curScene.viewports[i].getBounds().p1.x;
                         event.y -= curScene.viewports[i].getBounds().p1.y;
+                        event.viewport = i;
+                        break;
                     }
                 }
             }

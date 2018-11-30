@@ -27,6 +27,8 @@ export class _SceneManager extends Manager {
         let scene = this.getCurrentScene();
         if (scene != null)
             return scene.registerSceneObject(sceneObject);
+        else
+            return () => {};
     }
 
     /**
@@ -38,7 +40,7 @@ export class _SceneManager extends Manager {
     registerViewport(viewport) {
         let scene = this.getCurrentScene();
         if (scene != null)
-            scene.registerViewport(viewport);
+            return scene.registerViewport(viewport);
     }
 
     /**
@@ -107,7 +109,7 @@ export class _SceneManager extends Manager {
      */
     addScene(scene) {
         if (this.scenes.length > 0) {
-            this.scenes[this.scenes.length - 1].__proto__.__proto__.pause();
+            this.scenes[this.scenes.length - 1].pause();
         }
         this.scenes.push(scene);
     }
@@ -118,7 +120,7 @@ export class _SceneManager extends Manager {
      */
     removeScene() {
         this.scenes.pop().end();
-        this.scenes[this.scenes.length - 1].__proto__.__proto__.unpause();
+        this.scenes[this.scenes.length - 1].unpause();
     }
 }
 

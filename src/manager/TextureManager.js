@@ -129,7 +129,6 @@ export class _TextureManager extends Manager {
             console.error('Texture does not exist!');
             return false;
         }
-        AudioManager.playSound('slash1', 1);
         texture.glyphInfo = glyphInfo;
     }
 

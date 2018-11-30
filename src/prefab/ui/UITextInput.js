@@ -1,7 +1,6 @@
-import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIElement, InputManager } from '../../entry';
+import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIElement, InputManager, KeyCode } from '../../entry';
 import UIPanel from './UIPanel';
 import UIText from './UIText';
-import KeyCode from '../../../../KingdomOfEloria/node_modules/seed-engine/src/const/KeyCode';
 
 export default class UITextInput extends UIElement {
       constructor(viewport, x, y, w, h, text = '', requiresFocus = true) {

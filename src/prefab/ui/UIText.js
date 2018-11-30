@@ -5,6 +5,7 @@ export default class UIText extends UIElement {
         super(new Point(x, y, 0), new Point(w, h, 0), 0);
 
         this.text = text;
+        this.currentTextScale = 1;
 
         this.textObject = new SceneObject(new Point(x, y, 0), new Point(w, h, 0), 0);
         this.textObject.renderableText = new RenderableText(this.uiStyle.fontTexture);
@@ -36,8 +37,9 @@ export default class UIText extends UIElement {
         return this.text;
     }
 
-    setText(text, scale = 1) {
+    setText(text, scale = this.currentTextScale) {
         this.text = text;
+        this.currentTextScale = Math.max(1, scale);
         this.textObject.renderableText.setText(text, scale);
     }
 
@@ -49,6 +51,7 @@ export default class UIText extends UIElement {
     onUnpause() {
         this.textObject.unpause();
         this.textObject.renderableText.unpause();
+        this.setText(this.text);
     }
 
     setDepth(depth) {

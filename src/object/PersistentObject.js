@@ -18,6 +18,6 @@ export default class PersistentObject extends GameObject {
      */
     constructor(position = new Point(0, 0, 0), size = new Point(32, 32, 1), rotation = 0) {
         super(position, size, rotation);
-        this.deregister = PersistentManager.registerSceneObject(this);
+        this.deregister = PersistentManager.registerPersistentObject(this);
     }
 }

@@ -52,13 +52,14 @@ export default class GameObject extends Updateable {
      * 
      * @param {number} componentID Id of the component to remove.
      */
-    removeComponent(componentID) {
-        if (this.components[component.className] == null)
+    removeComponent(componentName, componentID) {
+        if (this.components[componentName] == null)
             return false;
-        for (let i = 0; i < this.components[component.className].length; i++) {
-            if (this.components[component.className][i].id === componentID) {
-                this.components[component.className][i].end();
-                this.components[component.className].splice(i, 1);
+        for (let i = 0; i < this.components[componentName].length; i++) {
+            if (this.components[componentName][i].id === componentID) {
+                let comp = this.components[componentName][i];
+                this.components[componentName].splice(i, 1);
+                comp.end();
                 return true;
             }
         }
@@ -73,9 +74,10 @@ export default class GameObject extends Updateable {
     removeComponents(componentName) {
         if (this.components[componentName] == null)
             return false;
-        for (let i = 0; i < this.components[componentName].length; i++) {
-            this.components[componentName][i].end();
+        for (let i = this.components[componentName].length - 1; i >= 0; i--) {
+            let comp = this.components[componentName][i];
             this.components[componentName].splice(i, 1);
+            comp.end();
         }
         return true;
     }
@@ -91,8 +93,8 @@ export default class GameObject extends Updateable {
                 continue;
             for (let ii = 0; ii < this.components[thisCompType].length; ii++) {
                 this.components[thisCompType][ii].end();
-                this.components[thisCompType].splice(ii, 1);
             }
+            this.components[thisCompType] = [];
         }
         return true;
     }
