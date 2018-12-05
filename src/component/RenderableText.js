@@ -6,8 +6,8 @@ import RenderManager from '../manager/RenderManager';
 import Renderable2DMultitex from './Renderable2DMultitex';
 
 /**
- * Renderable2D is a renderable component which focusses on
- * 2D shaders and matricies for 2D space rendering.
+ * RenderableText is a renderable component which renders a line of text from a 
+ * collection of string data. The string data is loaded into the GPU using textures
  */
 export default class RenderableText extends Renderable2DMultitex {
 
@@ -82,7 +82,7 @@ export default class RenderableText extends Renderable2DMultitex {
             let charData = this.fontTexture.glyphInfo[char];
             if (charData == null)
                 continue;
-                
+
             for (let x = charData.x; x < charData.x + charData.width; x++) {
                 this.textData.textPixelArray.push(x + (charData.row * this.fontTexture.width));
             }

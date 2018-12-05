@@ -1,1 +1,387 @@
-[]
+[
+  {
+    "name": "Animation#interpolateScale",
+    "filePath": "src/component/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 95,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 96,
+        "line": "     * Wrapper function for creating animations to change the scale of the GameObject."
+      },
+      {
+        "lineNumber": 97,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 98,
+        "line": "     * @param {number} posX X scale change per frame."
+      },
+      {
+        "lineNumber": 99,
+        "line": "     * @param {number} posY Y scale change per frame."
+      },
+      {
+        "lineNumber": 100,
+        "line": "     * @param {number} posZ Z scale change per frame."
+      },
+      {
+        "lineNumber": 101,
+        "line": "     * @param {number} frames Amount of frames in this animation."
+      },
+      {
+        "lineNumber": 102,
+        "line": "     * @param {number} cycles Amount of times to repeat this animation."
+      },
+      {
+        "lineNumber": 103,
+        "line": "     * @param {boolean} reset Reset the position on animation finish."
+      },
+      {
+        "lineNumber": 104,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 105,
+        "line": "    interpolateScale(scaleX = 0, scaleY = 0, scaleZ = 0, frames = 1, cycles = 1, reset = false) {"
+      }
+    ],
+    "codeParams": [
+      "scaleX",
+      "scaleY",
+      "scaleZ",
+      "frames",
+      "cycles",
+      "reset"
+    ],
+    "docParams": [
+      "posX",
+      "posY",
+      "posZ",
+      "frames",
+      "cycles",
+      "reset"
+    ]
+  },
+  {
+    "name": "Animation#interpolateRotation",
+    "filePath": "src/component/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 116,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 117,
+        "line": "     * Wrapper function for creating animations to rotate the GameObject."
+      },
+      {
+        "lineNumber": 118,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 119,
+        "line": "     * @param {number} posX X scale change per frame."
+      },
+      {
+        "lineNumber": 120,
+        "line": "     * @param {number} posY Y scale change per frame."
+      },
+      {
+        "lineNumber": 121,
+        "line": "     * @param {number} posZ Z scale change per frame."
+      },
+      {
+        "lineNumber": 122,
+        "line": "     * @param {number} frames Amount of frames in this animation."
+      },
+      {
+        "lineNumber": 123,
+        "line": "     * @param {number} cycles Amount of times to repeat this animation."
+      },
+      {
+        "lineNumber": 124,
+        "line": "     * @param {boolean} reset Reset the position on animation finish."
+      },
+      {
+        "lineNumber": 125,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 126,
+        "line": "    interpolateRotation(rotate, frames = 1, cycles = 1, reset = false) {"
+      }
+    ],
+    "codeParams": [
+      "rotate",
+      "frames",
+      "cycles",
+      "reset"
+    ],
+    "docParams": [
+      "posX",
+      "posY",
+      "posZ",
+      "frames",
+      "cycles",
+      "reset"
+    ]
+  },
+  {
+    "name": "Point#multiply",
+    "filePath": "src/internal/Point.js",
+    "lines": [
+      {
+        "lineNumber": 68,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 69,
+        "line": "     * Multiplies the point by a number. The first parameter will define all x, y, z values for multiplication"
+      },
+      {
+        "lineNumber": 70,
+        "line": "     * if the 2nd and 3rd are not specified."
+      },
+      {
+        "lineNumber": 71,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 72,
+        "line": "     * @param {number} divX "
+      },
+      {
+        "lineNumber": 73,
+        "line": "     * @param {number} divY "
+      },
+      {
+        "lineNumber": 74,
+        "line": "     * @param {number} divZ "
+      },
+      {
+        "lineNumber": 75,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 76,
+        "line": "     * @returns {Point} This point after modification."
+      },
+      {
+        "lineNumber": 77,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 78,
+        "line": "    multiply(multiX, multiY = multiX, multiZ = multiX) {"
+      }
+    ],
+    "codeParams": [
+      "multiX",
+      "multiY",
+      "multiZ"
+    ],
+    "docParams": [
+      "divX",
+      "divY",
+      "divZ"
+    ]
+  },
+  {
+    "name": "Point#add",
+    "filePath": "src/internal/Point.js",
+    "lines": [
+      {
+        "lineNumber": 85,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 86,
+        "line": "     * Adds the point by a number(s). The first parameter will define all x, y, z values for addition"
+      },
+      {
+        "lineNumber": 87,
+        "line": "     * if the 2nd and 3rd are not specified."
+      },
+      {
+        "lineNumber": 88,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 89,
+        "line": "     * @param {number} divX "
+      },
+      {
+        "lineNumber": 90,
+        "line": "     * @param {number} divY "
+      },
+      {
+        "lineNumber": 91,
+        "line": "     * @param {number} divZ "
+      },
+      {
+        "lineNumber": 92,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 93,
+        "line": "     * @returns {Point} This point after modification."
+      },
+      {
+        "lineNumber": 94,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 95,
+        "line": "    add(addX, addY = addX, addZ = addX) {"
+      }
+    ],
+    "codeParams": [
+      "addX",
+      "addY",
+      "addZ"
+    ],
+    "docParams": [
+      "divX",
+      "divY",
+      "divZ"
+    ]
+  },
+  {
+    "name": "Point#subtract",
+    "filePath": "src/internal/Point.js",
+    "lines": [
+      {
+        "lineNumber": 102,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 103,
+        "line": "     * Subtracts the point by a number(s). The first parameter will define all x, y, z values for subtraction"
+      },
+      {
+        "lineNumber": 104,
+        "line": "     * if the 2nd and 3rd are not specified."
+      },
+      {
+        "lineNumber": 105,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 106,
+        "line": "     * @param {number} divX "
+      },
+      {
+        "lineNumber": 107,
+        "line": "     * @param {number} divY "
+      },
+      {
+        "lineNumber": 108,
+        "line": "     * @param {number} divZ "
+      },
+      {
+        "lineNumber": 109,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 110,
+        "line": "     * @returns {Point} This point after modification."
+      },
+      {
+        "lineNumber": 111,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 112,
+        "line": "    subtract(subX, subY = subX, subZ = subX) {"
+      }
+    ],
+    "codeParams": [
+      "subX",
+      "subY",
+      "subZ"
+    ],
+    "docParams": [
+      "divX",
+      "divY",
+      "divZ"
+    ]
+  },
+  {
+    "name": "_TextureManager#addDataTexture",
+    "filePath": "src/manager/TextureManager.js",
+    "lines": [
+      {
+        "lineNumber": 69,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 70,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 71,
+        "line": "     * @param {string} texName The name of the texture."
+      },
+      {
+        "lineNumber": 72,
+        "line": "     * @param {Array *} textureData An array object of data, array type depending on the textureInternalFormat."
+      },
+      {
+        "lineNumber": 73,
+        "line": "     * @param {GLint} textureInternalFormat Internal texture format type."
+      },
+      {
+        "lineNumber": 74,
+        "line": "     * @param {GLint} textureFormat Texture format type."
+      },
+      {
+        "lineNumber": 75,
+        "line": "     * @param {number} frameWidth Width of each sub sprite frame."
+      },
+      {
+        "lineNumber": 76,
+        "line": "     * @param {number} frameHeight Height of each sub sprite frame."
+      },
+      {
+        "lineNumber": 77,
+        "line": "     * @param {number} width Width of the texture."
+      },
+      {
+        "lineNumber": 78,
+        "line": "     * @param {number} height Height of the texture."
+      },
+      {
+        "lineNumber": 79,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 80,
+        "line": "    addDataTexture(texName, textureData, textureInternalFormat, textureFormat, textureByteType, frameWidth, frameHeight, width, height) {"
+      }
+    ],
+    "codeParams": [
+      "texName",
+      "textureData",
+      "textureInternalFormat",
+      "textureFormat",
+      "textureByteType",
+      "frameWidth",
+      "frameHeight",
+      "width",
+      "height"
+    ],
+    "docParams": [
+      "texName",
+      "textureData",
+      "textureInternalFormat",
+      "textureFormat",
+      "frameWidth",
+      "frameHeight",
+      "width",
+      "height"
+    ]
+  }
+]
