@@ -20,7 +20,7 @@ export default class UITextInput extends UIElement {
 
         this.requiresFocus = requiresFocus;
 
-        this.isFocussed = false;
+        this.isFocussed = !this.requiresFocus;
 
         //called when enter/return key is pressed.
         this.onReturn = () => {};
@@ -33,17 +33,26 @@ export default class UITextInput extends UIElement {
 
         //onclick
         this.textBoxObject.clickController = new ClickController(viewport, () => {
-            this.isFocussed = true;
+            if (!this.hasPaused)
+                this.focus();
         }, () => {}, () => {
-            this.isFocussed = true;
+            if (!this.hasPaused)
+                this.focus();
         }, () => {}, () => {
-            this.isFocussed = false;
+            if (!this.hasPaused)
+                this.focus(false);
         });
         this.textBoxObject.addComponent(this.textBoxObject.clickController);
 
         //on keyboard input
         this.keyboardListenerHandle = null;
         this.setupKeyboardListener();
+        this.setText(this.text);
+    }
+
+    focus(focus = true) {
+        this.isFocussed = focus;
+        this.setText(this.text);
     }
 
     isPassword(textViewPassword) {
@@ -75,7 +84,7 @@ export default class UITextInput extends UIElement {
     setText(text) {
         this.text = text;
         this._applyFilters();
-        this._updateText(this.textView);
+        this._updateText(this.textView + (this.isFocussed || !this.requiresFocus ? '*' : ''));
     }
 
     setBaseText(text) {
@@ -151,6 +160,7 @@ export default class UITextInput extends UIElement {
         this.textBoxObject.unpause();
         this.textBoxObject.clickController.unpause();
         this.setupKeyboardListener();
+        this.setText(this.text);
     }
 
     onEnd() {

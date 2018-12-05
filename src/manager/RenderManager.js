@@ -106,7 +106,7 @@ export class _RenderManager extends Manager {
     }
 
     registerTextRenderable(textRenderable, width, height) {
-        textRenderable.renderableTextID = this.RenderableTextIDCounter++ % 512;
+        textRenderable.renderableTextID = this.RenderableTextIDCounter++ % 1024;
         if (TextureManager.getTexture('TextData') == null) {
             //data of the text data to be read in the FS for rendering. Defaults to 0's. If you have a character at location 0, 1st column, it will be the "empty" character.
             let textDataTextureData = new Uint16Array(width * height);
@@ -115,6 +115,8 @@ export class _RenderManager extends Manager {
     }
 
     forceUpdate() {
+        if (performance.now() + 0.1 <= this.lastUpdate)
+            return;
         requestAnimationFrame((time) => {
             if (time > this.lastUpdate) {
                 this.lastUpdate = time;

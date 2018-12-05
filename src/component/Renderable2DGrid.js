@@ -29,6 +29,8 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         super(ProgramManager.getProgram('2DGrid'));
         this.className = 'Renderable2DGrid';
 
+        this.dataArray = new Uint16Array(width * height);
+
         /*
         [0][0] = 0 = Map data tiles width.
 
@@ -59,6 +61,16 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         this.setGridData(gridData, width, height, tileViewWidth, tileViewHeight);
     }
 
+    updateDataArray(data, x1, y1, width, height) {
+        if (data == null)
+            return;
+        let dataY = 0;
+        for (let y = y1; y < y1 + height; y++) {
+            this.dataArray.set(data.slice(dataY * width, (dataY + 1) * width), x1 + (y * width));
+            dataY++;
+        }
+    }
+
     /**
      * Updates the data texture by quadrant. Quadrant is specified by the x1, y1, 
      * width, and height parameters.
@@ -70,15 +82,31 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
      * @param {number} height Height (in tiles) of data to update.
      */
     updateGridData(data, x1, y1, width, height) {
-        let dataArray = new Uint16Array(data);
+        this.updateDataArray(data, x1, y1, width, height);
         this.buildShaderTileData(x1, y1, width, height);
-        TextureManager.updateDataTexture(this.mapTilesDataTextureName, dataArray, x1, y1, width, height);
+        TextureManager.updateDataTexture(this.mapTilesDataTextureName, this.dataArray, x1, y1, width, height);
+        this.requestRedraw();
+    }
+
+    /**
+     * 
+     * 
+     * @param {*} data 
+     * @param {*} x1 
+     * @param {*} y1 
+     * @param {*} width 
+     * @param {*} height 
+     */
+    updateGridDataViewport(data, x1, y1, width, height, viewportWidth, viewportHeight) {
+        this.updateDataArray(data, x1, y1, width, height);
+        this.buildShaderTileData(x1, y1, viewportWidth, viewportHeight);
+        TextureManager.updateDataTexture(this.mapTilesDataTextureName, this.dataArray, x1, y1, width, height);
         this.requestRedraw();
     }
 
     setGridData(data, width, height, tileViewWidth, tileViewHeight) {
-        let dataArray = new Uint16Array(data);
-        let texture = TextureManager.addDataTexture(this.mapTilesDataTextureName, dataArray, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
+        this.updateDataArray(data, 0, 0, width, height);
+        let texture = TextureManager.addDataTexture(this.mapTilesDataTextureName, this.dataArray, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
         this.addTexture(texture);
         /*
         [0][0] = 0 = Map data tiles width.

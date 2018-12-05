@@ -40,7 +40,7 @@ export default class UIText extends UIElement {
     setText(text, scale = this.currentTextScale) {
         this.text = text;
         this.currentTextScale = Math.max(1, scale);
-        this.textObject.renderableText.setText(text, scale);
+        this.textObject.renderableText.setText(text, this.currentTextScale);
     }
 
     onPause() {
