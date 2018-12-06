@@ -38,7 +38,6 @@ export default class Bounds {
      */
     isInBounds(point) {
         return (point.x >= this.p1.x && point.x <= this.p2.x
-                && point.y >= this.p1.y && point.y <= this.p2.y
-                && point.z >= this.p1.z && point.z <= this.p2.z);
+                && point.y >= this.p1.y && point.y <= this.p2.y);
     }
 }

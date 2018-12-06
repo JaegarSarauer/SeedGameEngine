@@ -36,13 +36,13 @@ import DOMManager from './manager/DOMManager';
 import EngineManager from './manager/EngineManager';
 import InputManager from './manager/InputManager';
 import Manager from './manager/Manager';
-import NetworkManager from './manager/NetworkManager';
 import UpdateableManager from './manager/UpdateableManager';
 import PersistentManager from './manager/PersistentManager';
 import PhysicsManager from './manager/PhysicsManager';
 import RenderManager from './manager/RenderManager';
 import SceneManager from './manager/SceneManager';
 import TextureManager from './manager/TextureManager';
+import UIManager from './manager/UIManager';
 
 //object
 import GameObject from './object/GameObject';
@@ -50,6 +50,11 @@ import SceneObject from './object/SceneObject';
 import PersistentObject from './object/PersistentObject';
 
 //prefab
+import UIElement from './prefab/ui/UIElement';
+import UIPanel from './prefab/ui/UIPanel';
+import UIText from './prefab/ui/UIText';
+import UIButton from './prefab/ui/UIButton';
+import UITextInput from './prefab/ui/UITextInput';
 
 //render
     //WebGL
@@ -68,9 +73,13 @@ import * as MathUtil from './utils/MathUtil';
 import Messager from './utils/Messager';
 import Loader from './utils/Loader';
 
+//const
+import KeyCode from './const/KeyCode';
+
 import Engine from './Engine';
 
 export {
+    KeyCode,
     Updateable,
     Audio,
     BoxCollider,
@@ -94,7 +103,6 @@ export {
     EngineManager,
     InputManager,
     Manager,
-    NetworkManager,
     UpdateableManager,
     PersistentManager,
     PhysicsManager,
@@ -119,7 +127,13 @@ export {
     Loader,
     Animation,
     Renderable2DGrid,
-    RenderableText
+    RenderableText,
+    UIElement,
+    UIButton,
+    UIManager,
+    UIPanel,
+    UIText,
+    UITextInput
 };
 
 

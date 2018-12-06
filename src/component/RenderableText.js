@@ -48,12 +48,20 @@ export default class RenderableText extends Renderable2DMultitex {
         this.setGridData();
     }
 
+    onPause() {
+        this.requestRedraw();
+    }
+
+    onUnpause() {
+        this.requestRedraw();
+    }
+
     setGridData() {
         //text storage max width of 1024 px.
         let width = 1024;
 
-        //128 lines of text storeable.
-        let height = 128; 
+        //1024 lines of text storeable.
+        let height = 1024; 
 
         //assigns an ID and sets up the statically used text data texture.
         RenderManager.registerTextRenderable(this, width, height);
@@ -65,6 +73,7 @@ export default class RenderableText extends Renderable2DMultitex {
     }
 
     setText(textString, fontScale) {
+        fontScale = Math.round(fontScale);
         this.textData.text = textString;
         this.textData.textPixelArray = [];
         this.textData.textPixelWidth = 0;
@@ -84,9 +93,19 @@ export default class RenderableText extends Renderable2DMultitex {
         this.buildShaderTileData();
     }
 
+    setTextAlign(textAlign) {
+        if (textAlign == 'center') {
+            this.textAlign = 1;
+        } else if (textAlign == 'right') {
+            this.textAlign = 2;
+        } else {
+            this.textAlign = 0;
+        }
+    }
+
     buildShaderTileData() {
         this.shaderFontData = [
-            1024, 128, this.fontTexture.width, Math.floor(this.fontTexture.height / this.fontTexture.frameHeight), 
+            1024, 1024, this.fontTexture.width, Math.floor(this.fontTexture.height / this.fontTexture.frameHeight), 
             this.textData.textPixelWidth, 1, 0, this.renderableTextID, 
             0.015625, 0.2, 1, 1, 
             1, 1, 1, 1
@@ -101,8 +120,8 @@ export default class RenderableText extends Renderable2DMultitex {
             'u_matrix': positionMatrix,
             'u_depth': this.depth,
             'u_tileData': this.shaderFontData,
-            'u_texture': this.textures[0].id,
-            'u_mapDataTexture': this.textures[1].id,
+            'u_texture': 0,
+            'u_mapDataTexture': 1,
         });
         return true;
     }

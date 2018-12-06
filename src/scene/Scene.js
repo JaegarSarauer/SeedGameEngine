@@ -65,7 +65,7 @@ export default class Scene extends Updateable {
         let deregisterCallback = () => {
             for (let i = 0; i < this.viewports.length; i++) {
                 if (this.viewports[i].viewportIndex === viewport.viewportIndex) {
-                    this.viewports[i].splice(i, 1);
+                    this.viewports.splice(i, 1);
                     return;
                 }
             }

@@ -8,7 +8,7 @@ import Test from '../helper/Test';
  */
 export default class ExampleTest extends Test {
     constructor() {
-        super('Example Test'); 
+        super('Example Test', 3); 
 
         this.value = 4;
     }

@@ -14,7 +14,11 @@ export default class Color {
      * @param {number} a Alpha value between 0 - 1
      */
     constructor(r = 1, g = 1, b = 1, a = 1) {
-        this.color = [r, g, b, a];
+        this.color = [this.minmax(r), this.minmax(g), this.minmax(b), this.minmax(a)];
+    }
+
+    minmax(val, min = 0, max = 1) {
+        return Math.max(min, Math.min(max, val));
     }
 
     /**
@@ -25,7 +29,7 @@ export default class Color {
      * @param {number} a Alpha value between 0 - 1. Defaults to previous value.
      */
     set(r = this.color[0], g = this.color[1], b = this.color[2], a = this.color[3]) {
-        this.color = [r, g, b, a];
+        this.color = [this.minmax(r), this.minmax(g), this.minmax(b), this.minmax(a)];
     }
 
     /**

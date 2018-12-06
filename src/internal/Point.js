@@ -112,8 +112,8 @@ export default class Point {
      */
     subtract(subX, subY = subX, subZ = subX) {
         this.x -= subX;
-        this.y += subY;
-        this.z += subZ;
+        this.y -= subY;
+        this.z -= subZ;
         return this;
     }
 

@@ -13,5 +13,5 @@ export const degToRad = (deg) => {
  * @param {number} rad A number in radians.
  */
 export const radToDeg = (rad) => {
-    return (deg / Math.PI) * 180;
+    return (rad / Math.PI) * 180;
 }

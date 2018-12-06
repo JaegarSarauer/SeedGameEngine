@@ -68,7 +68,7 @@ export default class Animation extends Component {
      * Clear all animations on this Animation component.
      */
     clearAnimations() {
-        this.interpolationData = [];
+        this.interpolationData = {};
         this.animationFrames = 0;
     }
 
@@ -139,20 +139,21 @@ export default class Animation extends Component {
      * onUpdate is called automatically as a Component. Executes a frame for each animation.
      */
     onUpdate() {
-        this.animationFrames--;
+        let newFrameCount = --this.animationFrames;
         let interpols = Object.keys(this.interpolationData);
         for (let i = 0; i < interpols.length; i++) {
-            let interpol = this.interpolationData[interpols];
-            this.animationFrames = Math.max(this.animationFrames, interpol.framesLeft - 1);
+            let interpol = this.interpolationData[interpols[i]];
+            newFrameCount = Math.max(this.animationFrames, interpol.framesLeft - 1);
             if (interpol.framesLeft > 1) {
                 interpol.frameChange();
                 interpol.framesLeft--;
-            } else if (interpol.framesLeft > 0) {
+            } else if (interpol.framesLeft >= 1) {
                 interpol.finalFrame();
                 interpol.framesLeft--;
-            } else if (interpol.framesLeft <= 0) {
-                delete this.interpolationData[interpols];
+            } else if (interpol.framesLeft < 1) {
+                delete this.interpolationData[interpols[i]];
             }
         }
+        this.animationFrames = newFrameCount;
     }
 }

@@ -5,6 +5,8 @@ import TextureManager from '../manager/TextureManager';
 import RenderManager from '../manager/RenderManager';
 import Renderable2DMultitex from './Renderable2DMultitex';
 
+var dataTexCounter = 0;
+
 /**
  * Renderable2DGrid is a renderable component which uses two textures to draw
  * tilemaps using the GPU, and just one renderable. Renderable2DGrid will expect one
@@ -26,6 +28,8 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
     constructor(mapTilesTextureName, gridData, width, height, tileViewWidth, tileViewHeight) {
         super(ProgramManager.getProgram('2DGrid'));
         this.className = 'Renderable2DGrid';
+
+        this.dataArray = new Uint16Array(width * height);
 
         /*
         [0][0] = 0 = Map data tiles width.
@@ -53,8 +57,18 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         this.shaderTileData = [];
         this.mapTilesTexture = TextureManager.getTexture(mapTilesTextureName);
         this.addTexture(this.mapTilesTexture);
-        this.mapTilesDataTextureName = mapTilesTextureName + 'Data';
+        this.mapTilesDataTextureName = mapTilesTextureName + 'Data' + dataTexCounter++;
         this.setGridData(gridData, width, height, tileViewWidth, tileViewHeight);
+    }
+
+    updateDataArray(data, x1, y1, width, height) {
+        if (data == null)
+            return;
+        let dataY = 0;
+        for (let y = y1; y < y1 + height; y++) {
+            this.dataArray.set(data.slice(dataY * width, (dataY + 1) * width), x1 + (y * width));
+            dataY++;
+        }
     }
 
     /**
@@ -68,13 +82,31 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
      * @param {number} height Height (in tiles) of data to update.
      */
     updateGridData(data, x1, y1, width, height) {
-        let dataArray = new Uint16Array(data);
-        TextureManager.updateDataTexture(this.mapTilesDataTextureName, dataArray, x1, y1, width, height);
+        this.updateDataArray(data, x1, y1, width, height);
+        this.buildShaderTileData(x1, y1, width, height);
+        TextureManager.updateDataTexture(this.mapTilesDataTextureName, this.dataArray, x1, y1, width, height);
+        this.requestRedraw();
+    }
+
+    /**
+     * 
+     * 
+     * @param {*} data 
+     * @param {*} x1 
+     * @param {*} y1 
+     * @param {*} width 
+     * @param {*} height 
+     */
+    updateGridDataViewport(data, x1, y1, width, height, viewportWidth, viewportHeight) {
+        this.updateDataArray(data, x1, y1, width, height);
+        this.buildShaderTileData(x1, y1, viewportWidth, viewportHeight);
+        TextureManager.updateDataTexture(this.mapTilesDataTextureName, this.dataArray, x1, y1, width, height);
+        this.requestRedraw();
     }
 
     setGridData(data, width, height, tileViewWidth, tileViewHeight) {
-        let dataArray = new Uint16Array(data);
-        let texture = TextureManager.addDataTexture(this.mapTilesDataTextureName, dataArray, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
+        this.updateDataArray(data, 0, 0, width, height);
+        let texture = TextureManager.addDataTexture(this.mapTilesDataTextureName, this.dataArray, RenderManager.GL.R16UI, RenderManager.GL.RED_INTEGER, RenderManager.GL.UNSIGNED_SHORT, -1, -1, width, height);
         this.addTexture(texture);
         /*
         [0][0] = 0 = Map data tiles width.
@@ -113,6 +145,11 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
         this.shaderTileData[7] = viewportY1;
     }
 
+    onEnd() {
+        this.removeFromViewports();
+        TextureManager.removeTexture(this.mapTilesDataTextureName);
+    }
+
     /**
      * Updates the uniforms of this renderable. Requires a position matrix for 
      * perspective calculations by the RendererManager.
@@ -127,8 +164,8 @@ export default class Renderable2DGrid extends Renderable2DMultitex {
             'u_matrix': positionMatrix,
             'u_depth': this.depth,
             'u_tileData': this.shaderTileData,
-            'u_texture': this.textures[0].id,
-            'u_mapDataTexture': this.textures[1].id,
+            'u_texture': 0,
+            'u_mapDataTexture': 1,
         });
         return true;
     }

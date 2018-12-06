@@ -22,6 +22,8 @@ export class _ProgramManager extends Manager {
      * Creates default programs for easy reference later on.
      */
     start() {
+        if (DOMManager.GL == null)
+            return;
         this.addProgram('Default', VertexShader.DEFAULT_V, FragmentShader.DEFAULT_F, {
             'u_color': 'uniform4fv',
             'u_matrix': 'uniformMatrix3fv',

@@ -54,8 +54,8 @@ export default class Updateable {
      */
     pause() {
         if (!this.hasPaused) {
-            this.onPause();
             this.hasPaused = true;
+            this.onPause();
         }
     }
 
@@ -64,8 +64,8 @@ export default class Updateable {
      */
     unpause() {
         if (this.hasPaused) {
-            this.onUnpause();
             this.hasPaused = false;
+            this.onUnpause();
         }
     }
 

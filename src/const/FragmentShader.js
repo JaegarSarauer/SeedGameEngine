@@ -38,7 +38,7 @@ void main() {
 
 export const TILEMAP_F = `#version 300 es
 
-precision mediump float;
+precision highp float;
 
 //in
 in vec2 v_texcoord;
@@ -78,7 +78,7 @@ out vec4 outColor;
 
 void main() {
 
-  //get this tile xy coordinate for the tile ID.
+  //get this tile xy coordinate to obtain the tile ID.
   mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);
   mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);
 
@@ -90,18 +90,18 @@ void main() {
   subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);
 
 
-  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);// + 0.1f;
-  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);// + 0.1f;
+  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);
+  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);
 
-  drawCoord.x /= u_tileData[0][2] + 0.05f;
-  drawCoord.y /= u_tileData[0][3] + 0.05f;
+  drawCoord.x /= u_tileData[0][2];
+  drawCoord.y /= u_tileData[0][3];
 
-  drawCoord.x -= subTexcoord.x;// - 0.1f;
-  drawCoord.y -= subTexcoord.y;// - 0.1f;
+  drawCoord.x -= subTexcoord.x;
+  drawCoord.y -= subTexcoord.y;
 
   vec4 fragColor = texture(u_texture , drawCoord) * u_color;
 
-  if(fragColor.a < 0.6) {
+  if (fragColor.a < 0.6) {
     discard;
   }
 

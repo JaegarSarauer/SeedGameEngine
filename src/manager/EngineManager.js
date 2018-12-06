@@ -5,6 +5,7 @@ import SceneManager from './SceneManager';
 import DOMManager from './DOMManager';
 import PersistentManager from './PersistentManager';
 import InputManager from './InputManager';
+import AudioManager from './AudioManager';
 
 /**
  *  A singleton & Manager.
@@ -37,7 +38,9 @@ export class _EngineManager extends Manager {
         //Needs to be ahead of RenderManager to init Programs for WebGL.
         ProgramManager.start();
         RenderManager.start();
+        RenderManager.update();
         InputManager.start();
+        AudioManager.start();
 
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {
@@ -53,7 +56,7 @@ export class _EngineManager extends Manager {
     update() {
         PersistentManager.update();
         SceneManager.update();
-        RenderManager.update();
+        //RenderManager.update(); Only called when a Renderable is updated.
         InputManager.update();
     }
 
@@ -66,6 +69,7 @@ export class _EngineManager extends Manager {
         RenderManager.end();
         clearInterval(this.coreUpdateLoopHandle);
         DOMManager.end();
+        AudioManager.end();
     }
 
     /**
