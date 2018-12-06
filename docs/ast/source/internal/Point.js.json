@@ -3552,7 +3552,7 @@
                             "column": 22
                           }
                         },
-                        "operator": "+=",
+                        "operator": "-=",
                         "left": {
                           "type": "MemberExpression",
                           "start": 3057,
@@ -3648,7 +3648,7 @@
                             "column": 22
                           }
                         },
-                        "operator": "+=",
+                        "operator": "-=",
                         "left": {
                           "type": "MemberExpression",
                           "start": 3081,
@@ -11191,7 +11191,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "+=",
+      "value": "-=",
       "start": 3064,
       "end": 3066,
       "loc": {
@@ -11350,7 +11350,7 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "+=",
+      "value": "-=",
       "start": 3088,
       "end": 3090,
       "loc": {

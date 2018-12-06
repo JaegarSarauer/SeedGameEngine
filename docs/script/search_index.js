@@ -156,12 +156,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "seed-engine/src/manager/networkmanager.js~networkmanager",
-    "variable/index.html#static-variable-NetworkManager",
-    "<span>NetworkManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/NetworkManager.js</span>",
-    "variable"
-  ],
-  [
     "seed-engine/src/manager/persistentmanager.js~persistentmanager",
     "variable/index.html#static-variable-PersistentManager",
     "<span>PersistentManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/PersistentManager.js</span>",
@@ -294,6 +288,42 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "seed-engine/src/prefab/ui/uibutton.js~uibutton",
+    "class/src/prefab/ui/UIButton.js~UIButton.html",
+    "<span>UIButton</span> <span class=\"search-result-import-path\">seed-engine/src/prefab/ui/UIButton.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/prefab/ui/uielement.js~uielement",
+    "class/src/prefab/ui/UIElement.js~UIElement.html",
+    "<span>UIElement</span> <span class=\"search-result-import-path\">seed-engine/src/prefab/ui/UIElement.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/manager/uimanager.js~uimanager",
+    "variable/index.html#static-variable-UIManager",
+    "<span>UIManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/UIManager.js</span>",
+    "variable"
+  ],
+  [
+    "seed-engine/src/prefab/ui/uipanel.js~uipanel",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html",
+    "<span>UIPanel</span> <span class=\"search-result-import-path\">seed-engine/src/prefab/ui/UIPanel.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/prefab/ui/uitext.js~uitext",
+    "class/src/prefab/ui/UIText.js~UIText.html",
+    "<span>UIText</span> <span class=\"search-result-import-path\">seed-engine/src/prefab/ui/UIText.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/prefab/ui/uitextinput.js~uitextinput",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html",
+    "<span>UITextInput</span> <span class=\"search-result-import-path\">seed-engine/src/prefab/ui/UITextInput.js</span>",
+    "class"
+  ],
+  [
     "seed-engine/src/base/updateable.js~updateable",
     "class/src/base/Updateable.js~Updateable.html",
     "<span>Updateable</span> <span class=\"search-result-import-path\">seed-engine/src/base/Updateable.js</span>",
@@ -342,12 +372,6 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "seed-engine/src/manager/networkmanager.js~_networkmanager",
-    "class/src/manager/NetworkManager.js~_NetworkManager.html",
-    "<span>_NetworkManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/NetworkManager.js</span>",
-    "class"
-  ],
-  [
     "seed-engine/src/manager/persistentmanager.js~_persistentmanager",
     "class/src/manager/PersistentManager.js~_PersistentManager.html",
     "<span>_PersistentManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/PersistentManager.js</span>",
@@ -381,6 +405,12 @@ window.esdocSearchIndex = [
     "seed-engine/src/manager/texturemanager.js~_texturemanager",
     "class/src/manager/TextureManager.js~_TextureManager.html",
     "<span>_TextureManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/TextureManager.js</span>",
+    "class"
+  ],
+  [
+    "seed-engine/src/manager/uimanager.js~_uimanager",
+    "class/src/manager/UIManager.js~_UIManager.html",
+    "<span>_UIManager</span> <span class=\"search-result-import-path\">seed-engine/src/manager/UIManager.js</span>",
     "class"
   ],
   [
@@ -930,21 +960,63 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/component/clickcontroller.js~clickcontroller#classname",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-className",
+    "src/component/ClickController.js~ClickController#className",
+    "member"
+  ],
+  [
     "src/component/clickcontroller.js~clickcontroller#constructor",
     "class/src/component/ClickController.js~ClickController.html#instance-constructor-constructor",
     "src/component/ClickController.js~ClickController#constructor",
     "method"
   ],
   [
-    "src/component/clickcontroller.js~clickcontroller#onleftclick",
-    "class/src/component/ClickController.js~ClickController.html#instance-member-onLeftClick",
-    "src/component/ClickController.js~ClickController#onLeftClick",
+    "src/component/clickcontroller.js~clickcontroller#leftpressed",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-leftPressed",
+    "src/component/ClickController.js~ClickController#leftPressed",
     "member"
   ],
   [
-    "src/component/clickcontroller.js~clickcontroller#onrightclick",
-    "class/src/component/ClickController.js~ClickController.html#instance-member-onRightClick",
-    "src/component/ClickController.js~ClickController#onRightClick",
+    "src/component/clickcontroller.js~clickcontroller#onend",
+    "class/src/component/ClickController.js~ClickController.html#instance-method-onEnd",
+    "src/component/ClickController.js~ClickController#onEnd",
+    "method"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onleftpressed",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onLeftPressed",
+    "src/component/ClickController.js~ClickController#onLeftPressed",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onleftreleaseoutside",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onLeftReleaseOutside",
+    "src/component/ClickController.js~ClickController#onLeftReleaseOutside",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onleftreleased",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onLeftReleased",
+    "src/component/ClickController.js~ClickController#onLeftReleased",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onrightpressed",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onRightPressed",
+    "src/component/ClickController.js~ClickController#onRightPressed",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onrightreleaseoutside",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onRightReleaseOutside",
+    "src/component/ClickController.js~ClickController#onRightReleaseOutside",
+    "member"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#onrightreleased",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-onRightReleased",
+    "src/component/ClickController.js~ClickController#onRightReleased",
     "member"
   ],
   [
@@ -952,6 +1024,12 @@ window.esdocSearchIndex = [
     "class/src/component/ClickController.js~ClickController.html#instance-method-onUpdate",
     "src/component/ClickController.js~ClickController#onUpdate",
     "method"
+  ],
+  [
+    "src/component/clickcontroller.js~clickcontroller#rightpressed",
+    "class/src/component/ClickController.js~ClickController.html#instance-member-rightPressed",
+    "src/component/ClickController.js~ClickController#rightPressed",
+    "member"
   ],
   [
     "src/component/clickcontroller.js~clickcontroller#viewportid",
@@ -976,6 +1054,12 @@ window.esdocSearchIndex = [
     "file/src/component/Component.js.html",
     "src/component/Component.js",
     "file"
+  ],
+  [
+    "src/component/component.js~component#classname",
+    "class/src/component/Component.js~Component.html#instance-member-className",
+    "src/component/Component.js~Component#className",
+    "member"
   ],
   [
     "src/component/component.js~component#constructor",
@@ -1086,24 +1170,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/component/renderable.js~renderable#disable",
-    "class/src/component/Renderable.js~Renderable.html#instance-method-disable",
-    "src/component/Renderable.js~Renderable#disable",
-    "method"
-  ],
-  [
-    "src/component/renderable.js~renderable#enable",
-    "class/src/component/Renderable.js~Renderable.html#instance-method-enable",
-    "src/component/Renderable.js~Renderable#enable",
-    "method"
-  ],
-  [
-    "src/component/renderable.js~renderable#enabled",
-    "class/src/component/Renderable.js~Renderable.html#instance-member-enabled",
-    "src/component/Renderable.js~Renderable#enabled",
-    "member"
-  ],
-  [
     "src/component/renderable.js~renderable#getmatrix",
     "class/src/component/Renderable.js~Renderable.html#instance-method-getMatrix",
     "src/component/Renderable.js~Renderable#getMatrix",
@@ -1113,6 +1179,12 @@ window.esdocSearchIndex = [
     "src/component/renderable.js~renderable#onaddcomponent",
     "class/src/component/Renderable.js~Renderable.html#instance-method-onAddComponent",
     "src/component/Renderable.js~Renderable#onAddComponent",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#onend",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-onEnd",
+    "src/component/Renderable.js~Renderable#onEnd",
     "method"
   ],
   [
@@ -1144,6 +1216,18 @@ window.esdocSearchIndex = [
     "class/src/component/Renderable.js~Renderable.html#instance-member-renderPositions",
     "src/component/Renderable.js~Renderable#renderPositions",
     "member"
+  ],
+  [
+    "src/component/renderable.js~renderable#requestredraw",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-requestRedraw",
+    "src/component/Renderable.js~Renderable#requestRedraw",
+    "method"
+  ],
+  [
+    "src/component/renderable.js~renderable#setcolor",
+    "class/src/component/Renderable.js~Renderable.html#instance-method-setColor",
+    "src/component/Renderable.js~Renderable#setColor",
+    "method"
   ],
   [
     "src/component/renderable.js~renderable#setdepth",
@@ -1242,6 +1326,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/renderable2dgrid.js~renderable2dgrid#dataarray",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-dataArray",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#dataArray",
+    "member"
+  ],
+  [
     "src/component/renderable2dgrid.js~renderable2dgrid#maptilesdatatexturename",
     "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-mapTilesDataTextureName",
     "src/component/Renderable2DGrid.js~Renderable2DGrid#mapTilesDataTextureName",
@@ -1252,6 +1342,12 @@ window.esdocSearchIndex = [
     "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-member-mapTilesTexture",
     "src/component/Renderable2DGrid.js~Renderable2DGrid#mapTilesTexture",
     "member"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#onend",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-onEnd",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#onEnd",
+    "method"
   ],
   [
     "src/component/renderable2dgrid.js~renderable2dgrid#setgriddata",
@@ -1272,9 +1368,21 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/component/renderable2dgrid.js~renderable2dgrid#updatedataarray",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-updateDataArray",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#updateDataArray",
+    "method"
+  ],
+  [
     "src/component/renderable2dgrid.js~renderable2dgrid#updategriddata",
     "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-updateGridData",
     "src/component/Renderable2DGrid.js~Renderable2DGrid#updateGridData",
+    "method"
+  ],
+  [
+    "src/component/renderable2dgrid.js~renderable2dgrid#updategriddataviewport",
+    "class/src/component/Renderable2DGrid.js~Renderable2DGrid.html#instance-method-updateGridDataViewport",
+    "src/component/Renderable2DGrid.js~Renderable2DGrid#updateGridDataViewport",
     "method"
   ],
   [
@@ -1356,6 +1464,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/component/renderabletext.js~renderabletext#onpause",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-onPause",
+    "src/component/RenderableText.js~RenderableText#onPause",
+    "method"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#onunpause",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-onUnpause",
+    "src/component/RenderableText.js~RenderableText#onUnpause",
+    "method"
+  ],
+  [
     "src/component/renderabletext.js~renderabletext#renderabletextid",
     "class/src/component/RenderableText.js~RenderableText.html#instance-member-renderableTextID",
     "src/component/RenderableText.js~RenderableText#renderableTextID",
@@ -1374,6 +1494,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/component/renderabletext.js~renderabletext#settextalign",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-method-setTextAlign",
+    "src/component/RenderableText.js~RenderableText#setTextAlign",
+    "method"
+  ],
+  [
     "src/component/renderabletext.js~renderabletext#setuniformdata",
     "class/src/component/RenderableText.js~RenderableText.html#instance-method-setUniformData",
     "src/component/RenderableText.js~RenderableText#setUniformData",
@@ -1383,6 +1509,12 @@ window.esdocSearchIndex = [
     "src/component/renderabletext.js~renderabletext#shaderfontdata",
     "class/src/component/RenderableText.js~RenderableText.html#instance-member-shaderFontData",
     "src/component/RenderableText.js~RenderableText#shaderFontData",
+    "member"
+  ],
+  [
+    "src/component/renderabletext.js~renderabletext#textalign",
+    "class/src/component/RenderableText.js~RenderableText.html#instance-member-textAlign",
+    "src/component/RenderableText.js~RenderableText#textAlign",
     "member"
   ],
   [
@@ -1638,6 +1770,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/internal/color.js~color#minmax",
+    "class/src/internal/Color.js~Color.html#instance-method-minmax",
+    "src/internal/Color.js~Color#minmax",
+    "method"
+  ],
+  [
     "src/internal/color.js~color#set",
     "class/src/internal/Color.js~Color.html#instance-method-set",
     "src/internal/Color.js~Color#set",
@@ -1812,9 +1950,69 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/manager/audiomanager.js~_audiomanager#_createsoundbufferfromasset",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-_createSoundBufferFromAsset",
+    "src/manager/AudioManager.js~_AudioManager#_createSoundBufferFromAsset",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#addsound",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-addSound",
+    "src/manager/AudioManager.js~_AudioManager#addSound",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#audioctx",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-member-audioCtx",
+    "src/manager/AudioManager.js~_AudioManager#audioCtx",
+    "member"
+  ],
+  [
     "src/manager/audiomanager.js~_audiomanager#constructor",
     "class/src/manager/AudioManager.js~_AudioManager.html#instance-constructor-constructor",
     "src/manager/AudioManager.js~_AudioManager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#end",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-end",
+    "src/manager/AudioManager.js~_AudioManager#end",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#mastervolume",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-member-masterVolume",
+    "src/manager/AudioManager.js~_AudioManager#masterVolume",
+    "member"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#playsound",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-playSound",
+    "src/manager/AudioManager.js~_AudioManager#playSound",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#removesound",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-removeSound",
+    "src/manager/AudioManager.js~_AudioManager#removeSound",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#setmastervolume",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-setMasterVolume",
+    "src/manager/AudioManager.js~_AudioManager#setMasterVolume",
+    "method"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#sounds",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-member-sounds",
+    "src/manager/AudioManager.js~_AudioManager#sounds",
+    "member"
+  ],
+  [
+    "src/manager/audiomanager.js~_audiomanager#start",
+    "class/src/manager/AudioManager.js~_AudioManager.html#instance-method-start",
+    "src/manager/AudioManager.js~_AudioManager#start",
     "method"
   ],
   [
@@ -1974,15 +2172,27 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/manager/inputmanager.js~_inputmanager#left_click",
-    "class/src/manager/InputManager.js~_InputManager.html#instance-member-LEFT_CLICK",
-    "src/manager/InputManager.js~_InputManager#LEFT_CLICK",
+    "src/manager/inputmanager.js~_inputmanager#left_pressed",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-LEFT_PRESSED",
+    "src/manager/InputManager.js~_InputManager#LEFT_PRESSED",
     "member"
   ],
   [
-    "src/manager/inputmanager.js~_inputmanager#right_click",
-    "class/src/manager/InputManager.js~_InputManager.html#instance-member-RIGHT_CLICK",
-    "src/manager/InputManager.js~_InputManager#RIGHT_CLICK",
+    "src/manager/inputmanager.js~_inputmanager#left_released",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-LEFT_RELEASED",
+    "src/manager/InputManager.js~_InputManager#LEFT_RELEASED",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#right_pressed",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-RIGHT_PRESSED",
+    "src/manager/InputManager.js~_InputManager#RIGHT_PRESSED",
+    "member"
+  ],
+  [
+    "src/manager/inputmanager.js~_inputmanager#right_released",
+    "class/src/manager/InputManager.js~_InputManager.html#instance-member-RIGHT_RELEASED",
+    "src/manager/InputManager.js~_InputManager#RIGHT_RELEASED",
     "member"
   ],
   [
@@ -2067,18 +2277,6 @@ window.esdocSearchIndex = [
     "src/manager/manager.js~manager#update",
     "class/src/manager/Manager.js~Manager.html#instance-method-update",
     "src/manager/Manager.js~Manager#update",
-    "method"
-  ],
-  [
-    "src/manager/networkmanager.js",
-    "file/src/manager/NetworkManager.js.html",
-    "src/manager/NetworkManager.js",
-    "file"
-  ],
-  [
-    "src/manager/networkmanager.js~_networkmanager#constructor",
-    "class/src/manager/NetworkManager.js~_NetworkManager.html#instance-constructor-constructor",
-    "src/manager/NetworkManager.js~_NetworkManager#constructor",
     "method"
   ],
   [
@@ -2262,6 +2460,18 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
+    "src/manager/rendermanager.js~_rendermanager#forceupdate",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-method-forceUpdate",
+    "src/manager/RenderManager.js~_RenderManager#forceUpdate",
+    "method"
+  ],
+  [
+    "src/manager/rendermanager.js~_rendermanager#lastupdate",
+    "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-lastUpdate",
+    "src/manager/RenderManager.js~_RenderManager#lastUpdate",
+    "member"
+  ],
+  [
     "src/manager/rendermanager.js~_rendermanager#positionattributelocation",
     "class/src/manager/RenderManager.js~_RenderManager.html#instance-member-positionAttributeLocation",
     "src/manager/RenderManager.js~_RenderManager#positionAttributeLocation",
@@ -2400,6 +2610,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/manager/texturemanager.js~_texturemanager#_setavailabletextureid",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-_setAvailableTextureID",
+    "src/manager/TextureManager.js~_TextureManager#_setAvailableTextureID",
+    "method"
+  ],
+  [
     "src/manager/texturemanager.js~_texturemanager#adddatatexture",
     "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-addDataTexture",
     "src/manager/TextureManager.js~_TextureManager#addDataTexture",
@@ -2430,9 +2646,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/manager/texturemanager.js~_texturemanager#textureidcounter",
-    "class/src/manager/TextureManager.js~_TextureManager.html#instance-member-textureIDCounter",
-    "src/manager/TextureManager.js~_TextureManager#textureIDCounter",
+    "src/manager/texturemanager.js~_texturemanager#removetexture",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-removeTexture",
+    "src/manager/TextureManager.js~_TextureManager#removeTexture",
+    "method"
+  ],
+  [
+    "src/manager/texturemanager.js~_texturemanager#textureids",
+    "class/src/manager/TextureManager.js~_TextureManager.html#instance-member-textureIDs",
+    "src/manager/TextureManager.js~_TextureManager#textureIDs",
     "member"
   ],
   [
@@ -2446,6 +2668,60 @@ window.esdocSearchIndex = [
     "class/src/manager/TextureManager.js~_TextureManager.html#instance-method-updateDataTexture",
     "src/manager/TextureManager.js~_TextureManager#updateDataTexture",
     "method"
+  ],
+  [
+    "src/manager/uimanager.js",
+    "file/src/manager/UIManager.js.html",
+    "src/manager/UIManager.js",
+    "file"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#addstyle",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-method-addStyle",
+    "src/manager/UIManager.js~_UIManager#addStyle",
+    "method"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#constructor",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-constructor-constructor",
+    "src/manager/UIManager.js~_UIManager#constructor",
+    "method"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#currentstyle",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-member-currentStyle",
+    "src/manager/UIManager.js~_UIManager#currentStyle",
+    "member"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#defaultstyle",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-member-defaultStyle",
+    "src/manager/UIManager.js~_UIManager#defaultStyle",
+    "member"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#getcurrentstyle",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-method-getCurrentStyle",
+    "src/manager/UIManager.js~_UIManager#getCurrentStyle",
+    "method"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#getstyle",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-method-getStyle",
+    "src/manager/UIManager.js~_UIManager#getStyle",
+    "method"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#setcurrentstyle",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-method-setCurrentStyle",
+    "src/manager/UIManager.js~_UIManager#setCurrentStyle",
+    "method"
+  ],
+  [
+    "src/manager/uimanager.js~_uimanager#styles",
+    "class/src/manager/UIManager.js~_UIManager.html#instance-member-styles",
+    "src/manager/UIManager.js~_UIManager#styles",
+    "member"
   ],
   [
     "src/manager/updateablemanager.js",
@@ -2514,6 +2790,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/object/gameobject.js~gameobject#onpause",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-onPause",
+    "src/object/GameObject.js~GameObject#onPause",
+    "method"
+  ],
+  [
     "src/object/gameobject.js~gameobject#onpostupdate",
     "class/src/object/GameObject.js~GameObject.html#instance-method-onPostUpdate",
     "src/object/GameObject.js~GameObject#onPostUpdate",
@@ -2523,6 +2805,12 @@ window.esdocSearchIndex = [
     "src/object/gameobject.js~gameobject#onpreupdate",
     "class/src/object/GameObject.js~GameObject.html#instance-method-onPreUpdate",
     "src/object/GameObject.js~GameObject#onPreUpdate",
+    "method"
+  ],
+  [
+    "src/object/gameobject.js~gameobject#onunpause",
+    "class/src/object/GameObject.js~GameObject.html#instance-method-onUnpause",
+    "src/object/GameObject.js~GameObject#onUnpause",
     "method"
   ],
   [
@@ -2607,6 +2895,432 @@ window.esdocSearchIndex = [
     "src/object/sceneobject.js~sceneobject#deregister",
     "class/src/object/SceneObject.js~SceneObject.html#instance-member-deregister",
     "src/object/SceneObject.js~SceneObject#deregister",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uibutton.js",
+    "file/src/prefab/ui/UIButton.js.html",
+    "src/prefab/ui/UIButton.js",
+    "file"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#buttonobject",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-member-buttonObject",
+    "src/prefab/ui/UIButton.js~UIButton#buttonObject",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#constructor",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-constructor-constructor",
+    "src/prefab/ui/UIButton.js~UIButton#constructor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#onleftclick",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-member-onLeftClick",
+    "src/prefab/ui/UIButton.js~UIButton#onLeftClick",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#onpause",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-method-onPause",
+    "src/prefab/ui/UIButton.js~UIButton#onPause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#onrightclick",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-member-onRightClick",
+    "src/prefab/ui/UIButton.js~UIButton#onRightClick",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#onunpause",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-method-onUnpause",
+    "src/prefab/ui/UIButton.js~UIButton#onUnpause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#setdepth",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-method-setDepth",
+    "src/prefab/ui/UIButton.js~UIButton#setDepth",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uibutton.js~uibutton#viewport",
+    "class/src/prefab/ui/UIButton.js~UIButton.html#instance-member-viewport",
+    "src/prefab/ui/UIButton.js~UIButton#viewport",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uielement.js",
+    "file/src/prefab/ui/UIElement.js.html",
+    "src/prefab/ui/UIElement.js",
+    "file"
+  ],
+  [
+    "src/prefab/ui/uielement.js~uielement#constructor",
+    "class/src/prefab/ui/UIElement.js~UIElement.html#instance-constructor-constructor",
+    "src/prefab/ui/UIElement.js~UIElement#constructor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uielement.js~uielement#setdepth",
+    "class/src/prefab/ui/UIElement.js~UIElement.html#instance-method-setDepth",
+    "src/prefab/ui/UIElement.js~UIElement#setDepth",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uielement.js~uielement#setstyle",
+    "class/src/prefab/ui/UIElement.js~UIElement.html#instance-method-setStyle",
+    "src/prefab/ui/UIElement.js~UIElement#setStyle",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uielement.js~uielement#uistyle",
+    "class/src/prefab/ui/UIElement.js~UIElement.html#instance-member-uiStyle",
+    "src/prefab/ui/UIElement.js~UIElement#uiStyle",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uipanel.js",
+    "file/src/prefab/ui/UIPanel.js.html",
+    "src/prefab/ui/UIPanel.js",
+    "file"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#constructor",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-constructor-constructor",
+    "src/prefab/ui/UIPanel.js~UIPanel#constructor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#onend",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-onEnd",
+    "src/prefab/ui/UIPanel.js~UIPanel#onEnd",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#onpause",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-onPause",
+    "src/prefab/ui/UIPanel.js~UIPanel#onPause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#onunpause",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-onUnpause",
+    "src/prefab/ui/UIPanel.js~UIPanel#onUnpause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#panelobject",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-member-panelObject",
+    "src/prefab/ui/UIPanel.js~UIPanel#panelObject",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#setcolor",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-setColor",
+    "src/prefab/ui/UIPanel.js~UIPanel#setColor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#setdepth",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-setDepth",
+    "src/prefab/ui/UIPanel.js~UIPanel#setDepth",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#setposition",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-setPosition",
+    "src/prefab/ui/UIPanel.js~UIPanel#setPosition",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#setscale",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-setScale",
+    "src/prefab/ui/UIPanel.js~UIPanel#setScale",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uipanel.js~uipanel#setsubindex",
+    "class/src/prefab/ui/UIPanel.js~UIPanel.html#instance-method-setSubIndex",
+    "src/prefab/ui/UIPanel.js~UIPanel#setSubIndex",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js",
+    "file/src/prefab/ui/UIText.js.html",
+    "src/prefab/ui/UIText.js",
+    "file"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#constructor",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-constructor-constructor",
+    "src/prefab/ui/UIText.js~UIText#constructor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#currenttextscale",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-member-currentTextScale",
+    "src/prefab/ui/UIText.js~UIText#currentTextScale",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#end",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-end",
+    "src/prefab/ui/UIText.js~UIText#end",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#gettext",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-getText",
+    "src/prefab/ui/UIText.js~UIText#getText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#gettextwidth",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-getTextWidth",
+    "src/prefab/ui/UIText.js~UIText#getTextWidth",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#onpause",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-onPause",
+    "src/prefab/ui/UIText.js~UIText#onPause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#onunpause",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-onUnpause",
+    "src/prefab/ui/UIText.js~UIText#onUnpause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#setcolor",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-setColor",
+    "src/prefab/ui/UIText.js~UIText#setColor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#setdepth",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-setDepth",
+    "src/prefab/ui/UIText.js~UIText#setDepth",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#setposition",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-setPosition",
+    "src/prefab/ui/UIText.js~UIText#setPosition",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#settext",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-setText",
+    "src/prefab/ui/UIText.js~UIText#setText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#text",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-member-text",
+    "src/prefab/ui/UIText.js~UIText#text",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#textobject",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-member-textObject",
+    "src/prefab/ui/UIText.js~UIText#textObject",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitext.js~uitext#translate",
+    "class/src/prefab/ui/UIText.js~UIText.html#instance-method-translate",
+    "src/prefab/ui/UIText.js~UIText#translate",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js",
+    "file/src/prefab/ui/UITextInput.js.html",
+    "src/prefab/ui/UITextInput.js",
+    "file"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#_applyfilters",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-_applyFilters",
+    "src/prefab/ui/UITextInput.js~UITextInput#_applyFilters",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#_updatetext",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-_updateText",
+    "src/prefab/ui/UITextInput.js~UITextInput#_updateText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#applybasetext",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-applyBaseText",
+    "src/prefab/ui/UITextInput.js~UITextInput#applyBaseText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#basetext",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-baseText",
+    "src/prefab/ui/UITextInput.js~UITextInput#baseText",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#constructor",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-constructor-constructor",
+    "src/prefab/ui/UITextInput.js~UITextInput#constructor",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#focus",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-focus",
+    "src/prefab/ui/UITextInput.js~UITextInput#focus",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#gettext",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-getText",
+    "src/prefab/ui/UITextInput.js~UITextInput#getText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#h",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-h",
+    "src/prefab/ui/UITextInput.js~UITextInput#h",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#isfocussed",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-isFocussed",
+    "src/prefab/ui/UITextInput.js~UITextInput#isFocussed",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#ispassword",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-isPassword",
+    "src/prefab/ui/UITextInput.js~UITextInput#isPassword",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#keyboardlistenerhandle",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-keyboardListenerHandle",
+    "src/prefab/ui/UITextInput.js~UITextInput#keyboardListenerHandle",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#maxtextlength",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-maxTextLength",
+    "src/prefab/ui/UITextInput.js~UITextInput#maxTextLength",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#onend",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-onEnd",
+    "src/prefab/ui/UITextInput.js~UITextInput#onEnd",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#onpause",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-onPause",
+    "src/prefab/ui/UITextInput.js~UITextInput#onPause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#onreturn",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-onReturn",
+    "src/prefab/ui/UITextInput.js~UITextInput#onReturn",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#onunpause",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-onUnpause",
+    "src/prefab/ui/UITextInput.js~UITextInput#onUnpause",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#requiresfocus",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-requiresFocus",
+    "src/prefab/ui/UITextInput.js~UITextInput#requiresFocus",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#setbasetext",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-setBaseText",
+    "src/prefab/ui/UITextInput.js~UITextInput#setBaseText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#setdepth",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-setDepth",
+    "src/prefab/ui/UITextInput.js~UITextInput#setDepth",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#setonreturn",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-setOnReturn",
+    "src/prefab/ui/UITextInput.js~UITextInput#setOnReturn",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#settext",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-setText",
+    "src/prefab/ui/UITextInput.js~UITextInput#setText",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#setupkeyboardlistener",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-method-setupKeyboardListener",
+    "src/prefab/ui/UITextInput.js~UITextInput#setupKeyboardListener",
+    "method"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#text",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-text",
+    "src/prefab/ui/UITextInput.js~UITextInput#text",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#textboxobject",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-textBoxObject",
+    "src/prefab/ui/UITextInput.js~UITextInput#textBoxObject",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#textobject",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-textObject",
+    "src/prefab/ui/UITextInput.js~UITextInput#textObject",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#textview",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-textView",
+    "src/prefab/ui/UITextInput.js~UITextInput#textView",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#textviewpassword",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-textViewPassword",
+    "src/prefab/ui/UITextInput.js~UITextInput#textViewPassword",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#w",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-w",
+    "src/prefab/ui/UITextInput.js~UITextInput#w",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#x",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-x",
+    "src/prefab/ui/UITextInput.js~UITextInput#x",
+    "member"
+  ],
+  [
+    "src/prefab/ui/uitextinput.js~uitextinput#y",
+    "class/src/prefab/ui/UITextInput.js~UITextInput.html#instance-member-y",
+    "src/prefab/ui/UITextInput.js~UITextInput#y",
     "member"
   ],
   [
@@ -2958,9 +3672,153 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "test/tests/animationcomponenttest.js",
+    "test-file/test/tests/AnimationComponentTest.js.html",
+    "test/tests/AnimationComponentTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/audiomanagertest.js",
+    "test-file/test/tests/AudioManagerTest.js.html",
+    "test/tests/AudioManagerTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/basetest.js",
+    "test-file/test/tests/BaseTest.js.html",
+    "test/tests/BaseTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/boundstest.js",
+    "test-file/test/tests/BoundsTest.js.html",
+    "test/tests/BoundsTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/clickcontrollercomponenttest.js",
+    "test-file/test/tests/ClickControllerComponentTest.js.html",
+    "test/tests/ClickControllerComponentTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/colortest.js",
+    "test-file/test/tests/ColorTest.js.html",
+    "test/tests/ColorTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/componentpatterntest.js",
+    "test-file/test/tests/ComponentPatternTest.js.html",
+    "test/tests/ComponentPatternTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/dommanagertest.js",
+    "test-file/test/tests/DOMManagerTest.js.html",
+    "test/tests/DOMManagerTest.js",
+    "testFile"
+  ],
+  [
     "test/tests/exampletest.js",
     "test-file/test/tests/ExampleTest.js.html",
     "test/tests/ExampleTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/gameobjectpatterntest.js",
+    "test-file/test/tests/GameObjectPatternTest.js.html",
+    "test/tests/GameObjectPatternTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/inputpatterntest.js",
+    "test-file/test/tests/InputPatternTest.js.html",
+    "test/tests/InputPatternTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/loadertest.js",
+    "test-file/test/tests/LoaderTest.js.html",
+    "test/tests/LoaderTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/mathutilstest.js",
+    "test-file/test/tests/MathUtilsTest.js.html",
+    "test/tests/MathUtilsTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/matrix3test.js",
+    "test-file/test/tests/Matrix3Test.js.html",
+    "test/tests/Matrix3Test.js",
+    "testFile"
+  ],
+  [
+    "test/tests/messagertest.js",
+    "test-file/test/tests/MessagerTest.js.html",
+    "test/tests/MessagerTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/pointtest.js",
+    "test-file/test/tests/PointTest.js.html",
+    "test/tests/PointTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/programmanagertest.js",
+    "test-file/test/tests/ProgramManagerTest.js.html",
+    "test/tests/ProgramManagerTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/renderable2dgridcomponenttest.js",
+    "test-file/test/tests/Renderable2DGridComponentTest.js.html",
+    "test/tests/Renderable2DGridComponentTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/renderablepatterntest.js",
+    "test-file/test/tests/RenderablePatternTest.js.html",
+    "test/tests/RenderablePatternTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/renderabletextcomponenttest.js",
+    "test-file/test/tests/RenderableTextComponentTest.js.html",
+    "test/tests/RenderableTextComponentTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/scenepatterntest.js",
+    "test-file/test/tests/ScenePatternTest.js.html",
+    "test/tests/ScenePatternTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/texturemanagertest.js",
+    "test-file/test/tests/TextureManagerTest.js.html",
+    "test/tests/TextureManagerTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/transformcomponenttest.js",
+    "test-file/test/tests/TransformComponentTest.js.html",
+    "test/tests/TransformComponentTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/uimanagertest.js",
+    "test-file/test/tests/UIManagerTest.js.html",
+    "test/tests/UIManagerTest.js",
+    "testFile"
+  ],
+  [
+    "test/tests/viewportpatterntest.js",
+    "test-file/test/tests/ViewportPatternTest.js.html",
+    "test/tests/ViewportPatternTest.js",
     "testFile"
   ]
 ]

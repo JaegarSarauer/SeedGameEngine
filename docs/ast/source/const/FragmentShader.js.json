@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2482,
+  "end": 2431,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2482,
+    "end": 2431,
     "loc": {
       "start": {
         "line": 1,
@@ -210,7 +210,7 @@
       {
         "type": "ExportNamedDeclaration",
         "start": 665,
-        "end": 2482,
+        "end": 2431,
         "loc": {
           "start": {
             "line": 39,
@@ -226,7 +226,7 @@
         "declaration": {
           "type": "VariableDeclaration",
           "start": 672,
-          "end": 2482,
+          "end": 2431,
           "loc": {
             "start": {
               "line": 39,
@@ -241,7 +241,7 @@
             {
               "type": "VariableDeclarator",
               "start": 678,
-              "end": 2481,
+              "end": 2430,
               "loc": {
                 "start": {
                   "line": 39,
@@ -273,7 +273,7 @@
               "init": {
                 "type": "TemplateLiteral",
                 "start": 690,
-                "end": 2481,
+                "end": 2430,
                 "loc": {
                   "start": {
                     "line": 39,
@@ -289,7 +289,7 @@
                   {
                     "type": "TemplateElement",
                     "start": 691,
-                    "end": 2480,
+                    "end": 2429,
                     "loc": {
                       "start": {
                         "line": 39,
@@ -301,8 +301,8 @@
                       }
                     },
                     "value": {
-                      "raw": "#version 300 es\n\nprecision mediump float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\n\n/*\n[0][0] = 0 = Map data tiles width.\n[0][1] = 1 = Map data tiles height.\n[0][2] = 2 = Map tiles in the texture width.\n[0][3] = 3 = Map tiles in the texture height.\n\n[1][0] = 4 = Map viewport width.\n[1][1] = 5 = Map viewport height.\n[1][2] = 6 = Map viewport x1.\n[1][3] = 7 = Map viewport y1.\n\n[2][0] = 8 = TileSize width normalized.\n[2][1] = 9 = TileSize height normalized. \n*/\nuniform mat4 u_tileData;\nuniform mediump usampler2D u_mapDataTexture;\nuniform sampler2D u_texture;\n\n//local\n\n//texture tile image coordinates\nvec2 subTexcoord;\n\n//map data tile position.\nvec2 mapTilecoord;\n\n//Drawing coordinate.\nvec2 drawCoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n\n  //get this tile xy coordinate for the tile ID.\n  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);\n  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);\n\n  //get the tile ID from the texture.\n  float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);\n\n  //get xy positions of texture from the ID, normalized.\n  subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];\n  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);\n\n\n  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);// + 0.1f;\n  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);// + 0.1f;\n\n  drawCoord.x /= u_tileData[0][2] + 0.05f;\n  drawCoord.y /= u_tileData[0][3] + 0.05f;\n\n  drawCoord.x -= subTexcoord.x;// - 0.1f;\n  drawCoord.y -= subTexcoord.y;// - 0.1f;\n\n  vec4 fragColor = texture(u_texture , drawCoord) * u_color;\n\n  if(fragColor.a < 0.6) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n",
-                      "cooked": "#version 300 es\n\nprecision mediump float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\n\n/*\n[0][0] = 0 = Map data tiles width.\n[0][1] = 1 = Map data tiles height.\n[0][2] = 2 = Map tiles in the texture width.\n[0][3] = 3 = Map tiles in the texture height.\n\n[1][0] = 4 = Map viewport width.\n[1][1] = 5 = Map viewport height.\n[1][2] = 6 = Map viewport x1.\n[1][3] = 7 = Map viewport y1.\n\n[2][0] = 8 = TileSize width normalized.\n[2][1] = 9 = TileSize height normalized. \n*/\nuniform mat4 u_tileData;\nuniform mediump usampler2D u_mapDataTexture;\nuniform sampler2D u_texture;\n\n//local\n\n//texture tile image coordinates\nvec2 subTexcoord;\n\n//map data tile position.\nvec2 mapTilecoord;\n\n//Drawing coordinate.\nvec2 drawCoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n\n  //get this tile xy coordinate for the tile ID.\n  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);\n  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);\n\n  //get the tile ID from the texture.\n  float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);\n\n  //get xy positions of texture from the ID, normalized.\n  subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];\n  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);\n\n\n  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);// + 0.1f;\n  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);// + 0.1f;\n\n  drawCoord.x /= u_tileData[0][2] + 0.05f;\n  drawCoord.y /= u_tileData[0][3] + 0.05f;\n\n  drawCoord.x -= subTexcoord.x;// - 0.1f;\n  drawCoord.y -= subTexcoord.y;// - 0.1f;\n\n  vec4 fragColor = texture(u_texture , drawCoord) * u_color;\n\n  if(fragColor.a < 0.6) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n"
+                      "raw": "#version 300 es\n\nprecision highp float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\n\n/*\n[0][0] = 0 = Map data tiles width.\n[0][1] = 1 = Map data tiles height.\n[0][2] = 2 = Map tiles in the texture width.\n[0][3] = 3 = Map tiles in the texture height.\n\n[1][0] = 4 = Map viewport width.\n[1][1] = 5 = Map viewport height.\n[1][2] = 6 = Map viewport x1.\n[1][3] = 7 = Map viewport y1.\n\n[2][0] = 8 = TileSize width normalized.\n[2][1] = 9 = TileSize height normalized. \n*/\nuniform mat4 u_tileData;\nuniform mediump usampler2D u_mapDataTexture;\nuniform sampler2D u_texture;\n\n//local\n\n//texture tile image coordinates\nvec2 subTexcoord;\n\n//map data tile position.\nvec2 mapTilecoord;\n\n//Drawing coordinate.\nvec2 drawCoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n\n  //get this tile xy coordinate to obtain the tile ID.\n  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);\n  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);\n\n  //get the tile ID from the texture.\n  float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);\n\n  //get xy positions of texture from the ID, normalized.\n  subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];\n  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);\n\n\n  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);\n  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);\n\n  drawCoord.x /= u_tileData[0][2];\n  drawCoord.y /= u_tileData[0][3];\n\n  drawCoord.x -= subTexcoord.x;\n  drawCoord.y -= subTexcoord.y;\n\n  vec4 fragColor = texture(u_texture , drawCoord) * u_color;\n\n  if (fragColor.a < 0.6) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n",
+                      "cooked": "#version 300 es\n\nprecision highp float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\n\n/*\n[0][0] = 0 = Map data tiles width.\n[0][1] = 1 = Map data tiles height.\n[0][2] = 2 = Map tiles in the texture width.\n[0][3] = 3 = Map tiles in the texture height.\n\n[1][0] = 4 = Map viewport width.\n[1][1] = 5 = Map viewport height.\n[1][2] = 6 = Map viewport x1.\n[1][3] = 7 = Map viewport y1.\n\n[2][0] = 8 = TileSize width normalized.\n[2][1] = 9 = TileSize height normalized. \n*/\nuniform mat4 u_tileData;\nuniform mediump usampler2D u_mapDataTexture;\nuniform sampler2D u_texture;\n\n//local\n\n//texture tile image coordinates\nvec2 subTexcoord;\n\n//map data tile position.\nvec2 mapTilecoord;\n\n//Drawing coordinate.\nvec2 drawCoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n\n  //get this tile xy coordinate to obtain the tile ID.\n  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);\n  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);\n\n  //get the tile ID from the texture.\n  float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);\n\n  //get xy positions of texture from the ID, normalized.\n  subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];\n  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);\n\n\n  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);\n  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);\n\n  drawCoord.x /= u_tileData[0][2];\n  drawCoord.y /= u_tileData[0][3];\n\n  drawCoord.x -= subTexcoord.x;\n  drawCoord.y -= subTexcoord.y;\n\n  vec4 fragColor = texture(u_texture , drawCoord) * u_color;\n\n  if (fragColor.a < 0.6) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n"
                     },
                     "tail": true
                   }
@@ -780,9 +780,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "#version 300 es\n\nprecision mediump float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\n\n/*\n[0][0] = 0 = Map data tiles width.\n[0][1] = 1 = Map data tiles height.\n[0][2] = 2 = Map tiles in the texture width.\n[0][3] = 3 = Map tiles in the texture height.\n\n[1][0] = 4 = Map viewport width.\n[1][1] = 5 = Map viewport height.\n[1][2] = 6 = Map viewport x1.\n[1][3] = 7 = Map viewport y1.\n\n[2][0] = 8 = TileSize width normalized.\n[2][1] = 9 = TileSize height normalized. \n*/\nuniform mat4 u_tileData;\nuniform mediump usampler2D u_mapDataTexture;\nuniform sampler2D u_texture;\n\n//local\n\n//texture tile image coordinates\nvec2 subTexcoord;\n\n//map data tile position.\nvec2 mapTilecoord;\n\n//Drawing coordinate.\nvec2 drawCoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n\n  //get this tile xy coordinate for the tile ID.\n  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);\n  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);\n\n  //get the tile ID from the texture.\n  float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);\n\n  //get xy positions of texture from the ID, normalized.\n  subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];\n  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);\n\n\n  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);// + 0.1f;\n  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);// + 0.1f;\n\n  drawCoord.x /= u_tileData[0][2] + 0.05f;\n  drawCoord.y /= u_tileData[0][3] + 0.05f;\n\n  drawCoord.x -= subTexcoord.x;// - 0.1f;\n  drawCoord.y -= subTexcoord.y;// - 0.1f;\n\n  vec4 fragColor = texture(u_texture , drawCoord) * u_color;\n\n  if(fragColor.a < 0.6) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n",
+      "value": "#version 300 es\n\nprecision highp float;\n\n//in\nin vec2 v_texcoord;\nuniform vec4 u_color;\n\n/*\n[0][0] = 0 = Map data tiles width.\n[0][1] = 1 = Map data tiles height.\n[0][2] = 2 = Map tiles in the texture width.\n[0][3] = 3 = Map tiles in the texture height.\n\n[1][0] = 4 = Map viewport width.\n[1][1] = 5 = Map viewport height.\n[1][2] = 6 = Map viewport x1.\n[1][3] = 7 = Map viewport y1.\n\n[2][0] = 8 = TileSize width normalized.\n[2][1] = 9 = TileSize height normalized. \n*/\nuniform mat4 u_tileData;\nuniform mediump usampler2D u_mapDataTexture;\nuniform sampler2D u_texture;\n\n//local\n\n//texture tile image coordinates\nvec2 subTexcoord;\n\n//map data tile position.\nvec2 mapTilecoord;\n\n//Drawing coordinate.\nvec2 drawCoord;\n\n//out\nout vec4 outColor;\n\nvoid main() {\n\n  //get this tile xy coordinate to obtain the tile ID.\n  mapTilecoord.x = floor(u_tileData[1][2] + (v_texcoord.x * u_tileData[1][0])) / (u_tileData[0][0] - 1.0f);\n  mapTilecoord.y = floor(u_tileData[1][3] + (v_texcoord.y * u_tileData[1][1])) / (u_tileData[0][1] - 1.0f);\n\n  //get the tile ID from the texture.\n  float tileID = float(texture(u_mapDataTexture, mapTilecoord).r);\n\n  //get xy positions of texture from the ID, normalized.\n  subTexcoord.x = -mod(tileID, u_tileData[0][2]) / u_tileData[0][2];\n  subTexcoord.y = (-floor(tileID / u_tileData[0][2]) / u_tileData[0][3]);\n\n\n  drawCoord.x = fract(v_texcoord.x * u_tileData[1][0]);\n  drawCoord.y = fract(v_texcoord.y * u_tileData[1][1]);\n\n  drawCoord.x /= u_tileData[0][2];\n  drawCoord.y /= u_tileData[0][3];\n\n  drawCoord.x -= subTexcoord.x;\n  drawCoord.y -= subTexcoord.y;\n\n  vec4 fragColor = texture(u_texture , drawCoord) * u_color;\n\n  if (fragColor.a < 0.6) {\n    discard;\n  }\n\n  outColor = vec4(fragColor.rgb, u_color.a);\n}\n",
       "start": 691,
-      "end": 2480,
+      "end": 2429,
       "loc": {
         "start": {
           "line": 39,
@@ -806,8 +806,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2480,
-      "end": 2481,
+      "start": 2429,
+      "end": 2430,
       "loc": {
         "start": {
           "line": 110,
@@ -832,8 +832,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2481,
-      "end": 2482,
+      "start": 2430,
+      "end": 2431,
       "loc": {
         "start": {
           "line": 110,
@@ -858,8 +858,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2482,
-      "end": 2482,
+      "start": 2431,
+      "end": 2431,
       "loc": {
         "start": {
           "line": 110,

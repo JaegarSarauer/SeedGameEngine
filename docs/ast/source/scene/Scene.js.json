@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 2662,
+  "end": 2659,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 2662,
+    "end": 2659,
     "loc": {
       "start": {
         "line": 1,
@@ -204,7 +204,7 @@
       {
         "type": "ExportDefaultDeclaration",
         "start": 318,
-        "end": 2662,
+        "end": 2659,
         "loc": {
           "start": {
             "line": 10,
@@ -218,7 +218,7 @@
         "declaration": {
           "type": "ClassDeclaration",
           "start": 333,
-          "end": 2662,
+          "end": 2659,
           "loc": {
             "start": {
               "line": 10,
@@ -267,7 +267,7 @@
           "body": {
             "type": "ClassBody",
             "start": 364,
-            "end": 2662,
+            "end": 2659,
             "loc": {
               "start": {
                 "line": 10,
@@ -2166,7 +2166,7 @@
               {
                 "type": "ClassMethod",
                 "start": 2186,
-                "end": 2660,
+                "end": 2657,
                 "loc": {
                   "start": {
                     "line": 62,
@@ -2224,7 +2224,7 @@
                 "body": {
                   "type": "BlockStatement",
                   "start": 2213,
-                  "end": 2660,
+                  "end": 2657,
                   "loc": {
                     "start": {
                       "line": 62,
@@ -2515,7 +2515,7 @@
                     {
                       "type": "VariableDeclaration",
                       "start": 2321,
-                      "end": 2619,
+                      "end": 2616,
                       "loc": {
                         "start": {
                           "line": 65,
@@ -2530,7 +2530,7 @@
                         {
                           "type": "VariableDeclarator",
                           "start": 2325,
-                          "end": 2619,
+                          "end": 2616,
                           "loc": {
                             "start": {
                               "line": 65,
@@ -2561,7 +2561,7 @@
                           "init": {
                             "type": "ArrowFunctionExpression",
                             "start": 2346,
-                            "end": 2619,
+                            "end": 2616,
                             "loc": {
                               "start": {
                                 "line": 65,
@@ -2580,7 +2580,7 @@
                             "body": {
                               "type": "BlockStatement",
                               "start": 2352,
-                              "end": 2619,
+                              "end": 2616,
                               "loc": {
                                 "start": {
                                   "line": 65,
@@ -2595,7 +2595,7 @@
                                 {
                                   "type": "ForStatement",
                                   "start": 2366,
-                                  "end": 2609,
+                                  "end": 2606,
                                   "loc": {
                                     "start": {
                                       "line": 66,
@@ -2827,7 +2827,7 @@
                                   "body": {
                                     "type": "BlockStatement",
                                     "start": 2414,
-                                    "end": 2609,
+                                    "end": 2606,
                                     "loc": {
                                       "start": {
                                         "line": 66,
@@ -2842,7 +2842,7 @@
                                       {
                                         "type": "IfStatement",
                                         "start": 2432,
-                                        "end": 2595,
+                                        "end": 2592,
                                         "loc": {
                                           "start": {
                                             "line": 67,
@@ -3036,7 +3036,7 @@
                                         "consequent": {
                                           "type": "BlockStatement",
                                           "start": 2496,
-                                          "end": 2595,
+                                          "end": 2592,
                                           "loc": {
                                             "start": {
                                               "line": 67,
@@ -3051,7 +3051,7 @@
                                             {
                                               "type": "ExpressionStatement",
                                               "start": 2518,
-                                              "end": 2549,
+                                              "end": 2546,
                                               "loc": {
                                                 "start": {
                                                   "line": 68,
@@ -3059,13 +3059,13 @@
                                                 },
                                                 "end": {
                                                   "line": 68,
-                                                  "column": 51
+                                                  "column": 48
                                                 }
                                               },
                                               "expression": {
                                                 "type": "CallExpression",
                                                 "start": 2518,
-                                                "end": 2548,
+                                                "end": 2545,
                                                 "loc": {
                                                   "start": {
                                                     "line": 68,
@@ -3073,13 +3073,13 @@
                                                   },
                                                   "end": {
                                                     "line": 68,
-                                                    "column": 50
+                                                    "column": 47
                                                   }
                                                 },
                                                 "callee": {
                                                   "type": "MemberExpression",
                                                   "start": 2518,
-                                                  "end": 2542,
+                                                  "end": 2539,
                                                   "loc": {
                                                     "start": {
                                                       "line": 68,
@@ -3087,13 +3087,13 @@
                                                     },
                                                     "end": {
                                                       "line": 68,
-                                                      "column": 44
+                                                      "column": 41
                                                     }
                                                   },
                                                   "object": {
                                                     "type": "MemberExpression",
                                                     "start": 2518,
-                                                    "end": 2535,
+                                                    "end": 2532,
                                                     "loc": {
                                                       "start": {
                                                         "line": 68,
@@ -3101,13 +3101,13 @@
                                                       },
                                                       "end": {
                                                         "line": 68,
-                                                        "column": 37
+                                                        "column": 34
                                                       }
                                                     },
                                                     "object": {
-                                                      "type": "MemberExpression",
+                                                      "type": "ThisExpression",
                                                       "start": 2518,
-                                                      "end": 2532,
+                                                      "end": 2522,
                                                       "loc": {
                                                         "start": {
                                                           "line": 68,
@@ -3115,74 +3115,41 @@
                                                         },
                                                         "end": {
                                                           "line": 68,
-                                                          "column": 34
+                                                          "column": 24
                                                         }
-                                                      },
-                                                      "object": {
-                                                        "type": "ThisExpression",
-                                                        "start": 2518,
-                                                        "end": 2522,
-                                                        "loc": {
-                                                          "start": {
-                                                            "line": 68,
-                                                            "column": 20
-                                                          },
-                                                          "end": {
-                                                            "line": 68,
-                                                            "column": 24
-                                                          }
-                                                        }
-                                                      },
-                                                      "property": {
-                                                        "type": "Identifier",
-                                                        "start": 2523,
-                                                        "end": 2532,
-                                                        "loc": {
-                                                          "start": {
-                                                            "line": 68,
-                                                            "column": 25
-                                                          },
-                                                          "end": {
-                                                            "line": 68,
-                                                            "column": 34
-                                                          },
-                                                          "identifierName": "viewports"
-                                                        },
-                                                        "name": "viewports"
-                                                      },
-                                                      "computed": false
+                                                      }
                                                     },
                                                     "property": {
                                                       "type": "Identifier",
-                                                      "start": 2533,
-                                                      "end": 2534,
+                                                      "start": 2523,
+                                                      "end": 2532,
                                                       "loc": {
                                                         "start": {
                                                           "line": 68,
-                                                          "column": 35
+                                                          "column": 25
                                                         },
                                                         "end": {
                                                           "line": 68,
-                                                          "column": 36
+                                                          "column": 34
                                                         },
-                                                        "identifierName": "i"
+                                                        "identifierName": "viewports"
                                                       },
-                                                      "name": "i"
+                                                      "name": "viewports"
                                                     },
-                                                    "computed": true
+                                                    "computed": false
                                                   },
                                                   "property": {
                                                     "type": "Identifier",
-                                                    "start": 2536,
-                                                    "end": 2542,
+                                                    "start": 2533,
+                                                    "end": 2539,
                                                     "loc": {
                                                       "start": {
                                                         "line": 68,
-                                                        "column": 38
+                                                        "column": 35
                                                       },
                                                       "end": {
                                                         "line": 68,
-                                                        "column": 44
+                                                        "column": 41
                                                       },
                                                       "identifierName": "splice"
                                                     },
@@ -3193,6 +3160,23 @@
                                                 "arguments": [
                                                   {
                                                     "type": "Identifier",
+                                                    "start": 2540,
+                                                    "end": 2541,
+                                                    "loc": {
+                                                      "start": {
+                                                        "line": 68,
+                                                        "column": 42
+                                                      },
+                                                      "end": {
+                                                        "line": 68,
+                                                        "column": 43
+                                                      },
+                                                      "identifierName": "i"
+                                                    },
+                                                    "name": "i"
+                                                  },
+                                                  {
+                                                    "type": "NumericLiteral",
                                                     "start": 2543,
                                                     "end": 2544,
                                                     "loc": {
@@ -3203,23 +3187,6 @@
                                                       "end": {
                                                         "line": 68,
                                                         "column": 46
-                                                      },
-                                                      "identifierName": "i"
-                                                    },
-                                                    "name": "i"
-                                                  },
-                                                  {
-                                                    "type": "NumericLiteral",
-                                                    "start": 2546,
-                                                    "end": 2547,
-                                                    "loc": {
-                                                      "start": {
-                                                        "line": 68,
-                                                        "column": 48
-                                                      },
-                                                      "end": {
-                                                        "line": 68,
-                                                        "column": 49
                                                       }
                                                     },
                                                     "extra": {
@@ -3233,8 +3200,8 @@
                                             },
                                             {
                                               "type": "ReturnStatement",
-                                              "start": 2570,
-                                              "end": 2577,
+                                              "start": 2567,
+                                              "end": 2574,
                                               "loc": {
                                                 "start": {
                                                   "line": 69,
@@ -3266,8 +3233,8 @@
                     },
                     {
                       "type": "ReturnStatement",
-                      "start": 2628,
-                      "end": 2654,
+                      "start": 2625,
+                      "end": 2651,
                       "loc": {
                         "start": {
                           "line": 73,
@@ -3280,8 +3247,8 @@
                       },
                       "argument": {
                         "type": "Identifier",
-                        "start": 2635,
-                        "end": 2653,
+                        "start": 2632,
+                        "end": 2650,
                         "loc": {
                           "start": {
                             "line": 73,
@@ -9468,9 +9435,9 @@
     },
     {
       "type": {
-        "label": "[",
-        "beforeExpr": true,
-        "startsExpr": true,
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
@@ -9504,9 +9471,9 @@
         "postfix": false,
         "binop": null
       },
-      "value": "i",
+      "value": "splice",
       "start": 2533,
-      "end": 2534,
+      "end": 2539,
       "loc": {
         "start": {
           "line": 68,
@@ -9514,85 +9481,7 @@
         },
         "end": {
           "line": 68,
-          "column": 36
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "]",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 2534,
-      "end": 2535,
-      "loc": {
-        "start": {
-          "line": 68,
-          "column": 36
-        },
-        "end": {
-          "line": 68,
-          "column": 37
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ".",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 2535,
-      "end": 2536,
-      "loc": {
-        "start": {
-          "line": 68,
-          "column": 37
-        },
-        "end": {
-          "line": 68,
-          "column": 38
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "splice",
-      "start": 2536,
-      "end": 2542,
-      "loc": {
-        "start": {
-          "line": 68,
-          "column": 38
-        },
-        "end": {
-          "line": 68,
-          "column": 44
+          "column": 41
         }
       }
     },
@@ -9608,16 +9497,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2542,
-      "end": 2543,
+      "start": 2539,
+      "end": 2540,
       "loc": {
         "start": {
           "line": 68,
-          "column": 44
+          "column": 41
         },
         "end": {
           "line": 68,
-          "column": 45
+          "column": 42
         }
       }
     },
@@ -9634,16 +9523,16 @@
         "binop": null
       },
       "value": "i",
-      "start": 2543,
-      "end": 2544,
+      "start": 2540,
+      "end": 2541,
       "loc": {
         "start": {
           "line": 68,
-          "column": 45
+          "column": 42
         },
         "end": {
           "line": 68,
-          "column": 46
+          "column": 43
         }
       }
     },
@@ -9660,16 +9549,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2544,
-      "end": 2545,
+      "start": 2541,
+      "end": 2542,
       "loc": {
         "start": {
           "line": 68,
-          "column": 46
+          "column": 43
         },
         "end": {
           "line": 68,
-          "column": 47
+          "column": 44
         }
       }
     },
@@ -9687,16 +9576,16 @@
         "updateContext": null
       },
       "value": 1,
-      "start": 2546,
-      "end": 2547,
+      "start": 2543,
+      "end": 2544,
       "loc": {
         "start": {
           "line": 68,
-          "column": 48
+          "column": 45
         },
         "end": {
           "line": 68,
-          "column": 49
+          "column": 46
         }
       }
     },
@@ -9712,16 +9601,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2547,
-      "end": 2548,
+      "start": 2544,
+      "end": 2545,
       "loc": {
         "start": {
           "line": 68,
-          "column": 49
+          "column": 46
         },
         "end": {
           "line": 68,
-          "column": 50
+          "column": 47
         }
       }
     },
@@ -9738,16 +9627,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2548,
-      "end": 2549,
+      "start": 2545,
+      "end": 2546,
       "loc": {
         "start": {
           "line": 68,
-          "column": 50
+          "column": 47
         },
         "end": {
           "line": 68,
-          "column": 51
+          "column": 48
         }
       }
     },
@@ -9766,8 +9655,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 2570,
-      "end": 2576,
+      "start": 2567,
+      "end": 2573,
       "loc": {
         "start": {
           "line": 69,
@@ -9792,8 +9681,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2576,
-      "end": 2577,
+      "start": 2573,
+      "end": 2574,
       "loc": {
         "start": {
           "line": 69,
@@ -9817,8 +9706,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2594,
-      "end": 2595,
+      "start": 2591,
+      "end": 2592,
       "loc": {
         "start": {
           "line": 70,
@@ -9842,8 +9731,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2608,
-      "end": 2609,
+      "start": 2605,
+      "end": 2606,
       "loc": {
         "start": {
           "line": 71,
@@ -9867,8 +9756,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2618,
-      "end": 2619,
+      "start": 2615,
+      "end": 2616,
       "loc": {
         "start": {
           "line": 72,
@@ -9895,8 +9784,8 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 2628,
-      "end": 2634,
+      "start": 2625,
+      "end": 2631,
       "loc": {
         "start": {
           "line": 73,
@@ -9921,8 +9810,8 @@
         "binop": null
       },
       "value": "deregisterCallback",
-      "start": 2635,
-      "end": 2653,
+      "start": 2632,
+      "end": 2650,
       "loc": {
         "start": {
           "line": 73,
@@ -9947,8 +9836,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2653,
-      "end": 2654,
+      "start": 2650,
+      "end": 2651,
       "loc": {
         "start": {
           "line": 73,
@@ -9972,8 +9861,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2659,
-      "end": 2660,
+      "start": 2656,
+      "end": 2657,
       "loc": {
         "start": {
           "line": 74,
@@ -9997,8 +9886,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 2661,
-      "end": 2662,
+      "start": 2658,
+      "end": 2659,
       "loc": {
         "start": {
           "line": 75,
@@ -10023,8 +9912,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 2662,
-      "end": 2662,
+      "start": 2659,
+      "end": 2659,
       "loc": {
         "start": {
           "line": 75,

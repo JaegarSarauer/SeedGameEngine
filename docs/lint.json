@@ -130,6 +130,68 @@
     ]
   },
   {
+    "name": "Renderable2DGrid#updateGridDataViewport",
+    "filePath": "src/component/Renderable2DGrid.js",
+    "lines": [
+      {
+        "lineNumber": 90,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 91,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 92,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 93,
+        "line": "     * @param {*} data "
+      },
+      {
+        "lineNumber": 94,
+        "line": "     * @param {*} x1 "
+      },
+      {
+        "lineNumber": 95,
+        "line": "     * @param {*} y1 "
+      },
+      {
+        "lineNumber": 96,
+        "line": "     * @param {*} width "
+      },
+      {
+        "lineNumber": 97,
+        "line": "     * @param {*} height "
+      },
+      {
+        "lineNumber": 98,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 99,
+        "line": "    updateGridDataViewport(data, x1, y1, width, height, viewportWidth, viewportHeight) {"
+      }
+    ],
+    "codeParams": [
+      "data",
+      "x1",
+      "y1",
+      "width",
+      "height",
+      "viewportWidth",
+      "viewportHeight"
+    ],
+    "docParams": [
+      "data",
+      "x1",
+      "y1",
+      "width",
+      "height"
+    ]
+  },
+  {
     "name": "Point#multiply",
     "filePath": "src/internal/Point.js",
     "lines": [
@@ -314,51 +376,51 @@
     "filePath": "src/manager/TextureManager.js",
     "lines": [
       {
-        "lineNumber": 69,
+        "lineNumber": 80,
         "line": "    /**"
       },
       {
-        "lineNumber": 70,
+        "lineNumber": 81,
         "line": "     * "
       },
       {
-        "lineNumber": 71,
+        "lineNumber": 82,
         "line": "     * @param {string} texName The name of the texture."
       },
       {
-        "lineNumber": 72,
+        "lineNumber": 83,
         "line": "     * @param {Array *} textureData An array object of data, array type depending on the textureInternalFormat."
       },
       {
-        "lineNumber": 73,
+        "lineNumber": 84,
         "line": "     * @param {GLint} textureInternalFormat Internal texture format type."
       },
       {
-        "lineNumber": 74,
+        "lineNumber": 85,
         "line": "     * @param {GLint} textureFormat Texture format type."
       },
       {
-        "lineNumber": 75,
+        "lineNumber": 86,
         "line": "     * @param {number} frameWidth Width of each sub sprite frame."
       },
       {
-        "lineNumber": 76,
+        "lineNumber": 87,
         "line": "     * @param {number} frameHeight Height of each sub sprite frame."
       },
       {
-        "lineNumber": 77,
+        "lineNumber": 88,
         "line": "     * @param {number} width Width of the texture."
       },
       {
-        "lineNumber": 78,
+        "lineNumber": 89,
         "line": "     * @param {number} height Height of the texture."
       },
       {
-        "lineNumber": 79,
+        "lineNumber": 90,
         "line": "     */"
       },
       {
-        "lineNumber": 80,
+        "lineNumber": 91,
         "line": "    addDataTexture(texName, textureData, textureInternalFormat, textureFormat, textureByteType, frameWidth, frameHeight, width, height) {"
       }
     ],
@@ -382,6 +444,80 @@
       "frameHeight",
       "width",
       "height"
+    ]
+  },
+  {
+    "name": "_UIManager#addStyle",
+    "filePath": "src/manager/UIManager.js",
+    "lines": [
+      {
+        "lineNumber": 22,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 23,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 24,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 25,
+        "line": "     * @param {JSONObject} jsonStyleObject A JSON formatted object containing generic drawing data for styles."
+      },
+      {
+        "lineNumber": 26,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 27,
+        "line": "    addStyle(uiStyleName, jsonStyleObject) {"
+      }
+    ],
+    "codeParams": [
+      "uiStyleName",
+      "jsonStyleObject"
+    ],
+    "docParams": [
+      "jsonStyleObject"
+    ]
+  },
+  {
+    "name": "GameObject#removeComponent",
+    "filePath": "src/object/GameObject.js",
+    "lines": [
+      {
+        "lineNumber": 49,
+        "line": "    /**"
+      },
+      {
+        "lineNumber": 50,
+        "line": "     * Removes a single component from this GameObject by ID."
+      },
+      {
+        "lineNumber": 51,
+        "line": "     * "
+      },
+      {
+        "lineNumber": 52,
+        "line": "     * @param {number} componentID Id of the component to remove."
+      },
+      {
+        "lineNumber": 53,
+        "line": "     */"
+      },
+      {
+        "lineNumber": 54,
+        "line": "    removeComponent(componentName, componentID) {"
+      }
+    ],
+    "codeParams": [
+      "componentName",
+      "componentID"
+    ],
+    "docParams": [
+      "componentID"
     ]
   }
 ]

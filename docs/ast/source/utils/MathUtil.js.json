@@ -570,9 +570,9 @@
                                 "line": 16,
                                 "column": 15
                               },
-                              "identifierName": "deg"
+                              "identifierName": "rad"
                             },
-                            "name": "deg"
+                            "name": "rad"
                           },
                           "operator": "/",
                           "right": {
@@ -1621,7 +1621,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "deg",
+      "value": "rad",
       "start": 295,
       "end": 298,
       "loc": {
