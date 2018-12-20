@@ -1,6 +1,7 @@
 import Manager from './Manager';
 import DOMManager from './DOMManager';
 import AudioManager from './AudioManager';
+const { createCanvas } = require('canvas')
 
 
 /**
@@ -12,6 +13,7 @@ export class _TextureManager extends Manager {
         super();
         this.textures = {};
         this.textureIDs = [];
+        this.textTextureIDCounter = 0;
     }
 
     /**
@@ -107,13 +109,44 @@ export class _TextureManager extends Manager {
         return this.textures[texName];
     }
 
+    /**
+     * 
+     * @param {string} texName The name of the texture.
+     * @param {Array *} textureData An array object of data, array type depending on the textureInternalFormat.
+     * @param {GLint} textureInternalFormat Internal texture format type.
+     * @param {GLint} textureFormat Texture format type.
+     * @param {number} frameWidth Width of each sub sprite frame.
+     * @param {number} frameHeight Height of each sub sprite frame.
+     * @param {number} width Width of the texture.
+     * @param {number} height Height of the texture.
+     */
+    addCanvasTextTexture(text, fontSize, shadow) {
+        let frameWidth = 1;
+        let frameHeight = 1;
+        let canvas = this._createCanvasForTexture(text, fontSize, shadow);
+        let tex = this._createTextureFromCanvas(canvas);
+        let name = 'canvasText' + this.textTextureIDCounter++;
+        this.textures[name] = Object.assign({
+            name,
+            canvas,
+            id: this._setAvailableTextureID(),
+            frameWidth,
+            frameHeight,
+            width: canvas.width,
+            height: canvas.height,
+            framesWidth: 1,
+            framesHeight: 1,
+        }, {tex});
+        return this.textures[name];
+    }
+
     removeTexture(texName) {
         if (this.textures[texName] == null)
             return;
         
         let id = this.textures[texName].id;
         this.textureIDs[id] = false;
-        this.textures[texName] = null;
+        delete this.textures[texName];
     }
 
     updateDataTexture(texName, textureData, x1, y1, width, height) {
@@ -144,6 +177,45 @@ export class _TextureManager extends Manager {
         DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_T, DOMManager.GL.CLAMP_TO_EDGE);
 
         DOMManager.GL.texImage2D(DOMManager.GL.TEXTURE_2D, 0, textureInternalFormat, width, height, 0, textureFormat, textureByteType, texData);
+
+        return tex;
+    }
+
+    _createCanvasForTexture(text, fontSize, shadow) {
+        const canvas = createCanvas(1, 1);
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'white';
+        ctx.textDrawingMode = 'glyph';
+        ctx.font = fontSize + 'px Ariel';
+    		ctx.textBaseline = "top";
+        let textDimensions = ctx.measureText(text);
+        canvas.width = textDimensions.width;
+        canvas.height = fontSize * 1.1;
+        if (shadow) {
+            ctx.shadowOffsetX = 3;
+            ctx.shadowOffsetY = 3;
+            ctx.shadowBlur = 3;
+            ctx.shadowColor = "rgba(0, 0, 0, 1)";
+        }
+        ctx.fillStyle = 'white';
+        ctx.font = fontSize + 'px Ariel';
+    		ctx.textBaseline = "top";
+        ctx.fillText(text, 0, 0);
+        return canvas;
+    }
+
+    _createTextureFromCanvas(canvas) {
+        let tex = DOMManager.GL.createTexture();
+
+        DOMManager.GL.bindTexture(DOMManager.GL.TEXTURE_2D, tex);
+        DOMManager.GL.pixelStorei(DOMManager.GL.UNPACK_FLIP_Y_WEBGL, false);
+        
+        DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_MIN_FILTER, DOMManager.GL.NEAREST);
+        DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_MAG_FILTER, DOMManager.GL.NEAREST);
+        DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_S, DOMManager.GL.CLAMP_TO_EDGE);
+        DOMManager.GL.texParameteri(DOMManager.GL.TEXTURE_2D, DOMManager.GL.TEXTURE_WRAP_T, DOMManager.GL.CLAMP_TO_EDGE);
+
+        DOMManager.GL.texImage2D(DOMManager.GL.TEXTURE_2D, 0, DOMManager.GL.RGBA, DOMManager.GL.RGBA, DOMManager.GL.UNSIGNED_BYTE, canvas);
 
         return tex;
     }

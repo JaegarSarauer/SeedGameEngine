@@ -24,7 +24,7 @@ void main() {
   subTexcoord.xy *= u_subTexcoord.zw;
   vec4 fragColor = texture(u_texture, subTexcoord) * u_color;
 
-  if(fragColor.a < 0.25) {
+  if(fragColor.a < 0.45) {
     discard;
   }
 

@@ -26,10 +26,12 @@ export default class UITextInput extends UIElement {
         this.onReturn = () => {};
 
         //Text
-        this.textObject = new UIText(viewport, x + 5, y + 5, w, h, this.text);
+        this.textObject = new UIText(viewport, x + 5, y, w, h, this.text);
+        this.textObject.setText(this.text, false, h);
 
         //text box
         this.textBoxObject = new UIPanel(viewport, x, y, w, h, this.uiStyle.textInputBoxTexture);
+        this.textBoxObject.setColor(this.uiStyle.textAreaBackgroundColor.color[0], this.uiStyle.textAreaBackgroundColor.color[1], this.uiStyle.textAreaBackgroundColor.color[2], this.uiStyle.textAreaBackgroundColor.color[3]);
 
         //onclick
         this.textBoxObject.clickController = new ClickController(viewport, () => {
@@ -78,7 +80,7 @@ export default class UITextInput extends UIElement {
     }
 
     _updateText(text) { 
-        this.textObject.setText(text, this.h / this.uiStyle.fontTexture.frameHeight);
+        this.textObject.setText(text, false, this.h);
     }
 
     setText(text) {
@@ -134,13 +136,11 @@ export default class UITextInput extends UIElement {
                 this.text += event.key;
 
             //      ; = , - . /
-            if (event.code >= 186 && event.code <= 191 || event.code == 219 || event.code == 221)
+            if (event.code >= 186 && event.code <= 192 || event.code >= 219 && event.code <= 222)
                 this.text += event.key;
 
-            //special
-            // if (event.code >= 48 && event.code <= 57)
-            //     this.text += event.key;
-
+            if (event.code == 106 || event.code == 107 || event.code == 109 || event.code == 111)
+                this.text += event.key;
 
 
             this.setText(this.text);

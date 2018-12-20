@@ -1,18 +1,23 @@
 import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIElement, RenderableText } from '../../entry';
 
 export default class UIText extends UIElement {
-    constructor(viewport, x, y, w, h, text) {
+    constructor(viewport, x, y, w, h, text, shadow = false) {
         super(new Point(x, y, 0), new Point(w, h, 0), 0);
 
         this.text = text;
-        this.currentTextScale = 1;
+        this.shadow = shadow;
+        this.currentTextScale = 16;
 
         this.textObject = new SceneObject(new Point(x, y, 0), new Point(w, h, 0), 0);
         this.textObject.renderableText = new RenderableText(this.uiStyle.fontTexture);
         this.textObject.addComponent(this.textObject.renderableText);
         this.textObject.renderableText.addToViewport(viewport);
-        this.setText(text, h / this.uiStyle.fontTexture.frameHeight);
+        this.setText(text, shadow, h);
         this.textObject.renderableText.setDepth(-2000);
+    }
+
+    setTextAlign(textAlign) {
+        this.textObject.renderableText.setTextAlign(textAlign);
     }
 
     translate(x, y) {
@@ -30,17 +35,18 @@ export default class UIText extends UIElement {
     }
 
     getTextWidth() {
-        return this.textObject.renderableText.textData.textPixelWidth;
+        return this.textObject.transform.getScale().x;
     }
 
     getText() {
         return this.text;
     }
 
-    setText(text, scale = this.currentTextScale) {
+    setText(text, shadow, scale = this.currentTextScale) {
         this.text = text;
+        this.shadow = shadow;
         this.currentTextScale = Math.max(1, scale);
-        this.textObject.renderableText.setText(text, this.currentTextScale);
+        this.textObject.renderableText.setText(text, shadow, this.currentTextScale);
     }
 
     onPause() {
@@ -56,6 +62,7 @@ export default class UIText extends UIElement {
 
     setDepth(depth) {
         this.textObject.renderableText.setDepth(depth);
+        return this;
     }
 
     end() {

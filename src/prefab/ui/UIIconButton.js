@@ -1,15 +1,12 @@
-import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIText, UIPanel } from '../../entry';
+import { ClickController, Point, SceneObject, Renderable2D, UIManager, UIPanel, UIPanel } from '../../entry';
 
-export default class UIButton extends UIText {
+export default class UIIconButton extends UIPanel {
     constructor(viewport, x, y, w, h, text, onLeft, onRight = () => {}) {
-        super(viewport, x + (w * .5), y, w, h * .8, text);
+        super(viewport, x + (w * .1), y + (h * .1), w, h * .8, text);
 
         this.buttonObject = new UIPanel(viewport, x, y, w, h, this.uiStyle.buttonTexture);
         this.buttonObject.setSubIndex(this.uiStyle.buttonSubImage);
-        this.buttonObject.setColor(this.uiStyle.buttonBackgroundColor.color[0], this.uiStyle.buttonBackgroundColor.color[1], this.uiStyle.buttonBackgroundColor.color[2], this.uiStyle.buttonBackgroundColor.color[3]);
         this.buttonObject.setDepth(1000);
-
-        this.setTextAlign('center');
 
         this.viewport = viewport;
         this.onLeftClick = onLeft;

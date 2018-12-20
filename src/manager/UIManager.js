@@ -1,5 +1,6 @@
 import Manager from './Manager';
 import { TextureManager } from '../entry';
+import Color from '../internal/Color';
 
 export class _UIManager extends Manager {
     constructor() {
@@ -11,6 +12,8 @@ export class _UIManager extends Manager {
             buttonHoverSubImage: 0,
             buttonPressedSubImage: 1,
             buttonReleasedSubImage: 1,
+            buttonBackgroundColor: new Color(0.65, 0, 0, 1),
+            textAreaBackgroundColor: new Color(0.65, 0, 0, 1),
             fontTexture: TextureManager.getTexture('fontDefault'),
             textInputBoxTexture: TextureManager.getTexture('uiButtonDefault'),
         };
