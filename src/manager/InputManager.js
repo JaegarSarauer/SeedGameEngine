@@ -97,6 +97,8 @@ export class _InputManager extends Manager {
             let event = {
                 x: ev.offsetX * DOMManager.canvasDPIWidth,
                 y: ev.offsetY * DOMManager.canvasDPIHeight,
+                fullX: ev.offsetX * DOMManager.canvasDPIWidth,
+                fullY: ev.offsetY * DOMManager.canvasDPIHeight,
                 shiftHeld: ev.shiftKey,
                 ctrlHeld: ev.ctrlKey,
             };
@@ -126,6 +128,8 @@ export class _InputManager extends Manager {
             let event = {
                 x: ev.offsetX * DOMManager.canvasDPIWidth,
                 y: ev.offsetY * DOMManager.canvasDPIHeight,
+                fullX: ev.offsetX * DOMManager.canvasDPIWidth,
+                fullY: ev.offsetY * DOMManager.canvasDPIHeight,
                 shiftHeld: ev.shiftKey,
                 ctrlHeld: ev.ctrlKey,
             };
@@ -156,6 +160,8 @@ export class _InputManager extends Manager {
             let event = {
                 x: ev.offsetX * DOMManager.canvasDPIWidth,
                 y: ev.offsetY * DOMManager.canvasDPIHeight,
+                fullX: ev.offsetX * DOMManager.canvasDPIWidth,
+                fullY: ev.offsetY * DOMManager.canvasDPIHeight,
                 shiftHeld: ev.shiftKey,
                 ctrlHeld: ev.ctrlKey,
             };

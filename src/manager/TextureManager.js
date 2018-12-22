@@ -14,6 +14,7 @@ export class _TextureManager extends Manager {
         this.textures = {};
         this.textureIDs = [];
         this.textTextureIDCounter = 0;
+        this.fontName = 'Trebuchet MS';
     }
 
     /**
@@ -181,12 +182,16 @@ export class _TextureManager extends Manager {
         return tex;
     }
 
+    setFont(fontName) {
+        this.fontName = fontName;
+    }
+
     _createCanvasForTexture(text, fontSize, shadow) {
         const canvas = createCanvas(1, 1);
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = 'white';
         ctx.textDrawingMode = 'glyph';
-        ctx.font = fontSize + 'px Ariel';
+        ctx.font = fontSize + 'px ' + this.fontName;
     		ctx.textBaseline = "top";
         let textDimensions = ctx.measureText(text);
         canvas.width = textDimensions.width;
@@ -198,7 +203,7 @@ export class _TextureManager extends Manager {
             ctx.shadowColor = "rgba(0, 0, 0, 1)";
         }
         ctx.fillStyle = 'white';
-        ctx.font = fontSize + 'px Ariel';
+        ctx.font = fontSize + 'px ' + this.fontName;
     		ctx.textBaseline = "top";
         ctx.fillText(text, 0, 0);
         return canvas;

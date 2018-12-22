@@ -15,6 +15,7 @@ export default class RenderableText extends Renderable {
         super(ProgramManager.getProgram('Default'));
         this.className = 'RenderableText';
         this.renderableTextID = -1;
+        this.text = null;
         this.textData = {
             //text in string form
             text: '',
@@ -46,6 +47,9 @@ export default class RenderableText extends Renderable {
     }
 
     setText(textString, shadow, fontSize) {
+        if (textString == this.text)
+            return;
+        this.text = textString;
         this.destroyTextTexture();
         fontSize *= 2;
         if (textString == null || textString.length <= 0)
