@@ -24,6 +24,7 @@ export default class UIPanel extends UIElement {
 
     setColor(r, g, b, a) {
         this.panelObject.renderable.setColor(r, g, b, a);
+        return this;
     }
 
     onPause() {
@@ -38,10 +39,12 @@ export default class UIPanel extends UIElement {
 
     setSubIndex(index) {
         this.panelObject.renderable.setSubIndex(index);
+        return this;
     }
 
     setDepth(depth) {
         this.panelObject.renderable.setDepth(depth);
+        return this;
     }
 
     onEnd() {

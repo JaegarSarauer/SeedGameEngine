@@ -40,7 +40,7 @@ export class _EngineManager extends Manager {
         RenderManager.start();
         RenderManager.update();
         InputManager.start();
-        AudioManager.start();
+        //AudioManager.start(); Must be started manually https://goo.gl/7K7WLu
 
         this.coreUpdateLoopHandle = setInterval(() => {
             if (!this.hasPaused) {

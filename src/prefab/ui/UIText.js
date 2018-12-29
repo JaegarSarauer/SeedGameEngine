@@ -18,6 +18,7 @@ export default class UIText extends UIElement {
 
     setTextAlign(textAlign) {
         this.textObject.renderableText.setTextAlign(textAlign);
+        return this;
     }
 
     translate(x, y) {
@@ -32,6 +33,7 @@ export default class UIText extends UIElement {
 
     setColor(r, g, b, a) {
         this.textObject.renderableText.setColor(r, g, b, a);
+        return this;
     }
 
     getTextWidth() {

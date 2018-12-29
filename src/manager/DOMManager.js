@@ -36,7 +36,7 @@ export class _DOMManager extends Manager {
         this.canvas = document.getElementById('game');
         if (this.canvas == null)
             console.error("Error finding DOM Canvas. The canvas requires an id='game'");
-        this.GL = this.canvas.getContext('webgl2', {alpha: false, antialias: false, powerPreference: 'high-performance', preserveDrawingBuffer: true,});
+        this.GL = this.canvas.getContext('webgl2', {alpha: false, antialias: true,  preserveDrawingBuffer: true,});
         if (this.GL == null) {
             console.error("WebGL2 Context could not be built. This browser does not support WebGL2.");
         }
